@@ -54,6 +54,10 @@ export default function NotebooksTable({ notebooks, critiques, notebookRankings 
     return dandisetRankings.rankings.find(r => r.notebook_id === notebook.subfolder);
   };
 
+  const getPromptUrl = (prompt: string) => {
+    return `https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-2/blob/main/templates/${prompt}.txt`;
+  };
+
   const getRankingsUrl = (notebook: Metadata) => {
     return `https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-3/blob/main/rankings/dandisets/${notebook.dandiset_id}/rankings.txt`;
   };
@@ -207,7 +211,15 @@ export default function NotebooksTable({ notebooks, critiques, notebookRankings 
                   <TableCell>
                     {notebook.model.split('/')[1] || notebook.model}
                   </TableCell>
-                  <TableCell>{notebook.prompt}</TableCell>
+                  <TableCell>
+                    <Link
+                      href={getPromptUrl(notebook.prompt)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {notebook.prompt}
+                    </Link>
+                  </TableCell>
                   <TableCell>
                     {critiqueUrls.cells && (
                       <Link
