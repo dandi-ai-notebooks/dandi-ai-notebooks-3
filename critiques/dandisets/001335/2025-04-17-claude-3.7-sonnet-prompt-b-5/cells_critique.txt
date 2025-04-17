@@ -1,0 +1,447 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell provides an introduction to the notebook, outlining its purpose, the dataset being analyzed (Dandiset 001335), and the types of analyses that will be performed. It also links to the Dandiset in NeuroSift and lists the packages that will be used (presumably in subsequent cells). The warning about the AI-generated nature of the notebook is important for the user to be cautious about the content.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell imports the necessary Python packages for data handling, NWB file manipulation, signal processing, and plotting. It also configures the plotting environment using seaborn and matplotlib.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell introduces the process of loading the Dandiset using the DANDI API. It reinforces the description of the dataset's content.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell uses the `DandiAPIClient` to access and list the assets within Dandiset 001335. It then iterates through the assets, printing their path, ID, and size. This provides a summary of the files available in the Dandiset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell sets the stage for loading the NWB file identified in the previous cell.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell loads the NWB file from the DANDI archive using `remfile` and `pynwb`. It first retrieves the download URL for the asset and then uses `remfile` to create a file-like object. This object is then passed to `h5py` to open the file, then to `pynwb` to load the NWB data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell serves as a transition, indicating that the following cells will focus on exploring the structure of the loaded NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell extracts and prints basic metadata from the NWB file, including session description, identifier, start time, lab, institution, keywords, and subject information (ID, species, sex, age, description). This provides a concise overview of the experimental context and subject characteristics. The information is helpful for understanding the experiment and potential analysis directions. Note that the session start time is shown as a future date.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell introduces the concept of experimental blocks and odor presentations, preparing the reader for an analysis of the experimental design.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell retrieves and prints information about the experimental blocks defined in the NWB file. For each block ("Block 1", "Block 2", "Block 3"), it extracts the start time, stop time, duration, and description. This provides a temporal overview of the experimental structure.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell serves as a transition, indicating that the following cells will focus on analyzing the odor presentation intervals within the experiment.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell iterates through odors "A" to "F" and retrieves their presentation intervals from the NWB file. For each odor, it calculates and prints the number of presentations, the time of the first presentation, the time of the last recorded odor offset (stop time), and the average presentation duration. This gives a clear overview of the odor presentation schedule.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell generates a visualization of the odor presentation sequence over time. Each odor (A-F) is represented by a horizontal line, with short colored segments indicating the presentation intervals. Vertical dashed lines mark the boundaries of the experimental blocks. Text labels are added to indicate the block names. The plot allows for visual inspection of the experimental timeline and the timing of odor deliveries.
+
+IMAGE DESCRIPTIONS:
+The plot displays the odor presentation sequence over time. The x-axis represents time in seconds, ranging from approximately 0 to 6500 seconds. The y-axis displays the odors, labeled "Odor A" through "Odor F" from bottom to top. Each odor is represented by a horizontal line. Short, thick colored horizontal lines indicate the periods when each odor was presented. The colors cycle through a set of six colors (C0-C5) for Odor A through Odor F. Vertical dashed dark gray lines delineate the block boundaries. The plot includes block labels (Block 1, Block 2, Block 3) at the top of the plot.
+
+ISSUES:
+None
+
+Cell 14
+==========
+
+OVERVIEW:
+This cell introduces the intention to zoom in on a specific time window to examine the odor presentation pattern more closely.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 15
+==========
+
+OVERVIEW:
+This cell generates a zoomed-in version of the odor presentation sequence plot, focusing on the first 200 seconds of Block 1. It filters the odor presentation data to include only intervals within this time window and replots the data. The zoomed view allows for a more detailed examination of the specific timing and order of odor presentations.
+
+IMAGE DESCRIPTIONS:
+The plot displays a zoomed-in view of the odor presentation sequence, focusing on the time window from 616 to 816 seconds. The x-axis represents time in seconds, and the y-axis displays the odors "Odor A" through "Odor F" from bottom to top. Colored horizontal lines represent the periods when each odor was presented. The colors (blue, orange, green) are used to differentiate between odors. Odors D, E, and F are not presented in this time window.
+
+ISSUES:
+None
+
+Cell 16
+==========
+
+OVERVIEW:
+This cell summarizes the experimental design, highlighting the odor presentation strategy in each of the three blocks. It also transitions to exploring the electrode configuration and LFP data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 17
+==========
+
+OVERVIEW:
+This cell extracts and prints information about the electrodes used in the recording. It retrieves the electrode dataframe, prints the total number of electrodes, lists the electrode groups and the number of electrodes in each group, and displays the first few rows of the electrode dataframe as a sample. This provides an overview of the electrode configuration and placement.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 18
+==========
+
+OVERVIEW:
+This cell introduces the intent to visualize the depth distribution of electrodes across different shanks.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 19
+==========
+
+OVERVIEW:
+This cell creates a scatter plot showing the depth distribution of electrodes for each shank. The x-axis represents the electrode index, and the y-axis represents the depth in micrometers. Each shank is represented by a different color. The purpose is to give a better sense of the spatial arrangement of electrodes from different shanks.
+
+IMAGE DESCRIPTIONS:
+The plot shows the depth distribution of electrodes by group (shank). The x-axis is labeled "Electrode Index" and ranges from 0 to 64. The y-axis is labeled "Depth (µm)" and ranges from approximately 1500 to 2400. Each electrode group (imec0.shank0, imec0.shank1, imec0.shank2, imec0.shank3, imec1.shank0, imec1.shank1, imec1.shank2, imec1.shank3) is represented by a different color. Electrodes within each group are plotted as scattered points, showing their depth along the y-axis versus their index. The plot demonstrates how electrode depths are distributed across different shanks, suggesting that the depths are distinct for each shank.
+
+ISSUES:
+None
+
+Cell 20
+==========
+
+OVERVIEW:
+This cell introduces the concept of LFP (Local Field Potential) data and prepares the reader for its analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 21
+==========
+
+OVERVIEW:
+This cell retrieves and prints information about the LFP data stored in the NWB file. It extracts the number of channels, the number of timepoints, the sampling rate, the duration, and the description of the LFP data. This provides a quantitative overview of the LFP recordings.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 22
+==========
+
+OVERVIEW:
+This cell sets the stage for extracting and visualizing a small segment of LFP data at the beginning of Block 1.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 23
+==========
+
+OVERVIEW:
+This cell extracts a 10-second chunk of LFP data from the beginning of Block 1. It then plots the LFP signals from 8 randomly selected channels, normalizing and offsetting each channel for better visualization. The time is calculated based on the sampling rate and plotted on the x-axis. The channel labels are derived from the `electrode_df`. The plot visualizes the LFP activity across multiple channels over a short period of time.
+
+IMAGE DESCRIPTIONS:
+The image shows a plot of LFP signals from 8 random channels. The x-axis represents time in seconds, ranging from approximately 616 to 626. The y-axis is labeled "Normalized LFP." Eight lines represent the normalized LFP signals from different channels (identified by their labels in the legend). The signals are offset vertically to prevent overlap. The channel labels are overlaid where the data for each channel is visualized.
+
+ISSUES:
+None
+
+Cell 24
+==========
+
+OVERVIEW:
+This cell states that the LFP signals show clear oscillatory patterns and introduces the intent to perform spectral analysis to identify the frequency components of these oscillations.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 25
+==========
+
+OVERVIEW:
+This cell performs spectral analysis on the LFP data from a randomly selected channel from the previous cell. The `scipy.signal.spectrogram` function is used to calculate the spectrogram. The cell then plots the spectrogram, showing the power spectral density as a function of time and frequency. The frequency range is limited to 100 Hz, and the y-axis represents the frequency in Hz, while the x-axis represents the time in seconds.
+
+IMAGE DESCRIPTIONS:
+The image is a spectrogram of an LFP channel, with time on the x-axis (ranging from approximately 617 to 625 seconds) and frequency on the y-axis (ranging from 0 to 100 Hz). The color intensity represents the power spectral density in dB/Hz, according to the colorbar on the right. The plot shows a higher concentration of power at lower frequencies (below 20 Hz), with some temporal variations.
+
+ISSUES:
+None
+
+Cell 26
+==========
+
+OVERVIEW:
+This cell calculates and plots the average power spectrum of the LFP signal for the same channel that was used for the spectrogram in the previous cell. `scipy.signal.welch` is used to estimate the power spectrum. The plot displays the power spectral density as a function of frequency, with a logarithmic scale for the y-axis (power).
+
+IMAGE DESCRIPTIONS:
+The image shows the power spectrum of an LFP channel. The x-axis represents frequency in Hz, ranging from 0 to 100. The y-axis represents power/frequency in V²/Hz, with a logarithmic scale. The plot shows a dominant peak at low frequencies (below 10 Hz) and a general decrease in power as frequency increases.
+
+ISSUES:
+None
+
+Cell 27
+==========
+
+OVERVIEW:
+This interpretive cell highlights key observations from the spectral analysis of the LFP signals, noting the presence of theta (4-8 Hz) and gamma (30-100 Hz) oscillations. It then transitions to an analysis of neural responses to odor stimuli and states that the dataset contains spiking data for 283 units.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 28
+==========
+
+OVERVIEW:
+This cell extracts and prints information about the recorded units. It prints the total number of units, the distribution of units across electrode groups (shanks), and the distribution of unit depths. This provides an overview of the unit population and their spatial locations.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 29
+==========
+
+OVERVIEW:
+This cell introduces the intent to examine the spike times of randomly selected units to understand their firing patterns.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 30
+==========
+
+OVERVIEW:
+This cell analyzes the spike times of a randomly selected subset of 5 units. For each unit, it retrieves the spike times from the NWB file, calculates and prints the number of spikes, the time range of the spikes, and the mean firing rate. The unit IDs and spike statistics are displayed.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 31
+==========
+
+OVERVIEW:
+This cell introduces the intent to visualize neural responses to odor presentations using spike rasters and prepares to define a function for generating these plots.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 32
+==========
+
+OVERVIEW:
+This cell defines a function `plot_odor_triggered_raster` that generates a spike raster plot triggered by the onset of a specified odor. The function takes the odor name and a time window as input. It retrieves the presentation times for the specified odor, selects a subset of presentations for clarity, iterates through the selected units and presentations, filters the spikes within the defined time window around each odor onset, and plots a raster for each trial. The plot displays spike times relative to odor onset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 33
+==========
+
+OVERVIEW:
+This cell calls the `plot_odor_triggered_raster` function to generate a spike raster plot for odor "A." The plot visualizes the spiking activity of the selected units relative to the onset of odor A presentations.
+
+IMAGE DESCRIPTIONS:
+The image shows a spike raster plot for odor A presentations. The x-axis represents time relative to odor onset (in seconds), ranging from -1 to 3. The y-axis represents "Trial × Unit"; each row corresponds to a trial for one of the units specified, stacked vertically. Each small vertical tick mark represents a spike. The plot also includes a dashed red vertical line at time 0 indicating the odor onset and a dashed blue vertical line at time 2 indicating the approximate odor offset. The spikes are colored differently for each electrode. The plot displays the distribution of spikes relative to the odor onset, suggesting that some units increase their firing rate after the odor is presented.
+
+ISSUES:
+None
+
+Cell 34
+==========
+
+OVERVIEW:
+This cell introduces the intent to create a function for visualizing firing rates in response to different odors, aiming to identify odor-selective neurons.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 35
+==========
+
+OVERVIEW:
+This cell defines a function `plot_odor_firing_rate_comparison` to compare the average firing rates of neurons in response to different odors. The function calculates peri-stimulus time histograms (PSTHs) for each odor and each unit, calculates the average firing rate and standard error of the mean (SEM) across trials, and plots the average firing rate with error bands showing SEM. The subplot structure facilitates comparison across units and odors.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 36
+==========
+
+OVERVIEW:
+This cell calls the `plot_odor_firing_rate_comparison` function, which generates a plot comparing the average firing rates of the selected units in response to different odors. Each subplot shows the average PSTH for a single neuron in response to each of the six odors, with error bands representing the SEM. The gray shaded area indicates the approximate odor presentation period.
+
+IMAGE DESCRIPTIONS:
+The image displays a series of subplots, each showing the firing rate of a single neuron in response to different odors, over a time window from -1 to 3 seconds relative to odor onset. The y-axis of each subplot represents firing rate in Hz, with the scale varying across subplots. Each subplot is labeled with the unit ID. Different colored lines represent the average firing rate for each odor (A-F). Shaded regions around each line represent the standard error of the mean (SEM). A gray shaded area from 0 to 2 seconds indicates the period when the odor was presented. The individual plots within the figure appear to show that neural firing rates vary over the duration of the presented odor, but also that some neurons respond more strongly to certain odors.
+
+ISSUES:
+None
+
+Cell 37
+==========
+
+OVERVIEW:
+This cell summarizes the key findings and conclusions from the analysis performed in the notebook. It also proposes directions for future analysis based on the explored data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
