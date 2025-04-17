@@ -1,0 +1,26 @@
+{
+  "prompt_version": "1",
+  "rankings": [
+    {
+      "notebook_id": "2025-04-16-claude-3.7-sonnet-prompt-a-5",
+      "rank": 1,
+      "thinking": "This notebook (2025-04-16-claude-3.7-sonnet-prompt-a-5) does an effective job introducing Dandiset 001174, which contains calcium imaging data from macaque monkeys. It demonstrates proper use of the DANDI API for efficiently accessing data remotely without full downloads. The notebook covers basic session metadata, imaging device properties, raw calcium imaging visualization, ROI identification, fluorescence trace visualization, and attempts at event detection and correlation analysis.\n\nWhile the notebook is well-structured, there are some visualization issues (non-uniform illumination, ROI mask indexing error, shape mismatch) and analysis limitations (unsuccessful event detection, missing correlations between ROIs, unaddressed sampling rate differences). The code has some inconsistencies, but overall handles potential failures gracefully.\n\nThe notebook provides users with a good understanding of accessing and visualizing calcium imaging data from DANDI, with a clear path for future analyses."
+    },
+    {
+      "notebook_id": "2025-04-16-claude-3.7-sonnet-prompt-b-5",
+      "rank": 2,
+      "thinking": "This notebook (2025-04-16-claude-3.7-sonnet-prompt-b-5) also introduces Dandiset 001174 with calcium imaging data. It demonstrates proper data loading from DANDI Archive and guides users through raw calcium imaging visualization, ROI identification, neural activity analysis using fluorescence and event amplitude data, and correlation analysis.\n\nHowever, this notebook has more significant issues than 2025-04-16-claude-3.7-sonnet-prompt-a-5. These include problematic variable references across markdown cells, limited ROI mask visualization that doesn't utilize the full 3D structure, flawed correlation analysis (particularly with ROIs having constant activity resulting in NaN values), and misleading conclusions that don't align with the actual visualization results.\n\nWhile the notebook succeeds in introducing users to the dataset and basic analysis techniques, the correlation analysis section contains errors that lead to incorrect conclusions, making this notebook less reliable than 2025-04-16-claude-3.7-sonnet-prompt-a-5."
+    }
+  ],
+  "rankings_text": "<notebook>\n<thinking>\nThis notebook (2025-04-16-claude-3.7-sonnet-prompt-a-5) does an effective job introducing Dandiset 001174, which contains calcium imaging data from macaque monkeys. It demonstrates proper use of the DANDI API for efficiently accessing data remotely without full downloads. The notebook covers basic session metadata, imaging device properties, raw calcium imaging visualization, ROI identification, fluorescence trace visualization, and attempts at event detection and correlation analysis.\n\nWhile the notebook is well-structured, there are some visualization issues (non-uniform illumination, ROI mask indexing error, shape mismatch) and analysis limitations (unsuccessful event detection, missing correlations between ROIs, unaddressed sampling rate differences). The code has some inconsistencies, but overall handles potential failures gracefully.\n\nThe notebook provides users with a good understanding of accessing and visualizing calcium imaging data from DANDI, with a clear path for future analyses.\n</thinking>\n<notebook_id>2025-04-16-claude-3.7-sonnet-prompt-a-5</notebook_id>\n<rank>1</rank>\n</notebook>\n\n<notebook>\n<thinking>\nThis notebook (2025-04-16-claude-3.7-sonnet-prompt-b-5) also introduces Dandiset 001174 with calcium imaging data. It demonstrates proper data loading from DANDI Archive and guides users through raw calcium imaging visualization, ROI identification, neural activity analysis using fluorescence and event amplitude data, and correlation analysis.\n\nHowever, this notebook has more significant issues than 2025-04-16-claude-3.7-sonnet-prompt-a-5. These include problematic variable references across markdown cells, limited ROI mask visualization that doesn't utilize the full 3D structure, flawed correlation analysis (particularly with ROIs having constant activity resulting in NaN values), and misleading conclusions that don't align with the actual visualization results.\n\nWhile the notebook succeeds in introducing users to the dataset and basic analysis techniques, the correlation analysis section contains errors that lead to incorrect conclusions, making this notebook less reliable than 2025-04-16-claude-3.7-sonnet-prompt-a-5.\n</thinking>\n<notebook_id>2025-04-16-claude-3.7-sonnet-prompt-b-5</notebook_id>\n<rank>2</rank>\n</notebook>",
+  "metadata": {
+    "total_prompt_tokens": 2277,
+    "total_completion_tokens": 444,
+    "model": "anthropic/claude-3.7-sonnet",
+    "timestamp": "2025-04-17 11:32:09",
+    "system_info": {
+      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+      "hostname": "system76-pc"
+    }
+  }
+}
