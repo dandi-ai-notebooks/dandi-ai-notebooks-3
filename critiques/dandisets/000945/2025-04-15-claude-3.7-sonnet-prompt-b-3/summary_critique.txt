@@ -1,0 +1,28 @@
+# Dandiset Notebook Critique Summary
+
+## Introduction and Data Access
+The notebook effectively introduces Dandiset 000945, which contains neural recordings from rats during transcranial focused ultrasound (tFUS) stimulation experiments. It clearly explains how to connect to the DANDI archive using the `dandiapi` library, retrieve the dataset, and load specific NWB files. The notebook guides users through examining the structure of these files, including electrode configurations, unit (neuron) information, and trial structure. Users are taught how to convert NWB objects into more familiar Pandas DataFrames for easier analysis.
+
+## Data Analysis and Visualization
+The notebook demonstrates several important analyses:
+1. Basic dataset exploration - examining electrode positions, unit (neuron) types, and trial timing
+2. Spike count analysis - visualizing the distribution of spike counts across different units and cell types
+3. Temporal analysis - creating raster plots of spike times aligned to stimulus onset
+4. Response analysis - generating Peri-Stimulus Time Histograms (PSTHs) to examine changes in neural activity
+5. Comparative analysis - comparing neural responses between recordings with different pulse repetition frequencies (1500 Hz vs 3000 Hz)
+6. Statistical analysis - quantifying response modulation and performing statistical tests
+
+The visualizations include bar plots for spike counts, raster plots for spike timing, PSTH plots for response patterns, and grouped bar plots for statistical comparisons.
+
+## Serious Issues and Limitations
+Several significant issues undermine the notebook's educational value:
+
+1. **Stimulus timing misrepresentation**: Throughout the notebook, the stimulus offset is incorrectly marked at 2 seconds, when the actual ultrasound duration is only 67ms. This fundamental error affects the interpretation of raster plots and PSTHs.
+
+2. **Misleading conclusions**: The notebook claims to show "clear changes in firing rate" in response to stimulation, but the visualizations do not actually demonstrate such effects. Similarly, it claims cell-type specific differences that weren't statistically supported.
+
+3. **Analysis window problems**: The chosen baseline and response windows for statistical analysis (spanning nearly a second each) are inappropriate for capturing the effects of a 67ms stimulus that would be expected to cause near-immediate neural changes.
+
+4. **Visualization limitations**: Many plots would benefit from adjustments to better highlight the data of interest, such as more appropriate axis ranges, better unit representation, and clearer distinctions between cell types.
+
+After completing the notebook, users would understand how to access and manipulate NWB files from DANDI, and how to perform basic spike train analyses. However, due to the analysis errors and misrepresentations, they might draw incorrect conclusions about the effects of tFUS on neural activity or the appropriate methods for analyzing such data.

@@ -15,7 +15,7 @@ class RankingEntry(TypedDict):
 model_for_rankings = "anthropic/claude-3.7-sonnet"
 prompt_version = "1"
 
-def find_critiqued_notebooks(base_dir: str, *, prefix: str) -> List[Tuple[str, str]]:
+def find_critiqued_notebooks(base_dir: str) -> List[Tuple[str, str]]:
     """Find notebooks that have been critiqued."""
     notebook_paths = []
 
@@ -29,10 +29,6 @@ def find_critiqued_notebooks(base_dir: str, *, prefix: str) -> List[Tuple[str, s
         for subfolder in os.listdir(dandiset_path):
             subfolder_path = os.path.join(dandiset_path, subfolder)
             if not os.path.isdir(subfolder_path):
-                continue
-
-            dirname = subfolder_path.split("/")[-1]
-            if not dirname.startswith(prefix):
                 continue
 
             # Check for summary critique
@@ -111,7 +107,7 @@ def get_rankings_for_dandiset(critiques: List[Tuple[str, str]]) -> Tuple[str, in
 def main():
     critiques_base_dir = Path(__file__).parent.parent / "critiques" / "dandisets"
     rankings_base_dir = Path(__file__).parent / "dandisets"
-    notebooks = find_critiqued_notebooks(str(critiques_base_dir), prefix="2025-04-16")
+    notebooks = find_critiqued_notebooks(str(critiques_base_dir))
     print(f"Found {len(notebooks)} critiqued notebooks to process")
 
     # Group notebooks by dandiset
@@ -136,8 +132,14 @@ def main():
             with open(output_file, "r") as f:
                 existing_rankings = json.load(f)
             if existing_rankings.get("prompt_version") == prompt_version:
-                print("Rankings already exist, skipping...")
-                continue
+
+                # check whether the notebook IDs in the critiques match those in the existing rankings
+                existing_notebook_ids = {entry["notebook_id"] for entry in existing_rankings["rankings"]}
+                current_notebook_ids = {notebook_id for notebook_id, _ in critiques}
+                # compare the two sets
+                if existing_notebook_ids == current_notebook_ids:
+                    print(f"Rankings for {dandiset_id} already exist and are up to date.")
+                    continue
 
         rankings_text, prompt_tokens, completion_tokens = get_rankings_for_dandiset(critiques)
         total_prompt_tokens += prompt_tokens

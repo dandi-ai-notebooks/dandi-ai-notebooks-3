@@ -1,0 +1,325 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell is a markdown cell that serves as the introduction to the Jupyter notebook. It introduces the specific Dandiset (000945), briefly describes the experiment (tFUS stimulation in rats), and outlines the contents of the dataset and the goals of the notebook. The cell also includes an important disclaimer about the AI-generated nature of the notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This markdown cell lists the Python packages that the notebook will use. This provides the reader with information on the dependencies required to run the notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell imports the necessary Python libraries as declared in the previous cell. It also sets the plotting style using Seaborn.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This markdown cell introduces the process of loading data from the DANDI archive, specifically Dandiset 000945. It states the intention to examine the available assets within the dataset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell uses the `dandiapi` library to connect to the DANDI archive, retrieves Dandiset 000945, and lists the first five assets (NWB files) within the dataset. The output shows the number of assets found and their file paths.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 6
+==========
+
+OVERVIEW:
+This markdown cell provides context about the structure of the Dandiset, noting that there are files from multiple rat subjects, where each file is from a different pulse repetition frequency (PRF) setting. It specifies that the next step is to examine a specific NWB file with 3000 Hz PRF from subject BH497.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell defines the URL for a specific NWB file (with 3000 Hz PRF from subject BH497), loads it using `remfile` and `pynwb`, and then prints some basic information about the NWB file, such as subject ID, session description, and species. The warnings printed are related to version conflicts with HDMF namespaces but do not appear to prevent the code from running.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This is a markdown cell that indicates the next step in the analysis: examining the electrode setup and the recorded units (neurons).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell extracts and displays information about the electrodes and units (neurons) recorded in the NWB file. It converts the electrode and unit tables to pandas DataFrames. It prints the number of electrodes and displays the first few rows of the electrode DataFrame, showing x, y, z coordinates, impedance, location, and related group. It also prints the number of units and displays the counts of each `celltype_label`, which appear to be two classes with equal number of cells in each.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The identifiers of `celltype_label` are `1.0` and `2.0`. It would be useful to know the meaning or description of the numerical labels as that isn't immediately clear.
+
+
+Cell 10
+==========
+
+OVERVIEW:
+This markdown cell introduces the trial structure of the experiment. It states that ultrasound stimulation was delivered about every 2.5 seconds (with 10% jitter) for 500 trials.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell retrieves the trial information from the NWB file, calculates trial durations and inter-trial intervals, and plots the trial start times. The output includes the number of trials, the first few rows of the trials DataFrame, the mean trial duration, the mean inter-trial interval, and a plot of trial start times.
+
+IMAGE DESCRIPTIONS:
+The image is a plot of "Trial Start Times". The x-axis represents the "Trial Number" ranging from 0 to 500. The y-axis represents "Time" in seconds, ranging from around 0 to 1200. The plot shows a roughly linear increase in start time with trial number, indicating that trials were delivered at a relatively consistent rate throughout the recording. The points are connected by a line.
+
+ISSUES:
+The calculated mean trial duration is 2.2 seconds, while the markdown states that the ultrasound was delivered for 2.5 seconds. Although 10% jitter was mentioned, the discrepancy should be examined or explained. There is also an overlap between the mean trial duration and the mean inter-trial interval, so the total time interval would be 2.5 seconds. The plot provides insight to the overall experiment duration but it lacks detail. For example, the Y-axis could be zoomed in to show the jitter on trial start times. The line in the plot seems unnecessary.
+
+Cell 12
+==========
+
+OVERVIEW:
+This markdown cell summarizes the findings from the previous cell regarding trial timing. It transitions to the next section, which focuses on analyzing neural activity, starting with spike counts across different units.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell calculates the spike counts for each unit, creates a DataFrame summarizing unit ID, cell type, and spike count. It then generates a bar plot showing the spike counts for each unit, with bars colored by cell type (1.0 and 2.0). Finally, it calculates and prints the average spike counts for each cell type using the `.describe()` method.
+
+IMAGE DESCRIPTIONS:
+The image is a bar plot titled "Spike Counts by Unit and Cell Type". The x-axis shows "Unit ID" (from 0 to 63 with labels for each integer), and the y-axis displays "Spike Count". There are two bars per unit ID, representing two cell types (1.0 in purple and 2.0 in yellow). The plot shows the distribution of spike counts across different units and allows for a comparison between the two cell types. There is significant variation among spike counts among different units.
+
+ISSUES:
+The cell IDs on the x axis are difficult to read because of the angle and density. Using a swarm plot could be a better alternative for visualizing each unit, but this may not be ideal either due to the large total number of units. Since the number of units is large, it might be more appropriate to plot a distribution of spike counts separated by cell type instead of individual unit values. The difference in spike counts does not seem to be substantial between cell types, and plotting a histogram of the spike counts with the two cell types overlaid would be a better approach. The cell type labels (1.0 and 2.0) are still somewhat ambiguous.
+
+Cell 14
+==========
+
+OVERVIEW:
+This markdown cell summarizes the observation from the previous cell about variability in spike counts and introduces the next step: examining the spike timing patterns of a few example units.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 15
+==========
+
+OVERVIEW:
+This cell defines a function `plot_unit_raster` to create raster plots of spike times aligned to trial onsets. The function takes spike times, trial start times, pre- and post-stimulus time windows, and a title as input. It then generates a raster plot showing spike times relative to trial onset for each trial. The cell then gets the trial start times and selects two units from each cell type. Finally, it iterates through the selected units and generates raster plots for the first 100 trials.
+
+IMAGE DESCRIPTIONS:
+There are four raster plots in this output, one for each of the selected units (2 from cell type 1 and 2 from cell type 2). Each plot is titled "Unit X (Cell Type Y) - First 100 Trials". The x-axis represents "Time relative to trial onset (s)" and ranges from -0.5 to 2.5. The y-axis is labelled "Trial Number" and ranges from 0 to 100. Each row represents a single trial, and vertical black bars indicate the timing of individual spikes. Vertical dashed red lines mark the "Stimulus Onset" (at time 0), and vertical dashed green lines mark the "Stimulus Offset" (at time 2). Stimulus offset is incorrect, according to the first section of the notebook, the duration of actual stimulus duration is only 67 ms and pulse duration of 200 microseconds, so the actual ultrasound duration is likely much shorter than 2 seconds. Examining the plots, the firing patterns seem to be similar.
+
+ISSUES:
+The "Stimulus Offset" line is incorrectly placed at 2 seconds. The introduction stated, "Each ultrasound stimulation used a 200 microsecond pulse duration and 67 ms ultrasound duration." Therefore, the offset line should be at 0.067 seconds instead of 2 seconds. The rasters are created for a small number of units. It may be difficult to draw general conclusions about cell-type differences from them. Also, for each unit, the range of `spike_times` is the same (from 0 to the total duration of recording) and this may skew perception of spiking. If each raster plot only used data from each trial (from `window_start` to `window_end`), then the resulting plot will show less spiking due to fewer spikes falling in this shorter time window, but the change in spiking activity could be more apparent.
+
+Cell 16
+==========
+
+OVERVIEW:
+This markdown cell describes the raster plots generated in the previous cell and transitions to the next step: analyzing neural responses to ultrasound stimulation using Peri-Stimulus Time Histograms (PSTHs).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The description of the raster plots again incorrectly states that the green dashed line represents stimulus offset at 2 seconds.
+
+Cell 17
+==========
+
+OVERVIEW:
+This cell defines a function `compute_psth` to calculate the Peri-Stimulus Time Histogram (PSTH) for a given unit. It takes spike times, trial times, pre- and post-stimulus time windows, and bin size as input. It iterates through each trial, finds spikes within the specified window, bins the spike times, and averages the spike counts across trials to obtain the mean PSTH and standard error of the mean (SEM). Finally, the cell selects four example units and plots their PSTHs. Each plot includes the mean PSTH with SEM shaded around it, and vertical lines indicating stimulus onset and offset.
+
+IMAGE DESCRIPTIONS:
+The output contains four PSTH plots arranged in a 2x2 grid. Each subplot is titled "Unit X (Type Y)", where X is the unit ID and Y is the cell type. The x-axis represents "Time (s)" ranging from -1.0 to 3.0. The y-axis represents "Firing Rate (Hz)". Each plot shows a blue line representing the mean firing rate over time, with a light blue shaded area representing the standard error of the mean (SEM). A vertical dashed red line indicates "Stimulus Onset" at time 0, and a vertical dashed green line indicates "Stimulus Offset" at time 2. The PSTHs appear relatively flat and do not obviously show any distinct changes in firing rate correlated with stimulus onset.
+
+ISSUES:
+Again, the "Stimulus Offset" line is incorrectly placed at 2 seconds instead of the actual 67ms duration. The example units selected are all of type 2.0. It would be more informative also to plot data from cell type 1.0. Because the stimulus duration is so short (67ms), the selected bin size (0.05s) might be too large to capture any transient responses to the stimulus. A smaller bin size might reveal more subtle changes in firing rate and the stimulus offset marker should also reflect the correct stimulus offset for US pulse duration.
+
+Cell 18
+==========
+
+OVERVIEW:
+This markdown cell summarizes the PSTH results from the previous cell and introduces the next step: comparing neural responses from recordings with different pulse repetition frequencies (PRFs).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The summary statement, "Some units show changes in firing rate in response to the stimulus onset or offset, while others show less pronounced responses," is an overstatement. The PSTHs plotted previously do not visually demonstrate changes in firing rate. This statement is misleading.
+
+
+Cell 19
+==========
+
+OVERVIEW:
+This cell loads data from a second NWB file, this time one recorded using a 1500 Hz pulse repetition frequency (PRF). The NWB file is accessed via a URL from the DANDI archive, and the trials and units DataFrames are extracted, along with the trial start times. It also renames variables used for the 3000 Hz data to make the code more clear. Finally, code prints the number of units in each NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 20
+==========
+
+OVERVIEW:
+This markdown cell sets the intention for the next step in the analysis: comparing neural responses between the 1500 Hz and 3000 Hz PRF recordings for different cell types.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 21
+==========
+
+OVERVIEW:
+This cell calculates and compares the average PSTHs for each cell type (1.0 and 2.0) under two different PRF conditions (1500 Hz and 3000 Hz). It limits the analysis to the first 10 units of each cell type for faster computation. It computes the PSTHs by averaging across a set of PSTHs calculated for each unit (with `compute_psth` function), and then plots the average PSTHs for each cell type and PRF condition.
+
+IMAGE DESCRIPTIONS:
+The output image shows two subplots. The top subplot is titled "Cell Type 1.0 - Average Response by PRF." It shows two lines representing the average PSTH for cell type 1.0 at 3000 Hz (blue) and 1500 Hz (red). A dashed black vertical line marks "Stimulus Onset", and a dashed green vertical line marks "Stimulus Offset". The bottom subplot shows the average PSTHs for cell type 2.0 at the two PRF conditions. In both subplots, the average firing rate for 1500 Hz appears to be universally higher than for 3000 Hz. There are no clear, obvious modulations in firing rate triggered by the stimulus onset.
+
+ISSUES:
+The averaging over a subset of units is reasonable for computational efficiency, but limits the generality of any conclusions. The "Stimulus Offset" line is still incorrect at 2.0 seconds - it should be 0.067 seconds. Given the earlier incorrect placement of "stimulus offset" at 2 seconds, I would expect a clear explanation of what the code attempts to analyze instead. Also given that earlier, trials had different durations, which is used now? Finally, there appear to be very substantial differences in the baseline firing rate between the 1500 Hz and 3000 Hz PRF, which is much larger than any stimulus-evoked effect.
+
+Cell 22
+==========
+
+OVERVIEW:
+This markdown cell states the next step in the analysis: quantifying neural responses to the stimulation by comparing firing rates before and during the stimulation periods.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 23
+==========
+
+OVERVIEW:
+This cell aims to quantify neural responses to stimulation by comparing firing rates before and during the stimulus, and it computes whether differences exist between the 1500 Hz and 3000 Hz pulse repetition frequencies (PRFs). The code defines baseline and response windows, computes baseline and response firing rates, calculates a response ratio (response/baseline), and performs a paired t-test to determine statistical significance. A grouped bar plot is created to visualize the response ratios for each unit, with bars colored by PRF. A horizontal line is added at y=1 to indicate no change. Significant changes (p < 0.05) are marked with asterisks. The cell also generates a summary table with statistics by cell type and PRF.
+
+IMAGE DESCRIPTIONS:
+The image is a barplot of "Response Modulation by PRF". The x-axis is labeled "Unit ID" and shows values 0 through 7. The y-axis is "Response Ratio (Response/Baseline)". There are two bars per unit (adjacent) denoting the PRF at 1500 Hz (blue) and 3000 Hz (red). A horizontal black dashed line extends across the plot at y=1, labeled "No Change". The bars hover around this line, and no asterisks are observed in the image which indicates there are no statistically significant p values.
+
+ISSUES:
+The chosen analysis windows are questionable given the actual stimulus duration (67ms), although it looks at a longer window for changes in activity. The baseline window is defined as -0.9 to -0.1 seconds, but the response window is defined from 0.1 to 0.9 seconds. Given that tFUS was expected to elicit a near immediate change on the order of milliseconds, a better analysis window would be 0-0.067s (when the tFUS pulse is applied) or shortly after. Because the windows do not overlap by definition, this code may not pick up changes in firing rate elicited by tFUS.
+
+The x-axis of the final plot is "Unit ID" (0-7), however because 8 units were analyzed for with 2 PRFs, and instead each "Unit ID" actually represents 1 cell from 1 PRF type (i.e. four type 1 and four type 2 cells for each PRF). To have a slightly more informative plot, the cell type could have been indicated. Also, the values are very near a response ratio of 1 (no change), and so the y axis range could be reduced to amplify any meaningful data.
+
+From the results, "p_value: lambda x: sum(x < 0.05)" results in 0 significant responses. This result means it might not have been worthwhile to incorporate it into the plot, because no asterisks appear, and because the y axis range is so narrow, it is difficult to tell different responses apart.
+
+Finally, it might be helpful to indicate that the units used for calculating "Response Statistics by Cell Type and PRF" use the same units that are represented in the "Response Modulation by PRF" figure.
+
+Cell 24
+==========
+
+OVERVIEW:
+This markdown cell summarizes the findings of the notebook and suggests future directions for analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+Several of the summary points are inaccurate or misleading based on the analyses performed:
+
+Point 3 incorrectly states, "stimulation lasting approximately 2.2 seconds". The markdown in the initial section stated, "Each ultrasound stimulation used a 200 microsecond pulse duration and 67 ms ultrasound duration." Also the trials had a mean duration of 2.2 seconds, according to the calculated trial statistics.
+
+Point 4 incorrectly states, "some units showing clear changes in firing rate in response to stimulus onset or offset". The PSTH plots do not visually demonstrate clear changes in firing rate in response to stimulus.
+
+Point 5 states that cell types may respond differently to PRFs and makes specific claims about each cell type. However, those "differences" are not supported by the plotted data since they are relatively subtle, and the statistical analyses did not note any differences since the p values did not result in any significant differences.
+
+Additionally, the notebook could benefit from explicitly noting the specific limitations introduced by design choices such as analyzing a subset of all units and using a limited number of PRFs.
+
+
+Cell 25
+==========
+
+OVERVIEW:
+This closing code cell closes the NWB file objects to release resources. It specifically closes the 1500 Hz file object if it exists by checking with `if 'h5_file_1500' in locals():`.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+This is good practice. None
+
+

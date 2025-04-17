@@ -1,0 +1,854 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell provides the title of the notebook, which introduces the specific Dandiset (000673) that will be explored, and briefly describes the scientific topic of the dataset: the role of hippocampal neurons and phase-amplitude coupling in working memory. This cell serves as an introduction and sets the stage for the subsequent data exploration and analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell contains a warning message indicating that the notebook was automatically generated and may not be entirely accurate or reliable. It advises users to interpret the code and results with caution. This is important for setting expectations and reminding users to critically evaluate the content.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell introduces a section that will provide an overview of the Dandiset. It serves as a heading for the subsequent content that will describe the dandiset being analyzed.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell provides a textual description of Dandiset 000673. It summarizes the type of data included (neurophysiological recordings, single neuron recordings, LFPs, behavioral data), the experimental paradigm (working memory task, Sternberg task), the brain regions involved (hippocampus, amygdala, prefrontal cortex), and the key findings of the associated research regarding theta-gamma phase-amplitude coupling (TG-PAC) and its relation to working memory load and cognitive control. This cell provides essential background information for understanding the subsequent analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell introduces a section outlining the contents of the notebook, serving as a guide to the user.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell outlines the topics covered in the notebook, giving the user a clear roadmap of the analysis. It lists steps involving metadata exploration, accessing NWB files, examining LFP recordings and single neuron activity, visualizing stimuli, analyzing trial information, and exploring relationships between neural activity and behavior. The cell concludes by stating the learning outcome of gaining an understanding of the data structure and how to extract/visualize data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell introduces a section listing the required Python packages to run the code in the notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+The cell lists the Python packages required to run the notebook's code, along with a brief description of each package's purpose. This is helpful for users to understand the dependencies and ensure they have the necessary libraries installed.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell imports the necessary Python libraries specified in the previous cell. It also sets the seaborn theme for potentially improved plot aesthetics.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell introduces the section focused on loading the Dandiset metadata and exploring its assets using the DANDI API.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell reiterates the import statements from a previous cell (which is somewhat redundant). It then prints information about the Dandiset (ID, name, brief description). Critically, it states that the analysis will focus on a single NWB file within the Dandiset ("sub-17/sub-17_ses-1_ecephys+image.nwb"). The output text confirms these print statements.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The import statements are repeated from a previous cell, making the cell slightly redundant. It would be better to remove the import statements here and just start with the Dandiset information.
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell introduces a section that focuses on loading and exploring a specific NWB file from the Dandiset, as mentioned in the previous cell.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell clarifies that the exploration will concentrate on a single NWB file from subject 17, highlighting that it contains recordings from the hippocampus, a brain region central to the dataset's research question.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 14
+==========
+
+OVERVIEW:
+This cell loads a specific NWB file from the DANDI archive using its URL. It uses `remfile` for streaming access and `h5py` and `pynwb` to open and read the NWB file. It then prints basic metadata information about the session and subject, such as session description, subject ID, age, sex, lab, and institution. The output confirms that this metadata is successfully extracted and displayed.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The code generates some warnings related to namespace versions and electrical series data dimensions. While these warnings don't necessarily indicate a critical error, they should be investigated further to ensure data integrity. The warning "ElectricalSeries 'LFPs': The second dimension of data does not match the length of electrodes. Your data may be transposed." is particularly concerning. It also shows the traceback of the warnings which may be unnecessary.
+
+
+Cell 15
+==========
+
+OVERVIEW:
+This cell introduces a section about exploring the experimental setup and electrode configuration as described within the NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 16
+==========
+
+OVERVIEW:
+This cell explains the purpose of the section - to examine the electrode configuration to understand the recording locations across multiple brain regions. It provides context for the subsequent code that will access and display this information.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 17
+==========
+
+OVERVIEW:
+This cell retrieves the electrode information from the NWB file and converts it into a Pandas DataFrame. It then prints the number of electrodes and displays the first few rows of the DataFrame using `electrode_df.head()`. This allows the user to examine the electrode properties, such as x, y, z coordinates, location, filtering, and group.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 18
+==========
+
+OVERVIEW:
+This cell serves as a transition, indicating that the following cell will visualize the distribution of electrodes across different brain regions.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 19
+==========
+
+OVERVIEW:
+This cell generates a bar plot visualizing the number of electrodes in each brain region. It counts the occurrences of each location in the `electrode_df['location']` column using `value_counts()` and then plots the results using `matplotlib`. The plot displays the brain regions on the x-axis and the number of electrodes on the y-axis. The x-axis labels are rotated for better readability.
+
+IMAGE DESCRIPTIONS:
+The image is a bar plot titled "Number of Electrodes by Brain Region". The x-axis represents different brain regions, including "pre_supplementary_motor_area_left", "amygdala_left", "ventral_medial_prefrontal_cortex_right", "amygdala_right", "pre_supplementary_motor_area_right", "hippocampus_left", "hippocampus_right", and "ventral_medial_prefrontal_cortex_left". The y-axis represents the "Number of Electrodes", ranging from 0 to 8. The bars show the number of electrodes in each region, mostly around 7 or 8 electrodes each.
+
+ISSUES:
+None
+
+Cell 20
+==========
+
+OVERVIEW:
+This cell introduces the next section, which will deal with exploring the Local Field Potential (LFP) data within the NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 21
+==========
+
+OVERVIEW:
+This cell provides context for analyzing LFP data. It explains the importance of LFPs in studying brain oscillatory activity like theta and gamma rhythms, which are relevant to the phase-amplitude coupling research focus of the dataset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 22
+==========
+
+OVERVIEW:
+This cell retrieves LFP data from the NWB file's `acquisition` section. It prints the shape of the LFP data (time points x channels), the sampling rate, and the total duration of the recording. It also extracts electrode information associated with the LFP data by indexing into the `electrode_df` using `lfp_electrodes_index` and displays the first few rows of the resulting `lfp_electrodes_df`.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 23
+==========
+
+OVERVIEW:
+This cell introduces the visualization of LFP traces from different brain regions. It sets up the expectation that a few electrodes will be selected from various areas and a portion of their data will be visualized.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 24
+==========
+
+OVERVIEW:
+This cell defines a function `get_electrodes_by_region` to extract electrode indices based on the specified brain region. It then uses this function to obtain electrode indices for the left hippocampus, right hippocampus, left amygdala, and prefrontal cortex from the `lfp_electrodes_df`. After electrode selection, it defines a time window (10 seconds starting at 100 seconds) for visualization and creates a corresponding time vector.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 25
+==========
+
+OVERVIEW:
+This cell generates a figure with four subplots, each displaying LFP traces from a different brain region (left hippocampus, right hippocampus, left amygdala, and prefrontal cortex). For each region, it plots the LFP signal from up to three channels over a 10-second time window (from 100 to 110 seconds). Each subplot includes a title indicating the brain region, a legend identifying the channels, and labels for the y-axis ("Voltage (V)") and, for the last subplot, the x-axis ("Time (s)").
+
+IMAGE DESCRIPTIONS:
+The image displays four line plots arranged vertically. Each plot shows LFP (Local Field Potential) data from a different brain region: Left Hippocampus, Right Hippocampus, Left Amygdala, and Prefrontal Cortex.
+- **Left Hippocampus LFP:** This plot displays the voltage over time (from 100 to 110 seconds) for three channels (16, 17, and 18). The voltage varies between approximately -50V and 50V.
+- **Right Hippocampus LFP:** This plot displays the voltage over time for three channels (38, 39, and 40). The voltage fluctuates between approximately -100V and 100V.
+- **Left Amygdala LFP:** This plot displays the voltage over time for three channels (8, 9, and 10). The voltage fluctuates between approximately -50V and 50V.
+- **Prefrontal Cortex LFP:** This plot displays the voltage over time for three channels (45, 46, and 47). The voltage fluctuates between approximately -200V and 200V, showing a slower oscillation than the other regions.
+
+ISSUES:
+None
+
+Cell 26
+==========
+
+OVERVIEW:
+Introduces a section for performing spectral analysis on the LFP data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 27
+==========
+
+OVERVIEW:
+This cell provides context for the upcoming spectral analysis. It states the goal of identifying theta and gamma oscillations in the LFP signals, which relate to the dataset's focus on phase-amplitude coupling.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 28
+==========
+
+OVERVIEW:
+This cell computes and visualizes the power spectral density (PSD) of the LFP signal from a left hippocampal channel. It defines a function `compute_psd` that uses Welch's method to calculate the PSD. It then selects a channel from the left hippocampus based on the previously obtained indices. The PSD is computed for the selected channel's LFP data, and the result is plotted on a semi-log scale. The plot highlights the theta (4-8 Hz) and gamma (30-100 Hz) frequency bands with shaded regions.
+
+IMAGE DESCRIPTIONS:
+The image is a plot of Power Spectral Density (PSD) versus Frequency for the Left Hippocampus. The x-axis represents Frequency in Hz, ranging from 0 to 120. The y-axis represents Power Spectral Density in V^2/Hz, displayed on a logarithmic scale. The plot shows a blue line indicating overall power. There are two colored regions: a red shaded region highlighting the Theta band (4-8 Hz) and a green shaded region highlighting the Gamma band (30-100 Hz). There is a pronounced peak in PSD close to 0 Hz, and a sharp narrow dip around 60 Hz.
+
+ISSUES:
+None
+
+Cell 29
+==========
+
+OVERVIEW:
+This cell introduces the topic of time-frequency analysis, which will be used to visualize how the oscillatory content of the LFP signals changes over time.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 30
+==========
+
+OVERVIEW:
+This cell sets the expectation for the following code to generate a spectrogram, which is a specific type of time-frequency representation that visualizes changes in oscillations over time.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 31
+==========
+
+OVERVIEW:
+This cell computes and displays a spectrogram of the LFP data from the selected hippocampal channel. It defines a function `compute_spectrogram` that uses `signal.spectrogram` to calculate the spectrogram. A 30-second segment of the hippocampal LFP data is selected and used as input to the `compute_spectrogram` function. The resulting spectrogram is then visualized using `plt.pcolormesh`, with time on the x-axis, frequency on the y-axis, and power/frequency represented by the color intensity.
+
+IMAGE DESCRIPTIONS:
+The image is a spectrogram of the Left Hippocampus LFP data. The x-axis represents Time (s), ranging from approximately 100 to 130. The y-axis represents Frequency (Hz), ranging from 0 to 100. The color intensity represents "Power/Frequency (dB/Hz)", with warmer colors (yellow, green) indicating higher power and cooler colors (blue, purple) indicating lower power. There is a concentration of power at lower frequencies (below 20 Hz), which is shown in the yellow and green bands toward the bottom of the plot. Above 20 Hz, the power is much fainter.
+
+ISSUES:
+None
+
+Cell 32
+==========
+
+OVERVIEW:
+This cell introduces a section focused on examining event data, which likely refers to the times of specific experimental events, such as stimulus presentations or behavioral responses. This is a key component for linking neural activity to behavior.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 33
+==========
+
+OVERVIEW:
+This cell clarifies that the event data will be examined through "TTL markers for each trial." This suggests the events were marked using transistor-transistor logic (TTL) pulses during the experiment.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 34
+==========
+
+OVERVIEW:
+This cell retrieves and analyzes event data from the NWB file. It prints the shape and number of events, and the shape of the timestamps associated with each event. It then creates a Pandas DataFrame containing the event codes and timestamps, displaying the first 10 events. Finally, it counts the occurrences of each unique event code and prints the event counts by type, sorted by the event code. The output shows the distribution of event codes, indicating the types of experimental events that were recorded.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 35
+==========
+
+OVERVIEW:
+This cell prepares the user for a visualization of the event timeline, showing how events are distributed over time.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 36
+==========
+
+OVERVIEW:
+This cell creates a scatter plot of the event timeline, visualizing the occurrence of different event codes over time. The x-axis represents time (in seconds), and the y-axis represents the event code. Each dot on the plot corresponds to a specific event at a particular time. The plot provides an overview of the temporal distribution of events.
+
+IMAGE DESCRIPTIONS:
+The image is a scatter plot titled "Event Timeline". The x-axis represents "Time (s)" and ranges from 0 to approximately 1350. The y-axis represents "Event Code" and ranges from 0 to 60. There are primarily two event codes visible as points in the plot; most event codes lie between 0 and 11 on the y axis. There are two event codes with a value of approximately '60', one at the beginning of the recording and one at the end.
+
+ISSUES:
+None
+
+Cell 37
+==========
+
+OVERVIEW:
+This cell introduces a section focused on exploring trial information within the NWB file. This section is essential for connecting neural activity/events with specific trials and experimental conditions.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 38
+==========
+
+OVERVIEW:
+This cell motivates the analysis of the trial structure by highlighting its importance in understanding the behavioral task performed by the subject.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 39
+==========
+
+OVERVIEW:
+This cell retrieves trial information from the NWB file and transforms it into a Pandas DataFrame. It prints the number of trials, lists the column names of the DataFrame (which describe the trial structure and parameters), and displays the first few rows of the `trials_df`. This provides a good overview of the available trial data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 40
+==========
+
+OVERVIEW:
+This cell signals that the following code will analyze trial performance.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 41
+==========
+
+OVERVIEW:
+This cell attempts to calculate and visualize the subject's performance based on the 'response_correct' column in the `trials_df`. BUT, the dataframe `trials_df` does not have column `response_correct`; it has column `response_accuracy`. So, this cell will skip the calculation and visualization.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The code checks for the existence of a column called `response_correct` which does not exist in the dataframe. Rather, the column is called `response_accuracy`. Consequently the code will not run and will raise an error. The tutorial is expected to run without error. Also the name of the variable could be better (e.g. `accuracy_data` instead of `performance_data`).
+
+Cell 42
+==========
+
+OVERVIEW:
+This cell introduces the next section of the notebook, which will focus on exploring single unit activity, representing the spiking activity of individual neurons.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 43
+==========
+
+OVERVIEW:
+This cell directly states the purpose of the following cells: to examine single unit recordings.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 44
+==========
+
+OVERVIEW:
+This cell extracts the single unit data from the NWB file and converts it into a Pandas DataFrame. It prints the number of units, displays the column names of the DataFrame, including 'spike_times', 'electrodes', 'clusterID_orig', and various waveform-related metrics, and shows the first few rows of the `units_df`. This provides an overview of the available information about each recorded neuron.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 45
+==========
+
+OVERVIEW:
+This cell notes that electrode information will be merged with the unit data to clarify which brain regions each neuron was recorded from.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 46
+==========
+
+OVERVIEW:
+This cell attempts to associate each unit with a brain region by using the electrode information stored in the `units_df` and `electrode_df`. It iterates through each unit and extracts the electrode index. It then uses this index to look up the corresponding brain region ('location') in the `electrode_df`. However, the resulting bar plot shows that *all* units are labeled as "unknown". This is because the `electrode_idx` is an Electrode object rather than the electrode ID, and this is not used correctly to index the electrode location from the electrode dataframe.
+
+IMAGE DESCRIPTIONS:
+The image is a bar plot titled "Number of Units by Brain Region". The x-axis represents the "Brain Region", with a single category labeled as "unknown". The y-axis represents the "Number of Units", and the single bar extends to a value of approximately 80.
+
+ISSUES:
+The code fails to correctly map units to brain regions. The resulting bar plot shows all units are labeled as "unknown". This strongly suggests an error in how the 'electrodes' column of the `units_df` is being used to index into the `electrode_df`. The code needs to be revised to properly extract and use the electrode IDs. The issue is that electrode_idx is an Electrode object instead of an Id integer.
+
+Cell 47
+==========
+
+OVERVIEW:
+This cell introduces a section dedicated to visualizing spike trains, which are temporal sequences of action potentials from individual neurons.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 48
+==========
+
+OVERVIEW:
+This cell directly states that spike trains from example neurons are going to be visualized.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 49
+==========
+
+OVERVIEW:
+This cell attempts to visualize spike trains from a few hippocampal neurons. It defines a function `get_units_by_region`, which is intended to select units from a particular brain region. However, because the brain_region assignment in the preceding cells failed, this function is unable to select any hippocampal units. Since the hippounits is empty no spikes trains are plotted. This failure cascades from the bug described in the previous cell. Also, an empty figure is generated.
+
+IMAGE DESCRIPTIONS:
+The image is blank becausethe code is producing an empty figure.
+
+ISSUES:
+Because the `brain_region` information in `units_df` is incorrect (all units are marked as "unknown"), the `get_units_by_region` function fails to retrieve any hippocampal units. Consequently, no spike trains are plotted. This is downstream of the problem identified in the cell characterizing the brain regions for each cell. The code also creates a blank plot when it is not supposed to.
+
+Cell 50
+==========
+
+OVERVIEW:
+This cell introduces a section focusing on analyzing firing rate patterns, which refers to quantifying the frequency of action potential generation in neurons.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 51
+==========
+
+OVERVIEW:
+This cells states the purpose of the analysis - to calculate and visualize neuronal firing rates.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 52
+==========
+
+OVERVIEW:
+This cell calculates and visualizes the firing rates of neurons over time. However, because `example_unit_ids` is empty from the previous cell, the cell is not calculating or plotting any firing rates. Thus this cell is also creating a blank figure.
+
+IMAGE DESCRIPTIONS:
+The image is blank as the code results with a blank plot because the `example_unit_ids` is an empty array.
+
+ISSUES:
+The code fails to plot any firing rates. Because `example_unit_ids` is incorrect (empty) from previous error in mapping brain regions to units, the code produces a blank series of plots. The code also creates a blank plot when it is not supposed to. This failure cascades from previously identified errors.
+
+Cell 53
+==========
+
+OVERVIEW:
+This cell introduces a section dedicated to exploring stimulus images, which are the visual stimuli presented to the subject during the experiment.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 54
+==========
+
+OVERVIEW:
+This cell indicates the intention to explore the image stimuli used in the experiment.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 55
+==========
+
+OVERVIEW:
+This cell retrieves stimulus information from the NWB file, specifically the `StimulusPresentation` and `StimulusTemplates` objects. It prints the number of stimulus presentations and the number of unique stimulus templates. It then displays the first 10 stimulus presentation indices and their corresponding timestamps. This provides an overview of when different stimuli were presented during the experiment.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 56
+==========
+
+OVERVIEW:
+This cell indicates the intention to visualize a few example stimulus images.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 57
+==========
+
+OVERVIEW:
+This cell defines a function `display_images` that visualizes a set of stimulus images from the `stim_templates`. It retrieves the image data for each specified image key, displays the images in a grid using `plt.imshow`, and adds a title to each subplot indicating the image key. The function handles both grayscale and color images. The cell then calls this function to display the first 10 stimulus images from the dataset.
+
+IMAGE DESCRIPTIONS:
+The image is a grid of 10 stimulus images, arranged in 2 rows and 5 columns. Each image is displayed with its corresponding key as the title, such as "image_101", "image_102", etc. The images are diverse and include photographs of people. Many of the images appear to be rotated.
+
+ISSUES:
+None
+
+Cell 58
+==========
+
+OVERVIEW:
+This cell introduces the topic of analyzing neuron responses to stimuli, which represents a pivotal step in linking neural activity to specific sensory inputs or experimental conditions.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 59
+==========
+
+OVERVIEW:
+This cell states that a peri-stimulus time histogram (PSTH) will be created to explore neuronal responses to stimuli. A PSTH is a common method for visualizing the average firing rate of a neuron around the time of a specific event (in this case, stimulus presentation).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 60
+==========
+
+OVERVIEW:
+This cell defines a function `create_psth` to compute a peri-stimulus time histogram (PSTH) for a given set of spike times and event times. Because of the empty 'example_unit_ids' variable, it cannot produce any PSTH. This is a result of failure of previous steps. Therefore this function leads to creation of blank plot.
+
+IMAGE DESCRIPTIONS:
+Because this code makes blank plot with nothing in it, no meaningful description can be provided.
+
+ISSUES:
+Because the `brain_region` information in `units_df` is incorrect (all units are marked as "unknown"), the `get_units_by_region` function fails to retrieve any hippocampal units. Consequently, the `example_unit_ids` is empty and the code produces a blank series of PSTH plots. This is a clear downstream issue, and therefore an error.
+
+Cell 61
+==========
+
+OVERVIEW:
+This cell introduces a section focusing on advanced analysis, specifically concerning theta-gamma phase-amplitude coupling (PAC), a key phenomenon investigated in the original research paper associated with the dataset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 62
+==========
+
+OVERVIEW:
+This cell provides context for the advanced analysis section by explicitly mentioning the importance of theta-gamma phase-amplitude coupling (TG-PAC) in the associated research paper. It sets the expectation that the following analysis will explore this phenomenon in a small data segment.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 63
+==========
+
+OVERVIEW:
+This cell implements functions to analyze theta-gamma phase-amplitude coupling (PAC) in LFP data from a hippocampal channel. It defines `bandpass_filter` to filter the signal in specific frequency bands. Note, order is set to 4. It also defines `extract_phase_amplitude` to extract the phase of the theta oscillation and the amplitude of the gamma oscillation using the Hilbert transform. It then filters each signals based on passband. After extracting phase and amplitude, filtered signals are visualized by plotting the filtered theta and gamma band signals, and overlaying the scaled gamma amplitude envelope on top of the theta signal.
+
+IMAGE DESCRIPTIONS:
+The image shows three plots arranged vertically. All plots display data over time (Time (s) from 105 to 108 s).
+- **Theta Band Filtered Signal (4-8 Hz):** Shows the amplitude of the filtered signal on the y-axis (Amplitude (V)). The plot traces the filtered LFP signal in the theta band.
+- **Gamma Band Filtered Signal (30-100 Hz):** Shows the amplitude of the filtered signal on the y-axis (Amplitude (V)). The plot traces the filtered LFP signal in the gamma band.
+- **Theta Phase and Gamma Amplitude:** The plot traces the original filtered Theta alongside superimposed Gamma Amplitude.
+
+ISSUES:
+None
+
+Cell 64
+==========
+
+OVERVIEW:
+This cell introduces the concept of visualizing phase-amplitude coupling (PAC) using a "modulation index" approach. This suggests that the following code will quantify the strength of PAC using a metric that measures how the amplitude of the gamma oscillation is modulated by the phase of the theta oscillation.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 65
+==========
+
+OVERVIEW:
+This cell calculates and visualizes the phase-amplitude coupling (PAC) between theta and gamma oscillations using a modulation index (MI) approach. It defines `compute_pac_modulation_index` function. It then plots the mean gamma amplitude as a function of theta phase, using a bar plot with phase on the x-axis and normalized gamma amplitude on the y-axis. The plot also displays the calculated modulation index (MI) in the title. The bar plot appears relatively uniform.
+
+IMAGE DESCRIPTIONS:
+The image is a bar plot titled "Theta-Gamma Phase-Amplitude Coupling" with "Modulation Index = 0.0001". The x-axis represents "Theta Phase (radians)"", labeled in radians. The y-axis represents "Normalized Gamma Amplitude". This value seems to follow a uniform distribution among different bars with some fluctuations between 0.05 and 0.06.
+
+ISSUES:
+The modulation index is very low (0.0001) meaning that in general the plot looks uniform which means there is no coupling between phase and amplitude. Depending on prior steps PAC is not significant due to the single channel used. More analysis might be required to show there is phase amplitude coupling.
+
+Cell 66
+==========
+
+OVERVIEW:
+This cell introduces a section focusing on the relationship between neural activity and behavior.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 67
+==========
+
+OVERVIEW:
+This cell indicates that the code will analyse how neural activity relates to trial performance.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 68
+==========
+
+OVERVIEW:
+This cell attempts to analyse the relationship between neuronal firing rates and trial performance, specifically attempting to relate the firing rate during each trial to whether the trial was performed correctly or incorrectly. Unfortunately, as describer earlier, the if statement on the first line will evaluate to FALSE and so the rest of the code will be skipped rendering an empty plot.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+This cell relies on previous computations. Since the `if` condition statements are not fulfilled, this will lead to no plots being generated, although a box plot comparing firing rates on correct and incorrect trials would be shown if the code did execute. Also the code checks for the existence of a column called `response_correct` which does not exist in the dataframe. Rather, the column is called `response_accuracy`. Consequently the code will not run and will raise an error. The tutorial is expected to run without error.
+
+Cell 69
+==========
+
+OVERVIEW:
+This cell introduces the Notebook summary.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 70
+==========
+
+OVERVIEW:
+This cell provides a summary of the notebook's content and the Dandiset 000673. It lists the types of data included in the dataset (LFP recordings, single unit activity, stimulus images, trial information) and summarizes the methods demonstrated in the notebook for exploring and analyzing the data. Additionally, it suggests further analyses that could be performed, including more detailed investigation of PAC, analysis of coupling between brain regions, and exploration of how coupling changes with memory load. It concludes by providing references to the associated paper and sample code.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+

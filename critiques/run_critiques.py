@@ -14,7 +14,7 @@ model_for_cells = "google/gemini-2.0-flash-001"
 model_for_summary = "anthropic/claude-3.7-sonnet"
 
 
-def find_notebooks(base_dir: str, *, prefix: str) -> List[Tuple[str, str]]:
+def find_notebooks(base_dir: str, *, prefixes: List[str]) -> List[Tuple[str, str]]:
     """Find notebooks matching the pattern dandisets/<DANDISET_ID>/subfolder/<DANDISET_ID>.ipynb."""
     notebook_paths = []
 
@@ -31,7 +31,8 @@ def find_notebooks(base_dir: str, *, prefix: str) -> List[Tuple[str, str]]:
                 continue
 
             dirname = subfolder_path.split("/")[-1]
-            if not dirname.startswith(prefix):
+            # check if it starts with any of the prefixes
+            if not any(dirname.startswith(prefix) for prefix in prefixes):
                 continue
 
             # Check for matching notebook
@@ -224,7 +225,7 @@ def get_summary_critique(cells_critique_text: str):
 
 def main():
     dandisets_base_dir = Path(__file__).parent.parent / "dandisets"
-    notebooks = find_notebooks(str(dandisets_base_dir), prefix="2025-04-16")
+    notebooks = find_notebooks(str(dandisets_base_dir), prefixes=["2025-04-15", "2025-04-16", "2025-04-17"])
     print(f"Found {len(notebooks)} notebooks to process")
 
     total_cells_prompt_tokens = 0

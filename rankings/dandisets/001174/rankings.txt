@@ -1,14 +1,86 @@
 Rank 1: 2025-04-16-claude-3.7-sonnet-prompt-a-5
-This notebook (2025-04-16-claude-3.7-sonnet-prompt-a-5) does an effective job introducing Dandiset 001174, which contains calcium imaging data from macaque monkeys. It demonstrates proper use of the DANDI API for efficiently accessing data remotely without full downloads. The notebook covers basic session metadata, imaging device properties, raw calcium imaging visualization, ROI identification, fluorescence trace visualization, and attempts at event detection and correlation analysis.
+This notebook does a good job introducing the Dandiset and showing users how to access it. It provides clear visualizations of calcium imaging data including mean intensity over time, single-trial visualization, and spatial masks. The visualizations are technically implemented but lack sufficient context for interpretation. There are some missing metadata outputs and unexplained features in the plots. However, the notebook succeeds in its primary goals of introducing the dataset, demonstrating data access, and implementing basic visualizations.
 
-While the notebook is well-structured, there are some visualization issues (non-uniform illumination, ROI mask indexing error, shape mismatch) and analysis limitations (unsuccessful event detection, missing correlations between ROIs, unaddressed sampling rate differences). The code has some inconsistencies, but overall handles potential failures gracefully.
+Key strengths:
+- Clear introduction to the Dandiset
+- Successful demonstration of DANDI API access
+- Multiple basic visualizations of calcium imaging data
+- Well-structured with clear section headings
 
-The notebook provides users with a good understanding of accessing and visualizing calcium imaging data from DANDI, with a clear path for future analyses.
+Key weaknesses:
+- Limited explanatory context for visualizations
+- Some visualization issues with unexplained features
+- Missing metadata outputs
+- Visualizations lack sufficient interpretation
+
+Overall, this notebook provides a solid introduction but has moderate limitations in the depth of analysis and explanation.
 
 Rank 2: 2025-04-16-claude-3.7-sonnet-prompt-b-5
-This notebook (2025-04-16-claude-3.7-sonnet-prompt-b-5) also introduces Dandiset 001174 with calcium imaging data. It demonstrates proper data loading from DANDI Archive and guides users through raw calcium imaging visualization, ROI identification, neural activity analysis using fluorescence and event amplitude data, and correlation analysis.
+This notebook provides a comprehensive introduction to working with calcium imaging data from Dandiset 001174. It includes a variety of visualizations and analyses, ranging from basic data inspection to more complex neural activity patterns. The notebook shows users how to visualize raw imaging frames, ROIs, fluorescence traces, event amplitudes, and correlations between ROIs.
 
-However, this notebook has more significant issues than 2025-04-16-claude-3.7-sonnet-prompt-a-5. These include problematic variable references across markdown cells, limited ROI mask visualization that doesn't utilize the full 3D structure, flawed correlation analysis (particularly with ROIs having constant activity resulting in NaN values), and misleading conclusions that don't align with the actual visualization results.
+Key strengths:
+- Comprehensive introduction to calcium imaging data analysis
+- Variety of visualization techniques
+- Logical progression from basic to more complex analyses
+- Good explanatory text to contextualize code and analyses
 
-While the notebook succeeds in introducing users to the dataset and basic analysis techniques, the correlation analysis section contains errors that lead to incorrect conclusions, making this notebook less reliable than 2025-04-16-claude-3.7-sonnet-prompt-a-5.
+Key weaknesses:
+- Critical misinterpretation of ROI data (treating image_mask as a full image)
+- Limited sampling without clear explanation (using only 1000 timepoints)
+- Visualization readability issues
+- Empty plot when attempting to show top 5 active ROIs
+- Some overly optimistic conclusions
+
+While the notebook covers a wide range of analyses, the critical errors in data interpretation and visualization significantly impact its reliability and usefulness.
+
+Rank 3: 2025-04-15-gemini-2.0-flash-001-prompt-a-3
+This notebook provides a systematic introduction to analyzing calcium imaging data from Dandiset 001174. It effectively guides users through data loading, visualization of raw imaging data, ROI identification, neural activity analysis, and correlation analysis. 
+
+Key strengths:
+- Clear introduction to the dataset
+- Effective demonstration of data access
+- Multiple visualization techniques for raw data and ROIs
+- Neural activity analysis using fluorescence and event amplitude data
+
+Key weaknesses:
+- Variable references in markdown that reduce self-containment
+- Limited ROI mask visualization (not utilizing full 3D structure)
+- Significant issues with correlation analysis (NaN values not handled properly)
+- Some misleading conclusions that don't align with visualization results
+
+The notebook is generally well-structured and informative, but contains flaws in the correlation analysis section that lead to incorrect conclusions. The data loading, visualization, and basic analysis sections remain valuable.
+
+Rank 4: 2025-04-15-claude-3.7-sonnet-prompt-b-3
+This notebook introduces Dandiset 001174 containing calcium imaging data from macaque motor cortices. It demonstrates how to access the data using the DANDI API, and includes two main visualizations: a grayscale image of the first frame and a line plot showing mean event amplitude across different units.
+
+Key strengths:
+- Clear introduction to the dataset and experimental context
+- Successful demonstration of DANDI API usage
+- Basic visualization of imaging data and event amplitudes
+
+Key weaknesses:
+- Very minimal visualization (only two plots)
+- Basic image visualization without processing to reveal structures
+- Lack of context for event amplitude analysis (no definition of units)
+- Direct URL use instead of programmatic determination
+- Limited analysis depth compared to other notebooks
+
+This notebook successfully introduces the Dandiset and demonstrates basic data access, but is much more limited in scope and visualization compared to the other notebooks. It provides only the most fundamental introduction to the data.
+
+Rank 5: 2025-04-15-gpt-4o-prompt-b-3
+This notebook provides a structured introduction to Dandiset 001174, showing how to access calcium imaging data using the DANDI API. It includes minimal visualizations - just a grayscale image and a line plot of mean event amplitude.
+
+Key strengths:
+- Clear introduction and roadmap
+- Successfully demonstrates DANDI API access
+- Shows basic data loading and visualization
+
+Key weaknesses:
+- Very limited visualization (only two simple plots)
+- Basic image visualization without enhancement
+- Lack of context for event amplitude analysis
+- Less robust code patterns
+- Significantly less comprehensive than other notebooks
+
+This notebook provides only the most basic introduction to the Dandiset with minimal visualization and analysis. While it successfully demonstrates data access, it offers the least comprehensive exploration among the notebooks evaluated.
 
