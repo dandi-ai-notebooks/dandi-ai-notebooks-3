@@ -1,0 +1,87 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell is a markdown cell that introduces the notebook, providing context about the Dandiset it explores (001333, "Parkinson's Electrophysiological Signal Dataset (PESD)"). It states the notebook's purpose: to demonstrate loading, examining metadata, exploring, and visualizing data from the Dandiset. It also lists the required Python packages and mentions the use of the DANDI API. It includes a disclaimer about the AI-generated nature of the notebook and the need for caution, which is a responsible practice.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell uses the `dandi-api` client to connect to the DANDI archive and retrieve information about the Dandiset with ID "001333". It fetches the Dandiset's assets and prints the number of assets found and the paths of the first five assets. This allows the user to confirm that the connection to the DANDI archive is working and see a sample of the files contained in the Dandiset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell is a markdown cell that introduces the next step: loading a specific NWB file ("sub-healthy-simulated-beta_ses-1044_ecephys.nwb") using PyNWB and examining its metadata. This prepares the user for the subsequent code cell.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell uses `pynwb` and `h5py` to load a specific NWB file from the DANDI archive via its asset URL. It uses `remfile` to handle the remote file access. After loading the NWB file, it prints the session description and session start time, which are key metadata fields. The warning message about namespace versions is benign but should ideally be resolved for cleaner output.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell is a markdown cell that introduces the data visualization part. It states that the following code will plot data from the "Beta_Band_Voltage" electrical series within the LFP (Local Field Potential) data. It prepares the user for the subsequent plot-generating code.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell extracts data and timestamps from the "Beta_Band_Voltage" electrical series within the LFP data of the loaded NWB file. It then generates and displays a plot of voltage against time. The plot is labeled with a title, x-axis label ("Time (s)"), and y-axis label ("Voltage (V)"). Only the first 100 data points are plotted.
+
+IMAGE DESCRIPTIONS:
+The image is a line plot showing "Beta Band Voltage (Sample)" over time. The x-axis represents time in seconds, ranging from approximately 10.0 to 12.0. The y-axis represents voltage in Volts, ranging from approximately 0.0000 to 0.0001. The plot shows fluctuations in voltage over the sampled time period, exhibiting several peaks and troughs. The line is blue on a white background.
+
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell is a markdown cell that provides suggestions for future analysis, specifically focusing on analyzing beta oscillations as biomarkers for Parkinson's disease. It also suggests comparative studies between healthy and Parkinsonian subjects and further exploration of signal processing techniques. Finally, it concludes the notebook and recommends exploring other parts of the dataset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
