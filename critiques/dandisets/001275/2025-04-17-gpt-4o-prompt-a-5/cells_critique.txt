@@ -1,0 +1,179 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell is an introductory markdown cell for the notebook. It specifies the Dandiset being explored (001275), provides a title ("Mental Navigation in Primates"), and includes a disclaimer that the notebook was AI-generated and may contain unverified information. This sets the stage for the reader to approach the content with appropriate caution.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This markdown cell provides a concise overview of the Dandiset being examined. It lists the dataset name, a brief description of its content (neurophysiology data from primates performing a mental navigation task, with data from the entorhinal cortex), and a link to the dataset on Neurosift. It concludes with a short statement about the dataset's relevance to studying brain function during mental navigation.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This markdown cell outlines the intended structure and goals of the notebook: to load the Dandiset using the DANDI API, view the metadata of a selected NWB file within the set, and visualize selected data from that file. This provides a clear roadmap for the reader.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This markdown cell lists the Python packages required to run the code in the notebook. These include `dandi` for interacting with the DANDI Archive, `pynwb` for working with NWB files, `h5py` for reading HDF5 files (which NWB files are based on), `remfile` for handling remote files, and `matplotlib` for data visualization.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell uses the `dandi` package to connect to the DANDI Archive and retrieve the specified Dandiset (001275). It then lists the assets (files) within the Dandiset, printing the first five asset paths.
+
+INPUT-CODE:
+```python
+from dandi.dandiapi import DandiAPIClient
+
+# Connect to DANDI archive
+client = DandiAPIClient()
+dandiset = client.get_dandiset("001275")
+assets = list(dandiset.get_assets())
+
+print(f"Found {len(assets)} assets in the dataset")
+print("\nFirst 5 assets:")
+for asset in assets[:5]:
+    print(f"- {asset.path}")
+```
+
+OUTPUT-TEXT:
+```
+Found 4 assets in the dataset
+
+First 5 assets:
+- sub-PPC_ses-20170317T142831_behavior+ecephys.nwb
+- sub-PPC_ses-20170317T171337_behavior+ecephys.nwb
+- sub-PPC_ses-20170318T142914_behavior+ecephys.nwb
+- sub-PPC_ses-20170318T170151_behavior+ecephys.nwb
+```
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell uses `pynwb`, `h5py`, and `remfile` to load a specific NWB file from the DANDI Archive, identified by its URL. It then extracts and prints metadata from the loaded NWB file, including the session description, identifier, session ID, and session start time.
+
+INPUT-CODE:
+```python
+import pynwb
+import h5py
+import remfile
+
+# Specify the file URL
+url = "https://api.dandiarchive.org/api/assets/b0bbeb4c-5e0d-4050-a993-798173797d94/download/"
+
+# Load the NWB file
+remote_file = remfile.File(url)
+h5_file = h5py.File(remote_file)
+io = pynwb.NWBHDF5IO(file=h5_file, mode='r')
+nwb = io.read()
+
+# Display metadata
+print(nwb.session_description)
+print(nwb.identifier)
+print(nwb.session_id)
+print(nwb.session_start_time)
+```
+
+OUTPUT-TEXT:
+```
+Two monkeys (Macaca mulatta) performed a mental navigation task. Each session was recorded with 64-channel laminar electrodes targeting the medial entorhinal cortex. During this task, monkeys had to mentally navigate to a previously seen target location by integrating self-motion cues.
+b0bbeb4c-5e0d-4050-a993-798173797d94
+20170317T142831
+2017-03-17 14:28:31-05:00
+```
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell visualizes eye position data from the loaded NWB file. It accesses the "eye_position" data interface within the "behavior" processing module, extracts the timestamps and position data, and plots the X and Y positions over time (the first 1000 samples). The plot includes labels for the axes, a title, and a legend.
+
+INPUT-CODE:
+```python
+import matplotlib.pyplot as plt
+
+# Access eye position data
+eye_position = nwb.processing["behavior"].data_interfaces["eye_position"]
+
+# Plot eye position over time
+plt.figure(figsize=(10, 4))
+plt.plot(eye_position.timestamps[0:1000], eye_position.data[0:1000, 0], label="X position")
+plt.plot(eye_position.timestamps[0:1000], eye_position.data[0:1000, 1], label="Y position")
+plt.xlabel("Time (s)")
+plt.ylabel("Position (m)")
+plt.title("Eye Position Over Time")
+plt.legend()
+plt.show()
+```
+
+OUTPUT-IMAGE:
+File: cell_7_output_0.png
+```
+A line plot titled "Eye Position Over Time" shows the X and Y eye positions over time. The x-axis is labeled "Time (s)" and spans approximately 0 to 70. The y-axis is labeled "Position (m)". The plot contains two lines: one for the X position (blue) and one for the Y position (orange). Both lines exhibit fluctuations within a relatively narrow range. The legend in the upper right corner identifies the blue line as "X position" and the orange line as "Y position".
+```
+
+ISSUES:
+None
+
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell provides a concluding summary of the notebook's content. It reiterates the purpose (exploring Dandiset 001275), the steps taken (loading data with the DANDI API and visualizing eye position), and suggests potential avenues for further analysis, such as exploring behavioral patterns or electrophysiological data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+

@@ -1,0 +1,271 @@
+Cell 1
+==========
+
+OVERVIEW: This cell serves as the title of the Jupyter notebook, introducing the specific Dandiset (001275) that will be explored: "Mental Navigation in Primates." It sets the context for the subsequent analysis.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+
+Cell 2
+==========
+
+OVERVIEW: The cell provides a disclaimer, stating that the notebook was AI-generated and may contain errors. It advises readers to exercise caution when interpreting the code and results. This is important for ensuring proper understanding and preventing potential misinterpretations of the analysis.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+
+Cell 3
+==========
+
+OVERVIEW: This cell provides a high-level overview of Dandiset 001275, including a brief description of the data (neurophysiology data from primates performing a mental navigation task) and a link to the associated publication. It also provides a link to the Dandiset in Neurosift. Finally, it states the purpose of the notebook—to guide the user through loading and visualizing data from the Dandiset.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 4
+==========
+
+OVERVIEW: This cell outlines the topics that will be covered in the notebook: loading the Dandiset using the `dandi` API, loading an NWB file, exploring and visualizing eye/hand position data, and examining trial data. This provides a clear roadmap for the user.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 5
+==========
+
+OVERVIEW: This cell lists the Python packages required to run the notebook. This is helpful for the user to set up their environment before running the code.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 6
+==========
+
+OVERVIEW: This cell imports the necessary Python packages that were outlined in the previous cell.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 7
+==========
+
+OVERVIEW: This cell introduces the next step in the analysis: loading the Dandiset using the DANDI API.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 8
+==========
+
+OVERVIEW: This cell uses the `dandi` API to connect to Dandiset 001275 and retrieves a list of assets (files) within the Dandiset. It then prints the number of assets found and the paths of the first five assets. This confirms that the connection to the Dandiset is successful and provides the user with a glimpse of the available data.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 9
+==========
+
+OVERVIEW: This cell indicates that a specific NWB file, `sub-amadeus/sub-amadeus_ses-01042020_behavior+ecephys.nwb`, will be loaded and used for demonstration. It provides the full asset path and the reason for choosing this file (smaller size). It also provides the direct download URL for the asset. This cell sets the stage for the subsequent data exploration.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 10
+==========
+
+OVERVIEW: This cell loads the NWB file specified in the previous cell using `remfile` and `pynwb`. It then prints the NWB file object, displaying its metadata, such as session information, subject details, and available data fields. This confirms successful loading of the NWB file and provides a summary of its contents.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 11
+==========
+
+OVERVIEW: This cell introduces the section of the notebook dedicated to exploring the loaded NWB file's metadata.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 12
+==========
+
+OVERVIEW: This cell accesses and prints the `session_description` attribute of the NWB file. This provides a textual description of the experiment.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 13
+==========
+
+OVERVIEW: This cell accesses and prints the `identifier` attribute of the NWB file, which is a unique identifier for the session.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 14
+==========
+
+OVERVIEW: This cell accesses and prints the `session_start_time` attribute of the NWB file, indicating the start time of the experimental session.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 15
+==========
+
+OVERVIEW: This cell introduces the section on exploring behavior data, specifically eye position, and indicates that loading and visualization will be performed.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 16
+==========
+
+OVERVIEW: This cell extracts the `eye_position` data and corresponding timestamps from the NWB file. It accesses the data through the `processing` module, specifically the "behavior" processing module, within that the "eye_position" data interface. The `.data` and `.timestamps` attributes are stored in `eye_position_data` and `eye_position_timestamps`, respectively.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 17
+==========
+
+OVERVIEW: This cell plots the first 10 seconds of eye position data (X and Y coordinates) against time. The `duration` and `sample_rate` variables are used to calculate the number of samples to plot. This provides a visualization of the eye movements during the initial period of the experiment.
+
+IMAGE DESCRIPTIONS:
+The plot shows two lines representing the X and Y components of the eye position data over time. The x-axis is labeled "Time (s)" and the y-axis is labeled "Eye Position (meters)." The blue line represents the "Eye Position X" and the orange line represents the "Eye Position Y." Both lines exhibit a generally decreasing trend from left to right, followed by an increasing trend and some sharp fluctuations at the end. The title of the plot is "Eye Position Data." The x-axis values appear to start around 7.043e5 + 10.
+
+ISSUES:
+1. The `sample_rate` is defined as 100 samples per second, but this is not actually used to calculate the subset of timestamps, so the timestamps are not aligned with the data.
+2. The values on the x-axis are very large. The offsets from the `session_start_time` should be added to the timestamps before plotting.
+3. The y-axis is labeled "Eye Position (meters)," but it's unlikely the eye position would be on the order of meters. This is likely some arbitrary unit. The units, if known, should be included in the NWB file and displayed in the plot.
+
+Cell 18
+==========
+
+OVERVIEW: This cell provides a brief description of the plot generated in the previous cell.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None. This description is accurate, but could mention the issues noted in the previous cell, e.g. that the y-axis units are arbitrary.
+
+Cell 19
+==========
+
+OVERVIEW: This cell introduces the section on exploring behavior data, specifically hand position, and indicates that loading and visualization will be performed.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 20
+==========
+
+OVERVIEW: This cell extracts the `hand_position` data and corresponding timestamps from the NWB file, similar to how the eye position data was extracted earlier. It accesses the data through the same `processing` module ("behavior"), but this time retrieves the "hand_position" data interface.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 21
+==========
+
+OVERVIEW: This cell plots the first 10 seconds of hand position data against time. The `duration` and `sample_rate` variables are used to calculate the number of samples to plot. This visualization shows the hand movement during the initial portion of the experiment.
+
+IMAGE DESCRIPTIONS:
+The plot displays a single blue line representing "Hand Position" over time. The x-axis is labeled "Time (s)" and the y-axis is labeled "Hand Position (voltage)." The hand position is relatively constant at approximately 2.4 until near the end of the x-axis range where it sharply increases to a value of approximately 3.2. The x-axis values look similar to the previous plot, again starting around 7.043e5 + 10. The title of the plot is "Hand Position Data."
+
+ISSUES:
+1.  As with the previous plot, the timestamps are not properly aligned as the `sample_rate` is not used to refine them after they are read.
+2.  The values on the x-axis are very large. The offsets from the `session_start_time` should be added to the timestamps before plotting.
+3.  The y-axis is labeled "Hand Position (voltage)." While voltage could be a unit, it is more likely that the data represents the physical hand position and is represented as a voltage reading from some device. The units, if known, should be included in the NWB file and displayed in the plot.
+
+Cell 22
+==========
+
+OVERVIEW: This cell provides a brief description of the plot generated in the previous cell.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: As with the previous description, it is accurate, but could point out the issues with the plot, such as the odd x-axis and the `voltage` unit.
+
+Cell 23
+==========
+
+OVERVIEW: This cell introduces the section on exploring the trial data stored in the `trials` table of the NWB file.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 24
+==========
+
+OVERVIEW: This cell converts the `trials` table in the NWB file to a Pandas DataFrame and displays the first five rows using the `.head()` method. This allows for easy inspection of the trial data, showing information like start and stop times, target locations, reaction times, and other trial-related variables.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 25
+==========
+
+OVERVIEW: This cell provides a brief description of the output from the previous cell.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 26
+==========
+
+OVERVIEW: This cell introduces the exploration of electrophysiology (ecephys) data, beginning with the `units` table.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 27
+==========
+
+OVERVIEW: This cell extracts the `units` data interface from the "ecephys" processing module. It then converts it to a Pandas DataFrame and displays the first five rows. This presents information about each recorded unit, such as spike times, amplitude, channel, contamination percentage, depth, and quality.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 28
+==========
+
+OVERVIEW: Empty cell, likely for spacing or readability.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 29
+==========
+
+OVERVIEW: This cell summarizes the notebook's contents and suggests potential future analysis directions, such as investigating the relationship between eye and hand position, exploring the neural activity, and analyzing task performance based on trial data.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+

@@ -1,0 +1,694 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell contains a title for the notebook, "Exploring Dandiset 001275: Mental Navigation in Primate Posterior Parietal Cortex." It sets the stage for the notebook's purpose, which is to explore the specified Dandiset from the DANDI Archive focusing on mental navigation in primates.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell contains a warning message indicating that the notebook was AI-generated and may contain errors. It advises caution in interpreting the code and results and suggests manual verification. This is important for the user to bear in mind the limitations of the notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell provides an overview of Dandiset 001275. It specifies that the dataset contains neural recordings from two macaques during a mental navigation task. It mentions the focus of the study being neural mechanisms of spatial representation in the posterior parietal cortex (PPC), and links to the Dandiset on Neurosift and a related dataset. The overview accurately and concisely sets the context for the notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell introduces the need for specifying the required packages for the notebook. It serves as a prelude to listing the necessary libraries for running the code.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell imports the required Python packages for the notebook. It imports `pynwb` and `h5py` for working with NWB files and HDF5 files, `remfile` for remote file access, `numpy` for numerical operations, `matplotlib.pyplot` for plotting, `pandas` for data manipulation, and `seaborn` for enhanced visualizations. It also sets the plotting style using `sns.set_theme()`.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell introduces the process of loading the Dandiset using the DANDI API. It sets the stage for the subsequent code that will download and access the data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell uses the `dandi.dandiapi` library to connect to the DANDI archive and retrieve the specified Dandiset (001275). It then lists the available assets (NWB files) within the Dandiset. The output shows the number of assets found and prints the paths of the first 5 assets.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell describes the structure of the assets in the Dandiset. It identifies two subjects, Amadeus and Mahler, and explains that each session has `behavior+ecephys.nwb` (behavioral and preprocessed neural data) and `ecephys.nwb` (raw electrophysiological recordings) files. It indicates the notebook will focus on the `behavior+ecephys.nwb` files to keep the analysis focused and manageable.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell introduces loading and exploring one of the NWB files, specifically focusing on a `behavior+ecephys.nwb` from subject "Amadeus".
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell loads a specified NWB file from the DANDI archive using its asset ID. It constructs the download URL, uses `remfile` and `h5py` to stream the file, and then opens it with `pynwb`. A warning message related to name space versions is printed.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+- The warning message about namespace version conflicts may indicate a potential problem with the `hdmf` or `pynwb` installation. While it doesn't necessarily break the code here, it's worth noting for further debugging or environment setup.
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell introduces the examination of the loaded NWB file's metadata.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell prints metadata attributes of the loaded NWB file, including session ID, subject ID, species, sex, age, session date, a truncated session description, lab, and institution. This provides basic information about the experiment and the recorded subject.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell provides a concise description of the mental navigation task performed by the subjects. It outlines the task's core elements, including navigation from start to target landmarks and the three trial types (NTS, periphery occluded, and MNAV).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 14
+==========
+
+OVERVIEW:
+This cell sets the stage for exploring behavioral data related to the mental navigation task.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 15
+==========
+
+OVERVIEW:
+This cell retrieves the trial information from the NWB file and converts it into a pandas DataFrame. It then prints the number of trials and lists the column names in the DataFrame, providing an overview of the available trial data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 16
+==========
+
+OVERVIEW:
+This cell indicates the intention to examine the distribution of trial types.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 17
+==========
+
+OVERVIEW:
+This cell analyzes the distribution of trial types present in the dataset. It counts the occurrences of each trial type using `value_counts()` on the 'trial_type' column of the `trials_df` DataFrame. It prints these counts, then plots the distribution as a bar chart. The x-axis of the bar chart displays the trial types (1.0 and 3.0), and the y-axis shows the count for each trial type. The plot is titled "Distribution of Trial Types," and the x- and y-axes are labeled "Trial Type" and "Count," respectively. Trial type 3 (MNAV) is significantly more frequent than trial type 1 (NTS).
+
+IMAGE DESCRIPTIONS:
+The plot is a bar chart that visualizes the distribution of trial types. The x-axis represents the trial type (1.0 and 3.0), and the y-axis shows the number of trials for each type. The bar representing trial type 3.0 is significantly higher than the bar representing trial type 1.0. The plot has a title "Distribution of Trial Types" and labels for the x and y axes.
+
+ISSUES:
+None
+
+Cell 18
+==========
+
+OVERVIEW:
+This cell sets the stage for analyzing the success rate of the subject based on different trial types.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 19
+==========
+
+OVERVIEW:
+This cell calculates and visualizes the success rate of the subject for each trial type. It groups the trials DataFrame by "trial_type" and calculates the mean of the "succ" (success) column for each trial type. The resulting success rates are printed. A bar plot is generated, showing the success rate for each trial type. The x-axis labels are updated to display descriptive names for the trial types ("Type 1: Map Visible" and "Type 3: Fully Occluded"). The y-axis is set to a range of 0 to 1 to represent success rate. The plot's title is "Success Rate by Trial Type," and the axes are appropriately labeled. The plot makes it clear that the success rate is higher when the map is visible compared to when it's fully occluded.
+
+IMAGE DESCRIPTIONS:
+The image is a bar plot titled "Success Rate by Trial Type". The x-axis displays the two trial types: "Type 1: Map Visible" and "Type 3: Fully Occluded". The y-axis shows the success rate, ranging from 0 to 1. The bar for "Type 1: Map Visible" is taller than the bar for "Type 3: Fully Occluded," indicating a higher success rate for trials where the map is visible.
+
+ISSUES:
+None
+
+Cell 20
+==========
+
+OVERVIEW:
+This cell provides an interpretation of the results from the previous cell, noting that the success rate is significantly higher for Type 1 trials (map visible) compared to Type 3 trials (fully occluded). It explains that this difference is expected, as fully occluded trials require greater mental effort and spatial memory.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 21
+==========
+
+OVERVIEW:
+This cell introduces the analysis of response times for different trial types.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 22
+==========
+
+OVERVIEW:
+This cell analyzes and visualizes the distribution of response times (RT) for different trial types. First, it prints descriptive statistics for the overall response times. Then, it generates a histogram of RTs for each trial type on the same plot, focusing on the range of 0-2 seconds and using transparent colors for better visibility.
+
+IMAGE DESCRIPTIONS:
+The image is a histogram displaying the distribution of response times (RTs) for trial types 1 and 3. The x-axis represents the response time in seconds, ranging from 0 to 2. The y-axis represents the count or frequency of trials for each response time bin. Type 1 trials (map visible) are shown in blue and Type 3 trials (fully occluded) are shown in orange. The plot shows that most of the response times fall within the 0-1 second range, and that Type 3 trials appear to have slightly higher response times although there is a considerable overlap between the two distributions.
+
+ISSUES:
+None
+
+Cell 23
+==========
+
+OVERVIEW:
+This cell interprets the response time distribution, noting that most responses occur within 0.5-1.0 seconds and that the distribution differs between trial types, with Type 3 having a different pattern from Type 1, likely with a longer tail.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 24
+==========
+
+OVERVIEW:
+This cell sets the purpose of exploring the relationship between response time and trial success.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 25
+==========
+
+OVERVIEW:
+This cell calculates and plots response time (RT) distributions conditioned on trial success. It first prints descriptive statistics of RTs for successful and failed trials. It generates a histogram showing the RT distribution for successful trials in blue and failed trials in orange. The x-axis represents the response time in seconds, limited to a range of 0-2 seconds, and the y-axis represents the count of trials in each time bin.
+
+IMAGE DESCRIPTIONS:
+The image is a histogram showing the distribution of response times for successful and failed trials. Response times are displayed on the x-axis (from 0 to 2 seconds), and the count of trials is displayed on the y-axis. Successful trials are represented in blue, and failed trials are represented in orange. The plot indicates that successful trials tend to cluster at faster responses (0-0.75 seconds), while failures are more distributed and are heavier tailed.
+
+ISSUES:
+None
+
+Cell 26
+==========
+
+OVERVIEW:
+This cell provides an interpretation of the relationship between response time and success, noting that successful trials tend to have shorter response times compared to unsuccessful trials. This suggests that faster responses are associated with increased confidence or accuracy in the mental navigation task.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 27
+==========
+
+OVERVIEW:
+This cell introduces the analysis of how accurately the subject reproduces the target vector, which is a key aspect of the mental navigation task.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 28
+==========
+
+OVERVIEW:
+This cell analyzes the relationship between the actual vector (`ta`) and the produced vector (`tp`). It starts by printing descriptive statistics for both vectors. Then, it filters the data to exclude outliers based on `tp` values. This is followed by plotting the actual vector against the produced vector for different trial types (1 and 3), and it includes a black dashed line representing a "perfect match" (where the produced vector equals the actual vector).
+
+IMAGE DESCRIPTIONS:
+The image is a scatter plot that compares the "Actual Vector" (ta) against the "Produced Vector" (tp). The x-axis represents the Actual Vector (in seconds), and the y-axis represents the Produced Vector (in seconds). Data points are color-coded by trial type: Type 1 is shown in blue, and Type 3 is shown in orange. A black dashed line represents a "perfect match" where the produced vector equals the actual vector. The data points are clustered vertically and the plot suggests a weak correlation between the actual and produced vectors.
+
+ISSUES:
+- The filtering of produced vector `tp` `reasonable_tp_mask = trials_df['tp'].abs() < 10` is somewhat arbitrary and should be justified. The value 10 is not motivated by any specific aspect of the data or the task.
+- The plot reveals vertical bands of data points, and this pattern is not explained or examined within the cell. It warrants further investigation.
+
+
+Cell 29
+==========
+
+OVERVIEW:
+This cell interprets the scatter plot of actual versus produced vectors, stating there is a positive correlation, which suggests the subject makes sensible responses. It also points out the greater variability for Type 3 trials compared to Type 1 trials, implying that mental navigation is less precise when the map is fully occluded.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 30
+==========
+
+OVERVIEW:
+This cell sets the stage for analyzing the errors made in vector reproduction by the subject.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 31
+==========
+
+OVERVIEW:
+This cell calculates the error and absolute error between the produced and actual vectors. Descriptive statistics are calculated for the error. Absolute error is then analyzed according to trial success, printing descriptive statistics. Finally, the distribution of absolute error is plotted for different trial types.
+
+IMAGE DESCRIPTIONS:
+The image is a histogram that shows the distribution of absolute error for different trial types (1 and 3). The x-axis represents the absolute error (in seconds), and the y-axis represents the count of trials. Type 1 trials are in blue, while Type 3 trials are in orange. The plot shows that Type 3 (fully occluded) trials tend to have higher absolute errors than Type 1 (map visible) trials, with the majority of errors clustered near zero, but with a longer tail indicating more large error values for the Type 3 condition.
+
+ISSUES:
+- The code generates a `SettingWithCopyWarning` when creating the `error` and `abs_error` columns in the `filtered_df` DataFrame. While the operations might work as intended, it's best practice to avoid this warning by using `.loc` when adding new columns to a DataFrame. The code should be changed to:
+`filtered_df.loc[:, 'error'] = filtered_df['tp'] - filtered_df['ta']`
+`filtered_df.loc[:, 'abs_error'] = filtered_df['error'].abs()`
+
+Cell 32
+==========
+
+OVERVIEW:
+This cell interprets results from the previous cell. Successful trials show lower absolute errors than unsuccessful trials. Type 1 trials have lower errors compared to Type 3 trials indicating the benefits of visual information on performance.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 33
+==========
+
+OVERVIEW:
+This cell introduces the analysis of start and target landmark combinations to gain insight into the task structure.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 34
+==========
+
+OVERVIEW:
+This cell explores the combinations of start and target landmarks in the experiment. It prints value counts for `curr` and `target` columns, showing the number of trials starting at each landmark and ending at each target. It then generates a cross-tabulation of start and target landmarks using `groupby` and `unstack`, creating a matrix showing the number of trials for each start-target combination. This matrix is then visualized as a heatmap, where the color intensity represents the number of trials for each combination; yellow is low and dark blue is high.
+
+IMAGE DESCRIPTIONS:
+The image is a heatmap that visualizes the number of trials for each combination of start and target landmarks. The x-axis represents the target landmarks (1.0 to 6.0), and the y-axis represents the start landmarks (1.0 to 6.0). The cells are color-coded, with darker blue colors indicating a higher number of trials and lighter colors indicating a lower number of trials. The diagonal elements are all zero. Target landmark 6.0, is reached often when staring at other landmarks like 1.0 and 2.0.
+
+ISSUES:
+None
+
+Cell 35
+==========
+
+OVERVIEW:
+This cell interprets the heatmap of landmark transitions. It correctly observes that the diagonal is zero, meaning the start and target landmarks are never the same. The cell also states the the distribution is relatively balanced across landmark combinations, which is somewhat accurate but could also be more nuanced, as certain combinations appear more frequently than others.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 36
+==========
+
+OVERVIEW:
+This cell introduces the neural data exploration part of the notebook, mentioning that the dataset includes spike times from units in the posterior parietal cortex.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 37
+==========
+
+OVERVIEW:
+This cell retrieves the units data from the NWB file, converts it to a pandas DataFrame, and prints some basic information, including the number of units and the column names in the DataFrame.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 38
+==========
+
+OVERVIEW:
+This cell sets the goal to examine the distribution of unit qualities.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 39
+==========
+
+OVERVIEW:
+This cell analyzes the distribution of unit qualities. It counts the occurrences of each quality label ("good", "noise", "mua", "unsorted") present in the 'quality' column of the `units_df` DataFrame and prints these counts. It then generates a bar plot displaying this distribution, with the x-axis representing the quality labels and the y-axis representing the count of units for each label.
+
+IMAGE DESCRIPTIONS:
+The image is a bar plot showing the unit quality counts. The x-axis represents the quality labels ("good", "noise", "mua", "unsorted"), and the y-axis represents the number of units for each quality. The bars show that there are more "good" quality units as compared to "noise", "mua", and "unsorted".
+
+ISSUES:
+None
+
+Cell 40
+==========
+
+OVERVIEW:
+This cell provides an interpretation of the unit quality distribution. It notes the number of "good", "MUA", and "noise" units and states that subsequent analysis will focus on "good" units.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 41
+==========
+
+OVERVIEW:
+This cell sets the stage for analyzing the firing rates of the recorded units.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 42
+==========
+
+OVERVIEW:
+This cell analyzes the firing rates of the recorded units. It begins by printing descriptive statistics for the number of spikes per unit. Subsequently, it generates a histogram visualizing the distribution of firing rates across all units.
+
+IMAGE DESCRIPTIONS:
+The image is a histogram showing the distribution of firing rates. The x-axis shows the firing rate in Hz, and the y-axis depicts the count of units. The distribution is heavily skewed towards lower firing rates; many units have low firing rates (<1Hz). The plot is titled "Distribution of Firing Rates," with labeled axes and a grid.
+
+ISSUES:
+None
+
+Cell 43
+==========
+
+OVERVIEW:
+This cell interprets the firing rate distribution, noting that most units have low firing rates, which aligns with typical cortical neuron activity. It also correctly points out the presence of a wide range of firing rates, including some units firing at substantially higher rates.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 44
+==========
+
+OVERVIEW:
+This cell explores firing rate distributions based on unit quality. It creates a histogram of firing rates for each unit quality category ("good", "noise", "mua", "unsorted"). This visualization helps understand if there are differences in firing rate distributions based on unit sorting quality.
+
+IMAGE DESCRIPTIONS:
+The image is a histogram depicting firing rate distributions for units categorized by quality. Firing rate (Hz) is on the x-axis, and the count of units is on the y-axis. Separate histograms are overlaid for each neuronal unit quality category: "good" (blue), "noise" (orange), "mua" (green), and "unsorted" (red). There's a concentration of "noise" units at very low firing rate. The better quality units are spread out through the firing rates.
+
+ISSUES:
+None
+
+Cell 45
+==========
+
+OVERVIEW:
+This cell interprets the relationship between unit quality and firing rate, noting that "good" units generally have higher firing rates, whereas "noise" units exhibit lower firing rates. This is a reasonable observation, supported by the previous plot.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 46
+==========
+
+OVERVIEW:
+This cell introduces the analysis of the electrodes used in the recording.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 47
+==========
+
+OVERVIEW:
+This cell retrieves and explores the electrode information stored in the NWB file. First, it prints the number of electrodes and lists the column names in the electrode table. Then, it converts the electrode table to a pandas DataFrame and prints the first 5 rows to show sample electrode data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 48
+==========
+
+OVERVIEW:
+This cell introduces the analysis of how firing rates are related to the depth of the electrode.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 49
+==========
+
+OVERVIEW:
+This cell creates a scatter plot that visualizes the relationship between firing rate and electrode depth, separated by by unit quality.
+
+IMAGE DESCRIPTIONS:
+The image is a scatter plot showing the relationship between neuronal firing rate and recording depth, color-coded by unit quality. Depth is plotted on the x-axis and firing rate (Hz) is on the y-axis. The different unit qualities are color-coded: "good" (blue), "noise" (orange), "mua" (green), and "unsorted" (red). The plot shows no obvious relationship between recording depth and firing rate, just some units deeper in the brain.
+
+ISSUES:
+None
+
+Cell 50
+==========
+
+OVERVIEW:
+This cell attempts to interpret the relationship between firing rate and depth based on the generated scatter plot. It suggests that "good" units tend to have higher firing rates, especially at intermediate depths, though it is a weak trend and could be misleading.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The interpretation that "Good units (blue) tend to show higher firing rates, particularly at intermediate depths" is not well supported by the plot. While it may be true, the scatter plot does not present a convincing case for this observation. The small number of points and their scattered nature make it difficult to draw any firm conclusions. Caution should be exercised in drawing conclusions based on this plot.
+
+Cell 51
+==========
+
+OVERVIEW:
+This cell introduces the core goal of relating neural activity to behavior by comparing neural activity between successful and unsuccessful trials.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 52
+==========
+
+OVERVIEW:
+This cell sets the stage for computing the average firing rates of units during successful and unsuccessful trials.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 53
+==========
+
+OVERVIEW:
+Since the actual analysis requires aligning spike times with trial timings which is beyond the scope, this cell simulates a dataframe of firing rates per unit for different trial outcomes. The simulation assumes slightly higher firing rates for successful trials compared to failure trials. Based on the "good" units, the simulation generates a firing rate for successful and failed trials with random noise added to the original firing rate. Finally, it plots a scatter of firing rates for success trials vs. failure trials with a identity line (equal rates) plotted for reference.
+
+IMAGE DESCRIPTIONS:
+The image is a scatter plot showing simulated firing rates in successful versus failure trials. The firing rate during successful trials (Hz) is plotted on the x-axis, and the firing rate during failure trials (Hz) is plotted on the y-axis. Each point on the scatter plot represents a single unit. A dashed black line, labeled "Equal Rates," represents the points where the firing rate is identical in both successful and failure trials. points are closely aligned with the line indicating that the rate is very similar on average. Also, the distribution of points indicates a positive correlation between firing rates in success and failure trials.
+
+ISSUES:
+- This cell is limited because it is based on simulated data. The notebook explicitly states that it's a simulated analysis due to not having direct access to spike times aligned with trial timings. This acknowledged limitation reduces the cell's impact but it is necessary given the constraints.
+- The simulation assumes a fixed pattern of slightly increased firing rate for successful trials.
+
+
+
+Cell 54
+==========
+
+OVERVIEW:
+This cell provides a crucial disclaimer that the analysis presented is based on simulated data and would require real spike time alignment for accurate results. Based on simulated data, the plot suggests neurons might have higher firing rates during successful trials versus unsuccessful ones. This might indicate strong neural representation contributes to better performance in the task.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 55
+==========
+
+OVERVIEW:
+This cell summarizes the findings from the notebook's exploration of Dandiset 001275, covering both behavioral and neural datasets. It recaps the task, performance metrics, basic neural features, and the simulated behavioral-neural relationship. It also proposes several future directions for researchers interested in further exploring the dataset, such as aligning spike times, calculating PSTHs, identifying neural correlates, performing population dynamics, and investigating learning.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 56
+==========
+
+OVERVIEW:
+This concluding cell emphasizes the valuable insights offered by the Dandiset for understanding neural mechanisms of mental navigation in PPC, and connects it to related studies on entorhinal cortex for the same task.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 57
+==========
+
+OVERVIEW:
+This cell closes the files that were opened in the notebook to release resources. It closes the `pynwb.NWBHDF5IO` object (`io`), the `h5py.File` object (`h5_file`), and the `remfile.File` object (`remote_file`).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+

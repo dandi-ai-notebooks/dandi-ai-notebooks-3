@@ -1,0 +1,90 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell is an introductory Markdown cell. It provides a brief overview of the notebook's purpose: exploring Dandiset 001275, which contains neurophysiology data from primates performing a mental navigation task. It also acknowledges the AI-generated nature of the notebook and encourages caution. It links to the Dandiset on NeuroSift and summarizes the notebook's focus on behavioral data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell lists the Python packages required to run the notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell introduces the next step: loading the Dandiset. It sets the stage for the following code cells that will handle the actual loading process.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell uses the `dandi` library to connect to the DANDI archive and retrieve the specified Dandiset ("001275"). It then lists the first five assets (NWB files) within the Dandiset, showing their file paths. This provides a quick overview of the data organization within the Dandiset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell introduces the next section, which focuses on loading and exploring a specific NWB file from the Dandiset, specifically examining the behavioral data related to eye and hand positions.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell loads a specific NWB file from a remote URL using `remfile` and `pynwb`. It then extracts and visualizes eye and hand position data over time.  The code imports necessary libraries, defines the URL of the NWB file, opens the file using `remfile` and `h5py`, and reads the NWB file using `pynwb`.  It then extracts `eye_position` and `hand_position` data and their associated timestamps. Finally, it creates two plots: one for eye position (horizontal and vertical components) and one for hand position. The plots show the position data versus time.
+
+IMAGE DESCRIPTIONS:
+The first image is a line plot showing "Eye Position Over Time." The x-axis is labeled "Time (s)" and covers a time range of approximately 259830 to 259900. The y-axis is labeled "Position (meters)". There are two lines plotted: a blue line labeled "Horizontal Position" and an orange line labeled "Vertical Position." The horizontal position starts around 5 meters and ends close to 0, showing some fluctuations. The vertical position starts around 2 meters, dips to around -7 meters, and then varies wildly towards the end, moving as low as -25 meters. There are grid lines in the background, making it easier to trace the data.
+
+The second image is a line plot showing "Hand Position Over Time." The x-axis is labeled "Time (s)" and covers a time range of approximately 259830 to 259900. The y-axis is labeled "Position (voltage)". There is one line plotted, showing the hand position. It starts around 2.5 voltage, then rises quickly around time 259890 to about 5, and fluctuates rapidly between 0 and 2.5 at the end. There are grid lines in the background.
+
+ISSUES:
+The y-axis label for the hand position plot is "Position (voltage)", which implies that the hand position data might be represented as voltage. This may need further explanation in the markdown to clarify if the raw data is voltage and how it relates to position. Also, both the eye and hand position plots show only less than 100 seconds of data. It could be improved by showing a wider range to demonstrate more interesting patterns that might exist in the entire recording.
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell provides a brief summary of the analysis performed and suggests future directions for exploration. It encourages users to delve deeper into the data by analyzing trials, examining ecephys data (electrophysiology), or applying filtering techniques to improve data clarity.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+

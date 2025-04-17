@@ -1,0 +1,554 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell contains a title indicating the subject of the notebook: exploring Dandiset 001275, which concerns mental navigation in primate PPC (posterior parietal cortex). It sets the stage for the rest of the notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell contains a warning message indicating that the notebook was automatically generated and has not been fully verified. It advises caution when interpreting the code or results. This is important context for anyone using the notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell provides an overview of the Dandiset being explored (001275), including a brief description of the experiment (mental navigation in primates), a link to the original publication, and a link to Neurosift. It also outlines the steps that the notebook will cover.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell introduces the section listing the required packages for the notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell imports necessary Python libraries: `numpy` for numerical operations, `matplotlib.pyplot` for plotting, `pandas` for data manipulation, `h5py` for working with HDF5 files, `remfile` for remote file access, `pynwb` for working with NWB files, `dandi.dandiapi` for interacting with the DANDI API, and `seaborn` for enhanced visualizations. It also sets the seaborn theme.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell introduces the process of loading the Dandiset from the DANDI archive.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell connects to the DANDI archive using `DandiAPIClient`, retrieves the Dandiset with ID "001275", and lists the assets (files) within the Dandiset. It prints the number of assets found and displays the paths of the first five assets. This demonstrates how to access the dataset programmatically and get a sense of its file structure.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell indicates the focus on a specific NWB file containing behavior and electrophysiology data from subject Amadeus. This narrows the scope for further exploration.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell defines a URL for a specific NWB file in the DANDI archive (asset ID b0bbeb4c-5e0d-4050-a993-798173797d94). It then uses `remfile` and `h5py` to access the NWB file remotely, and `pynwb` to load the NWB file into a `nwb` object for further analysis. The warning message about the namespace versions can likely be ignored.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell extracts and prints basic metadata from the loaded NWB file, including the file identifier, subject ID, species, session ID, session start time, lab, institution, and session description. This provides a quick overview of the experimental setup and the data contained in the file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell introduces the upcoming section on understanding the experimental design, specifically the trial structure of the mental navigation task.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell extracts trial information from the NWB file using `nwb.trials.to_dataframe()` and stores it in a pandas DataFrame called `trials_df`. It then prints the total number of trials and displays the first few rows of the DataFrame using `trials_df.head()`. This allows the user to examine the structure of the trial data, including columns for start time, stop time, target positions, reaction time, delay, trial type, and other relevant variables.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell provides a dictionary explaining the numerical codes used for different trial types. It then iterates through the trial types, counts the number of trials for each type in `trials_df`, calculates the percentage of the total, and prints a summary showing the count and percentage for each trial type. This gives the user a clear understanding of the proportion of each trial type in the dataset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 14
+==========
+
+OVERVIEW:
+This cell creates two pie charts summarizing trial outcomes. The first pie chart shows the distribution of trial success rates, with slices representing "Failure" and "Success". The second pie chart shows the distribution of trial validity, with slices representing "Invalid" and "Valid" trials, based on GMM (Gaussian Mixture Model) classification. The `plt.tight_layout()` command ensures that the plots are well-spaced and do not overlap.
+
+IMAGE DESCRIPTIONS:
+The output image contains two pie charts side-by-side.
+
+The left pie chart, titled "Trial Success Rate", shows that approximately 61.4% of trials resulted in failure and 38.6% in success. The "Failure" slice is colored light red, and the "Success" slice is colored light blue.
+
+The right pie chart, titled "Valid Trials (GMM classification)", shows that approximately 64% of trials were classified as invalid, and 36% were classified as valid. The "Invalid" slice is colored light orange, and the "Valid" slice is colored light green.
+
+ISSUES:
+None
+
+Cell 15
+==========
+
+OVERVIEW:
+This cell introduces the visualization of eye and hand position data to explore the behavioral aspect of the experiment.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 16
+==========
+
+OVERVIEW:
+This cell extracts eye position data from the NWB file and samples a subset of the data to manage memory. It retrieves the `eye_position` data interface from the `behavior` processing module. It calculates a `step` size to sample approximately `sample_size` (100000) points, ensuring that the visualization is manageable without loading the entire dataset. It then extracts the sampled timestamps and eye positions and prints some information about the data like data shape, sampled points, conversion factor and reference frame.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 17
+==========
+
+OVERVIEW:
+This cell plots the sampled eye position data over time. It creates two subplots: one for the x-position and one for the y-position. Each subplot displays the eye position values against the corresponding timestamps, with appropriate labels, titles, and grid lines for clarity.
+
+IMAGE DESCRIPTIONS:
+The image contains two line plots stacked vertically.
+
+The top plot, titled "Eye X Position Over Time", shows the eye's horizontal (X) position as a function of time (in seconds). The x-axis ranges approximately from 704000 to 718000 seconds. The y-axis shows X position in meters, ranging from approximately -30 to 40 meters. The plot shows significant variation in the eye's horizontal position over time.
+
+The bottom plot, titled "Eye Y Position Over Time", shows the eye's vertical (Y) position as a function of time. The x-axis is the same as the top plot. The y-axis shows Y position in meters, ranging from approximately -20 to 50 meters. This plot also displays considerable variation, but differs in shape and magnitude from the X position data.
+
+Both plots utilize the seaborn styling, with a light-colored grid in the background.
+
+ISSUES:
+None
+
+Cell 18
+==========
+
+OVERVIEW:
+This cell creates two plots to visualize the 2D distribution of eye positions. The first plot is a scatter plot showing the raw eye position data. The alpha value is set low (0.01) and the size is set to 1 to reduce overplotting and show the density of points. The second plot is a hexbin plot, which provides a better visualization of the density of eye positions by dividing the space into hexagonal bins and coloring each bin based on the number of data points it contains. It also uses a colorbar to indicate the correspondence between color and count. Both plots have equal axes to represent the actual space.
+
+IMAGE DESCRIPTIONS:
+The first image is a scatter plot titled "Eye Position Heatmap". It shows the eye position data in the X-Y plane. The X and Y axes are labeled "X Position (meters)" and "Y Position (meters)" respectively. The plot consists of a cloud of points, mostly concentrated around the center, though very sparse, and difficult to see at all on the image, despite that there appear to be more samples in some regions than in others.
+
+The second image is a hexbin plot titled "Eye Position Density". It shows the density of eye positions using hexagonal bins. The X and Y axes are labelled "X Position (meters)" and "Y Position (meters)". The color of each hexagon corresponds to the number of data points falling within that bin, with colors ranging from dark purple (low density) to bright yellow (high density), as indicated by the colorbar on the right side of the plot. A high-density region of eye positions is clearly visible near the center of the plot, particularly in the region around (-5, 0).
+
+ISSUES:
+None
+
+Cell 19
+==========
+
+OVERVIEW:
+This cell extracts the hand position data from the NWB file, applying a similar sampling approach as used for the eye position data to manage memory. It retrieves the `hand_position` data interface, calculates a `step` size for sampling, extracts the sampled timestamps and hand positions, and prints information about the data (shape, sampled points, conversion factor, and reference frame).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The shape of `hand_data.data` is (11810979,). So hand_positions array is 1D and not 2D. This might cause error in later cells, if this cell is self-contained (plots are not dependent on eye_positions), but still it is better to raise the concern.
+
+Cell 20
+==========
+
+OVERVIEW:
+This cell generates two plots to visualize the hand position data. The first plot displays the hand position over time, showing how the hand position changes throughout the session. The second plot is a histogram showing the distribution of hand positions, providing insights into the most frequently used positions.
+
+IMAGE DESCRIPTIONS:
+The first image is a line plot titled "Hand Position Over Time". The X-axis represents time (in seconds) ranging from 704000 to 718000. The Y-axis represents hand position (in voltage). The plot shows that the hand position has clear upper and lower bounds along the Y axis, suggesting the range within which the joystick can be deflected. The hand position appears, for sections of time, to be set to extreme low, extreme high, and other consistent positions, forming a square-wave-like behavior.
+
+The second image is a histogram titled "Distribution of Hand Positions". The X-axis represents hand position in voltage, and the Y-axis represents frequency. The histogram shows a bimodal distribution, with peaks at around 0 and 5 as well as one around 2.5.
+
+ISSUES:
+None
+
+Cell 21
+==========
+
+OVERVIEW:
+This cell introduces the section of the notebook focused on exploring the neural data recorded in the experiment. It indicates a shift in focus to neural recordings from the PPC.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 22
+==========
+
+OVERVIEW:
+This cell extracts the unit (putative neuron) information from the NWB file. It accesses the `units` data interface within the `ecephys` processing module, converts it to a pandas DataFrame called `units_df`, prints the total number of units and the column names in the extracted data frame, and displays the first 10 rows of the DataFrame, focusing on columns like 'unit_name', 'quality', 'n_spikes', and 'fr' (firing rate).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 23
+==========
+
+OVERVIEW:
+This cell analyzes the quality of the recorded units. It counts the occurrences of each quality level ('good', 'noise', 'mua', 'unsorted') in the `units_df['quality]` column and creates a bar plot showing the distribution of unit quality. The plot helps to understand the proportion of well-isolated ("good") units versus less well-isolated or noisy units.
+
+IMAGE DESCRIPTIONS:
+The image is a bar plot titled "Distribution of Unit Quality". The X-axis represents unit quality, with the categories "good", "noise", "mua", and "unsorted". The Y-axis represents the count of units in each quality category.
+
+The bar heights show an approximate distribution where 'good' units are the most prevalent (~25), followed by 'noise' (~22) and 'mua' (~20). The "unsorted" category is significantly lower (close to 1).
+
+ISSUES:
+None
+
+Cell 24
+==========
+
+OVERVIEW:
+This cell visualizes the distribution of firing rates across all units. It uses `seaborn.histplot` to create a histogram of the 'fr' (firing rate) column from the `units_df` DataFrame. The `kde=True` argument adds a kernel density estimate line to the plot, providing a smooth representation of the firing rate distribution.
+
+IMAGE DESCRIPTIONS:
+The image is a histogram titled "Distribution of Firing Rates Across Units". The X-axis represents the firing rate in Hz, ranging from 0 to approximately 32. The Y-axis represents the count. The histogram shows the occurrences of different firing rates across all units. The distribution appears somewhat exponential, with many units having low firing rates and fewer units having high firing rates. The kernel density estimate overlaid on the histogram confirms this trend. The highest count is close to zero, then there is a decreasing trend.
+
+ISSUES:
+None
+
+Cell 25
+==========
+
+OVERVIEW:
+This cell analyzes the spike counts of the recorded units. It creates a histogram of the 'n_spikes' (number of spikes) column from the `units_df` DataFrame, using `seaborn.histplot` with a kernel density estimate (KDE).
+
+IMAGE DESCRIPTIONS:
+The image is a histogram titled "Distribution of Spike Counts Across Units". The X-axis represents the number of spikes, ranging from 0 to approximately 450000. The Y-axis represents the count. The plot indicates that there are many units with relatively low spike counts. It roughly follows an exponential decay.
+
+ISSUES:
+None
+
+Cell 26
+==========
+
+OVERVIEW:
+This cell introduces the analysis of spike timing for a single unit, indicating a focus on individual neuron activity patterns.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 27
+==========
+
+OVERVIEW:
+This cell selects an example unit for detailed analysis, prioritizing units with 'good' quality and a high number of spikes. It first filters the `units_df` to find all units labeled as 'good' quality, sorts them by the number of spikes in descending order, and selects the unit with the highest spike count. If no 'good' quality units are found, it selects the unit with the highest number of spikes regardless of quality (as a fallback). It then retrieves the information for the selected unit, prints the unit ID, name, quality, firing rate, number of spikes, depth and channel.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 28
+==========
+
+OVERVIEW:
+This cell extracts and plots the spike times for the selected example unit. It retrieves the spike times from the `units.spike_times_index` attribute, prints the total number of spikes, and generates a raster plot showing the occurrence of spikes over time. The x-axis is limited to the first 60 seconds of the recording to allow visualization of spike timing details.
+
+IMAGE DESCRIPTIONS:
+The output image contains a raster plot titled "Spike Times for Unit 55". The X-axis represents time in seconds, ranging from 0 to 60. The Y-axis is simply labeled "Spikes" and displays a constant value of approximately 1.0. Each vertical black line on the plot represents a single spike event for unit 55. The density of vertical lines indicates the firing rate of the unit over the visualized time window.
+
+ISSUES:
+None
+
+Cell 29
+==========
+
+OVERVIEW:
+This cell creates a Peri-Stimulus Time Histogram (PSTH) to examine the unit's firing rate around the go cue. It defines a function `create_psth` that takes spike times, event times (go cues in this case), a time window, and a bin size as input, and calculates the firing rate in each bin. It selects the go cue times from the 'gocuettl' column of the `trials_df` for valid trials ('validtrials_mm' == 1). It then calls the `create_psth` function to generate the PSTH and plots the resulting histogram, with a vertical line indicating the go cue time. The number of valid trials used to create the plot is included in the title.
+
+IMAGE DESCRIPTIONS:
+The image is a bar plot titled "PSTH for Unit 55 around Go Cue (n=1207 trials)". The X-axis represents the time relative to the go cue (in seconds), ranging from -1 to 2. The Y-axis represents the firing rate in Hz. A dashed vertical red line marks the time of the "Go Cue" at x=0. The bar plot shows a gradual increase in the firing rate before time = 0 (the go cue), a pronounced peak at short times after the go cue (between 0 and roughly 0.5s), followed by a decrease and what looks like a roughly steady firing rate after 0.5s.
+
+ISSUES:
+None
+
+Cell 30
+==========
+
+OVERVIEW:
+This cell introduces the analysis of how neural activity relates to behavioral aspects of the task, specifically trial type and success.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 31
+==========
+
+OVERVIEW:
+This cell explores the activity patterns of the example unit for different trial types. It iterates through each trial type (1, 2, and 3), filters the `trials_df` to select trials corresponding to that trial type and are valid. It then extracts the go cue times for these trials, creates a PSTH using the `create_psth` function, and plots the PSTH. Each trial type is plotted in a separate subplot, with a distinct color.
+
+IMAGE DESCRIPTIONS:
+The image contains three subplots, each showing a PSTH for a different trial type. All the plots have the same structure.
+
+Top subplot ("Trial Type 1: Linear map visible (NTS) (n=0 trials)"): because there are zero trials, the plot is empty/blank to show that the x axis ranges from -1 to 2 seconds and the Y axis ranges from about -.05 to .05,
+
+Middle subplot ("Trial Type 2: Centre visible, periphery occluded (n=0 trials)"): because there are zero trials, the plot is empty/blank to show that the x axis ranges from -1 to 2 seconds and the Y axis ranges from about -.05 to .05,
+
+Bottom subplot ("Trial Type 3: Fully occluded (MNAV) (n=1207 trials)"): this figure matches the plot from the cell above, and has a high firing rate, gradually climbing firing rate up to t=0, then a peak and subsequent exponential decay.
+
+All have near/exactly zero trials except Trial Type 3.
+
+ISSUES:
+The graphs for Trial Type 1 and Trial Type 2 are blank because there are zero trials for these types (as seen previously using descriptive statistics). It would be useful for the notebook to mention that the plots show almost exclusively type 3.
+
+Cell 32
+==========
+
+OVERVIEW:
+This cell compares the neural activity of the example unit between successful and failed trials by plotting PSTHs for each outcome. It iterates through two success labels (0 for failed, 1 for successful), filters the `trials_df` to select trials corresponding to that outcome and are valid. It extract go cue times, creates a PSTH, and plots the PSTH for one succes label in one subplot.
+
+IMAGE DESCRIPTIONS:
+The image contains two subplots, each showing a PSTH either for failed or successful trials. The x axis reflects time offset relative to the Go Cue (0) and both axes range from -1 to 2.
+
+The top subplot ("Failed Trials (n=350 trials)") shows the peri-stimulus time histogram for failed trials. It appears similar in time course to the PSTH for all trials, earlier. The firing rate ranges from about 20 Hz up to approximately 35 or 40 Hz at around the time of the go cue.
+
+The bottom subplot ("Successful Trials (n=857 trials)") shows the peri-stimulus time histogram for the set of successful trials. With the exception of a shallower decay than the failed trials, these plots appear qualitatively similar.
+
+ISSUES:
+None
+
+Cell 33
+==========
+
+OVERVIEW:
+This section introduces the exploration of how neural activity might correlate with specific task parameters such as response time.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 34
+==========
+
+OVERVIEW:
+This cell aims to correlate neural activity with response time. It defines a function `calculate_window_fr` to calculate the firing rate of a unit within a specified time window after an event (e.g., the go cue). Next, a `valid_trials` dataframe is constructed based on trials that are valid according to the mm criteria. This section limits the number of considered trials to 200 randomly to improve performance. A new column is added to `valid_trials` 'post_cue_fr' which includes the firing rate for the time window specified.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 35
+==========
+
+OVERVIEW:
+This cell plots the relationship between firing rate and response time and computes their correlation. The valid trials DataFrame created in the cell before is used to create the plot and the firing rate is plotted against the response time. The type trials is indicated in the plot. Finally, the correlation is computed and its result is added to the plot in the upper left corner.
+
+IMAGE DESCRIPTIONS:
+The output image is a scatter plot titled "Relationship between Unit 55 Activity and Response Time". The X-axis represents the firing rate (in Hz) between 0 and 0.5 seconds after the go cue. The Y-axis represents the response time (in seconds).
+
+The plot shows clusters with points having y values that range close to zero and one outlying point at a value of 400. It appears that one trial type dominates the analysis, "fully occluded MNAV". The correlation annotation in the upper left indicates a correlation value of approximately 0.108 and therefore a negligibly positive correlation.
+
+ISSUES:
+Given what we know from the success of the trial, the 0-420 second trial is unusual and suggests that the "reaction time" that the notebook reads may not be the precise reaction time intended for use. There also appears to be a hard lower limit of about 0.2s.
+
+Cell 36
+==========
+
+OVERVIEW:
+This cell introduces the examination of electrode information to understand the recording setup.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 37
+==========
+
+OVERVIEW:
+This cell retrieves electrode information from the NWB file, converts it to a pandas DataFrame called `electrodes_df`, prints the number of electrodes, and displays the first few rows of the DataFrame.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 38
+==========
+
+OVERVIEW:
+This cell visualizes the relative positions of the electrodes. It creates a scatter plot of the 'rel_x' and 'rel_y' columns from the `electrodes_df` DataFrame, which represent the relative x and y positions of the electrodes. The color of each point represents the electrode index, and the plot includes labels for each electrode, a colorbar, and grid lines.
+
+IMAGE DESCRIPTIONS:
+The image is a scatter plot titled "Electrode Positions". The X and Y axes are labelled "Relative X Position" and "Relative Y Position" respectively. The plot depicts the locations of the electrodes in space. The points are colored according to the electrode index, and labelled with the electrode index number. The plot clearly shows that all x positions are close to zero and all of the electrodes lie above each other in the same line.
+
+ISSUES:
+None
+
+Cell 39
+==========
+
+OVERVIEW:
+This introduces an analysis of behavioral variables in the trial data to better understand the experimental task.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 40
+==========
+
+OVERVIEW:
+This cell analyzes the relationship between the actual time vector (`ta`) and the produced time vector (`tp`). the trials DataFrame is iterated through and grouped by 'trial_type'. a scatter plot is created with actual time plotted against produced time. The 'Perfect Match' is also added to the plot.
+
+IMAGE DESCRIPTIONS:
+The output image is a scatter plot titled "Actual vs. Produced Time Vectors". The X-axis represents the actual vector in seconds, and the Y-axis represents the produced vector in seconds. The plot is divided into types (Trial 1 and Trial 3 are shown but Trial 2 has 0 instances so it is not used). The distribution lies near the zero value except for a cluster of data that produced high (and therefore incorrect) time samples (90-100s). A black dashed line shows a "Perfect Match" and reflects where actual time and produced time are 1:1,
+
+ISSUES:
+Some of the y value parameters reach extremely high values of approximately 100 seconds, or two minutes, which is not plausible for a response time for a mental navigation task. This indicates a problem either with data collection or labeling of the data.
+
+Cell 41
+==========
+
+OVERVIEW:
+This cell creates a violin plot to visualize the response time distribution across different trial types. A sample is taken and the violin plot function is passed x, y, data and is ordered by the trial type . Then, individual points from are added using `stripplot`. The x-axis labels the are explicitly labeled.
+
+IMAGE DESCRIPTIONS:
+The image is fully empty and blank. This plot does not have a chart due to issues with the dataset as shown previosuly.
+
+ISSUES:
+This figure has nothing in it. This suggests that the response time values may be incorrect, and this should be inspected by the notebook editor. Either there is an error, or there are no response types, or the response types are zeroed out. All three of these require a closer look and potential rewriting.
+
+Cell 42
+==========
+
+OVERVIEW:
+This cell examines the relationship between delay and response time with a colored scatter plot, grouped by trial type. The y and and x axes are labeled and a legend is created to display trial types by sample types that make up the trial type label.
+
+IMAGE DESCRIPTIONS:
+The output image is a scatter plot titled "Relationship Between Delay and Response Time." The X-axis labeled "Delay (seconds)" ranges from about 4\*10^5 to 1.4\*10^6. The Y-axis labeled "Response Time (seconds)" ranges from close to 0 up to 500. The vast majority of "Fully Occluded (MNVA)" (green) data points lie at small values very close to 0, although some outliers lie around 400-500s. There are also a limited set of "Linear map visible (NTS)" points which also are scattered around 0s. There aren't any trials labeled via the legend as "centre visible, periphery occluded" (blue).
+
+ISSUES:
+Most values are focused close to the zero mark again, This suggests that the response time values may be incorrect, and this should be inspected by the notebook editor as before. The units of the x axis labels for "delay" may also be inappropriate. 10^6 seconds amounts to 11 days. This needs to be clarified / confirmed.
+
+Cell 43
+==========
+
+OVERVIEW:
+This cell provides a summary of the analyses performed in the notebook, including loading the dataset, exploring behavioral and neural data, and examining trial information. It highlights some interesting findings, such as the relationship between neural activity and trial type/outcome, and suggests future research directions.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
