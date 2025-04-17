@@ -191,7 +191,7 @@ export default function NotebooksTable({ notebooks, critiques, notebookRankings 
                   direction={sortConfig.key === 'est_cost' ? sortConfig.direction : 'asc'}
                   onClick={() => handleSort('est_cost')}
                 >
-                  Estimated Cost ($)
+                  Est. Cost ($)
                 </TableSortLabel>
               </TableCell>
               <TableCell>Critiques</TableCell>
