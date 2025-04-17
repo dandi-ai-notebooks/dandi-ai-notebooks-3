@@ -47,3 +47,32 @@ export interface DandisetRankings {
 export interface NotebookRankingsData {
   [dandiset_id: string]: DandisetRankings;
 }
+
+export interface Grade {
+  question_id: string;
+  grade: number;
+  thinking: string;
+}
+
+export interface NotebookGradings {
+  prompt_version: string;
+  grades: Grade[];
+  metadata: {
+    total_prompt_tokens: number;
+    total_completion_tokens: number;
+    model: string;
+    timestamp: string;
+    system_info: {
+      platform: string;
+      hostname: string;
+    }
+  }
+}
+
+export interface NotebookGradingsData {
+  [key: string]: {
+    dandiset_id: string;
+    subfolder: string;
+    gradings: NotebookGradings;
+  };
+}

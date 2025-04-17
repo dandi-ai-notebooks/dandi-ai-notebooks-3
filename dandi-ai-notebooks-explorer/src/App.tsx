@@ -8,7 +8,7 @@ import {
   Container,
   Typography
 } from '@mui/material';
-import { Metadata, CritiqueManifest, NotebookRankingsData } from './types';
+import { Metadata, CritiqueManifest, NotebookRankingsData, NotebookGradingsData } from './types';
 import NotebooksTable from './NotebooksTable';
 import axios from 'axios';
 
@@ -24,6 +24,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [notebookRankings, setNotebookRankings] = useState<NotebookRankingsData>({});
+  const [notebookGradings, setNotebookGradings] = useState<NotebookGradingsData>({});
 
   useEffect(() => {
     loadData();
@@ -31,14 +32,16 @@ function App() {
 
   const loadData = async () => {
     try {
-      const [notebooksResponse, critiquesResponse, rankingsResponse] = await Promise.all([
+      const [notebooksResponse, critiquesResponse, rankingsResponse, gradingsResponse] = await Promise.all([
         axios.get<Metadata[]>('https://raw.githubusercontent.com/dandi-ai-notebooks/dandi-ai-notebooks-3/refs/heads/main/notebooks_metadata.json'),
         axios.get<CritiqueManifest>('https://raw.githubusercontent.com/dandi-ai-notebooks/dandi-ai-notebooks-3/refs/heads/main/critiques/manifest.json'),
-        axios.get<NotebookRankingsData>('https://raw.githubusercontent.com/dandi-ai-notebooks/dandi-ai-notebooks-3/refs/heads/main/notebook_rankings.json')
+        axios.get<NotebookRankingsData>('https://raw.githubusercontent.com/dandi-ai-notebooks/dandi-ai-notebooks-3/refs/heads/main/notebook_rankings.json'),
+        axios.get<NotebookGradingsData>('https://raw.githubusercontent.com/dandi-ai-notebooks/dandi-ai-notebooks-3/refs/heads/main/notebook_gradings.json')
       ]);
       setNotebooks(notebooksResponse.data);
       setCritiques(new Set(critiquesResponse.data.files));
       setNotebookRankings(rankingsResponse.data);
+      setNotebookGradings(gradingsResponse.data);
     } catch (err) {
       setError('Failed to load data');
       console.error(err);
@@ -67,7 +70,12 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth={false}>
-        <NotebooksTable notebooks={notebooks} critiques={critiques} notebookRankings={notebookRankings} />
+        <NotebooksTable
+          notebooks={notebooks}
+          critiques={critiques}
+          notebookRankings={notebookRankings}
+          notebookGradings={notebookGradings}
+        />
       </Container>
     </ThemeProvider>
   );

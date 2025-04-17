@@ -1,0 +1,65 @@
+{
+  "prompt_version": "2",
+  "grades": [
+    {
+      "question_id": "describe-dandiset",
+      "grade": 1,
+      "thinking": "The notebook provides a title for the Dandiset (000673), its focus on phase-amplitude coupling in human hippocampal neurons for working memory control, and includes information about the authors. However, there are some issues with the publication year (listed as 2025) and an incorrect Neurosift link. While it gives a basic overview, these inaccuracies detract from the description."
+    },
+    {
+      "question_id": "load-dandiset",
+      "grade": 2,
+      "thinking": "The notebook successfully uses the DANDI API to connect to the archive, retrieve Dandiset 000673, and list the assets (files) within the Dandiset. It also prints the number of assets and displays the paths of the first five assets. This is done reasonably well."
+    },
+    {
+      "question_id": "load-nwb",
+      "grade": 2,
+      "thinking": "The notebook loads an NWB file from the provided URL using pynwb, h5py, and remfile. It prints the NWB file object, session description, identifier, and session start time to display key metadata. This is done very well."
+    },
+    {
+      "question_id": "load-nwb-data",
+      "grade": 3,
+      "thinking": "The notebook loads three independent pieces of data from the NWB file: LFP data, event data (timestamps and event types), and stimulus presentation data (timestamps and indices)."
+    },
+    {
+      "question_id": "visualize-nwb-data",
+      "grade": 3,
+      "thinking": "The notebook visualizes three independent pieces of data: LFP data (as a line plot over time), event data (as a stem plot showing event types over time), and stimulus presentation data (as a stem plot showing stimulus indices over time)."
+    },
+    {
+      "question_id": "plot-quality",
+      "grade": 1,
+      "thinking": "The plots have appropriate axes labels and titles. They use seaborn styling and are generally clear. However, there are some issues with interpretation and axis scaling that prevent them from being very high quality."
+    },
+    {
+      "question_id": "plot-issues",
+      "grade": -2,
+      "thinking": "There are multiple issues with the plots: 1) The LFP data plot may be incorrect due to not addressing the transposition warning, 2) The \"Event Type\" label is ambiguous without explanation of what these values represent, 3) The \"Stimulus Index\" is similarly unclear without context, 4) For event and stimulus plots, the x-axis extends beyond the plotted data unnecessarily, making the plots wider than needed."
+    },
+    {
+      "question_id": "analysis-issues",
+      "grade": -2,
+      "thinking": "Some analysis issues include: 1) Ignoring the warning about potentially transposed LFP data, which may lead to incorrect visualization and interpretation, 2) Recalculating timestamps instead of using the ones provided in the NWB file, 3) Not providing proper context for event types and stimulus indices, making interpretation difficult."
+    },
+    {
+      "question_id": "unsupported-conclusions",
+      "grade": 0,
+      "thinking": "The notebook mostly focuses on loading and basic visualization without making many claims or conclusions. It appropriately suggests further avenues for analysis without drawing unsupported conclusions from the data shown."
+    },
+    {
+      "question_id": "other-issues",
+      "grade": -1,
+      "thinking": "Some other issues include: 1) Incorrect publication year (2025), 2) Incorrect Neurosift link, 3) Missing 'dandi' in the list of required packages, 4) Some missing context that would help interpret the data and visualizations better."
+    }
+  ],
+  "metadata": {
+    "total_prompt_tokens": 3525,
+    "total_completion_tokens": 975,
+    "model": "anthropic/claude-3.7-sonnet",
+    "timestamp": "2025-04-17 18:46:42",
+    "system_info": {
+      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+      "hostname": "system76-pc"
+    }
+  }
+}

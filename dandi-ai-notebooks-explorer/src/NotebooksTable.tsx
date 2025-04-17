@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Metadata, NotebookRankingsData } from './types';
+import { Metadata, NotebookRankingsData, NotebookGradingsData } from './types';
 import {
   Table,
   TableBody,
@@ -17,7 +17,7 @@ import {
   Link
 } from '@mui/material';
 
-type SortKey = keyof Metadata | 'rank' | 'est_cost';
+type SortKey = keyof Metadata | 'rank' | 'est_cost' | 'grade';
 
 type SortConfig = {
   key: SortKey;
@@ -28,9 +28,10 @@ interface Props {
   notebooks: Metadata[];
   critiques: Set<string>;
   notebookRankings: NotebookRankingsData;
+  notebookGradings: NotebookGradingsData;
 }
 
-export default function NotebooksTable({ notebooks, critiques, notebookRankings }: Props) {
+export default function NotebooksTable({ notebooks, critiques, notebookRankings, notebookGradings }: Props) {
   const [selectedDandiset, setSelectedDandiset] = useState<string>('');
   const [sortConfig, setSortConfig] = useState<SortConfig>({
     key: 'timestamp' as SortKey,
@@ -46,6 +47,18 @@ export default function NotebooksTable({ notebooks, critiques, notebookRankings 
     const direction = sortConfig.key === key && sortConfig.direction === 'asc' ? 'desc' : 'asc';
     setSortConfig({ key, direction });
   };
+
+  const getNotebookGrade = useMemo(() => ((notebook: Metadata) => {
+    const key = `${notebook.dandiset_id}/${notebook.subfolder}`;
+    const grading = notebookGradings[key];
+    if (!grading) return null;
+
+    return {
+      total: grading.gradings.grades.reduce((sum, g) => sum + g.grade, 0),
+      thinking: grading.gradings.grades.map(g => g.thinking).join('\n\n'),
+      url: `https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-3/blob/main/gradings/dandisets/${notebook.dandiset_id}/${notebook.subfolder}/grades.json`
+    };
+  }), [notebookGradings]);
 
   const getNotebookRanking = useMemo(() => ((notebook: Metadata) => {
     const dandisetRankings = notebookRankings[notebook.dandiset_id];
@@ -84,7 +97,13 @@ export default function NotebooksTable({ notebooks, critiques, notebookRankings 
 
 
     return [...filtered].sort((a, b) => {
-      if (sortConfig.key === 'rank') {
+      if (sortConfig.key === 'grade') {
+        const aGrade = getNotebookGrade(a)?.total ?? 0;
+        const bGrade = getNotebookGrade(b)?.total ?? 0;
+        return sortConfig.direction === 'asc'
+          ? aGrade - bGrade
+          : bGrade - aGrade;
+      } else if (sortConfig.key === 'rank') {
         const aRanking = getNotebookRanking(a)?.rank ?? Number.MAX_SAFE_INTEGER;
         const bRanking = getNotebookRanking(b)?.rank ?? Number.MAX_SAFE_INTEGER;
         return sortConfig.direction === 'asc'
@@ -119,7 +138,7 @@ export default function NotebooksTable({ notebooks, critiques, notebookRankings 
 
       return 0;
     });
-  }, [notebooks, sortConfig, selectedDandiset, getNotebookRanking]);
+  }, [notebooks, sortConfig, selectedDandiset, getNotebookRanking, getNotebookGrade]);
 
   return (
     <div>
@@ -204,6 +223,15 @@ export default function NotebooksTable({ notebooks, critiques, notebookRankings 
                   Ranking
                 </TableSortLabel>
               </TableCell>
+              <TableCell>
+                <TableSortLabel
+                  active={sortConfig.key === 'grade'}
+                  direction={sortConfig.key === 'grade' ? sortConfig.direction : 'asc'}
+                  onClick={() => handleSort('grade')}
+                >
+                  Grade
+                </TableSortLabel>
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -271,6 +299,23 @@ export default function NotebooksTable({ notebooks, critiques, notebookRankings 
                           sx={{ cursor: 'pointer' }}
                         >
                           {ranking.rank}
+                        </Link>
+                      );
+                    })()}
+                  </TableCell>
+                  <TableCell>
+                    {(() => {
+                      const grading = getNotebookGrade(notebook);
+                      if (!grading) return null;
+                      return (
+                        <Link
+                          href={grading.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title={grading.thinking}
+                          sx={{ cursor: 'pointer' }}
+                        >
+                          {grading.total}
                         </Link>
                       );
                     })()}

@@ -1,0 +1,65 @@
+{
+  "prompt_version": "2",
+  "grades": [
+    {
+      "question_id": "describe-dandiset",
+      "grade": 2,
+      "thinking": "The notebook does a very good job of describing the Dandiset, introducing it in the first few cells. Cell 3 provides a comprehensive overview of Dandiset 000673, including the experiment design, recording methods (using Macro-Micro Hybrid Depth Electrodes in specific brain regions), and research focus on hippocampus and amygdala. It also summarizes key findings related to theta-gamma phase-amplitude coupling and working memory, and provides a link to additional resources."
+    },
+    {
+      "question_id": "load-dandiset",
+      "grade": 2,
+      "thinking": "The notebook effectively demonstrates how to load the Dandiset. Cells 7-8 show how to connect to the DANDI archive, retrieve Dandiset 000673, and list the available NWB files within it. Cells 9-10 show how to select a specific subject's NWB file and stream it using remfile, which is a good practice to avoid downloading the entire dataset."
+    },
+    {
+      "question_id": "load-nwb",
+      "grade": 2,
+      "thinking": "The notebook effectively loads basic information from an NWB file. Cell 10 shows how to use pynwb to open and read the NWB file. Cell 12 extracts and displays various metadata from the NWB file, including the file identifier, subject information, session details, and keywords. Cell 14 demonstrates how to access the trials information from the NWB file using nwb.trials.to_dataframe()."
+    },
+    {
+      "question_id": "load-nwb-data",
+      "grade": 3,
+      "thinking": "The notebook loads several distinct pieces of data from the NWB file:\n1. Trial information (Cell 14): Uses nwb.trials.to_dataframe() to load trial data\n2. Stimulus images (Cell 21): Retrieves images from nwb.stimulus_template\n3. Neural recordings (Cell 23): Extracts electrode information and unit recordings\n4. Spike times (Cell 25): Retrieves spike times for visualization\n\nThis demonstrates loading at least three independent pieces of data from the NWB file."
+    },
+    {
+      "question_id": "visualize-nwb-data",
+      "grade": 3,
+      "thinking": "The notebook visualizes several types of data:\n1. Task performance (Cells 16-17): Bar plots showing accuracy by memory load and trial type\n2. Response times (Cell 19): Histograms and bar plots analyzing response times \n3. Stimulus images (Cell 21): Displays the stimulus images used in the experiment\n4. Neural activity (Cell 25): Creates a spike raster plot for the first five units\n\nThis demonstrates visualization of at least three independent pieces of data from the NWB file."
+    },
+    {
+      "question_id": "plot-quality",
+      "grade": 1,
+      "thinking": "The plots are generally of good quality. They include proper labels, titles, and in some cases, annotations with specific values (e.g., accuracy percentages in Cells 16-17). The response time visualizations in Cell 19 are comprehensive, with four different plots showing different aspects of the data. However, some plots failed to generate due to issues with unit selection, and the spike raster plot in Cell 25 has unknown location labels due to a masked error in retrieving electrode locations."
+    },
+    {
+      "question_id": "plot-issues",
+      "grade": -2,
+      "thinking": "There are several issues with the plots:\n1. In Cell 19, the response time distributions by accuracy and trial type have limited utility due to the very low number of incorrect trials.\n2. In Cell 21, the stimulus images are displayed rotated without explanation.\n3. In Cell 25, the units in the spike raster plot are labeled as \"unknown location\" due to a masked error in retrieving electrode locations.\n4. Several intended plots (PSTH in Cell 29, hippocampus vs amygdala comparison in Cell 32, firing rates by memory load in Cell 35) failed to generate due to issues with unit selection.\n\nThese constitute at least two major issues: the masked error leading to \"unknown location\" labels and the failure to generate several key plots due to incorrect unit filtering."
+    },
+    {
+      "question_id": "analysis-issues",
+      "grade": -2,
+      "thinking": "There are significant issues with the analysis:\n1. The code fails to correctly identify hippocampus and amygdala units despite earlier cell reporting their existence (Cell 31 reports 0 units in both regions, while Cell 23 reported 8 hippocampal and 6 amygdala units).\n2. Due to this issue, all subsequent analyses comparing hippocampus and amygdala units (Cell 32) and examining firing rates by memory load (Cell 35) fail to execute.\n3. Cell 23 claims to return units per brain region, but seems to be missing 14 units, possibly due to bad channel exclusions, though this isn't clearly explained.\n\nThese constitute at least two major issues: the failure to correctly select units by brain region, which causes multiple downstream analyses to fail, and the discrepancy in unit counts without clear explanation."
+    },
+    {
+      "question_id": "unsupported-conclusions",
+      "grade": 0,
+      "thinking": "The notebook is generally careful about its claims. The summary in Cell 36 lists analyses that were attempted, but many weren't successfully completed due to code errors. While this summary could have been more explicitly qualified as preliminary given the execution failures, it doesn't make strong unsupported claims about the data or results. No significant unsupported conclusions are drawn from the analyses."
+    },
+    {
+      "question_id": "other-issues",
+      "grade": -1,
+      "thinking": "Other issues include:\n1. The notebook tries to handle errors in electrode location retrieval by using a try/except block that masks the underlying error (Cell 25), making debugging difficult.\n2. There's no discussion of the rotated stimulus images in Cell 21, which appears unusual.\n3. The summary in Cell 36 doesn't acknowledge that several analysis steps failed to execute.\n\nThese are relatively minor issues that don't significantly impair the notebook's educational value about loading and working with DANDI archive data."
+    }
+  ],
+  "metadata": {
+    "total_prompt_tokens": 6348,
+    "total_completion_tokens": 1561,
+    "model": "anthropic/claude-3.7-sonnet",
+    "timestamp": "2025-04-17 18:45:58",
+    "system_info": {
+      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+      "hostname": "system76-pc"
+    }
+  }
+}
