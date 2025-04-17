@@ -1,176 +1,32 @@
 [
   {
-    "dandiset_id": "001333",
-    "model": "openrouter/quasar-alpha",
-    "prompt": "prompt-a-1.txt",
-    "total_prompt_tokens": 67810,
-    "total_completion_tokens": 2958,
-    "total_vision_prompt_tokens": 0,
-    "total_vision_completion_tokens": 0,
-    "elapsed_time_seconds": 87.7332501411438,
-    "timestamp": "2025-04-10 16:07:54",
-    "system_info": {
-      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
-      "hostname": "system76-pc",
-      "processor": "x86_64",
-      "python_version": "3.12.2"
-    },
-    "subfolder": "2025-04-10-quasar-alpha-prompt-a-1"
-  },
-  {
-    "dandiset_id": "001333",
+    "dandiset_id": "000673",
     "model": "anthropic/claude-3.7-sonnet",
-    "prompt": "prompt-a-1.txt",
-    "total_prompt_tokens": 475612,
-    "total_completion_tokens": 11900,
-    "total_vision_prompt_tokens": 0,
-    "total_vision_completion_tokens": 0,
-    "elapsed_time_seconds": 294.81849098205566,
-    "timestamp": "2025-04-10 17:24:28",
-    "system_info": {
-      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
-      "hostname": "system76-pc",
-      "processor": "x86_64",
-      "python_version": "3.12.2"
-    },
-    "subfolder": "2025-04-10-claude-3.7-sonnet-prompt-a-1"
-  },
-  {
-    "dandiset_id": "001333",
-    "model": "openrouter/quasar-alpha",
-    "prompt": "prompt-b-1.txt",
-    "total_prompt_tokens": 168186,
-    "total_completion_tokens": 4718,
-    "total_vision_prompt_tokens": 1086,
-    "total_vision_completion_tokens": 183,
-    "elapsed_time_seconds": 217.59454131126404,
-    "timestamp": "2025-04-10 16:34:44",
-    "system_info": {
-      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
-      "hostname": "system76-pc",
-      "processor": "x86_64",
-      "python_version": "3.12.2"
-    },
-    "subfolder": "2025-04-10-quasar-alpha-prompt-b-1"
-  },
-  {
-    "dandiset_id": "001333",
-    "model": "anthropic/claude-3.7-sonnet",
-    "prompt": "prompt-b-1.txt",
-    "total_prompt_tokens": 1243075,
-    "total_completion_tokens": 34068,
-    "total_vision_prompt_tokens": 6505,
-    "total_vision_completion_tokens": 1455,
-    "elapsed_time_seconds": 770.5034658908844,
-    "timestamp": "2025-04-10 18:55:14",
-    "system_info": {
-      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
-      "hostname": "system76-pc",
-      "processor": "x86_64",
-      "python_version": "3.12.2"
-    },
-    "subfolder": "2025-04-10-claude-3.7-sonnet-prompt-b-1"
-  },
-  {
-    "dandiset_id": "000945",
-    "model": "google/gemini-2.0-flash-001",
-    "prompt": "prompt-a-3.txt",
-    "total_prompt_tokens": 74763,
-    "total_completion_tokens": 3582,
-    "total_vision_prompt_tokens": 0,
-    "total_vision_completion_tokens": 0,
-    "elapsed_time_seconds": 33.86750388145447,
-    "timestamp": "2025-04-15 12:19:55",
-    "system_info": {
-      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
-      "hostname": "jupyter-magland",
-      "processor": "x86_64",
-      "python_version": "3.11.10"
-    },
-    "subfolder": "2025-04-15-gemini-2.0-flash-001-prompt-a-3"
-  },
-  {
-    "dandiset_id": "000945",
-    "model": "anthropic/claude-3.7-sonnet",
-    "prompt": "prompt-b-3.txt",
-    "total_prompt_tokens": 796604,
-    "total_completion_tokens": 20114,
-    "total_vision_prompt_tokens": 10509,
-    "total_vision_completion_tokens": 2257,
-    "elapsed_time_seconds": 559.5839521884918,
-    "timestamp": "2025-04-15 12:35:58",
-    "system_info": {
-      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
-      "hostname": "jupyter-magland",
-      "processor": "x86_64",
-      "python_version": "3.11.10"
-    },
-    "subfolder": "2025-04-15-claude-3.7-sonnet-prompt-b-3"
-  },
-  {
-    "dandiset_id": "000945",
-    "model": "anthropic/claude-3.7-sonnet",
-    "prompt": "prompt-a-5.txt",
-    "total_prompt_tokens": 186998,
-    "total_completion_tokens": 9244,
-    "total_vision_prompt_tokens": 0,
-    "total_vision_completion_tokens": 0,
-    "elapsed_time_seconds": 194.22272276878357,
-    "timestamp": "2025-04-16 16:45:45",
-    "system_info": {
-      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
-      "hostname": "jupyter-magland",
-      "processor": "x86_64",
-      "python_version": "3.11.10"
-    },
-    "subfolder": "2025-04-16-claude-3.7-sonnet-prompt-a-5"
-  },
-  {
-    "dandiset_id": "000945",
-    "model": "anthropic/claude-3.7-sonnet",
-    "prompt": "prompt-a-3.txt",
-    "total_prompt_tokens": 269037,
-    "total_completion_tokens": 11207,
-    "total_vision_prompt_tokens": 0,
-    "total_vision_completion_tokens": 0,
-    "elapsed_time_seconds": 238.66888451576233,
-    "timestamp": "2025-04-15 12:26:38",
-    "system_info": {
-      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
-      "hostname": "jupyter-magland",
-      "processor": "x86_64",
-      "python_version": "3.11.10"
-    },
-    "subfolder": "2025-04-15-claude-3.7-sonnet-prompt-a-3"
-  },
-  {
-    "dandiset_id": "000945",
-    "model": "google/gemini-2.0-flash-001",
     "prompt": "prompt-a-4.txt",
-    "total_prompt_tokens": 77595,
-    "total_completion_tokens": 3362,
+    "total_prompt_tokens": 0,
+    "total_completion_tokens": 0,
     "total_vision_prompt_tokens": 0,
     "total_vision_completion_tokens": 0,
-    "elapsed_time_seconds": 36.453848123550415,
-    "timestamp": "2025-04-16 16:36:06",
+    "elapsed_time_seconds": 0,
+    "timestamp": "2025-04-16 16:00:00",
     "system_info": {
       "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
       "hostname": "jupyter-magland",
       "processor": "x86_64",
       "python_version": "3.11.10"
     },
-    "subfolder": "2025-04-16-gemini-2.0-flash-001-prompt-a-4"
+    "subfolder": "2025-04-16-claude-3.7-sonnet-prompt-a-4"
   },
   {
-    "dandiset_id": "000945",
+    "dandiset_id": "000673",
     "model": "openrouter/quasar-alpha",
     "prompt": "prompt-a-1.txt",
-    "total_prompt_tokens": 64978,
-    "total_completion_tokens": 2986,
+    "total_prompt_tokens": 131764,
+    "total_completion_tokens": 3154,
     "total_vision_prompt_tokens": 0,
     "total_vision_completion_tokens": 0,
-    "elapsed_time_seconds": 105.05083656311035,
-    "timestamp": "2025-04-10 13:55:02",
+    "elapsed_time_seconds": 238.486962556839,
+    "timestamp": "2025-04-10 13:51:43",
     "system_info": {
       "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
       "hostname": "system76-pc",
@@ -178,222 +34,6 @@
       "python_version": "3.12.2"
     },
     "subfolder": "2025-04-10-quasar-alpha-prompt-a-1"
-  },
-  {
-    "dandiset_id": "000945",
-    "model": "google/gemini-2.0-flash-001",
-    "prompt": "prompt-b-3.txt",
-    "total_prompt_tokens": 241418,
-    "total_completion_tokens": 5111,
-    "total_vision_prompt_tokens": 3734,
-    "total_vision_completion_tokens": 225,
-    "elapsed_time_seconds": 62.627140522003174,
-    "timestamp": "2025-04-15 12:20:59",
-    "system_info": {
-      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
-      "hostname": "jupyter-magland",
-      "processor": "x86_64",
-      "python_version": "3.11.10"
-    },
-    "subfolder": "2025-04-15-gemini-2.0-flash-001-prompt-b-3"
-  },
-  {
-    "dandiset_id": "000945",
-    "model": "anthropic/claude-3.7-sonnet",
-    "prompt": "prompt-b-5.txt",
-    "total_prompt_tokens": 1125707,
-    "total_completion_tokens": 20014,
-    "total_vision_prompt_tokens": 12161,
-    "total_vision_completion_tokens": 1785,
-    "elapsed_time_seconds": 603.5166809558868,
-    "timestamp": "2025-04-16 16:55:49",
-    "system_info": {
-      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
-      "hostname": "jupyter-magland",
-      "processor": "x86_64",
-      "python_version": "3.11.10"
-    },
-    "subfolder": "2025-04-16-claude-3.7-sonnet-prompt-b-5"
-  },
-  {
-    "dandiset_id": "000945",
-    "model": "openrouter/quasar-alpha",
-    "prompt": "prompt-b-1.txt",
-    "total_prompt_tokens": 375539,
-    "total_completion_tokens": 6526,
-    "total_vision_prompt_tokens": 2398,
-    "total_vision_completion_tokens": 404,
-    "elapsed_time_seconds": 481.365602016449,
-    "timestamp": "2025-04-10 14:16:05",
-    "system_info": {
-      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
-      "hostname": "system76-pc",
-      "processor": "x86_64",
-      "python_version": "3.12.2"
-    },
-    "subfolder": "2025-04-10-quasar-alpha-prompt-b-1"
-  },
-  {
-    "dandiset_id": "000945",
-    "model": "google/gemini-2.0-flash-001",
-    "prompt": "prompt-b-4.txt",
-    "total_prompt_tokens": 511826,
-    "total_completion_tokens": 6471,
-    "total_vision_prompt_tokens": 9603,
-    "total_vision_completion_tokens": 278,
-    "elapsed_time_seconds": 233.30932807922363,
-    "timestamp": "2025-04-16 16:40:00",
-    "system_info": {
-      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
-      "hostname": "jupyter-magland",
-      "processor": "x86_64",
-      "python_version": "3.11.10"
-    },
-    "subfolder": "2025-04-16-gemini-2.0-flash-001-prompt-b-4"
-  },
-  {
-    "dandiset_id": "001276",
-    "model": "openrouter/quasar-alpha",
-    "prompt": "prompt-a-1.txt",
-    "total_prompt_tokens": 62824,
-    "total_completion_tokens": 2610,
-    "total_vision_prompt_tokens": 0,
-    "total_vision_completion_tokens": 0,
-    "elapsed_time_seconds": 117.34645366668701,
-    "timestamp": "2025-04-10 14:56:01",
-    "system_info": {
-      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
-      "hostname": "system76-pc",
-      "processor": "x86_64",
-      "python_version": "3.12.2"
-    },
-    "subfolder": "2025-04-10-quasar-alpha-prompt-a-1"
-  },
-  {
-    "dandiset_id": "001276",
-    "model": "openrouter/quasar-alpha",
-    "prompt": "prompt-b-1.txt",
-    "total_prompt_tokens": 207401,
-    "total_completion_tokens": 5713,
-    "total_vision_prompt_tokens": 1715,
-    "total_vision_completion_tokens": 190,
-    "elapsed_time_seconds": 493.7321436405182,
-    "timestamp": "2025-04-10 15:04:15",
-    "system_info": {
-      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
-      "hostname": "system76-pc",
-      "processor": "x86_64",
-      "python_version": "3.12.2"
-    },
-    "subfolder": "2025-04-10-quasar-alpha-prompt-b-1"
-  },
-  {
-    "dandiset_id": "000673",
-    "model": "google/gemini-2.0-flash-001",
-    "prompt": "prompt-a-3.txt",
-    "total_prompt_tokens": 147997,
-    "total_completion_tokens": 2953,
-    "total_vision_prompt_tokens": 0,
-    "total_vision_completion_tokens": 0,
-    "elapsed_time_seconds": 41.69268822669983,
-    "timestamp": "2025-04-15 11:19:39",
-    "system_info": {
-      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
-      "hostname": "jupyter-magland",
-      "processor": "x86_64",
-      "python_version": "3.11.10"
-    },
-    "subfolder": "2025-04-15-gemini-2.0-flash-001-prompt-a-3"
-  },
-  {
-    "dandiset_id": "000673",
-    "model": "anthropic/claude-3.7-sonnet",
-    "prompt": "prompt-b-3.txt",
-    "total_prompt_tokens": 1541983,
-    "total_completion_tokens": 31349,
-    "total_vision_prompt_tokens": 9211,
-    "total_vision_completion_tokens": 1448,
-    "elapsed_time_seconds": 846.342604637146,
-    "timestamp": "2025-04-15 12:09:31",
-    "system_info": {
-      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
-      "hostname": "jupyter-magland",
-      "processor": "x86_64",
-      "python_version": "3.11.10"
-    },
-    "subfolder": "2025-04-15-claude-3.7-sonnet-prompt-b-3"
-  },
-  {
-    "dandiset_id": "000673",
-    "model": "anthropic/claude-3.7-sonnet",
-    "prompt": "prompt-b-4.txt",
-    "total_prompt_tokens": 1178824,
-    "total_completion_tokens": 21383,
-    "total_vision_prompt_tokens": 18084,
-    "total_vision_completion_tokens": 2185,
-    "elapsed_time_seconds": 664.7713010311127,
-    "timestamp": "2025-04-16 14:47:30",
-    "system_info": {
-      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
-      "hostname": "jupyter-magland",
-      "processor": "x86_64",
-      "python_version": "3.11.10"
-    },
-    "subfolder": "2025-04-16-claude-3.7-sonnet-prompt-b-4"
-  },
-  {
-    "dandiset_id": "000673",
-    "model": "openai/gpt-4o",
-    "prompt": "prompt-b-3.txt",
-    "total_prompt_tokens": 734163,
-    "total_completion_tokens": 6354,
-    "total_vision_prompt_tokens": 1205,
-    "total_vision_completion_tokens": 118,
-    "elapsed_time_seconds": 217.79520320892334,
-    "timestamp": "2025-04-15 18:58:05",
-    "system_info": {
-      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
-      "hostname": "jupyter-magland",
-      "processor": "x86_64",
-      "python_version": "3.11.10"
-    },
-    "subfolder": "2025-04-15-gpt-4o-prompt-b-3"
-  },
-  {
-    "dandiset_id": "000673",
-    "model": "anthropic/claude-3.7-sonnet",
-    "prompt": "prompt-a-5.txt",
-    "total_prompt_tokens": 703498,
-    "total_completion_tokens": 13956,
-    "total_vision_prompt_tokens": 0,
-    "total_vision_completion_tokens": 0,
-    "elapsed_time_seconds": 355.55329847335815,
-    "timestamp": "2025-04-16 16:04:45",
-    "system_info": {
-      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
-      "hostname": "jupyter-magland",
-      "processor": "x86_64",
-      "python_version": "3.11.10"
-    },
-    "subfolder": "2025-04-16-claude-3.7-sonnet-prompt-a-5"
-  },
-  {
-    "dandiset_id": "000673",
-    "model": "anthropic/claude-3.7-sonnet",
-    "prompt": "prompt-a-3.txt",
-    "total_prompt_tokens": 505315,
-    "total_completion_tokens": 13862,
-    "total_vision_prompt_tokens": 0,
-    "total_vision_completion_tokens": 0,
-    "elapsed_time_seconds": 356.6985604763031,
-    "timestamp": "2025-04-15 11:46:11",
-    "system_info": {
-      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
-      "hostname": "jupyter-magland",
-      "processor": "x86_64",
-      "python_version": "3.11.10"
-    },
-    "subfolder": "2025-04-15-claude-3.7-sonnet-prompt-a-3"
   },
   {
     "dandiset_id": "000673",
@@ -430,42 +70,6 @@
       "python_version": "3.11.10"
     },
     "subfolder": "2025-04-16-gpt-4o-prompt-a-4"
-  },
-  {
-    "dandiset_id": "000673",
-    "model": "openrouter/quasar-alpha",
-    "prompt": "prompt-a-1.txt",
-    "total_prompt_tokens": 131764,
-    "total_completion_tokens": 3154,
-    "total_vision_prompt_tokens": 0,
-    "total_vision_completion_tokens": 0,
-    "elapsed_time_seconds": 238.486962556839,
-    "timestamp": "2025-04-10 13:51:43",
-    "system_info": {
-      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
-      "hostname": "system76-pc",
-      "processor": "x86_64",
-      "python_version": "3.12.2"
-    },
-    "subfolder": "2025-04-10-quasar-alpha-prompt-a-1"
-  },
-  {
-    "dandiset_id": "000673",
-    "model": "google/gemini-2.0-flash-001",
-    "prompt": "prompt-b-3.txt",
-    "total_prompt_tokens": 977448,
-    "total_completion_tokens": 6423,
-    "total_vision_prompt_tokens": 14730,
-    "total_vision_completion_tokens": 504,
-    "elapsed_time_seconds": 147.1146833896637,
-    "timestamp": "2025-04-15 11:26:16",
-    "system_info": {
-      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
-      "hostname": "jupyter-magland",
-      "processor": "x86_64",
-      "python_version": "3.11.10"
-    },
-    "subfolder": "2025-04-15-gemini-2.0-flash-001-prompt-b-3"
   },
   {
     "dandiset_id": "000673",
@@ -506,20 +110,92 @@
   {
     "dandiset_id": "000673",
     "model": "google/gemini-2.0-flash-001",
-    "prompt": "prompt-a-1.txt",
-    "total_prompt_tokens": 732816,
-    "total_completion_tokens": 32051,
+    "prompt": "prompt-a-3.txt",
+    "total_prompt_tokens": 147997,
+    "total_completion_tokens": 2953,
     "total_vision_prompt_tokens": 0,
     "total_vision_completion_tokens": 0,
-    "elapsed_time_seconds": 225.04888081550598,
-    "timestamp": "2025-04-14 16:11:15",
+    "elapsed_time_seconds": 41.69268822669983,
+    "timestamp": "2025-04-15 11:19:39",
     "system_info": {
-      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
-      "hostname": "system76-pc",
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
       "processor": "x86_64",
-      "python_version": "3.12.2"
+      "python_version": "3.11.10"
     },
-    "subfolder": "2025-04-14-gemini-2.0-flash-001-prompt-a-1"
+    "subfolder": "2025-04-15-gemini-2.0-flash-001-prompt-a-3"
+  },
+  {
+    "dandiset_id": "000673",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-a-3.txt",
+    "total_prompt_tokens": 505315,
+    "total_completion_tokens": 13862,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 356.6985604763031,
+    "timestamp": "2025-04-15 11:46:11",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-15-claude-3.7-sonnet-prompt-a-3"
+  },
+  {
+    "dandiset_id": "000673",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-a-5.txt",
+    "total_prompt_tokens": 703498,
+    "total_completion_tokens": 13956,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 355.55329847335815,
+    "timestamp": "2025-04-16 16:04:45",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-16-claude-3.7-sonnet-prompt-a-5"
+  },
+  {
+    "dandiset_id": "000673",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-b-4.txt",
+    "total_prompt_tokens": 1178824,
+    "total_completion_tokens": 21383,
+    "total_vision_prompt_tokens": 18084,
+    "total_vision_completion_tokens": 2185,
+    "elapsed_time_seconds": 664.7713010311127,
+    "timestamp": "2025-04-16 14:47:30",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-16-claude-3.7-sonnet-prompt-b-4"
+  },
+  {
+    "dandiset_id": "000673",
+    "model": "google/gemini-2.0-flash-001",
+    "prompt": "prompt-b-4.txt",
+    "total_prompt_tokens": 721182,
+    "total_completion_tokens": 6962,
+    "total_vision_prompt_tokens": 11174,
+    "total_vision_completion_tokens": 360,
+    "elapsed_time_seconds": 253.5983271598816,
+    "timestamp": "2025-04-16 14:27:46",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-16-gemini-2.0-flash-001-prompt-b-4"
   },
   {
     "dandiset_id": "000673",
@@ -542,139 +218,31 @@
   {
     "dandiset_id": "000673",
     "model": "google/gemini-2.0-flash-001",
-    "prompt": "prompt-b-4.txt",
-    "total_prompt_tokens": 721182,
-    "total_completion_tokens": 6962,
-    "total_vision_prompt_tokens": 11174,
-    "total_vision_completion_tokens": 360,
-    "elapsed_time_seconds": 253.5983271598816,
-    "timestamp": "2025-04-16 14:27:46",
+    "prompt": "prompt-a-1.txt",
+    "total_prompt_tokens": 732816,
+    "total_completion_tokens": 32051,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 225.04888081550598,
+    "timestamp": "2025-04-14 16:11:15",
     "system_info": {
-      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
-      "hostname": "jupyter-magland",
+      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+      "hostname": "system76-pc",
       "processor": "x86_64",
-      "python_version": "3.11.10"
+      "python_version": "3.12.2"
     },
-    "subfolder": "2025-04-16-gemini-2.0-flash-001-prompt-b-4"
+    "subfolder": "2025-04-14-gemini-2.0-flash-001-prompt-a-1"
   },
   {
     "dandiset_id": "000673",
-    "model": "anthropic/claude-3.7-sonnet",
-    "prompt": "prompt-a-4.txt",
-    "total_prompt_tokens": 0,
-    "total_completion_tokens": 0,
-    "total_vision_prompt_tokens": 0,
-    "total_vision_completion_tokens": 0,
-    "elapsed_time_seconds": 0,
-    "timestamp": "2025-04-16 16:00:00",
-    "system_info": {
-      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
-      "hostname": "jupyter-magland",
-      "processor": "x86_64",
-      "python_version": "3.11.10"
-    },
-    "subfolder": "2025-04-16-claude-3.7-sonnet-prompt-a-4"
-  },
-  {
-    "dandiset_id": "001363",
-    "model": "openrouter/quasar-alpha",
-    "prompt": "prompt-a-1.txt",
-    "total_prompt_tokens": 178057,
-    "total_completion_tokens": 4387,
-    "total_vision_prompt_tokens": 0,
-    "total_vision_completion_tokens": 0,
-    "elapsed_time_seconds": 146.66269254684448,
-    "timestamp": "2025-04-10 16:58:25",
-    "system_info": {
-      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
-      "hostname": "system76-pc",
-      "processor": "x86_64",
-      "python_version": "3.12.2"
-    },
-    "subfolder": "2025-04-10-quasar-alpha-prompt-a-1"
-  },
-  {
-    "dandiset_id": "001363",
-    "model": "openrouter/quasar-alpha",
-    "prompt": "prompt-b-1.txt",
-    "total_prompt_tokens": 303017,
-    "total_completion_tokens": 7227,
-    "total_vision_prompt_tokens": 2521,
-    "total_vision_completion_tokens": 544,
-    "elapsed_time_seconds": 368.24405312538147,
-    "timestamp": "2025-04-10 17:04:33",
-    "system_info": {
-      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
-      "hostname": "system76-pc",
-      "processor": "x86_64",
-      "python_version": "3.12.2"
-    },
-    "subfolder": "2025-04-10-quasar-alpha-prompt-b-1"
-  },
-  {
-    "dandiset_id": "001174",
-    "model": "anthropic/claude-3.7-sonnet",
-    "prompt": "prompt-b-2.txt",
-    "total_prompt_tokens": 1162093,
-    "total_completion_tokens": 20615,
-    "total_vision_prompt_tokens": 13044,
-    "total_vision_completion_tokens": 1904,
-    "elapsed_time_seconds": 638.816812992096,
-    "timestamp": "2025-04-10 19:42:34",
-    "system_info": {
-      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
-      "hostname": "system76-pc",
-      "processor": "x86_64",
-      "python_version": "3.12.2"
-    },
-    "subfolder": "2025-04-10-claude-3.7-sonnet-prompt-b-2"
-  },
-  {
-    "dandiset_id": "001174",
-    "model": "google/gemini-2.0-flash-001",
-    "prompt": "prompt-a-3.txt",
-    "total_prompt_tokens": 85531,
-    "total_completion_tokens": 3914,
-    "total_vision_prompt_tokens": 0,
-    "total_vision_completion_tokens": 0,
-    "elapsed_time_seconds": 49.130298376083374,
-    "timestamp": "2025-04-15 14:38:29",
-    "system_info": {
-      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
-      "hostname": "jupyter-magland",
-      "processor": "x86_64",
-      "python_version": "3.11.10"
-    },
-    "subfolder": "2025-04-15-gemini-2.0-flash-001-prompt-a-3"
-  },
-  {
-    "dandiset_id": "001174",
-    "model": "anthropic/claude-3.7-sonnet",
-    "prompt": "prompt-b-3.txt",
-    "total_prompt_tokens": 1293214,
-    "total_completion_tokens": 18151,
-    "total_vision_prompt_tokens": 14970,
-    "total_vision_completion_tokens": 2491,
-    "elapsed_time_seconds": 585.4311256408691,
-    "timestamp": "2025-04-15 14:55:32",
-    "system_info": {
-      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
-      "hostname": "jupyter-magland",
-      "processor": "x86_64",
-      "python_version": "3.11.10"
-    },
-    "subfolder": "2025-04-15-claude-3.7-sonnet-prompt-b-3"
-  },
-  {
-    "dandiset_id": "001174",
     "model": "openai/gpt-4o",
     "prompt": "prompt-b-3.txt",
-    "total_prompt_tokens": 667771,
-    "total_completion_tokens": 8238,
-    "total_vision_prompt_tokens": 985,
-    "total_vision_completion_tokens": 152,
-    "elapsed_time_seconds": 221.0057234764099,
-    "timestamp": "2025-04-15 19:08:07",
+    "total_prompt_tokens": 734163,
+    "total_completion_tokens": 6354,
+    "total_vision_prompt_tokens": 1205,
+    "total_vision_completion_tokens": 118,
+    "elapsed_time_seconds": 217.79520320892334,
+    "timestamp": "2025-04-15 18:58:05",
     "system_info": {
       "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
       "hostname": "jupyter-magland",
@@ -684,69 +252,15 @@
     "subfolder": "2025-04-15-gpt-4o-prompt-b-3"
   },
   {
-    "dandiset_id": "001174",
-    "model": "anthropic/claude-3.7-sonnet",
-    "prompt": "prompt-a-5.txt",
-    "total_prompt_tokens": 910522,
-    "total_completion_tokens": 20048,
-    "total_vision_prompt_tokens": 0,
-    "total_vision_completion_tokens": 0,
-    "elapsed_time_seconds": 478.92465448379517,
-    "timestamp": "2025-04-16 17:12:22",
-    "system_info": {
-      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
-      "hostname": "jupyter-magland",
-      "processor": "x86_64",
-      "python_version": "3.11.10"
-    },
-    "subfolder": "2025-04-16-claude-3.7-sonnet-prompt-a-5"
-  },
-  {
-    "dandiset_id": "001174",
-    "model": "anthropic/claude-3.7-sonnet",
-    "prompt": "prompt-a-3.txt",
-    "total_prompt_tokens": 436076,
-    "total_completion_tokens": 11269,
-    "total_vision_prompt_tokens": 0,
-    "total_vision_completion_tokens": 0,
-    "elapsed_time_seconds": 263.28782868385315,
-    "timestamp": "2025-04-15 14:45:46",
-    "system_info": {
-      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
-      "hostname": "jupyter-magland",
-      "processor": "x86_64",
-      "python_version": "3.11.10"
-    },
-    "subfolder": "2025-04-15-claude-3.7-sonnet-prompt-a-3"
-  },
-  {
-    "dandiset_id": "001174",
-    "model": "openrouter/quasar-alpha",
-    "prompt": "prompt-a-1.txt",
-    "total_prompt_tokens": 157177,
-    "total_completion_tokens": 3693,
-    "total_vision_prompt_tokens": 0,
-    "total_vision_completion_tokens": 0,
-    "elapsed_time_seconds": 175.93009901046753,
-    "timestamp": "2025-04-10 13:44:43",
-    "system_info": {
-      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
-      "hostname": "system76-pc",
-      "processor": "x86_64",
-      "python_version": "3.12.2"
-    },
-    "subfolder": "2025-04-10-quasar-alpha-prompt-a-1"
-  },
-  {
-    "dandiset_id": "001174",
+    "dandiset_id": "000673",
     "model": "google/gemini-2.0-flash-001",
     "prompt": "prompt-b-3.txt",
-    "total_prompt_tokens": 278879,
-    "total_completion_tokens": 5521,
-    "total_vision_prompt_tokens": 3272,
-    "total_vision_completion_tokens": 210,
-    "elapsed_time_seconds": 73.10929107666016,
-    "timestamp": "2025-04-15 14:39:42",
+    "total_prompt_tokens": 977448,
+    "total_completion_tokens": 6423,
+    "total_vision_prompt_tokens": 14730,
+    "total_vision_completion_tokens": 504,
+    "elapsed_time_seconds": 147.1146833896637,
+    "timestamp": "2025-04-15 11:26:16",
     "system_info": {
       "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
       "hostname": "jupyter-magland",
@@ -756,112 +270,58 @@
     "subfolder": "2025-04-15-gemini-2.0-flash-001-prompt-b-3"
   },
   {
-    "dandiset_id": "001174",
-    "model": "openai/gpt-4o",
-    "prompt": "prompt-a-3.txt",
-    "total_prompt_tokens": 73464,
-    "total_completion_tokens": 1943,
+    "dandiset_id": "000673",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-b-3.txt",
+    "total_prompt_tokens": 1541983,
+    "total_completion_tokens": 31349,
+    "total_vision_prompt_tokens": 9211,
+    "total_vision_completion_tokens": 1448,
+    "elapsed_time_seconds": 846.342604637146,
+    "timestamp": "2025-04-15 12:09:31",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-15-claude-3.7-sonnet-prompt-b-3"
+  },
+  {
+    "dandiset_id": "001276",
+    "model": "openrouter/quasar-alpha",
+    "prompt": "prompt-a-1.txt",
+    "total_prompt_tokens": 62824,
+    "total_completion_tokens": 2610,
     "total_vision_prompt_tokens": 0,
     "total_vision_completion_tokens": 0,
-    "elapsed_time_seconds": 55.19734454154968,
-    "timestamp": "2025-04-15 19:04:26",
-    "system_info": {
-      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
-      "hostname": "jupyter-magland",
-      "processor": "x86_64",
-      "python_version": "3.11.10"
-    },
-    "subfolder": "2025-04-15-gpt-4o-prompt-a-3"
-  },
-  {
-    "dandiset_id": "001174",
-    "model": "anthropic/claude-3.7-sonnet",
-    "prompt": "prompt-b-5.txt",
-    "total_prompt_tokens": 1377819,
-    "total_completion_tokens": 20164,
-    "total_vision_prompt_tokens": 16500,
-    "total_vision_completion_tokens": 2285,
-    "elapsed_time_seconds": 650.8005118370056,
-    "timestamp": "2025-04-16 17:23:14",
-    "system_info": {
-      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
-      "hostname": "jupyter-magland",
-      "processor": "x86_64",
-      "python_version": "3.11.10"
-    },
-    "subfolder": "2025-04-16-claude-3.7-sonnet-prompt-b-5"
-  },
-  {
-    "dandiset_id": "001174",
-    "model": "google/gemini-2.5-pro-preview-03-25",
-    "prompt": "prompt-b-3.txt",
-    "total_prompt_tokens": 450171,
-    "total_completion_tokens": 12258,
-    "total_vision_prompt_tokens": 1157,
-    "total_vision_completion_tokens": 730,
-    "elapsed_time_seconds": 234.24689054489136,
-    "timestamp": "2025-04-11 18:03:19",
+    "elapsed_time_seconds": 117.34645366668701,
+    "timestamp": "2025-04-10 14:56:01",
     "system_info": {
       "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
       "hostname": "system76-pc",
       "processor": "x86_64",
       "python_version": "3.12.2"
     },
-    "subfolder": "2025-04-10-gemini-2.5-pro-preview-prompt-b-3"
+    "subfolder": "2025-04-10-quasar-alpha-prompt-a-1"
   },
   {
-    "dandiset_id": "001174",
-    "model": "google/gemini-2.0-flash-001",
-    "prompt": "prompt-b-3.txt",
-    "total_prompt_tokens": 275922,
-    "total_completion_tokens": 5124,
-    "total_vision_prompt_tokens": 3269,
-    "total_vision_completion_tokens": 137,
-    "elapsed_time_seconds": 78.192214012146,
-    "timestamp": "2025-04-11 17:50:32",
+    "dandiset_id": "001276",
+    "model": "openrouter/quasar-alpha",
+    "prompt": "prompt-b-1.txt",
+    "total_prompt_tokens": 207401,
+    "total_completion_tokens": 5713,
+    "total_vision_prompt_tokens": 1715,
+    "total_vision_completion_tokens": 190,
+    "elapsed_time_seconds": 493.7321436405182,
+    "timestamp": "2025-04-10 15:04:15",
     "system_info": {
       "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
       "hostname": "system76-pc",
       "processor": "x86_64",
       "python_version": "3.12.2"
     },
-    "subfolder": "2025-04-10-gemini-2.0-flash-001-prompt-b-3"
-  },
-  {
-    "dandiset_id": "001174",
-    "model": "anthropic/claude-3.7-sonnet",
-    "prompt": "prompt-a-2.txt",
-    "total_prompt_tokens": 205162,
-    "total_completion_tokens": 9806,
-    "total_vision_prompt_tokens": 0,
-    "total_vision_completion_tokens": 0,
-    "elapsed_time_seconds": 209.6957082748413,
-    "timestamp": "2025-04-10 19:27:15",
-    "system_info": {
-      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
-      "hostname": "system76-pc",
-      "processor": "x86_64",
-      "python_version": "3.12.2"
-    },
-    "subfolder": "2025-04-10-claude-3.7-sonnet-prompt-a-2"
-  },
-  {
-    "dandiset_id": "001335",
-    "model": "openai/gpt-4o",
-    "prompt": "prompt-b-3.txt",
-    "total_prompt_tokens": 126013,
-    "total_completion_tokens": 2134,
-    "total_vision_prompt_tokens": 515,
-    "total_vision_completion_tokens": 90,
-    "elapsed_time_seconds": 77.27641129493713,
-    "timestamp": "2025-04-15 19:02:14",
-    "system_info": {
-      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
-      "hostname": "jupyter-magland",
-      "processor": "x86_64",
-      "python_version": "3.11.10"
-    },
-    "subfolder": "2025-04-15-gpt-4o-prompt-b-3"
+    "subfolder": "2025-04-10-quasar-alpha-prompt-b-1"
   },
   {
     "dandiset_id": "001335",
@@ -880,6 +340,24 @@
       "python_version": "3.12.2"
     },
     "subfolder": "2025-04-10-quasar-alpha-prompt-a-1"
+  },
+  {
+    "dandiset_id": "001335",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-a-5.txt",
+    "total_prompt_tokens": 249821,
+    "total_completion_tokens": 18760,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 360.3440384864807,
+    "timestamp": "2025-04-17 13:03:01",
+    "system_info": {
+      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+      "hostname": "system76-pc",
+      "processor": "x86_64",
+      "python_version": "3.12.2"
+    },
+    "subfolder": "2025-04-17-claude-3.7-sonnet-prompt-a-5"
   },
   {
     "dandiset_id": "001335",
@@ -909,6 +387,672 @@
     "total_vision_completion_tokens": 228,
     "elapsed_time_seconds": 308.65340089797974,
     "timestamp": "2025-04-10 16:45:53",
+    "system_info": {
+      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+      "hostname": "system76-pc",
+      "processor": "x86_64",
+      "python_version": "3.12.2"
+    },
+    "subfolder": "2025-04-10-quasar-alpha-prompt-b-1"
+  },
+  {
+    "dandiset_id": "001335",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-b-5.txt",
+    "total_prompt_tokens": 732172,
+    "total_completion_tokens": 18832,
+    "total_vision_prompt_tokens": 10640,
+    "total_vision_completion_tokens": 2209,
+    "elapsed_time_seconds": 490.8035833835602,
+    "timestamp": "2025-04-17 17:21:34",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-17-claude-3.7-sonnet-prompt-b-5"
+  },
+  {
+    "dandiset_id": "001335",
+    "model": "openai/gpt-4o",
+    "prompt": "prompt-b-3.txt",
+    "total_prompt_tokens": 126013,
+    "total_completion_tokens": 2134,
+    "total_vision_prompt_tokens": 515,
+    "total_vision_completion_tokens": 90,
+    "elapsed_time_seconds": 77.27641129493713,
+    "timestamp": "2025-04-15 19:02:14",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-15-gpt-4o-prompt-b-3"
+  },
+  {
+    "dandiset_id": "001335",
+    "model": "google/gemini-2.0-flash-001",
+    "prompt": "prompt-b-5.txt",
+    "total_prompt_tokens": 411150,
+    "total_completion_tokens": 6940,
+    "total_vision_prompt_tokens": 3792,
+    "total_vision_completion_tokens": 110,
+    "elapsed_time_seconds": 140.91234493255615,
+    "timestamp": "2025-04-17 17:13:22",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-17-gemini-2.0-flash-001-prompt-b-5"
+  },
+  {
+    "dandiset_id": "000945",
+    "model": "openrouter/quasar-alpha",
+    "prompt": "prompt-a-1.txt",
+    "total_prompt_tokens": 64978,
+    "total_completion_tokens": 2986,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 105.05083656311035,
+    "timestamp": "2025-04-10 13:55:02",
+    "system_info": {
+      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+      "hostname": "system76-pc",
+      "processor": "x86_64",
+      "python_version": "3.12.2"
+    },
+    "subfolder": "2025-04-10-quasar-alpha-prompt-a-1"
+  },
+  {
+    "dandiset_id": "000945",
+    "model": "google/gemini-2.0-flash-001",
+    "prompt": "prompt-a-4.txt",
+    "total_prompt_tokens": 77595,
+    "total_completion_tokens": 3362,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 36.453848123550415,
+    "timestamp": "2025-04-16 16:36:06",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-16-gemini-2.0-flash-001-prompt-a-4"
+  },
+  {
+    "dandiset_id": "000945",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-b-5.txt",
+    "total_prompt_tokens": 1125707,
+    "total_completion_tokens": 20014,
+    "total_vision_prompt_tokens": 12161,
+    "total_vision_completion_tokens": 1785,
+    "elapsed_time_seconds": 603.5166809558868,
+    "timestamp": "2025-04-16 16:55:49",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-16-claude-3.7-sonnet-prompt-b-5"
+  },
+  {
+    "dandiset_id": "000945",
+    "model": "google/gemini-2.0-flash-001",
+    "prompt": "prompt-a-3.txt",
+    "total_prompt_tokens": 74763,
+    "total_completion_tokens": 3582,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 33.86750388145447,
+    "timestamp": "2025-04-15 12:19:55",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-15-gemini-2.0-flash-001-prompt-a-3"
+  },
+  {
+    "dandiset_id": "000945",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-a-3.txt",
+    "total_prompt_tokens": 269037,
+    "total_completion_tokens": 11207,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 238.66888451576233,
+    "timestamp": "2025-04-15 12:26:38",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-15-claude-3.7-sonnet-prompt-a-3"
+  },
+  {
+    "dandiset_id": "000945",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-a-5.txt",
+    "total_prompt_tokens": 186998,
+    "total_completion_tokens": 9244,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 194.22272276878357,
+    "timestamp": "2025-04-16 16:45:45",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-16-claude-3.7-sonnet-prompt-a-5"
+  },
+  {
+    "dandiset_id": "000945",
+    "model": "openrouter/quasar-alpha",
+    "prompt": "prompt-b-1.txt",
+    "total_prompt_tokens": 375539,
+    "total_completion_tokens": 6526,
+    "total_vision_prompt_tokens": 2398,
+    "total_vision_completion_tokens": 404,
+    "elapsed_time_seconds": 481.365602016449,
+    "timestamp": "2025-04-10 14:16:05",
+    "system_info": {
+      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+      "hostname": "system76-pc",
+      "processor": "x86_64",
+      "python_version": "3.12.2"
+    },
+    "subfolder": "2025-04-10-quasar-alpha-prompt-b-1"
+  },
+  {
+    "dandiset_id": "000945",
+    "model": "google/gemini-2.0-flash-001",
+    "prompt": "prompt-b-4.txt",
+    "total_prompt_tokens": 511826,
+    "total_completion_tokens": 6471,
+    "total_vision_prompt_tokens": 9603,
+    "total_vision_completion_tokens": 278,
+    "elapsed_time_seconds": 233.30932807922363,
+    "timestamp": "2025-04-16 16:40:00",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-16-gemini-2.0-flash-001-prompt-b-4"
+  },
+  {
+    "dandiset_id": "000945",
+    "model": "google/gemini-2.0-flash-001",
+    "prompt": "prompt-b-3.txt",
+    "total_prompt_tokens": 241418,
+    "total_completion_tokens": 5111,
+    "total_vision_prompt_tokens": 3734,
+    "total_vision_completion_tokens": 225,
+    "elapsed_time_seconds": 62.627140522003174,
+    "timestamp": "2025-04-15 12:20:59",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-15-gemini-2.0-flash-001-prompt-b-3"
+  },
+  {
+    "dandiset_id": "000945",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-b-3.txt",
+    "total_prompt_tokens": 796604,
+    "total_completion_tokens": 20114,
+    "total_vision_prompt_tokens": 10509,
+    "total_vision_completion_tokens": 2257,
+    "elapsed_time_seconds": 559.5839521884918,
+    "timestamp": "2025-04-15 12:35:58",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-15-claude-3.7-sonnet-prompt-b-3"
+  },
+  {
+    "dandiset_id": "001333",
+    "model": "openrouter/quasar-alpha",
+    "prompt": "prompt-a-1.txt",
+    "total_prompt_tokens": 67810,
+    "total_completion_tokens": 2958,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 87.7332501411438,
+    "timestamp": "2025-04-10 16:07:54",
+    "system_info": {
+      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+      "hostname": "system76-pc",
+      "processor": "x86_64",
+      "python_version": "3.12.2"
+    },
+    "subfolder": "2025-04-10-quasar-alpha-prompt-a-1"
+  },
+  {
+    "dandiset_id": "001333",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-b-1.txt",
+    "total_prompt_tokens": 1243075,
+    "total_completion_tokens": 34068,
+    "total_vision_prompt_tokens": 6505,
+    "total_vision_completion_tokens": 1455,
+    "elapsed_time_seconds": 770.5034658908844,
+    "timestamp": "2025-04-10 18:55:14",
+    "system_info": {
+      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+      "hostname": "system76-pc",
+      "processor": "x86_64",
+      "python_version": "3.12.2"
+    },
+    "subfolder": "2025-04-10-claude-3.7-sonnet-prompt-b-1"
+  },
+  {
+    "dandiset_id": "001333",
+    "model": "google/gemini-2.0-flash-001",
+    "prompt": "prompt-a-5.txt",
+    "total_prompt_tokens": 82187,
+    "total_completion_tokens": 4742,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 38.926045179367065,
+    "timestamp": "2025-04-17 17:54:33",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-17-gemini-2.0-flash-001-prompt-a-5"
+  },
+  {
+    "dandiset_id": "001333",
+    "model": "openai/gpt-4o",
+    "prompt": "prompt-a-5.txt",
+    "total_prompt_tokens": 68203,
+    "total_completion_tokens": 1827,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 56.0385799407959,
+    "timestamp": "2025-04-17 18:11:39",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-17-gpt-4o-prompt-a-5"
+  },
+  {
+    "dandiset_id": "001333",
+    "model": "openrouter/quasar-alpha",
+    "prompt": "prompt-b-1.txt",
+    "total_prompt_tokens": 168186,
+    "total_completion_tokens": 4718,
+    "total_vision_prompt_tokens": 1086,
+    "total_vision_completion_tokens": 183,
+    "elapsed_time_seconds": 217.59454131126404,
+    "timestamp": "2025-04-10 16:34:44",
+    "system_info": {
+      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+      "hostname": "system76-pc",
+      "processor": "x86_64",
+      "python_version": "3.12.2"
+    },
+    "subfolder": "2025-04-10-quasar-alpha-prompt-b-1"
+  },
+  {
+    "dandiset_id": "001333",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-b-5.txt",
+    "total_prompt_tokens": 784817,
+    "total_completion_tokens": 17597,
+    "total_vision_prompt_tokens": 7994,
+    "total_vision_completion_tokens": 1107,
+    "elapsed_time_seconds": 452.18342995643616,
+    "timestamp": "2025-04-17 18:10:42",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-17-claude-3.7-sonnet-prompt-b-5"
+  },
+  {
+    "dandiset_id": "001333",
+    "model": "google/gemini-2.0-flash-001",
+    "prompt": "prompt-b-5.txt",
+    "total_prompt_tokens": 410019,
+    "total_completion_tokens": 6272,
+    "total_vision_prompt_tokens": 6753,
+    "total_vision_completion_tokens": 168,
+    "elapsed_time_seconds": 89.13918852806091,
+    "timestamp": "2025-04-17 17:56:02",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-17-gemini-2.0-flash-001-prompt-b-5"
+  },
+  {
+    "dandiset_id": "001333",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-a-1.txt",
+    "total_prompt_tokens": 475612,
+    "total_completion_tokens": 11900,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 294.81849098205566,
+    "timestamp": "2025-04-10 17:24:28",
+    "system_info": {
+      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+      "hostname": "system76-pc",
+      "processor": "x86_64",
+      "python_version": "3.12.2"
+    },
+    "subfolder": "2025-04-10-claude-3.7-sonnet-prompt-a-1"
+  },
+  {
+    "dandiset_id": "001333",
+    "model": "openai/gpt-4o",
+    "prompt": "prompt-b-5.txt",
+    "total_prompt_tokens": 118003,
+    "total_completion_tokens": 2269,
+    "total_vision_prompt_tokens": 496,
+    "total_vision_completion_tokens": 68,
+    "elapsed_time_seconds": 104.92247414588928,
+    "timestamp": "2025-04-17 18:13:24",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-17-gpt-4o-prompt-b-5"
+  },
+  {
+    "dandiset_id": "001174",
+    "model": "openrouter/quasar-alpha",
+    "prompt": "prompt-a-1.txt",
+    "total_prompt_tokens": 157177,
+    "total_completion_tokens": 3693,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 175.93009901046753,
+    "timestamp": "2025-04-10 13:44:43",
+    "system_info": {
+      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+      "hostname": "system76-pc",
+      "processor": "x86_64",
+      "python_version": "3.12.2"
+    },
+    "subfolder": "2025-04-10-quasar-alpha-prompt-a-1"
+  },
+  {
+    "dandiset_id": "001174",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-a-2.txt",
+    "total_prompt_tokens": 205162,
+    "total_completion_tokens": 9806,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 209.6957082748413,
+    "timestamp": "2025-04-10 19:27:15",
+    "system_info": {
+      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+      "hostname": "system76-pc",
+      "processor": "x86_64",
+      "python_version": "3.12.2"
+    },
+    "subfolder": "2025-04-10-claude-3.7-sonnet-prompt-a-2"
+  },
+  {
+    "dandiset_id": "001174",
+    "model": "openai/gpt-4o",
+    "prompt": "prompt-a-3.txt",
+    "total_prompt_tokens": 73464,
+    "total_completion_tokens": 1943,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 55.19734454154968,
+    "timestamp": "2025-04-15 19:04:26",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-15-gpt-4o-prompt-a-3"
+  },
+  {
+    "dandiset_id": "001174",
+    "model": "google/gemini-2.0-flash-001",
+    "prompt": "prompt-b-3.txt",
+    "total_prompt_tokens": 275922,
+    "total_completion_tokens": 5124,
+    "total_vision_prompt_tokens": 3269,
+    "total_vision_completion_tokens": 137,
+    "elapsed_time_seconds": 78.192214012146,
+    "timestamp": "2025-04-11 17:50:32",
+    "system_info": {
+      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+      "hostname": "system76-pc",
+      "processor": "x86_64",
+      "python_version": "3.12.2"
+    },
+    "subfolder": "2025-04-10-gemini-2.0-flash-001-prompt-b-3"
+  },
+  {
+    "dandiset_id": "001174",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-b-5.txt",
+    "total_prompt_tokens": 1377819,
+    "total_completion_tokens": 20164,
+    "total_vision_prompt_tokens": 16500,
+    "total_vision_completion_tokens": 2285,
+    "elapsed_time_seconds": 650.8005118370056,
+    "timestamp": "2025-04-16 17:23:14",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-16-claude-3.7-sonnet-prompt-b-5"
+  },
+  {
+    "dandiset_id": "001174",
+    "model": "google/gemini-2.0-flash-001",
+    "prompt": "prompt-a-3.txt",
+    "total_prompt_tokens": 85531,
+    "total_completion_tokens": 3914,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 49.130298376083374,
+    "timestamp": "2025-04-15 14:38:29",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-15-gemini-2.0-flash-001-prompt-a-3"
+  },
+  {
+    "dandiset_id": "001174",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-a-3.txt",
+    "total_prompt_tokens": 436076,
+    "total_completion_tokens": 11269,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 263.28782868385315,
+    "timestamp": "2025-04-15 14:45:46",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-15-claude-3.7-sonnet-prompt-a-3"
+  },
+  {
+    "dandiset_id": "001174",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-a-5.txt",
+    "total_prompt_tokens": 910522,
+    "total_completion_tokens": 20048,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 478.92465448379517,
+    "timestamp": "2025-04-16 17:12:22",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-16-claude-3.7-sonnet-prompt-a-5"
+  },
+  {
+    "dandiset_id": "001174",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-b-2.txt",
+    "total_prompt_tokens": 1162093,
+    "total_completion_tokens": 20615,
+    "total_vision_prompt_tokens": 13044,
+    "total_vision_completion_tokens": 1904,
+    "elapsed_time_seconds": 638.816812992096,
+    "timestamp": "2025-04-10 19:42:34",
+    "system_info": {
+      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+      "hostname": "system76-pc",
+      "processor": "x86_64",
+      "python_version": "3.12.2"
+    },
+    "subfolder": "2025-04-10-claude-3.7-sonnet-prompt-b-2"
+  },
+  {
+    "dandiset_id": "001174",
+    "model": "openai/gpt-4o",
+    "prompt": "prompt-b-3.txt",
+    "total_prompt_tokens": 667771,
+    "total_completion_tokens": 8238,
+    "total_vision_prompt_tokens": 985,
+    "total_vision_completion_tokens": 152,
+    "elapsed_time_seconds": 221.0057234764099,
+    "timestamp": "2025-04-15 19:08:07",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-15-gpt-4o-prompt-b-3"
+  },
+  {
+    "dandiset_id": "001174",
+    "model": "google/gemini-2.5-pro-preview-03-25",
+    "prompt": "prompt-b-3.txt",
+    "total_prompt_tokens": 450171,
+    "total_completion_tokens": 12258,
+    "total_vision_prompt_tokens": 1157,
+    "total_vision_completion_tokens": 730,
+    "elapsed_time_seconds": 234.24689054489136,
+    "timestamp": "2025-04-11 18:03:19",
+    "system_info": {
+      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+      "hostname": "system76-pc",
+      "processor": "x86_64",
+      "python_version": "3.12.2"
+    },
+    "subfolder": "2025-04-10-gemini-2.5-pro-preview-prompt-b-3"
+  },
+  {
+    "dandiset_id": "001174",
+    "model": "google/gemini-2.0-flash-001",
+    "prompt": "prompt-b-3.txt",
+    "total_prompt_tokens": 278879,
+    "total_completion_tokens": 5521,
+    "total_vision_prompt_tokens": 3272,
+    "total_vision_completion_tokens": 210,
+    "elapsed_time_seconds": 73.10929107666016,
+    "timestamp": "2025-04-15 14:39:42",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-15-gemini-2.0-flash-001-prompt-b-3"
+  },
+  {
+    "dandiset_id": "001174",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-b-3.txt",
+    "total_prompt_tokens": 1293214,
+    "total_completion_tokens": 18151,
+    "total_vision_prompt_tokens": 14970,
+    "total_vision_completion_tokens": 2491,
+    "elapsed_time_seconds": 585.4311256408691,
+    "timestamp": "2025-04-15 14:55:32",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-15-claude-3.7-sonnet-prompt-b-3"
+  },
+  {
+    "dandiset_id": "001363",
+    "model": "openrouter/quasar-alpha",
+    "prompt": "prompt-a-1.txt",
+    "total_prompt_tokens": 178057,
+    "total_completion_tokens": 4387,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 146.66269254684448,
+    "timestamp": "2025-04-10 16:58:25",
+    "system_info": {
+      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+      "hostname": "system76-pc",
+      "processor": "x86_64",
+      "python_version": "3.12.2"
+    },
+    "subfolder": "2025-04-10-quasar-alpha-prompt-a-1"
+  },
+  {
+    "dandiset_id": "001363",
+    "model": "openrouter/quasar-alpha",
+    "prompt": "prompt-b-1.txt",
+    "total_prompt_tokens": 303017,
+    "total_completion_tokens": 7227,
+    "total_vision_prompt_tokens": 2521,
+    "total_vision_completion_tokens": 544,
+    "elapsed_time_seconds": 368.24405312538147,
+    "timestamp": "2025-04-10 17:04:33",
     "system_info": {
       "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
       "hostname": "system76-pc",
