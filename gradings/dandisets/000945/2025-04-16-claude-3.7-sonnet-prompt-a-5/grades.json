@@ -1,0 +1,65 @@
+{
+  "prompt_version": "2",
+  "grades": [
+    {
+      "question_id": "describe-dandiset",
+      "grade": 1,
+      "thinking": "The notebook introduces the Dandiset (000945) in Cell 1 with information about the tFUS stimulation in rats and provides links. Cell 4 retrieves the Dandiset and lists assets. Cell 6 organizes assets by subject and prints information about them. The description is reasonable but not extremely detailed about the Dandiset's overall purpose and structure."
+    },
+    {
+      "question_id": "load-dandiset",
+      "grade": 1,
+      "thinking": "Cell 4 demonstrates connecting to the DANDI archive, retrieving Dandiset \"000945\", and listing assets. Cell 6 further organizes these assets by subject. The loading of Dandiset information is demonstrated reasonably well."
+    },
+    {
+      "question_id": "load-nwb",
+      "grade": 1,
+      "thinking": "Cell 8 loads a specific NWB file using remfile, h5py, and pynwb. Cells 10-16 extract and display various metadata from the NWB file, including file identifier, session description, devices, electrodes, and trial information. Though there are inconsistencies in the file identifier vs. the selected subject, the notebook does show how to load basic NWB information reasonably well."
+    },
+    {
+      "question_id": "load-nwb-data",
+      "grade": 3,
+      "thinking": "The notebook loads several pieces of data from the NWB file: electrode information (Cell 14), trial data (Cell 16), and neural unit data including spike times (Cells 19-22). This demonstrates loading at least three independent pieces of data from the NWB file."
+    },
+    {
+      "question_id": "visualize-nwb-data",
+      "grade": 3,
+      "thinking": "The notebook visualizes trial duration and inter-trial intervals (Cell 17), raster plots and PSTHs for neural activity (Cells 27-28), response type distributions (Cell 33), modulation index distributions (Cell 34), and a trial heatmap (Cell 37). This shows visualization of at least three different types of data."
+    },
+    {
+      "question_id": "plot-quality",
+      "grade": 1,
+      "thinking": "While the notebook includes multiple plots, there are significant issues with their quality. Cell 17 shows an incorrectly scaled x-axis for trial duration. The raster plots lack proper y-axis tick marks. The visualizations fail to account for different stimulation parameters, limiting their interpretability. The plots are presented reasonably well but have too many issues to be considered very good quality."
+    },
+    {
+      "question_id": "plot-issues",
+      "grade": -3,
+      "thinking": "There are multiple major issues with the plots: (1) The x-axis scale of the trial duration plot is completely wrong (Cell 17); (2) The raster plots lack y-axis tick marks; (3) The boxplots and analyses fail to account for different stimulation parameters; (4) The plots cut off possibly relevant time periods after stimulus offset. These constitute at least two major issues."
+    },
+    {
+      "question_id": "analysis-issues",
+      "grade": -3,
+      "thinking": "The notebook has several major analysis issues: (1) The most critical problem is that it fails to account for different pulse repetition frequencies in the analysis, despite this being mentioned as a goal; (2) There's a mismatch between the selected subject (BH497) and the file identifier (BH498); (3) The statistical tests don't account for potential non-independence of data; (4) Trial duration data appears incorrect. These constitute at least two major issues."
+    },
+    {
+      "question_id": "unsupported-conclusions",
+      "grade": -2,
+      "thinking": "The summary in Cell 38 makes claims about analyzing responses to ultrasound stimulation and comparing cell types that are not properly supported by the analyses, which failed to account for different stimulation parameters. This represents a major unsupported conclusion. Additionally, the classification of neurons into response types without proper accounting for stimulus parameters is another significant issue."
+    },
+    {
+      "question_id": "other-issues",
+      "grade": -2,
+      "thinking": "There are other issues including: (1) Lack of proper metadata extraction - the notebook doesn't extract or use pulse repetition frequency information that was mentioned as critical; (2) Inconsistency between subject mentioned in text (BH497) and the file identifier (BH498); (3) The electrode location information is vague (\"brain area\"). These constitute at least one major issue and several minor ones."
+    }
+  ],
+  "metadata": {
+    "total_prompt_tokens": 6863,
+    "total_completion_tokens": 1185,
+    "model": "anthropic/claude-3.7-sonnet",
+    "timestamp": "2025-04-17 18:38:01",
+    "system_info": {
+      "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+      "hostname": "system76-pc"
+    }
+  }
+}
