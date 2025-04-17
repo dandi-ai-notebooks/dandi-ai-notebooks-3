@@ -1,0 +1,194 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell contains the title of the Jupyter notebook and a brief description of the Dandiset being explored. Its purpose is to introduce the topic and provide context for the subsequent analysis. It sets the stage for exploring the neural recordings from the hippocampus of mice during odor presentation.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell serves as a disclaimer, informing the user that the notebook was automatically generated and may contain errors. It encourages caution in interpreting the results. This is important for managing user expectations.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell provides a brief overview of the Dandiset being explored, including the dataset's contributors, DANDI ID, license, a link to the Dandiset on the DANDI Archive, and a short description of the experimental setup (Neuropixels recordings from the hippocampus of head-fixed mice during odor presentation).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell outlines the scope of the notebook, listing the main steps/topics that will be covered: loading the Dandiset, exploring metadata, visualizing LFPs, and suggesting future analysis directions. This serves as a roadmap for the user.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell lists the Python packages required to run the code in the notebook. This is crucial for the user to set up their environment correctly.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell's purpose is to connect to the DANDI Archive using the DANDI API, load the specified Dandiset (001335), and list the first five assets within the Dandiset. It imports necessary packages like `dandi`, `remfile`, `h5py`, `pynwb`, `numpy`, and `matplotlib`.
+
+INPUT-CODE:
+```python
+from dandi.dandiapi import DandiAPIClient
+import remfile
+import h5py
+import pynwb
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Connect to DANDI archive
+client = DandiAPIClient()
+dandiset = client.get_dandiset("001335", "draft")
+assets = list(dandiset.get_assets())
+
+print(f"Found {len(assets)} assets in the dataset")
+print("\nFirst 5 assets:")
+for asset in assets[:5]:
+    print(f"- {asset.path}")
+```
+
+OUTPUT-TEXT:
+```
+Found 19 assets in the dataset
+
+First 5 assets:
+- sub-10282/sub-10282_ses-20200302_behavior+ecephys.nwb
+- sub-10282/sub-10282_ses-20200303_behavior+ecephys.nwb
+- sub-10282/sub-10282_ses-20200304_behavior+ecephys.nwb
+- sub-10282/sub-10282_ses-20200305_behavior+ecephys.nwb
+- sub-10282/sub-10282_ses-20200306_behavior+ecephys.nwb
+```
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell focuses on loading metadata from a specific NWB file. It constructs a URL to access the NWB file through the DANDI API, opens it using `remfile` and `h5py`, and reads the NWB file into a `pynwb.NWBFile` object. Finally, it prints the session description, identifier, experimenter, and keywords from the NWB file.
+
+INPUT-CODE:
+```python
+url = "https://api.dandiarchive.org/api/assets/aca66db7-4c02-4453-8dcb-a179d44b1c5d/download/"
+remote_file = remfile.File(url)
+h5_file = h5py.File(remote_file)
+io = pynwb.NWBHDF5IO(file=h5_file)
+nwb = io.read()
+
+print(f"Session Description: {nwb.session_description}")
+print(f"Identifier: {nwb.identifier}")
+print(f"Experimenter: {nwb.experimenter}")
+print(f"Keywords: {nwb.keywords[:]}")
+```
+
+OUTPUT-TEXT:
+```
+Session Description: extracellular electrophysiology during odor sequence presentation
+Identifier: bd6148c2-4b0f-4691-ba6e-97bd9bb8e407
+Experimenter: ['Manish Mohapatra']
+Keywords: ['hippocampus', 'neuropixels', 'olfaction']
+```
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell extracts LFP data from the NWB file loaded in the previous cell and visualizes it. It accesses the "LFP" data interface within the "ecephys" processing module, selects the first 1000 samples from the first 10 electrodes, and calculates the corresponding time series based on the sampling rate. The cell then generates a plot of the LFP data, with time on the x-axis and voltage on the y-axis.
+
+INPUT-CODE:
+```python
+lfp_data = nwb.processing["ecephys"].data_interfaces["LFP"].data[0:1000, 0:10] # First 1000 samples of first 10 electrodes
+time_series = np.arange(0, lfp_data.shape[0], 1) / nwb.processing["ecephys"].data_interfaces["LFP"].rate
+
+plt.figure(figsize=(15, 5))
+plt.plot(time_series, lfp_data)
+plt.title("LFP Data Sample")
+plt.xlabel("Time (s)")
+plt.ylabel("Voltage (V)")
+plt.show()
+```
+
+OUTPUT-IMAGE:
+OUTPUT-IMAGE-1: A line plot showing LFP data over time. The x-axis is labeled "Time (s)" and ranges from 0 to approximately 10. The y-axis is labeled "Voltage (V)". There are 10 lines plotted, each representing the LFP signal from one of the first 10 electrodes. The signals fluctuate, showing activity patterns over time.
+
+IMAGE DESCRIPTIONS:
+The plot shows the LFP data sample. The x-axis represents time in seconds, ranging from 0 to approximately 10. The y-axis represents voltage. There are 10 different colored lines on the plot, each representing the LFP signal from a different electrode. The signals appear to fluctuate randomly, indicating neural activity.
+
+ISSUES:
+None
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell provides a summary of the notebook's accomplishments and suggests directions for future analysis. It reiterates that the notebook successfully loaded, explored, and visualized LFP data from the specified Dandiset. It proposes exploring firing rates, connectivity analysis, and cross-population correlations for future investigations. Finally, it closes the file connection.
+
+INPUT-CODE:
+```python
+# Closing the file
+io.close()
+```
+
+OUTPUT-TEXT:
+```
+```
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
