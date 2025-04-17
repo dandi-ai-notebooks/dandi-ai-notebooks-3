@@ -1,0 +1,210 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell is an introductory markdown cell that sets the stage for the notebook. It states the notebook's purpose: to explore Dandiset 001174, which contains calcium imaging data from macaque monkeys. It also includes a disclaimer noting that the notebook was AI-generated and not fully verified. The cell provides a link to the Dandiset on Neurosift and outlines the analysis steps to be performed.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell imports necessary Python libraries for numerical computation, data manipulation, and plotting. `numpy` and `pandas` are used for data handling, `matplotlib.pyplot` is imported for basic plotting, and `seaborn` is imported for enhanced data visualization. The `%matplotlib inline` magic command ensures that plots are displayed within the notebook itself. `sns.set_theme()` sets a default theme for seaborn plots.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell introduces the next step in the analysis: connecting to the DANDI archive and listing the assets within the specified Dandiset. It serves as a heading to organize the notebook's content.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell uses the `dandi` library to connect to the DANDI Archive and retrieve the assets associated with Dandiset 001174. It initializes a `DandiAPIClient`, retrieves the Dandiset object using its identifier, and then gets a list of assets. Finally, it prints the total number of assets and the paths of the first five assets to the console.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell introduces the next step: loading a representative NWB file for detailed analysis. It specifies the path to the NWB file that will be loaded.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell loads the NWB file from the specified URL using the `remfile`, `h5py`, and `pynwb` libraries. It first defines the asset ID and constructs the URL. Then, it opens the remote file using `remfile.File`, reads it as an HDF5 file using `h5py.File`, and finally reads it into a `pynwb.NWBFile` object using `pynwb.NWBHDF5IO`. This allows for accessing the data within the NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell is a section heading to organize the notebook's content. It introduces the display of NWB file metadata.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell prints key metadata from the loaded NWB file (`nwb` object). It displays the session description, identifier, session start time, and timestamps reference time. This provides basic information about the recording session.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell introduces the next step: visualizing the raw imaging frames from the NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 10
+==========
+
+OVERVIEW:
+The cell retrieves the `OnePhotonSeries` data from the `nwb` object located in the `acquisition` group. It then prints the shape of the raw data and extracts the first frame. The first frame is then displayed using `plt.imshow` with a grayscale colormap. The plot is titled "First imaging frame" and the axes are turned off for better visualization.
+
+IMAGE DESCRIPTIONS:
+The image shows a grayscale representation of the first imaging frame. The frame appears somewhat blurry and shows gradients of gray, with lighter regions around what appears to be the periphery. Overall, the image is fairly dark with some brighter spots. The image fills most of the plotting area. The title "First imaging frame" is above the image.
+
+ISSUES:
+The image is quite dark and lacks contrast, potentially making it difficult to discern features. Some information regarding the dynamic range or mean intensity adjustment may be required to improve visibility. The code could also include checks to verify the existence of "OnePhotonSeries" before attempting to access it.
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell introduces the next section of the notebook: exploring event amplitudes within the dataset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell extracts the `EventAmplitude` data interface from the NWB file, located within the `ophys` processing module. It prints the shape of the `EventAmplitude` data. Then, it creates a time vector and plots the first 100 time points of the event amplitude for the first ROI (ROI 0). The plot displays event amplitude (fluorescence) over time, with appropriate axis labels and a title.
+
+IMAGE DESCRIPTIONS:
+The plot shows a horizontal blue line that appears flat along the x-axis, from 0 to 10 seconds. The y-axis represents event amplitude (fluorescence) and ranges from approximately -0.04 to 0.04. The plot appears to show very little change in the event amplitude over the sampled time. The plot has a title "Event amplitude for ROI 0" and labeled axes.
+
+ISSUES:
+The plot reveals a flat line, indicating that either there are no events detected for ROI 0 during the first 100 time points, or there is an issue with the data itself (e.g., all values are zero). This should be interpreted with caution. It would be helpful to include a check to see if any ROI has activity during the shown window, or explore a different ROI. It would also be helpful to understand how the 'EventAmplitude' data was generated and what it represents.
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell introduces the next step: inspecting fluorescence time series data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 14
+==========
+
+OVERVIEW:
+This cell retrieves the `Fluorescence` data interface, specifically the "RoiResponseSeries", from the NWB file. It prints the shape of the fluorescence data and then plots the first 100 samples of the fluorescence time series for the first ROI (ROI 0). The plot shows fluorescence intensity (in arbitrary units) over time.
+
+IMAGE DESCRIPTIONS:
+The plot depicts fluorescence time series for ROI 0. The x-axis shows time in seconds, ranging from 0 to 10. The y-axis shows fluorescence in arbitrary units. Initially, the value increases to ~0.06 during the first second. The value remains near 0 until about second 6, where it rapidly increases to ~0.45. The signal drops relatively quickly back to a baseline level near zero by 8 seconds. There is clearly one, potentially two events visible in the data. The plot is titled "Fluorescence time series for ROI 0" and includes axis labels.
+
+ISSUES:
+None
+
+Cell 15
+==========
+
+OVERVIEW:
+This cell introduces the next step: visualizing the Region of Interest (ROI) masks.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 16
+==========
+
+OVERVIEW:
+The cell extracts the `PlaneSegmentation` data interface from the `ImageSegmentation` data interface from the `ophys` processing module in the NWB file. It converts this to a pandas DataFrame and extracts the ROI masks from the 'image_mask' column. These masks are then stacked into a 3D numpy array and the maximum value is taken along the first axis to create a "supermask," which represents the maximum projection of all masks. This supermask is displayed as a heatmap using `plt.imshow` with the 'hot' colormap. The axes are turned off for cleaner visualization.
+
+IMAGE DESCRIPTIONS:
+The image shows a heatmap-style visualization of superimposed ROI masks. The colormap is "hot", with darker colors representing lower values and brighter, reddish colors representing higher values. There is a black background. Six small, concentrated regions of red/orange are visible, indicating areas where ROI masks overlap. These regions appear as distinct spatial locations. The regions do not take up the entire image area, but instead are a compact grouping. The title is "Superimposed ROI masks (max projection)" located above.
+
+ISSUES:
+None. The visualization effectively displays the spatial distribution of the ROIs.
+
+Cell 17
+==========
+
+OVERVIEW:
+This cell provides a summary of the steps performed in the notebook and suggests possible directions for future analysis. It recaps the key functionalities demonstrated: connecting to DANDI, loading and inspecting NWB files, visualizing raw data and processed data like event amplitudes and fluorescence time series, and displaying ROI masks. It also outlines potential future steps involving interactive exploration, quantitative analysis, and correlation with behavioral data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
