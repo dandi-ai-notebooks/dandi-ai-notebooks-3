@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Metadata } from './types';
+import { Metadata, NotebookRankingsData } from './types';
 import {
   Table,
   TableBody,
@@ -17,7 +17,7 @@ import {
   Link
 } from '@mui/material';
 
-type SortKey = keyof Metadata;
+type SortKey = keyof Metadata | 'rank';
 
 type SortConfig = {
   key: SortKey;
@@ -27,9 +27,10 @@ type SortConfig = {
 interface Props {
   notebooks: Metadata[];
   critiques: Set<string>;
+  notebookRankings: NotebookRankingsData;
 }
 
-export default function NotebooksTable({ notebooks, critiques }: Props) {
+export default function NotebooksTable({ notebooks, critiques, notebookRankings }: Props) {
   const [selectedDandiset, setSelectedDandiset] = useState<string>('');
   const [sortConfig, setSortConfig] = useState<SortConfig>({
     key: 'timestamp' as SortKey,
@@ -44,6 +45,17 @@ export default function NotebooksTable({ notebooks, critiques }: Props) {
   const handleSort = (key: SortKey) => {
     const direction = sortConfig.key === key && sortConfig.direction === 'asc' ? 'desc' : 'asc';
     setSortConfig({ key, direction });
+  };
+
+  const getNotebookRanking = (notebook: Metadata) => {
+    const dandisetRankings = notebookRankings[notebook.dandiset_id];
+    if (!dandisetRankings) return null;
+
+    return dandisetRankings.rankings.find(r => r.notebook_id === notebook.subfolder);
+  };
+
+  const getRankingsUrl = (notebook: Metadata) => {
+    return `https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-3/blob/main/rankings/dandisets/${notebook.dandiset_id}/rankings.txt`;
   };
 
   const getCritiqueUrls = (notebook: Metadata) => {
@@ -68,8 +80,16 @@ export default function NotebooksTable({ notebooks, critiques }: Props) {
 
 
     return [...filtered].sort((a, b) => {
-      let aValue = a[sortConfig.key];
-      let bValue = b[sortConfig.key];
+      if (sortConfig.key === 'rank') {
+        const aRanking = getNotebookRanking(a)?.rank ?? Number.MAX_SAFE_INTEGER;
+        const bRanking = getNotebookRanking(b)?.rank ?? Number.MAX_SAFE_INTEGER;
+        return sortConfig.direction === 'asc'
+          ? aRanking - bRanking
+          : bRanking - aRanking;
+      }
+
+      let aValue = a[sortConfig.key as keyof Metadata];
+      let bValue = b[sortConfig.key as keyof Metadata];
 
       if (sortConfig.key === 'model') {
         aValue = (aValue as string).split('/')[1] || '';
@@ -157,6 +177,15 @@ export default function NotebooksTable({ notebooks, critiques }: Props) {
                 </TableSortLabel>
               </TableCell>
               <TableCell>Critiques</TableCell>
+              <TableCell>
+                <TableSortLabel
+                  active={sortConfig.key === 'rank'}
+                  direction={sortConfig.key === 'rank' ? sortConfig.direction : 'asc'}
+                  onClick={() => handleSort('rank')}
+                >
+                  Ranking
+                </TableSortLabel>
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -199,6 +228,23 @@ export default function NotebooksTable({ notebooks, critiques }: Props) {
                         Summary
                       </Link>
                     )}
+                  </TableCell>
+                  <TableCell>
+                    {(() => {
+                      const ranking = getNotebookRanking(notebook);
+                      if (!ranking) return null;
+                      return (
+                        <Link
+                          href={getRankingsUrl(notebook)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title={ranking.thinking}
+                          sx={{ cursor: 'pointer' }}
+                        >
+                          {ranking.rank}
+                        </Link>
+                      );
+                    })()}
                   </TableCell>
                 </TableRow>
               );

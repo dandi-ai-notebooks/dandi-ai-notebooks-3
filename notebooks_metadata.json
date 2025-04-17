@@ -558,6 +558,24 @@
     "subfolder": "2025-04-16-gemini-2.0-flash-001-prompt-b-4"
   },
   {
+    "dandiset_id": "000673",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-a-4.txt",
+    "total_prompt_tokens": 0,
+    "total_completion_tokens": 0,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 0,
+    "timestamp": "2025-04-16 16:00:00",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-16-claude-3.7-sonnet-prompt-a-4"
+  },
+  {
     "dandiset_id": "001363",
     "model": "openrouter/quasar-alpha",
     "prompt": "prompt-a-1.txt",

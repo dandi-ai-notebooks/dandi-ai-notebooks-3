@@ -8,7 +8,7 @@ import {
   Container,
   Typography
 } from '@mui/material';
-import { Metadata, CritiqueManifest } from './types';
+import { Metadata, CritiqueManifest, NotebookRankingsData } from './types';
 import NotebooksTable from './NotebooksTable';
 import axios from 'axios';
 
@@ -23,6 +23,7 @@ function App() {
   const [critiques, setCritiques] = useState<Set<string>>(new Set());
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [notebookRankings, setNotebookRankings] = useState<NotebookRankingsData>({});
 
   useEffect(() => {
     loadData();
@@ -30,12 +31,14 @@ function App() {
 
   const loadData = async () => {
     try {
-      const [notebooksResponse, critiquesResponse] = await Promise.all([
+      const [notebooksResponse, critiquesResponse, rankingsResponse] = await Promise.all([
         axios.get<Metadata[]>('https://raw.githubusercontent.com/dandi-ai-notebooks/dandi-ai-notebooks-3/refs/heads/main/notebooks_metadata.json'),
-        axios.get<CritiqueManifest>('https://raw.githubusercontent.com/dandi-ai-notebooks/dandi-ai-notebooks-3/refs/heads/main/critiques/manifest.json')
+        axios.get<CritiqueManifest>('https://raw.githubusercontent.com/dandi-ai-notebooks/dandi-ai-notebooks-3/refs/heads/main/critiques/manifest.json'),
+        axios.get<NotebookRankingsData>('https://raw.githubusercontent.com/dandi-ai-notebooks/dandi-ai-notebooks-3/refs/heads/main/notebook_rankings.json')
       ]);
       setNotebooks(notebooksResponse.data);
       setCritiques(new Set(critiquesResponse.data.files));
+      setNotebookRankings(rankingsResponse.data);
     } catch (err) {
       setError('Failed to load data');
       console.error(err);
@@ -64,7 +67,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth={false}>
-        <NotebooksTable notebooks={notebooks} critiques={critiques} />
+        <NotebooksTable notebooks={notebooks} critiques={critiques} notebookRankings={notebookRankings} />
       </Container>
     </ThemeProvider>
   );

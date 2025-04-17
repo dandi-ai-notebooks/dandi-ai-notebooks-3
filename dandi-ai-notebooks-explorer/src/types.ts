@@ -21,3 +21,29 @@ export interface CritiqueManifest {
   files: string[];
   file_count: number;
 }
+
+export interface NotebookRanking {
+  notebook_id: string;
+  rank: number;
+  thinking: string;
+}
+
+export interface DandisetRankings {
+  prompt_version: string;
+  rankings: NotebookRanking[];
+  rankings_text: string;
+  metadata: {
+    total_prompt_tokens: number;
+    total_completion_tokens: number;
+    model: string;
+    timestamp: string;
+    system_info: {
+      platform: string;
+      hostname: string;
+    }
+  }
+}
+
+export interface NotebookRankingsData {
+  [dandiset_id: string]: DandisetRankings;
+}
