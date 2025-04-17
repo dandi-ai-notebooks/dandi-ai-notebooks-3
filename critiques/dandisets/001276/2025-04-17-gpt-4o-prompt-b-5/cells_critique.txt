@@ -1,0 +1,111 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell is an introductory markdown cell that sets the context for the notebook. It specifies the Dandiset ID being explored (001276), briefly describes the dataset ("NG-CANCAN Remote Targeting Electroporation"), and caveats that the notebook was AI-generated and may contain errors. It is vital for setting the user's expectations regarding the reliability of the content.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell provides a brief overview of the research underlying the Dandiset. It mentions the study name, the experimental design (burst number variation on permeabilization distribution across cell monolayers using a four-electrode array), the focus of the research (optimizing the CANCAN protocol to minimize cell damage and improve experimental outcomes), and provides a link to the Dandiset on neurosift.app. It aims to give the reader a concise summary of the experiment.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell outlines the contents of the notebook. It lists the key steps: loading data using the DANDI API, accessing NWB files and extracting imaging data, and performing basic analysis and visualization. It serves as a roadmap for the user.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell lists the Python packages required to execute the code in the notebook successfully. Specifically, it mentions `pynwb`, `h5py`, `remfile`, `numpy`, and `matplotlib`. This is useful for the user to set up their environment.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell is a section header indicating that the following cells will be related to loading the Dandiset. This helps organize the notebook and improve readability.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell uses the DANDI API to connect to the DANDI archive, retrieve the Dandiset with ID "001276", and list the assets within that Dandiset. It then prints the number of assets found and the paths of the first five assets. This cell demonstrates how to access the data programmatically.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell is a section header, indicating that the following cells will focus on loading and exploring NWB (Neurodata Without Borders) files within the Dandiset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell loads a specific NWB file from a URL using `remfile` and `h5py`, then accesses the 'SingleTimePointImaging' data within the NWB file using `pynwb`. It then displays the imaging data as a heatmap using matplotlib. This demonstrates how to load a specific file, access an image series, and create a basic visualization.
+
+IMAGE DESCRIPTIONS:
+The output is a heatmap of the "Single Time Point Imaging Data". The x and y axes represent the spatial dimensions of the image. The color intensity represents the signal intensity at each pixel, ranging from dark purple (low intensity) to yellow (high intensity) according to the colorbar. A small greenish blob near the bottom right corner is noticeable. There are some dark regions with near zero intensity, particularly in the corners and along the edges, giving the image an irregular shape. The title of the plot is "Single Time Point Imaging Data", and the colorbar is labeled "Intensity".
+
+ISSUES:
+None
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell provides a brief summary of the outcome of the notebook and suggests possible next steps. It acknowledges the visualization of intensity variations in the image data and proposes future analyses such as multi-timepoint comparisons and exploration of other data modalities.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+

@@ -108,6 +108,24 @@
     "dandisets/001275/2025-04-17-gpt-4o-prompt-b-5/cells_critique.json",
     "dandisets/001275/2025-04-17-gpt-4o-prompt-b-5/cells_critique.txt",
     "dandisets/001275/2025-04-17-gpt-4o-prompt-b-5/summary_critique.txt",
+    "dandisets/001276/2025-04-17-claude-3.7-sonnet-prompt-a-5/cells_critique.json",
+    "dandisets/001276/2025-04-17-claude-3.7-sonnet-prompt-a-5/cells_critique.txt",
+    "dandisets/001276/2025-04-17-claude-3.7-sonnet-prompt-a-5/summary_critique.txt",
+    "dandisets/001276/2025-04-17-claude-3.7-sonnet-prompt-b-5/cells_critique.json",
+    "dandisets/001276/2025-04-17-claude-3.7-sonnet-prompt-b-5/cells_critique.txt",
+    "dandisets/001276/2025-04-17-claude-3.7-sonnet-prompt-b-5/summary_critique.txt",
+    "dandisets/001276/2025-04-17-gemini-2.0-flash-001-prompt-a-5/cells_critique.json",
+    "dandisets/001276/2025-04-17-gemini-2.0-flash-001-prompt-a-5/cells_critique.txt",
+    "dandisets/001276/2025-04-17-gemini-2.0-flash-001-prompt-a-5/summary_critique.txt",
+    "dandisets/001276/2025-04-17-gemini-2.0-flash-001-prompt-b-5/cells_critique.json",
+    "dandisets/001276/2025-04-17-gemini-2.0-flash-001-prompt-b-5/cells_critique.txt",
+    "dandisets/001276/2025-04-17-gemini-2.0-flash-001-prompt-b-5/summary_critique.txt",
+    "dandisets/001276/2025-04-17-gpt-4o-prompt-a-5/cells_critique.json",
+    "dandisets/001276/2025-04-17-gpt-4o-prompt-a-5/cells_critique.txt",
+    "dandisets/001276/2025-04-17-gpt-4o-prompt-a-5/summary_critique.txt",
+    "dandisets/001276/2025-04-17-gpt-4o-prompt-b-5/cells_critique.json",
+    "dandisets/001276/2025-04-17-gpt-4o-prompt-b-5/cells_critique.txt",
+    "dandisets/001276/2025-04-17-gpt-4o-prompt-b-5/summary_critique.txt",
     "dandisets/001333/2025-04-17-claude-3.7-sonnet-prompt-b-5/cells_critique.json",
     "dandisets/001333/2025-04-17-claude-3.7-sonnet-prompt-b-5/cells_critique.txt",
     "dandisets/001333/2025-04-17-claude-3.7-sonnet-prompt-b-5/summary_critique.txt",
@@ -145,5 +163,5 @@
     "templates/notebook_critic_cells_system_prompt.txt",
     "templates/notebook_critic_summary_system_prompt.txt"
   ],
-  "file_count": 144
+  "file_count": 162
 }

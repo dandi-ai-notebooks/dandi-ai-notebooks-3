@@ -1,0 +1,370 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell provides an introduction to the notebook, outlining its purpose, the dataset being used (Dandiset 001276), and the CANCAN electroporation protocol. It explains the context of the experiments, the variables investigated (number of burst repetitions), and the types of data available (fluorescence microscopy images). It also provides a roadmap of the analysis that will be performed in subsequent cells. The warning about AI generation is appropriate, highlighting the need for careful verification.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell lists the Python packages required to run the notebook. It specifies the purpose of each package, aiding the user in understanding the dependencies.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell imports the necessary Python packages listed in the previous cell, making them available for use in the notebook. It also sets the default style for plots using seaborn to improve visual appeal.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell serves as a transition, indicating the next step in the analysis: connecting to the DANDI archive.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell connects to the DANDI archive using the `dandiapi` library, retrieves the specified Dandiset (001276), and prints its name, a truncated description, and a list of the first five assets in the Dandiset. This provides a basic overview of the dataset's contents and structure.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell explains the data structure within the Dandiset, clarifying the naming conventions of the NWB files and the biological significance of the DAPI and FITC (YoPro-1) channels. This is crucial for interpreting the subsequent image loading and analysis steps.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell introduces the next step: loading a DAPI channel image taken before electroporation. This sets the stage for the subsequent code cell, which will perform the actual loading.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell loads a pre-electroporation DAPI image from a specified URL. It defines a function `load_nwb_file` to handle the NWB file loading process using `remfile` and `pynwb`. The function extracts and prints metadata about the image, including the subject ID, channel, phase, image dimensions, and shape. This gives the user key information about the loaded image.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell is analogous to the "Loading a DAPI Channel Image" cell, but now prepares for loading a post-electroporation FITC (YoPro-1) image.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell loads a post-electroporation FITC image using the same `load_nwb_file` function from the previous cell. It prints metadata about the loaded image, similar to the DAPI image loading, to provide users with essential details.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell explains the need to downsample the images due to their large size, preparing the user for the subsequent image processing steps.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell introduces the creation of downsampled versions of the DAPI and FITC images, which will be used for visualization purposes.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell defines a function `create_downsampled_overview` that takes an NWB object and channel name, extracts the image data, downsamples it by a factor of 32, and displays the resulting thumbnail. It also calculates and prints basic statistics (shape, min, max, mean) of the thumbnail. The function displays the downsampled image using `matplotlib`, including a colorbar for intensity reference. The function is then called for both the DAPI and FITC images.
+
+IMAGE DESCRIPTIONS:
+
+*   **DAPI Thumbnail**: A 600x600 pixel image, displayed in shades of blue (Blues colormap). The image shows cell nuclei stained with DAPI. The nuclei appear as darker blue spots against a lighter blue background . The image has a circular shape with some edges (corners) being lighter or absent, probably because they fall outside the field of view of the microscope at the original resolution.
+*   **FITC Thumbnail**: A 600x600 pixel image, displayed in shades of green (Greens colormap). This represents the YoPro-1 signal post-electroporation. A brighter area in the center indicates higher membrane permeabilization in that region. Similar to the DAPI image, the image has a circular shape with incomplete corners.
+
+ISSUES:
+None.
+
+Cell 14
+==========
+
+OVERVIEW:
+This cell introduces the next step: extracting and visualizing a region of interest (ROI) from both the DAPI and FITC images for a more detailed comparison.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 15
+==========
+
+OVERVIEW:
+This cell defines a function `extract_center_region` that extracts a square region of a specified size from the center of the image data in a given NWB object. It then calls this function to extract the center regions of both the DAPI and FITC images. The cell calculates and prints statistics for these regions. Further, it visualizes both the DAPI and FITC center regions side-by-side using `matplotlib`, with appropriate titles, color maps (Blues for DAPI, Greens for FITC), and colorbars.
+
+IMAGE DESCRIPTIONS:
+
+*   **DAPI Center Region:** A 1024x1024 pixel image, displayed in a blue colormap. It visualizes cell nuclei stained with DAPI. The nuclei appear as dark blue spots against a lighter blue background. The image appears sharp, showing distinct cell nuclei.
+*   **FITC Center Region:** A 1024x1024 pixel image displayed in a green colormap. It shows the YoPro-1 signal (membrane permeabilization) post-electroporation. Brighter green regions indicate areas of higher permeabilization. A pattern is visible, with increased signal density located towards the center. Also some dark spots are observable which might be related cells with much higher intensity.
+
+ISSUES:
+None.
+
+Cell 16
+==========
+
+OVERVIEW:
+This cell introduces the creation of a merged visualization of the DAPI and FITC channels, which aims to help visualize the spatial relationship between cell nuclei and membrane permeabilization.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 17
+==========
+
+OVERVIEW:
+This cell generates a merged visualization of the DAPI and FITC channels using an RGB overlay. It first ensures both center regions have the same shape. Then, it normalizes the intensity values of both channels to the range 0-1. Finally, it creates an RGB image where the FITC signal is mapped to the green channel and the DAPI signal is mapped to the blue channel. The resulting image displays cell nuclei in blue and permeabilized regions in green, allowing for a visual assessment of their spatial correlation.
+
+IMAGE DESCRIPTIONS:
+*   **Merged DAPI/FITC Image:** A 1024x1024 pixel image showing the merged DAPI (blue) and FITC (green) channels. Cell nuclei are visible as blue spots. Regions of membrane permeabilization are visible as green areas, with some regions showing high intensity. The image allows you directly visualize which nuclei have high amounts of permeabilization, appearing in both blue and green.
+
+ISSUES:
+None.
+
+Cell 18
+==========
+
+OVERVIEW:
+This cell serves as a transition, leading into the analysis of permeabilization patterns.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 19
+==========
+
+OVERVIEW:
+This cell defines a function `find_high_permeability_regions` to identify and extract regions with high permeabilization within the FITC channel image. It uses the downsampled FITC thumbnail, thresholds it to identify high-intensity pixels, and extracts the corresponding regions from the original high-resolution FITC image. The function prints the extracted region coordinates, shape, min, max, and mean. It visualizes each identified region with a viridis colormap and a colorbar.
+
+IMAGE DESCRIPTIONS:
+*   **High-permeability Region 1:** A  1024x1024 pixel image of a region identified as having high FITC intensity. It is displayed using the viridis colormap. A broad region of increased signal is located at the bottom, indicating higher permeabilization and is surrounded by cells dimly expressing the maker.
+*   **High-permeability Region 2:** A 1024x1024 pixel image of a region identified as having high FITC intensity. It's displayed in viridis colormap. It has several dispersed spots of high permeabilization.
+
+ISSUES:
+None.
+
+Cell 20
+==========
+
+OVERVIEW:
+This cell introduces the transition to quantitative analysis of the permeabilization patterns.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 21
+==========
+
+OVERVIEW:
+This cell generates intensity histograms for both the DAPI and FITC center regions. The histograms are plotted side-by-side, allowing for a direct comparison of the intensity distributions. A logarithmic scale is used for the y-axis (frequency) to better visualize the distribution of less frequent intensity values.
+
+IMAGE DESCRIPTIONS:
+
+*   **DAPI Intensity Distribution:** A histogram showing the distribution of pixel intensities in the DAPI center region. The x-axis represents intensity, and the y-axis (logarithmic) represents frequency. It shows that there is a peak around low intensitites, and then a relatively even spread for higher intensities. There is also a small spike in extremely high intensities.
+*   **FITC Intensity Distribution:** A histogram showing the distribution of pixel intensities in the FITC center region, using the same format as the DAPI histogram. The majority of pixels have lower intensities compared to the DAPI channel. There are relatively little pixels with intensities past 20000.
+
+ISSUES:
+None.
+
+Cell 22
+==========
+
+OVERVIEW:
+This cell introduces a thresholding analysis to quantify areas with significant permeabilization. It prepares the stage for the next step – applying a threshold to the FITC image.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 23
+==========
+
+OVERVIEW:
+This cell performs a thresholding analysis on the FITC center region to quantify different levels of permeabilization. It defines three thresholds (background, low, and high) based on percentiles of the FITC intensity distribution. It then creates a permeabilization mask, where each pixel is assigned a value from 0 to 3, corresponding to no permeabilization, minimal, moderate, and high permeabilization respectively. The cell calculates the percentage of pixels in each level. Finally, the cell visualizes the permeabilization mask using a custom colormap and includes a colorbar.
+
+IMAGE DESCRIPTIONS:
+
+*   **Permeabilization Levels:** A 1024x1024 pixel image visualizing the permeabilization mask. Black represents areas with no permeabilization. Dark green represents minimal permeabilization, medium green moderate permeabilization, and a bright green represents high permeabilization. It allows you to visualise how much permeabilization is present in the different regions.
+
+ISSUES:
+None.
+
+Cell 24
+==========
+
+OVERVIEW:
+This cell introduces the next step: analyzing the relationship between cell distribution (based on the DAPI signal) and permeabilization (based on the FITC signal).
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 25
+==========
+
+OVERVIEW:
+This cell generates a scatterplot to visualize the relationship between DAPI and FITC intensities. To handle the large number of pixels, a random subset of 10,000 pixels is sampled. The x-axis represents the DAPI intensity, and the y-axis represents the FITC intensity, both on a logarithmic scale.
+
+IMAGE DESCRIPTIONS:
+*   **Relationship Between DAPI and FITC Intensities:** A scatterplot showing the relationship between DAPI and FITC intensities for a randomly sampled subset of pixels. Both axes are on a logarithmic scale. The plot reveals that most data points are clustered in the region with low DAPI and low FITC intensities. There is a cluster with high DAPI, and low FITC intensities as well. As the intensity increases, it's harder to recognize a pattern, with only some scattered points, rather than a clearly defined relationship.
+
+ISSUES:
+None.
+
+Cell 26
+==========
+
+OVERVIEW:
+This cell introduces the spatial analysis of permeabilization.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 27
+==========
+
+OVERVIEW:
+This cell generates spatial profiles by calculating the average intensity along rows (vertical profile) and columns (horizontal profile) for both the DAPI and FITC center regions. The profiles are plotted as line graphs, with DAPI and FITC intensities displayed on separate y-axes using twin axes (twinx). The plots are titled "Vertical Profile (y-axis)" and "Horizontal Profile (x-axis)" and labeled with x and y labels.
+
+IMAGE DESCRIPTIONS:
+*   **Vertical Profile (y-axis):** A line plot showing average intensity as a function of Y-position. The blue line is the DAPI intensity while the green line is the FITC intensity. It looks like the intensities mostly correlate, but after position 800, the anti-correlation starts.
+*   **Horizontal Profile (x-axis):** A plot as above, but for the horizontal (X) axis. Before pixel 200, the lines highly correlate with each other.
+
+ISSUES:
+None.
+
+Cell 28
+==========
+
+OVERVIEW:
+This cell provides a summary of the notebook's findings and suggests potential avenues for future research. It recaps key observations and offers ideas for extending the analysis.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 29
+==========
+
+OVERVIEW:
+This cell serves as a transition to the final code cell.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 30
+==========
+
+OVERVIEW:
+This cell closes the NWB files that were opened during the analysis, releasing system resources.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+

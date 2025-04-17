@@ -307,6 +307,60 @@
   },
   {
     "dandiset_id": "001276",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-a-5.txt",
+    "total_prompt_tokens": 124483,
+    "total_completion_tokens": 7700,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 344.1643536090851,
+    "timestamp": "2025-04-17 19:18:22",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-17-claude-3.7-sonnet-prompt-a-5"
+  },
+  {
+    "dandiset_id": "001276",
+    "model": "google/gemini-2.0-flash-001",
+    "prompt": "prompt-a-5.txt",
+    "total_prompt_tokens": 73253,
+    "total_completion_tokens": 2547,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 32.638938903808594,
+    "timestamp": "2025-04-17 19:09:53",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-17-gemini-2.0-flash-001-prompt-a-5"
+  },
+  {
+    "dandiset_id": "001276",
+    "model": "openai/gpt-4o",
+    "prompt": "prompt-a-5.txt",
+    "total_prompt_tokens": 63379,
+    "total_completion_tokens": 1923,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 87.40985488891602,
+    "timestamp": "2025-04-17 19:35:30",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-17-gpt-4o-prompt-a-5"
+  },
+  {
+    "dandiset_id": "001276",
     "model": "openrouter/quasar-alpha",
     "prompt": "prompt-b-1.txt",
     "total_prompt_tokens": 207401,
@@ -322,6 +376,60 @@
       "python_version": "3.12.2"
     },
     "subfolder": "2025-04-10-quasar-alpha-prompt-b-1"
+  },
+  {
+    "dandiset_id": "001276",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-b-5.txt",
+    "total_prompt_tokens": 1066925,
+    "total_completion_tokens": 21553,
+    "total_vision_prompt_tokens": 17952,
+    "total_vision_completion_tokens": 2402,
+    "elapsed_time_seconds": 938.9150805473328,
+    "timestamp": "2025-04-17 19:34:02",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-17-claude-3.7-sonnet-prompt-b-5"
+  },
+  {
+    "dandiset_id": "001276",
+    "model": "google/gemini-2.0-flash-001",
+    "prompt": "prompt-b-5.txt",
+    "total_prompt_tokens": 835695,
+    "total_completion_tokens": 8857,
+    "total_vision_prompt_tokens": 12536,
+    "total_vision_completion_tokens": 982,
+    "elapsed_time_seconds": 164.8255455493927,
+    "timestamp": "2025-04-17 19:12:38",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-17-gemini-2.0-flash-001-prompt-b-5"
+  },
+  {
+    "dandiset_id": "001276",
+    "model": "openai/gpt-4o",
+    "prompt": "prompt-b-5.txt",
+    "total_prompt_tokens": 108480,
+    "total_completion_tokens": 2221,
+    "total_vision_prompt_tokens": 832,
+    "total_vision_completion_tokens": 90,
+    "elapsed_time_seconds": 182.37433099746704,
+    "timestamp": "2025-04-17 19:38:33",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-17-gpt-4o-prompt-b-5"
   },
   {
     "dandiset_id": "001335",

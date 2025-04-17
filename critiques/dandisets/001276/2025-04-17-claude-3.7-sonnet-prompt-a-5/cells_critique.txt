@@ -1,0 +1,269 @@
+Cell 1
+==========
+
+OVERVIEW: This cell introduces the notebook topic, specifying the Dandiset (001276) being explored and its subject matter: a remote targeting electroporation study on cell monolayers. It sets the stage for the subsequent analysis and demonstration.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+
+Cell 2
+==========
+
+OVERVIEW: This cell provides a disclaimer that the notebook was AI-generated and might contain unverified material. It's a crucial warning to the reader to interpret the code and results with caution.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+
+Cell 3
+==========
+
+OVERVIEW: This cell provides a concise overview of the Dandiset's content, the experimental setup, and the scientific questions addressed. It explains the CANCAN technique, the parameters varied (burst numbers), and the methods used to assess cell monolayer integrity and membrane permeability (Hoechst and YoPro-1 staining). It also provides a direct link to the Dandiset on Neurosift.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 4
+==========
+
+OVERVIEW: This cell outlines the specific steps and goals of the notebook. It clearly states the objectives: connecting to the DANDI archive, exploring assets, loading and examining metadata, visualizing imaging data, and comparing data across conditions. It clearly connects these steps to the overall goal of demonstrating how to work with NWB files containing imaging data from electroporation experiments.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 5
+==========
+
+OVERVIEW: This cell lists the Python packages required to execute the notebook. It provides a brief description of each package's role within the notebook, which helps the reader understand the necessary dependencies.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 6
+==========
+
+OVERVIEW: This cell imports the necessary Python packages and configures plotting parameters. The imports align with the packages listed in the previous cell. Setting the plotting parameters with `sns.set_theme()` and adjusting `plt.rcParams` improves the visual appearance of the plots generated later.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 7
+==========
+
+OVERVIEW: This cell serves as a section header, indicating the next step in the notebook: connecting to the DANDI archive and exploring the specified Dandiset.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 8
+==========
+
+OVERVIEW: This cell connects to the DANDI archive, retrieves Dandiset 001276, and lists the first five assets (NWB files) within it. The code uses the `dandi` package to interact with the DANDI API. The output displays the number of assets and their file paths, providing the user with an overview of the data available.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 9
+==========
+
+OVERVIEW: This cell serves as a transition to the next step, indicating that the notebook will now examine the sizes of the NWB files.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 10
+==========
+
+OVERVIEW: This cell retrieves the file sizes of each asset in the Dandiset and organizes them by subject/condition. The code iterates through the assets, extracts the subject information from the file path, and calculates the size in megabytes before printing the number of files and total size in gigabytes for each subject. This provides a summary of the data distribution within the Dandiset.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 11
+==========
+
+OVERVIEW: This cell indicates the next step: loading and exploring a specific NWB file. It specifies the file that will be used for demonstration: "sub-P1-20240627-A2/sub-P1-20240627-A2_obj-1aoyzxh_image.nwb".
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 12
+==========
+
+OVERVIEW: This cell loads the specified NWB file from the DANDI archive using its URL. It uses `remfile` to handle remote file access and `h5py` to treat the remote file as an HDF5 file. It then uses `pynwb` to read the HDF5 file into an `nwb` object. The warning message about namespace versions is not critical but should be noted.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 13
+==========
+
+OVERVIEW: This cell transitions to exploring the metadata contained within the loaded NWB file.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 14
+==========
+
+OVERVIEW: This cell prints various metadata attributes from the loaded NWB file, including session description, file identifier, session start time, experimenters, lab, institution, and subject information (ID, age, sex, species, and strain). The output provides valuable context about the experimental conditions and subject details. The session description shows the `OME` metadata too.
+
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 15
+==========
+
+OVERVIEW: This cell serves as a transition to exploring the acquisition data within the NWB file.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 16
+==========
+
+OVERVIEW: This cell iterates through the acquisition data stored in the `nwb.acquisition` container and prints information about each data item. Specifically, it identifies `ImageSeries` objects and prints their shape, dimensions, unit, resolution, and a snippet of their description. This provides information about the imaging data stored in the file.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 17
+==========
+
+OVERVIEW: This cell introduces the visualization of image data and explains the rationale for extracting a smaller region due to the large size of the full image.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 18
+==========
+
+OVERVIEW: This cell extracts a smaller section from the large image data stored in the NWB file. It retrieves the dimensions of the image and then calculates the start and end indices for rows and columns to extract a 2000x2000 pixel central region. The extracted section is stored in the `img_section` variable.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 19
+==========
+
+OVERVIEW: This cell sets the context for the following visualization, mentioning that the central region should show the targeted cells in the center of the electrode array.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 20
+==========
+
+OVERVIEW: This cell generates a visualization of the extracted central region of the image. It uses `matplotlib` to display the image data. It applies contrast stretching using `skimage.exposure.rescale_intensity` to enhance the visibility of features. The image is displayed with a colorbar, title, and axis labels.
+
+IMAGE DESCRIPTIONS: The image shows a 2000x2000 pixel section of the original image, displayed with a 'viridis' colormap. The x-axis and y-axis are labeled "Pixel Position." A colorbar on the right indicates the intensity values. The image itself appears to show cell structures, with variations in color representing different intensity levels. There are bright yellow areas scattered throughout the image, potentially indicating areas of high fluorescence. The contrast enhancement makes the fainter details more visible. The image shows a relatively uniform distribution of cells across the observed area and appears to be capturing individual and groups of cells.
+
+ISSUES: None
+
+Cell 21
+==========
+
+OVERVIEW: This cell introduces the examination of intensity profiles across horizontal and vertical cross-sections of the image.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 22
+==========
+
+OVERVIEW: This cell generates and displays intensity profiles across horizontal and vertical cross-sections of the image. It first displays the extracted image section, with red lines indicating the locations of the cross-sections. Then, it plots the intensity values along the horizontal and vertical lines as a function of pixel position. The plots are labeled with appropriate titles and axis labels.
+
+IMAGE DESCRIPTIONS: The figure displays three subplots in a row. The first subplot shows the same 2000x2000 image as in the previous cell, with a horizontal red line intersecting the middle of the image and a vertical red line intersecting the middle of the image. The second subplot shows a line graph representing the horizontal intensity profile. The x-axis is "Position (pixels)", and the y-axis is "Intensity". The line plot shows fluctuations in intensity, indicating areas of varying brightness along the horizontal cross-section. The third subplot shows the vertical intensity profile, with the same x and y axis. The line plot, again, represents intensity variations, this time along the vertical cross-section.
+
+ISSUES: None
+
+Cell 23
+==========
+
+OVERVIEW: This cell introduces the next step, which involves comparing multiple regions of the image to understand the spatial distribution of fluorescence better.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 24
+==========
+
+OVERVIEW: This cell divides the image into five regions (Center, Top, Bottom, Left, Right), extracts each region, and visualizes them in a grid. It calculates the average intensity, max intensity, min intensity, and standard deviation for each region. The average intensity for each region is displayed as part of the subplot title. Contrast stretching is applied to each region before visualization to enhance features.
+
+IMAGE DESCRIPTIONS: The figure displays five subplots arranged in a 2x3 grid (the last subplot is empty). Each subplot displays a 1000x1000 pixel region from the original image, visualized with a 'viridis' colormap and contrast stretching. Each subplot is titled with the region's name (e.g., "Center Region") and its average intensity. Colorbars are displayed to the right of each image. The images show varying degrees of intensity, with the "Center Region" appearing brightest and the "Right Region" appearing dimmest based on both average intensity and visual impression.
+
+ISSUES: None
+
+Cell 25
+==========
+
+OVERVIEW: This cell segues into visualizing the average intensities of the different regions using a bar plot.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 26
+==========
+
+OVERVIEW: This cell creates a bar plot to visually compare the average intensities of the different image regions. It extracts the names and average intensities from the `region_stats` list generated in the previous cell. It then uses `seaborn.barplot` to create the bar plot, with region names on the x-axis and average intensity on the y-axis. The plot is labeled with a title and axis labels.
+
+IMAGE DESCRIPTIONS: The image is a bar plot that shows the average intensity for different regions of an image. The x-axis represents the region (center, top, bottom, left, and right) and the y-axis represents the average intensity. The "Center" region has the highest average intensity, followed by "Bottom", "Left", "Top", and "Right" regions.
+
+ISSUES: None
+
+Cell 27
+==========
+
+OVERVIEW: This cell introduces the comparison of data from multiple files, specifically indicating the loading of a file from a different experimental group.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 28
+==========
+
+OVERVIEW: This cell loads a second NWB file, "sub-P1-20240627-B1/sub-P1-20240627-B1_obj-1qpzwid_image.nwb," from a different experimental condition. It uses the same process as before: `remfile` for remote file access, `h5py` for HDF5 interaction, and `pynwb` to read the file. It then prints the subject ID and a snippet of the session description for the second file to facilitate a basic comparison.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 29
+==========
+
+OVERVIEW: This cell sets the context for comparing the central regions of the two loaded images, suggesting that differences in electroporation patterns between conditions A and B might be revealed.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 30
+==========
+
+OVERVIEW: This cell extracts and visualizes the central region from both NWB files (conditions A and B). It retrieves the dimensions for the second image, extracts the central region (2000x2000 pixels) from both, applies contrast stretching independently to each, and displays them side-by-side in a figure. The titles of the subplots include the subject ID for each condition.
+
+IMAGE DESCRIPTIONS: The image displays two subplots side-by-side. The left subplot shows the central region of the first image (condition A), while the right subplot shows the central region of the second image (condition B). Both are visualized using the 'viridis' colormap. Each subplot has a colorbar indicating intensity values and is titled with the subject ID. The two images appear qualitatively similar, but minor differences in the intensity or distribution of brighter spots might be present.
+
+ISSUES: None
+
+Cell 31
+==========
+
+OVERVIEW: This cell introduces the comparison of intensity histograms between the two images.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 32
+==========
+
+OVERVIEW: This cell generates and displays intensity histograms for the central regions of the two images. It calculates the histograms using `numpy.histogram`, ensuring that both histograms use the same bin range, determined by the maximum intensity value across both images. The histograms are then plotted on the same axes using `matplotlib`, with different colors and labels indicating the subject ID for each condition.
+
+IMAGE DESCRIPTIONS: The image shows a plot of two intensity histograms. The x-axis represents the intensity, while the y-axis represents the pixel count. One histogram (blue line) represents the first image and the other (orange line) represents the second image. Both histograms peak at relatively low intensity values and then rapidly decline. The histograms start to diverge by intensities of approximately 6000, with the "P1_20240627_A2" condition showing relatively more counts than the "P1_20240627_B1" condition at most intensities, except for near intensities of 0.
+
+ISSUES: None
+
+Cell 33
+==========
+
+OVERVIEW: This cell serves as a transition to the next step which focuses on analyzing the spatial distribution of intensities.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 34
+==========
+
+OVERVIEW: This cell computes and plots the radial intensity profile for both images by calculating the average intensity as a function of distance from the center of the image. A function `radial_profile` is defined, leveraging numpy to calculate euclidean distances from the center and binning pixel intensities into different radii. The function handles cases where a ring contains no pixels by setting the intensity to zero. Radial profiles are calculated and plotted for both the A and B condition images to compare the distribution of intensities from the center of the image outwards.
+
+IMAGE DESCRIPTIONS: The image is a line plot of "Radial Intensity Profile from Center of Image". The x-axis is "Distance from Center (pixels)" ranging from 0 to 8000. The y-axis is "Average Intensity". Two lines are plotted, one for the first image (blue) and one for the second image (orange). Both lines show a generally decreasing average intensity with distance from the image center. The orange line (second image) has consistently higher average intensity values compared to the blue line(first image) throughout the plotted distances.
+
+ISSUES: None
+
+Cell 35
+==========
+
+OVERVIEW: This cell summarizes the key steps and findings of the notebook and suggests future directions for analysis. The summary accurately reflects the content covered in the notebook, and the suggested future directions are logical extensions of the demonstrated analysis.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
+Cell 36
+==========
+
+OVERVIEW: This cell repeats the disclaimer about the AI-generated nature of the notebook, reinforcing the need for caution when interpreting the code and results. It serves to reiterate the disclaimer at the end of the notebook and is appropriate to include.
+IMAGE DESCRIPTIONS: None
+ISSUES: None
+
