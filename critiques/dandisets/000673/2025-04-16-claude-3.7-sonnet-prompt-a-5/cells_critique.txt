@@ -1,0 +1,445 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell contains the title of the notebook. It introduces the specific Dandiset (000673) that will be explored, and provides a brief description of the dataset's content (working memory and hippocampal neurons). This cell serves as an introduction to the notebook's purpose and content.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell contains a warning message indicating that the notebook was AI-generated and hasn't been fully verified. It advises caution in interpreting the code and results. It emphasizes the importance of referring to the original publication and official documentation for accurate information. This is a good practice to ensure users are aware of the limitations and potential inaccuracies.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell provides an overview of the Dandiset 000673. It describes the experiment, recording methods (Macro-Micro Hybrid Depth Electrodes in medial temporal lobe and medial frontal cortex regions), and focus on the hippocampus and amygdala. It summarizes the key research findings related to theta-gamma phase-amplitude coupling (TG-PAC) and working memory. Finally, it provides a link to the Neurosift web interface for more details and visualizations of the dataset which is useful for the reader.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell outlines the contents of the notebook. It provides a clear roadmap for what the notebook will cover, including connecting to the DANDI archive, examining NWB file structure and metadata, exploring the trial structure, visualizing stimuli, analyzing neural activity, and examining the relationship between neural activity and behavior. The final sentence highlights that the notebook demonstrates how to work with NWB data through the DANDI archive without downloading the entire dataset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell lists the Python packages required to run the notebook. It includes a brief description of each package and its purpose within the context of the notebook (e.g., `dandi` for accessing the DANDI archive, `pynwb` for working with NWB files).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell imports the necessary Python packages specified in the previous cell. It also sets the seaborn theme for plots and ignores warnings to provide a cleaner output.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell introduces the next step, which is accessing the Dandiset using the `dandi` package. It sets the stage for listing the available assets in Dandiset 000673.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell connects to the DANDI archive, retrieves Dandiset 000673, and lists the first five assets (NWB files) within the Dandiset. It prints the Dandiset ID, name, the total number of assets, and the filename and file size of the first 5 assets.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell specifies that the subsequent analysis will focus on the NWB file from Subject 20 and explains that `remfile` will be used to stream the data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell defines the asset ID and file path for the NWB file of Subject 20. It then constructs the URL for accessing the file via the DANDI API. The cell prints the file path and URL. It proceeds to open the remote file using `remfile` and read it into an NWB object using `pynwb`.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell is a transition cell, indicating that the following cells will focus on examining basic metadata from the NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell extracts and prints basic metadata from the NWB file, including the NWB file identifier, subject ID, age, sex, species, session description, session start time, lab, institution, and keywords.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell provides a description of the Sternberg working memory task used in the experiment. It explains the basic procedure of the task, including the presentation of images (memory load), the maintenance period, and the probe image. Finally, it sets the stage for the upcoming analysis of the trial structure.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 14
+==========
+
+OVERVIEW:
+This cell extracts trial information from the NWB file using `nwb.trials.to_dataframe()`. It then prints the number of trials, the unique memory load sizes, and displays the first 5 rows of the trials DataFrame. Finally, it calculates and prints the number and percentage of correct/incorrect trials, as well as trials where the probe was/was not in memory.
+
+IMAGE DESCRIPTIONS:
+The `display(trials_df.head())` produces a table showing the first 5 trials with columns such as 'loads', 'PicIDs_Encoding1', 'PicIDs_Encoding2', 'PicIDs_Encoding3', 'PicIDs_Probe', 'start_time', 'stop_time', and various timestamps. The table provides a structured view of the trial data, showing the values for each of these parameters for the initial trials.
+
+ISSUES:
+None
+
+Cell 15
+==========
+
+OVERVIEW:
+This cell acts as a transition, introducing the visualization of the subject's performance on the Sternberg task, specifically accuracy based on memory load and trial types.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 16
+==========
+
+OVERVIEW:
+This cell creates a bar plot showing the accuracy of the subject, separated by the memory load. The accuracy is calculated as the mean `response_accuracy` for each `loads` value. The plot displays the memory load on the x-axis and the accuracy (%) on the y-axis. The plot includes labels for x and y axis and a title. The accuracy value is displayed above each bar.
+
+IMAGE DESCRIPTIONS:
+The image is a bar plot that visualizes task performance by memory load. The x-axis represents the memory load (number of items), with two categories: 1 and 3. The y-axis represents accuracy in percentage, ranging from 0 to 100. There are two bars, one for each memory load, displaying the average accuracy for that load. The bar for memory load 1 reaches 100% accuracy, while the bar for memory load 3 indicates an accuracy of 98.6%. Numerical values of the accuracy are displayed above each bar.
+
+ISSUES:
+None
+
+Cell 17
+==========
+
+OVERVIEW:
+This cell generates a bar plot displaying the accuracy of the subject based on trial type (probe in memory vs. probe not in memory). The accuracy is calculated as the mean `response_accuracy` for each `probe_in_out` category. The plot utilizes `seaborn.barplot` and includes labels for the x and y axes, a title, and annotations displaying the accuracy percentage for each bar.
+
+IMAGE DESCRIPTIONS:
+The image shows a bar plot illustrating task performance by trial type. The x-axis represents trial type, with two categories: "Probe not in memory" and "Probe in memory". The y-axis represents accuracy (%), ranging from 0 to 100. The bar for "Probe not in memory" trials shows an accuracy of 100.0%, while the bar for "Probe in memory" trials shows an accuracy of 98.6%. Accuracy values are displayed above the respective bars.
+
+ISSUES:
+None
+
+Cell 18
+==========
+
+OVERVIEW:
+This cell serves as a transition, indicating the next section will focus on analyzing response times within the working memory task.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 19
+==========
+
+OVERVIEW:
+This cell analyzes the response times (RTs) in the working memory task. First, it calculates the RTs by subtracting the `timestamps_Probe` from `timestamps_Response`. It then filters out invalid RTs (negative or extremely large, using a cutoff of 10 seconds). The cell then generates four subplots. The first two subplots are histograms showing distributions of RTs colored by accuracy and trial type, respectively. The third subplot is a bar plot showing the average RT by memory load. The fourth subplot is a bar plot showing the average RT by trial type and accuracy, resulting in 3 conditions since there was only 1 incorrect trial.
+
+IMAGE DESCRIPTIONS:
+The image contains four subplots arranged in a 2x2 grid, all related to response time analysis.
+
+1.  **Response Time Distribution by Accuracy**: This histogram displays the distribution of response times, separated by accuracy. The x-axis represents response time in seconds, and the y-axis represents the count of trials. Two distributions are overlaid: one for incorrect trials (in orange) and one for correct trials (in blue). The distribution for incorrect trials is appears to have much higher counts near shorter response times but it is difficult to assess the distribution of correct trials because there is only one.
+2.  **Response Time Distribution by Trial Type**: This histogram shows the distribution of response times based on trial type. The x-axis represents response time in seconds, and the y-axis represents the count of trials. Two distributions are overlaid: "Not in Memory" (in orange) and "In Memory" (in blue). Both distributions seem to be have higher counts near shorter response times, but the "In Memory" condition might be shifted slightly right.
+3.  **Response Time by Memory Load**: This bar plot shows the average response time for different memory loads. The x-axis represents the memory load, with two values: 1 and 3. The y-axis represents the average response time in seconds. The average response time appears slightly higher for a memory load of 3 than for a memory load of 1, though the y-axis isn't labeled very precisely.
+4.  **Response Time by Trial Type and Accuracy**: This bar plot displays the average response time for different conditions of trial type and accuracy. The x-axis lists the conditions: "Out-Correct", "In-Incorrect", and "In-Correct". The y-axis represents the average response time in seconds. "In-Incorrect" has larger average response time than "Out-Correct" or "In-Correct".
+
+ISSUES:
+The title of plot 1 is "Response Time Distribution by Accuracy". However, because of the extremely low number of incorrect trials, the histogram of response times by accuracy is not very meaningful. Plot 2 is similarly affected.
+
+Cell 20
+==========
+
+OVERVIEW:
+This cell introduces the next section, which focuses on exploring stimulus images used in the experiment. It serves as a transition to the image visualization part of the notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 21
+==========
+
+OVERVIEW:
+This cell retrieves a list of image keys from the NWB file and then iterates through the first nine keys to display the corresponding images. The images are accessed from `nwb.stimulus_template['StimulusTemplates'].images[key].data[:]` and are displayed using `plt.imshow()`. Each image is labeled with its corresponding key as the title.
+
+IMAGE DESCRIPTIONS:
+The image displays a 3x3 grid of images. Each image appears to be a photograph of a person. The photos appear to be rotated either clockwise or counter-clockwise. The titles above each image indicate the image key in the format "Image image_XXX," where XXX is a number from 101 to 109.
+
+ISSUES:
+The images are displayed rotated, which could be disorienting for the viewer and makes it somewhat more difficult to discern the exact stimulus. This rotation might be intentional in the original experiment, but it would be helpful to mention this and explain why the images are rotated (if known).
+
+Cell 22
+==========
+
+OVERVIEW:
+This cell introduces the next phase of the notebook: examining neural recordings from the hippocampus and amygdala. It serves as a transition to the single-unit analysis section.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 23
+==========
+
+OVERVIEW:
+This cell explores the neural data by extracting information about electrode groups, electrodes, and recorded units from the NWB file. It first prints the location of each electrode group. Then, it displays the electrode dataframe (`nwb.electrodes.to_dataframe()`) and the first few rows of the units dataframe (`nwb.units.to_dataframe()`). Finally, it calculates and prints the number of units recorded in each brain region based on the electrode locations by using `value_counts()`.
+
+IMAGE DESCRIPTIONS:
+The cell output includes two tables and a list of regions and counts.
+
+*   The first table, labeled "Electrodes", is a Pandas DataFrame showing properties of the electrodes, including x, y, and z coordinates, location, filtering, group, group_name, and origChannel.
+*   The second table, labeled "Recorded Units", is a Pandas DataFrame showing the spike times, associated electrodes, and other data for the recorded units. The columns included are `spike_times`, `electrodes`, `clusterID_orig`, `waveforms`, `waveforms_mean_snr`, `waveforms_peak_snr`, `waveforms_isolation_distance`, and `waveforms_mean_proj_dist`.
+*   The list shows the number of units per brain region. Amygdala right has 5 units. Hippocampus left and hippocampus right have 4 units each, and amygdala left has 1 unit.
+
+ISSUES:
+The documentation of this function claims that it returns the number of units per brain region based on the electrode locations, however it does not include all units from the brain region. Specifically it is missing 14 units. This is likely due to those units being placed in bad channels, and so that is the only reason why this may not be an issue.
+
+Cell 24
+==========
+
+OVERVIEW:
+This cell introduces the visualization of neural activity, and serves as a transition cell to the subsequent plotting of spiking activity.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 25
+==========
+
+OVERVIEW:
+This cell generates a spike raster plot for the first five units in the dataset. It retrieves the spike times for each unit and plots them as vertical lines on the raster plot. The y-axis represents the different units. The labels for each unit are constructed by appending the electrode location to the unit ID. If a unit has more than 1000 spikes, the code samples 1000 evenly spaced spikes for plotting to improve visualization.
+
+IMAGE DESCRIPTIONS:
+The image is a spike raster plot showing the spiking activity of five different units over time. The x-axis represents time in seconds, ranging from approximately 0 to 1200. The y-axis represents the different units, labeled as "Unit 0 (unknown location)", "Unit 1 (unknown location)", "Unit 2 (unknown location)", "Unit 3 (unknown location)" and "Unit 4 (unknown location)". Each black vertical line on the plot represents a single spike event for a given unit at a specific time. The density and patterns of these lines indicate the firing rate and temporal dynamics of each unit. The units seem to have varying degrees of firing activity.
+
+ISSUES:
+The location of electrodes is showing up as "unknown location". This is because although there is an error thrown, it defaults to "unknown location", but the try/except block masks the underlying error in retrieving electrode locations for certain units. This makes it difficult to interpret any differences in spiking patterns between units. It would be better to understand why the electrode locations cannot be determined so that the plot could be labeled with the anatomical location for each unit.
+
+Cell 26
+==========
+
+OVERVIEW:
+This cell introduces the analysis of neural activity around trial events, specifically focusing on creating a peri-stimulus time histogram (PSTH) around probe presentation. It acts as a transition to the PSTH analysis section.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 27
+==========
+
+OVERVIEW:
+This cell defines a function `create_psth` that calculates the peri-stimulus time histogram (PSTH) for a given set of spike times and event times. The function takes the spike times, event times, a time window, and bin size as inputs. It aligns the spike times to each event time, counts the number of spikes falling within each bin of the specified window, and then converts the counts to firing rates (Hz).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 28
+==========
+
+OVERVIEW:
+This cell selects the probe onset times from the trials DataFrame and stores them in the `probe_times` variable. It then creates separate arrays for correct, incorrect, in-memory, and not-in-memory trials based on "response_accuracy" and "probe_in_out" columns within the `trials_df`.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 29
+==========
+
+OVERVIEW:
+This cell attempts to select a unit from the hippocampus and create PSTHs aligned to the probe onset times. It first filters the `units_df` dataframe to identify units recorded from the hippocampus. If hippocampal units are found, the code proceeds to select the first hippocampal unit and extract its spike times. It creates PSTHs for all trials, correct/incorrect trials, and in-memory/not-in-memory trials. The code then generates three subplots displaying the PSTHs for each trial type. Each plot includes a vertical line indicating the probe onset time. However, because the unit selection process fails in this particular notebook run, it prints "No units from hippocampus found for this subject".
+
+IMAGE DESCRIPTIONS:
+Since there are no units from the hippocampus identified on this run, the code skips the plotting commands, and no plots are created.
+
+ISSUES:
+The code reports "No units from hippocampus found for this subject". This is unexpected since hippocampus units were apparently found in the previous cell (electrode counts reported 4 units in each of left and right hippocampus). The issue might stem from filtering units based on the electrodes' location string, which may or not actually contain the substring ‘hippocampus’. Some debugging is needed to reveal the true reason for this failure. Also (although this is irrelevant because the code block doesn't run), the number of incorrect probe times is expected to be very low from a previous cell, which may cause problems when creating PSTH for incorrect trials.
+
+
+Cell 30
+==========
+
+OVERVIEW:
+This cell functions as a transition, introducing the comparison of neural activity between hippocampus and amygdala units. This prepares the reader for the subsequent analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 31
+==========
+
+OVERVIEW:
+This cell aims to identify and count the number of units located in the hippocampus and amygdala. It iterates through the unit IDs, retrieves the corresponding electrode ID and location, and appends the unit ID to either `hippocampus_unit_ids` or `amygdala_unit_ids` based on whether the location string contains the substring 'hippocampus' or 'amygdala', respectively. Finally, it prints the total number of hippocampus and amygdala units found.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The counts for units are `0` for both regions, which is unexpected since the printed output from an earlier cell showed 4 units each in hippocampus_left and hippocampus_right, and 5 units in amygdala_right and 1 in amygdala left. Therefore, the unit selection is failing, likely due to the string matching on location. Because of this issue, any downstream analysis based on these selections will also fail.
+
+Cell 32
+==========
+
+OVERVIEW:
+This cell attempts to compare neural activity between one representative unit from the hippocampus and one from the amygdala. Since there are no hippocampus and amygdala units selected correctly in the previous cell, the code skips the plotting commands and prints "Unable to compare hippocampus and amygdala units - not enough units available". If units from both regions had been identified, the code would have created PSTHs aligned to both the probe onset and the maintenance period and generated plots to compare the firing rates of these units across different task events.
+
+IMAGE DESCRIPTIONS:
+There are no plots produced.
+
+ISSUES:
+Because the filtering of hippocampus and amygdala units has failed in the previous step, this cell correctly reports that it cannot perform the comparison and prints the message "Unable to compare hippocampus and amygdala units - not enough units available". No further issues are present in the cell itself, although the failure of the previous cell propagates here.
+
+Cell 33
+==========
+
+OVERVIEW:
+This cell introduces the final analysis step: examining how neural firing rates change with different memory loads. It prepares the reader for the memory load-specific neural activity analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 34
+==========
+
+OVERVIEW:
+This cell defines a function `calculate_firing_rate` that calculates the mean firing rate of a neuron within specified time windows. It takes spike times, start times, and end times as inputs. The function iterates through each time window, counts the number of spikes occurring within that window, calculates the duration of the window, and then computes the firing rate by dividing the spike count by the duration.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 35
+==========
+
+OVERVIEW:
+This final cell analyzes how the firing rate of a hippocampal unit changes with different memory loads during the maintenance period. The code selects start and end times based on "timestamps_Maintenance" and "timestamps_Probe", respectively, for each trial. It then iterates through different memory loads, calculates the firing rates during the maintenance period for trials with a specific memory load, and stores these firing rates. Finally, it generates two plots: a boxplot with overlaid scatter points showing the distribution of firing rates for each memory load, and a bar plot displaying the average firing rate and standard error for each memory load. The code is skipped in this run because no hippocampal units were found.
+
+IMAGE DESCRIPTIONS:
+Since no hippocampal units are found, this cell does not produce any plots.
+
+ISSUES:
+Due to the failure of selecting the hippocampal unit as identified in previous cells, the code prints the message "No hippocampal units available for analysis" and no plotting is done. This cell would have produced a boxplot and bar plot of firing rates, but the code errors out before reaching this point.
+
+Cell 36
+==========
+
+OVERVIEW:
+This cell summarizes the activities performed in the notebook, including loading and examining an NWB file, exploring the trial structure, visualizing behavioral performance, examining stimulus images, analyzing neural activity, creating PSTHs, comparing activity in different brain regions, and investigating how neural activity changes with memory load. It then provides a list of potential future directions for researchers to explore, such as analyzing theta and gamma oscillations, performing population-level analyses, analyzing connectivity between brain regions, comparing neural activity across subjects, and relating neural activity to individual differences in working memory performance.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The summary lists several analysis steps that the notebook attempted to perform however, due to code errors, many of those analysis steps were not successfully completed. The summary would benefit from a qualification that the analysis was preliminary.
+

@@ -1,0 +1,517 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell contains a title for the notebook, which introduces the specific Dandiset (000673) to be explored and provides context for the analysis that follows.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell serves as a disclaimer, informing the user that the notebook was automatically generated and may contain errors or inaccuracies. It emphasizes the need for careful interpretation of the content.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell provides an overview of Dandiset 000673, including a brief description of the experiment, the type of data it contains (human intracranial recordings during a Sternberg working memory task), the number of subjects, and the research question addressed by the dataset. A Neurosift link is provided to allow users to explore the dataset interactively.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell serves as a brief introduction to the packages/libraries that this notebook will utilize. It indicates to the user that the packages are assumed to have already been installed on their system.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell imports necessary Python libraries for data analysis and visualization, namely numpy, matplotlib, pandas, pynwb, h5py, remfile, scipy.signal, and seaborn. It also sets the seaborn theme for better plot aesthetics.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 6
+==========
+
+OVERVIEW:
+This is a transition cell that introduces the next step in the notebook, which is loading the Dandiset and exploring its structure.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell uses the `dandi` library to access Dandiset 000673, retrieves the list of assets (files) within the Dandiset, and then prints the number of assets found and the paths of the first 5 assets.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell introduces the loading of a specific NWB file (subject-10 session-1) to examine its content.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell loads an NWB file from the DANDI archive using the `remfile`, `h5py`, and `pynwb` libraries. The cell defines the `asset_id` and `file_path`, constructs the URL to access the file, opens the file, and reads the contents into an `nwb` object. Warning messages from `hdmf` and `pynwb` are printed but do not necessarily indicate failure, so they should be inspected closely.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell serves as a transition, indicating the next step: to examine and explore the metadata and content of the loaded NWB file.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell extracts and prints metadata information from the loaded NWB file, including session details (description, identifier, start time, experimenter, institution, lab) and subject information (ID, age, sex, species).
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell serves as a transition to exploring the behavioral task data, which involves the Sternberg working memory task performed by the subjects.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell extracts trial data from the NWB file and converts it into a Pandas DataFrame. It prints the total number of trials, the column names in the DataFrame, and the unique memory loads used in the task. It then displays the first few rows of the DataFrame, focusing on columns related to the task design such as 'loads', 'PicIDs', 'response_accuracy', and 'probe_in_out'.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 14
+==========
+
+OVERVIEW:
+This cell describes and interprets the structure of the trial data, based on the previous cell's output. It explains the meaning of the 'loads' and 'probe_in_out' columns in the context of the Sternberg task.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 15
+==========
+
+OVERVIEW:
+This cell calculates and visualizes task performance (response accuracy) for each memory load condition. It groups the trials data by 'loads', calculates the mean 'response_accuracy' for each load, and then plots the results as a bar graph. The printed output shows the accuracy for each load, and the plot visually demonstrates the difference in accuracy between the two load conditions.
+IMAGE DESCRIPTIONS:
+The plot is a bar graph showing the "Task Performance by Memory Load". The x-axis represents the memory load, indicated by the labels "1" and "3". The y-axis represents "Accuracy (%)" ranging from 0 to 100. There are two sky-blue bars, one for each memory load. The bar corresponding to a memory load of 1 has an accuracy around 97%, and the bar corresponding to a memory load of 3 has an accuracy around 87%. The graph also has a grid on the y-axis.
+ISSUES:
+None
+
+Cell 16
+==========
+
+OVERVIEW:
+This cell provides an interpretation of the results of the task performance analysis, stating that performance decreases with increasing memory load. It connects this observation to the known limitations of working memory capacity.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 17
+==========
+
+OVERVIEW:
+This cell analyzes reaction time (RT) as a function of memory load. It first calculates the reaction time for each trial by subtracting the 'timestamps_Probe' from 'timestamps_Response'. It then groups the data by 'loads' and calculates the mean reaction time for each load. The results are printed, and visualized as a bar graph.
+
+IMAGE DESCRIPTIONS:
+The plot is a bar graph showing the "Reaction Time by Memory Load". The x-axis represents memory load, with labels "1" and "3". The y-axis represents "Reaction Time (seconds)". Two salmon-colored bars are presented. The bar corresponding to memory load 1 has a reaction time of approximately 1.4 seconds, while the bar for memory load 3 has a reaction time of approximately 1.8 seconds. The graph contains a y-axis grid.
+ISSUES:
+The y-axis label says "Reaction Time (seconds)", yet the printed text displays the reaction time in milliseconds. This inconsistency should be resolved. The plot accurately shows seconds, so likely the text should be fixed to be in seconds as well.
+
+Cell 18
+==========
+
+OVERVIEW:
+This cell provides an interpretation of the reaction time analysis, stating that reaction times increase with increasing memory load. It links this observation to the increased cognitive effort required to manage more items in working memory.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 19
+==========
+
+OVERVIEW:
+This cell examines the effect of probe type (whether the probe was in the memory set or not) on response accuracy. It groups the trials by 'probe_in_out', calculates the mean 'response_accuracy' for each group, and then prints the accuracy for each probe type, along with the number of trials in each group. A pie chart is then generated to visualize the distribution of trial types (in-memory vs. not-in-memory).
+
+IMAGE DESCRIPTIONS:
+The image is a pie chart showing the "Distribution of Trial Types". The chart is divided into two sections of equal size (50% each). The "In memory" section is colored in light blue, and the "Not in memory" section is colored in light coral.
+ISSUES:
+Based on the `probe_in_out` column and the performance, the task appears heavily biased in favor of incorrect rejection. The output shows that the "not in memory" trials have 100% accuracy. The code computes trial sizes, so it can also produce a performance metric that separates accuracy for the in-memory trials given a memory load = 3.
+
+Cell 20
+==========
+
+OVERVIEW:
+This cell provides an interpretation of the probe type analysis, noting the higher performance for "not in memory" probes compared to "in memory" probes. It suggests that different cognitive processes might be involved in recognition (correctly identifying "in memory" probes) versus rejection (correctly identifying "not in memory" probes).
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 21
+==========
+
+OVERVIEW:
+This is a transition cell indicating that the following cells will explore electrode locations.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 22
+==========
+
+OVERVIEW:
+This cell extracts electrode information from the NWB file into a Pandas DataFrame. It prints the total number of electrodes, the column names in the DataFrame, and the distribution of electrode locations (brain regions) using `value_counts()`.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 23
+==========
+
+OVERVIEW:
+This cell interprets the electrode location data, noting the presence of electrodes in brain regions associated with working memory and cognitive control, such as the prefrontal cortex, anterior cingulate cortex, hippocampus, and amygdala. This provides context for potential analyses relating neural activity in these regions to the working memory task.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 24
+==========
+
+OVERVIEW:
+This cell serves as a transition, introducing the focus on Local Field Potentials (LFPs) and their significance as a measure of neuronal population activity and oscillatory activity.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 25
+==========
+
+OVERVIEW:
+This cell retrieves information about the LFP data from the NWB file, specifically accessing the "LFPs" acquisition module. It extracts the sampling rate, data shape, and starting time of the LFP data. It then selects a subset of the LFP data, representing the first 20 seconds from the first 5 channels, and generates a corresponding time vector.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 26
+==========
+
+OVERVIEW:
+This cell serves as a transition step, introducing the next action of visualizing the LFP traces from the data obtained from the previous cell.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 27
+==========
+
+OVERVIEW:
+This cell generates a series of subplots, each displaying the LFP trace for one of the first 5 channels over a 20-second time window. The plots show the voltage fluctuations over time for each channel, allowing visual inspection of oscillatory patterns and other temporal dynamics in the LFP data.
+IMAGE DESCRIPTIONS:
+The image shows a figure with 5 subplots arranged vertically. Each subplot displays the LFP activity for one of 5 different channels (Channel 0 through Channel 4) over time. The x-axis on each subplot represents time in seconds, ranging from approximately 0 to 20 seconds. The y-axis represents voltage. Each subplot shows a noisy, fluctuating LFP signal.
+ISSUES:
+The y-axis is labelled "Voltage (V)", but the range seems implausibly high. LFP voltages are usually in the microvolt range, so the units or scaling may be incorrect.
+The axes labels overlap with the subplots. `plt.tight_layout()` should prevent that, so it's likely that something else is interfering. This is a minor issue, however, since it doesn't prevent the user from being able to read the labels.
+
+Cell 28
+==========
+
+OVERVIEW:
+This cell provides a visual interpretation of the plotted LFP traces, noting the synchronized activity across channels and the presence of prominent peaks at specific time points (6-7 and 15 seconds). It suggests a possible link between these neural events and the task performance.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+As described in the description of the previous cell, there is an issue with the y-axis units, so the phrase "large deflections" is misleading. It should be stated that voltages range between -100V and 200V, which seems implausibly high.
+Also, stating that the large deflections "likely represent significant neural events that occurred during task performance" is a strong potentially unsupported claim, since only the raw LFP signal is being shown, without access to event markers.
+
+
+Cell 29
+==========
+
+OVERVIEW:
+This cell is a transition indicating that the next step is to analyze the frequency content of the LFP data by running a power spectral density (PSD) analysis.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 30
+==========
+
+OVERVIEW:
+This cell computes and visualizes the power spectral density (PSD) of the LFP data for the first channel (channel_idx = 0). The `signal.welch` function is used to estimate the PSD, using a segment length (`nperseg`) of 1024 samples. The frequency range is limited to below 100 Hz, and the PSD is plotted on a semi-log scale to better visualize the power distribution across frequencies.
+
+IMAGE DESCRIPTIONS:
+The image is a plot of the power spectral density (PSD) for LFP Channel 0. The x-axis represents frequency in Hz, ranging from 0 to 100 Hz. The y-axis represents power per frequency (V^2/Hz) on a logarithmic scale. The plot displays a decreasing trend in power as frequency increases, with a large peak near 0 Hz. A dip appears near 60 Hz. The plot contains a grid.
+ISSUES:
+The y-axis units are still incorrect based on the very large voltage amplitudes of the LFP, although it is impossible to know the scaling without looking at the original study.
+The interpretation should note that the prominent dip at 60 Hz corresponds to electrical grid noise.
+
+Cell 31
+==========
+
+OVERVIEW:
+This cell interprets the PSD plot, stating that the PSD exhibits a 1/f relationship with higher power at lower frequencies. Also, the highest power is in the delta (1-4 Hz) and theta (4-8 Hz) ranges, which are stated to be associated with cognitive function related to working memory.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+The statement that the figure "shows a classic 1/f slope" is misleading. The PSD already begins to flatten out by 20 Hz.
+Also, as stated previously, the "prominent dip at 60 Hz corresponds to electrical grid noise" should be pointed out.
+Finally, the y-axis unit issue persists. The user states correct tendencies in frequency bands, but the actual PSD magnitudes have not been verified.
+
+
+Cell 32
+==========
+
+OVERVIEW:
+This cell calculates and visualizes the band power in different frequency bands (Delta, Theta, Alpha, Beta, Gamma) for the first 5 channels of LFP data. It defines a function `bandpower` that calculates the power within a specified frequency band using Welch's method and numerical integration (`np.trapz`). The band power is then calculated for each channel and each frequency band, and the results are displayed as a bar plot.
+
+IMAGE DESCRIPTIONS:
+The image shows a bar graph representing the "LFP Band Power by Channel." The x-axis represents the frequency band, with labels Delta, Theta, Alpha, Beta, and Gamma. The y-axis represents "Band Power." For each frequency band, there are five bars representing Channel 0 through Channel 4. The delta band clearly dominates power, decreasing systematically until reaching the gamma band.
+ISSUES:
+The y-axis units are still incorrect, and this affects the interpretation of the "band power," whatever the units may be. This is the most important issue to resolve moving forward. It would be difficult to use this result for later analysis. Also, the legend is partially cutoff, meaning that those making the notebook need to check that `plt.tight_layout()` is actually running correctly.
+
+Cell 33
+==========
+
+OVERVIEW:
+This cell interprets the results of the band power analysis, stating that the delta band has the highest power across all channels, followed by the theta band. It connects this observation to the role of low-frequency oscillations in cognitive processes, including working memory.
+
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+While the statement about the relative power of delta and theta bands is correct based on the generated plot, the issue with the y-axis units not being in reasonable/verifiable ranges persists, so the magnitude values themselves cannot be considered solid.
+Furthermore, the figure shown only plots the powers. An interesting future direction is to perform statistical analyses that relate behavioral responses with the neural activity features extracted.
+
+
+Cell 34
+==========
+
+OVERVIEW:
+This cell shifts the focus to single-unit recordings and prepares to examine their properties. It provides context by mentioning the neural regions from which these recordings were obtained.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 35
+==========
+
+OVERVIEW:
+This cell extracts unit (single neuron) information from the NWB file into a Pandas DataFrame. It then prints the total number of units and the names of columns in the DataFrame.
+
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 36
+==========
+
+OVERVIEW:
+This cell summarizes the content of the `units_df`, mentioning that the dataset contains single-unit recordings and quality metrics.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 37
+==========
+
+OVERVIEW:
+This cell iterates through each unit in the NWB file, extracts its spike times, calculates the number of spikes for each unit, and stores these counts in a list. It then generates a bar plot showing the number of spikes per unit, with the unit index on the x-axis and the spike count on the y-axis.
+
+IMAGE DESCRIPTIONS:
+The image is a bar graph titled "Number of Spikes per Unit". The x-axis is the "Unit Index", ranging from 0 to 35. The y-axis is the "Number of Spikes", ranging from 0 to over 20000. The graph shows the distribution of spike counts across the 36 units, with some units having significantly more spikes than others.
+ISSUES:
+The y-axis plots the total number of spikes across the entire session. It would be helpful to plot the mean firing rate per unit, which is computed by dividing the total number of spikes by the duration of the recording session. The session duration can be calculated by finding the difference between `nwb.stop_time` and `nwb.start_time`.
+It should be stated that although there are 36 units, the spike counts vary substantially across units. One unit fires far more than any of the others.
+
+Cell 38
+==========
+
+OVERVIEW:
+This cell provides an interpretation of the spike count plot, stating that spike counts vary substantially across the neuronal population. This variation in activity may reflect differences in neuron types, locations, and involvement in the cognitive task.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 39
+==========
+
+OVERVIEW:
+This cell serves as a transition, indicating that the next step involves examining the activity of a specific neuron during the task.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 40
+==========
+
+OVERVIEW:
+This cell analyzes a selected neuronal unit (unit_idx = 0) by generating a raster plot and a peri-stimulus time histogram (PSTH). The raster plot (top) shows the timing of individual spikes relative to the start of each trial, with spikes colored according to the memory load (blue for load 1, red for load 3). The PSTH (bottom) represents the average firing rate of the neuron over time relative to the trial onset. The plot also depicts average fixation, probe and response times via vertical dotted lines.
+
+IMAGE DESCRIPTIONS:
+The image is a figure with two subplots; a spike raster plot (top) and a peri-stimulus time histogram (PSTH, bottom).
+
+The top subplot, "Unit 0 Spikes by Trial", depicts the spiking activity of a single neuron across trials. The x-axis is "Time from Trial Start (s)", ranging from -0.5 to 20 seconds. The y-axis represents Trial Number. Each trial's spikes are shown vertically, colored according to the memory load (blue for load 1, red for load 3).
+
+The bottom subplot, "Average Firing Rate", shows the trial-averaged firing rate of the same neuron over time. The x-axis is "Time from Trial Start (s)". The y-axis is "Firing Rate (Hz)".
+
+Both subplots also show vertical lines indicating the average fixation time (green), average probe time (purple), and average response time (orange).
+ISSUES:
+The raster plot aligns the response to trial start, but it may be more useful to align it to probe or response onset, since these are key times in the trial.
+
+Also, it is not evident in the raster plot that different conditions (i.e. memory loads 1 vs 3) are being separated. A more careful investigation utilizing statistical tests would be necessary.
+
+Cell 41
+==========
+
+OVERVIEW:
+This cell interprets the observed patterns in the raster plot and PSTH. It claims that the neuron exhibits increased activity after fixation (encoding), sustained firing during the memory maintenance period, and reduced activity after the probe presentation and response. It makes the argument the neuron is involved in working memory maintenance.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+The stated increased firing after fixation, sustained firing during maintenance, and reduced activity after probe/response seems vaguely supported based on the figure; however, this is mostly eyeballing. A statistical test differentiating the firing rates at key task epochs would more rigorously test this claim.
+The conclusion is too definitive based on the available evidence. While the observed firing pattern *might* be consistent with working memory maintenance, other interpretations are possible. It would be better to say "the following pattern was observed" rather than "this neuron has distinct firing patterns related to task events."
+
+Also, the "spike raster aligned to trial onsets" plot does not account for trials of different lengths, which confounds the PSTH result on the bottom. Many trials stop firing (in the raster, and therefore in the PSTH) after 12 seconds. This is because many subjects responded before the maximum time allowed.
+
+Cell 42
+==========
+
+OVERVIEW:
+This cell announces the next analysis step, which involves a more comprehensive analysis of firing rates during different task phases across all the recorded units.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 43
+==========
+
+OVERVIEW:
+This cell calculates and compares the average firing rates of all recorded units during different task periods, including fixation, encoding, maintenance, probe, and response. It iterates through each unit and each trial, identifies spikes occurring within each task period, calculates the firing rate (spikes/second) for each period, and aggregates these rates across all trials for each unit. Finally, it generates a bar plot that shows the average firing rate (averaged across all units) for each task period, along with standard error bars to represent the variability in firing rates across units.
+
+IMAGE DESCRIPTIONS:
+The image is a bar graph showing "Average Firing Rate Across Task Periods (All Units)." The x-axis indicates task periods, with labels "Fixation", "Encoding", "Maintenance", "Probe", and "Response". The y-axis is "Mean Firing Rate (Hz)". Error bars indicate the standard error. The mean firing rate and error bars appear roughly the same for each task period.
+ISSUES:
+The spike counting logic for the fixations period appears incorrect. The `start_time` variable is defined to be the fixation time `fixation_times[trial_idx]`, which references timing *within* the fixation cross period. Therefore, the spike times falling between `start_time` and `encoding_start` do not reference those during the fixation cross time.
+
+Given the coding issue with the fixation time definition, it is unsurprising that there appear to be no substantial differences for the mean firing rate between the defined periods. A statistical test will not be able to differentiate them, regardless. All that being said, it's important to report if the error bars are statistically significant.
+
+Cell 44
+==========
+
+OVERVIEW:
+This cell interprets the results, claiming that the highest firing rates occur during the Maintenance period, which would support the idea that these neurons are involved in working memory maintenance.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+There is a coding issue in the prior analysis regarding calculation of firing rates in fixation periods, which should be resolved.
+There does not seem to be a statistically significant deviation based on the mean firing rates reported. Also, other interpretations are possible given the coding error. The *average* firing rate for any period during the task cannot be distinguished given the available information. This conclusion is therefore unsupported.
+
+Cell 45
+==========
+
+OVERVIEW:
+This cell summarizes the analyses performed in the notebook and restates the overall hypothesis addressed by the Dandiset. It highlights the key findings related to behavioral performance, LFP oscillations, and single-unit activity, connecting these findings to the role of theta-gamma phase-amplitude coupling in working memory.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+Statements about y-axis scales in the LFP analysis need to be verified.
+Statements about elevated single-unit activity during memory maintenance need to be verified.
+With those exceptions, the rest of the summary seems generally correct.
+
+Cell 46
+==========
+
+OVERVIEW:
+This cell suggests potential future directions for analyzing the dataset. These include investigating phase-amplitude coupling, comparing activity across brain regions, correlating neural activity with behavior, examining load-dependent changes, and analyzing differences between correct and incorrect trials.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 47
+==========
+
+OVERVIEW:
+This cell is a transition to cleanly close the currently-used files.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+
+Cell 48
+==========
+
+OVERVIEW:
+This cell contains the code to close the opened h5 file, thus ensuring that resources are properly released.
+IMAGE DESCRIPTIONS:
+None
+ISSUES:
+None
+

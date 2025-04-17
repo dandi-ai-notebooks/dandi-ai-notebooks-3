@@ -1,0 +1,525 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell introduces the notebook and the Dandiset being explored (Dandiset 000945), which contains neural spiking data from awake rats during transcranial focused ultrasound stimulation of the somatosensory cortex. This is an introductory cell that sets the stage for the rest of the notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell displays a caution message, informing the user that the notebook was AI-generated and may contain unverified content. This is an important disclaimer to manage user expectations regarding the reliability of the notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell provides an overview of the Dandiset 000945, including details about the experimental setup, data acquisition, and stimulation parameters. It describes the type of data (neural spiking), the animal model (awake rats), the brain region (somatosensory cortex), the stimulation method (transcranial focused ultrasound), and the experimental design (different pulse repetition frequencies). It also provides a direct link to the dataset on Neurosift, enabling interactive exploration.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell introduces the packages that will be used in the notebook for data exploration and analysis. It serves as a high-level introduction before the actual import statements are presented.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell imports the necessary Python packages for data analysis and visualization. It includes packages for working with NWB files (pynwb, h5py), remote data access (remfile), numerical computation (numpy), data manipulation (pandas), and plotting (matplotlib, seaborn). Also configures seaborn styling.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell introduces the process of loading data from the DANDI Archive, emphasizing the use of the Neurodata Without Borders (NWB) format. It sets the context for using the DANDI API and accessing the available files.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell uses the DandiAPIClient to connect to the DANDI Archive and retrieve a list of assets (NWB files) within Dandiset 000945. The code prints the total number of assets found and then lists the paths of the first five assets.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell provides information about the structure of the Dandiset, specifically highlighting the organization by subject and recording session, and the significance of the file naming convention in identifying experiment parameters.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell extracts the unique subject IDs from the asset paths and prints the number of unique subjects and a sorted list of the subject IDs. This provides a more concrete understanding of the data organization.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell introduces the process of selecting and loading a specific NWB file for detailed exploration. It specifies the subject (BH526) and pulse repetition frequency (1500 Hz) for the file being loaded.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell loads a specific NWB file from the DANDI Archive using its asset ID. It utilizes `remfile` to access the remote file, `h5py` to open it as an HDF5 file, and `pynwb` to read it into an NWB object. The cell then prints some basic metadata about the NWB file, including the session description, identifier, session start time, and institution. There are also some warnings related to namespace versions which don't seem to affect the functionality.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell introduces the examination of subject-related information stored within the NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell extracts and prints various attributes of the subject, such as subject ID, age, sex, species, and description, from the loaded NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 14
+==========
+
+OVERVIEW:
+This cell provides context for the next step, which involves examining the electrode configuration used for data acquisition. It states that a 32-channel electrode array was used.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 15
+==========
+
+OVERVIEW:
+This cell pulls the electrode information from the NWB file and displays it in a pandas DataFrame. It prints the number of electrodes, the column names of the DataFrame, and the first 5 rows of the DataFrame, providing a glimpse into the electrode configuration and associated metadata.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 16
+==========
+
+OVERVIEW:
+This cell sets the stage for examining the trial structure within the NWB file, providing context for the subsequent code.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 17
+==========
+
+OVERVIEW:
+This cell extracts the trial information from the NWB file and presents it as a pandas DataFrame. It calculates and prints summary statistics for trial durations and inter-trial intervals, providing insights into the timing of the experiment.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 18
+==========
+
+OVERVIEW:
+This cell introduces the plotting of trial start times and the distribution of inter-trial intervals, setting the context for visualizing the trial structure.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 19
+==========
+
+OVERVIEW:
+This cell generates two plots to visualize the trial structure:
+1.  A line plot that depicts trial start times throughout the recording, showing how the trials are distributed over time. The x-axis is the trial number, and the y-axis is the start time in seconds.
+2.  A histogram that illustrates the distribution of inter-trial intervals. The x-axis represents the inter-trial interval in seconds, and the y-axis represents the count (frequency) of intervals within each bin.
+
+IMAGE DESCRIPTIONS:
+The first plot, "Trial Start Times Throughout Recording", shows a linear increase in start time as trial number increases, indicating consistent spacing between trials. The second plot, "Distribution of Inter-trial Intervals", displays a roughly uniform distribution of inter-trial intervals between approximately 0.05 and 0.55 seconds.
+
+ISSUES:
+None
+
+Cell 20
+==========
+
+OVERVIEW:
+This cell sets the stage for exploring the unit (neuron) information within the NWB file, including their properties and classification.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 21
+==========
+
+OVERVIEW:
+This cell extracts and displays information about the identified units (neurons) in the NWB file. It prints the number of units, the column names of the unit's DataFrame, and the first 5 units of the DataFrame. Also it computes and prints the distribution of cell types, if celltype_label is a column in the units_df. RSU is Regular Spiking Units and FSU is Fast Spiking Units.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 22
+==========
+
+OVERVIEW:
+This cell introduces the analysis of neural activity in relation to the ultrasound stimulation. It proposes the creation of a function to compute peri-stimulus time histograms (PSTHs) to visualize the firing rate of neurons around the stimulation time.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 23
+==========
+
+OVERVIEW:
+This cell defines a function, `compute_psth`, that calculates the peri-stimulus time histogram (PSTH) for given spike times and trial starts. The function takes spike times, trial start times, a pre-stimulus window, a post-stimulus window, and a bin size as input. For each trial, it counts the spikes within each bin relative to the trial start. It averages the spike counts across trials and converts them to a firing rate (spikes per second). This function is useful for analyzing the temporal dynamics of neural responses around the time of stimulation.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 24
+==========
+
+OVERVIEW:
+This cell introduces an analysis of the responses of different cell types to ultrasound stimulation.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 25
+==========
+
+OVERVIEW:
+This cell sets up the parameters and data for analyzing the responses of different cell types. It defines the pre- and post-stimulus time windows, bin size for the PSTH, and extracts the trial start and stop times. It splits the units into RSU (Regular Spiking Unit) and FSU (Fast Spiking Unit) groups based on their `celltype_label`. Finally, it selects a subset of units from each group for visualization purposes, limiting the number of plotted units to 5 per cell type.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 26
+==========
+
+OVERVIEW:
+This cell provides a heading indicating that the following content will focus on visualizing the responses of Regular Spiking Units (RSUs).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 27
+==========
+
+OVERVIEW:
+This cell generates a plot showing the peri-stimulus time histograms (PSTHs) for a subset of Regular Spiking Units (RSUs). The PSTH displays the average firing rate of each RSU over time relative to the stimulus onset. A black dashed vertical line indicates the stimulus onset (time 0), and a red dashed vertical line represents the stimulus offset. The plot allows for the visualization of how the firing rates of RSUs change in response to the ultrasound stimulation.
+
+IMAGE DESCRIPTIONS:
+The plot "RSU Firing Rates Around Ultrasound Stimulation" shows the firing rate (spikes/s) on the y-axis and time relative to trial start (s) on the x-axis, ranging from -1 to 2. The firing rates of five RSUs are plotted as different colored lines. A vertical dashed black line marks 'Stimulus Onset' at x=0. A vertical dashed red line marks 'Stimulus Offset' at x=2.2
+
+ISSUES:
+None
+
+Cell 28
+==========
+
+OVERVIEW:
+This cell provides a heading indicating that the following content will focus on visualizing the responses of Fast Spiking Units (FSUs).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 29
+==========
+
+OVERVIEW:
+This cell generates a plot displaying the peri-stimulus time histograms (PSTHs) for a subset of Fast Spiking Units (FSUs). The plot shows the average firing rate of each FSU over time relative to the stimulus onset. A vertical black dashed line indicates the stimulus onset (time 0), and a red dashed vertical line indicates the stimulus offset. This visualization helps to understand how FSUs respond to ultrasound stimulation. The y-axis scale is different than in the previous figure, revealing that FSUs have higher firing rates.
+
+IMAGE DESCRIPTIONS:
+The plot "FSU Firing Rates Around Ultrasound Stimulation" shows the firing rate (spikes/s) on the y-axis and time relative to trial start (s) on the x-axis. The y-axis scale ranges from about 9 to 17. The firing rates of five FSUs are plotted as different colored lines. A vertical dashed black line marks 'Stimulus Onset' at x=0. The vertical dashed red line marks 'Stimulus Offset' at x=2.2
+
+ISSUES:
+None
+
+Cell 30
+==========
+
+OVERVIEW:
+This cell introduces the comparison of average PSTHs for RSUs and FSUs, to compare the overall responsiveness to ultrasound stimulation across cell types.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 31
+==========
+
+OVERVIEW:
+This cell computes and plots the average peri-stimulus time histograms (PSTHs) for both RSUs and FSUs. It first calculates the average firing rate across a subset of units (up to 15) for each cell type. Then, it generates a plot comparing the mean firing rates of RSUs and FSUs over time relative to the stimulus onset. This allows for a direct comparison of the average responses to ultrasound stimulation between the two cell types.
+
+IMAGE DESCRIPTIONS:
+The plot "Comparison of Average RSU and FSU Responses to Ultrasound Stimulation" displays the mean firing rate (spikes/s) on the y-axis and time relative to trial start (s) on the x-axis. The blue line represents the average firing rate of RSUs, and the orange line represents the average firing rate of FSUs. The average firing rate of FSUs is significantly higher than RSUs. A vertical dashed black line marks 'Stimulus Onset' at x=0, and a vertical dashed red line marks 'Stimulus Offset' at x=2.2.
+
+ISSUES:
+None
+
+Cell 32
+==========
+
+OVERVIEW:
+This cell sets the stage for the next stage of the analysis: comparing neural responses to different pulse repetition frequencies (PRFs) of the ultrasound stimulation. It specifically mentions comparing responses between 30 Hz and 1500 Hz PRFs.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 33
+==========
+
+OVERVIEW:
+This cell defines the URLs for the NWB files with 30 Hz and 1500 Hz PRFs and creates two functions: `load_nwb` to load an NWB file from a given URL and `analyze_prf_dataset` to analyze the neural responses in a dataset with a specific PRF. The `analyze_prf_dataset` function loads the NWB file, prints basic information (identifier, session description, session start time, trial duration, number of trials, number of units, and RSU/FSU counts if cell type labels are available), calculates the average PSTHs for RSUs and FSUs, then closes the NWB file, and returns a dictionary containing the bin centers, average RSU firing rates, average FSU firing rates, and trial duration.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 34
+==========
+
+OVERVIEW:
+This cell provides a heading indicating that the code in the following cell will perform the analysis of both the 30Hz and 1500Hz datasets.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 35
+==========
+
+OVERVIEW:
+This cell calls the `analyze_prf_dataset` function for both the 1500 Hz and 30 Hz datasets, storing the results in `results_1500hz` and `results_30hz`, respectively. The function prints detailed information about each dataset, including the identifier, session description, session start time, the number of trials, the average trial duration and the number and breakdown of Regular-Spiking Units (RSU) and Fast-Spiking Units (FSU).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 36
+==========
+
+OVERVIEW:
+This cell serves as a heading to indicate that a comparison of neural responses between the datasets with different PRFs (30 Hz and 1500 Hz) will follow.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 37
+==========
+
+OVERVIEW:
+This cell generates a figure with two subplots to compare the average neural responses between the 30 Hz and 1500 Hz PRF conditions. The first subplot compares the average RSU responses, and the second subplot compares the average FSU responses. In each subplot, the x-axis represents the time relative to the trial start, and the y-axis represents the average firing rate. Vertical lines indicate the stimulus onset and offset. This allows for the visual comparison of how different cell types respond to different ultrasound pulse repetition frequencies.
+
+IMAGE DESCRIPTIONS:
+The figure contains two subplots. The left subplot is titled "RSU Responses: 30 Hz vs 1500 Hz PRF". Average firing rate (spikes/s) is on the y-axis and time relative to trial start (s) is on the x-axis. The blue line represents the average RSU firing rate for the 1500 Hz PRF condition, and the green line represents average RSU firing rate for the 30 Hz PRF condition. The green line (30Hz PRF) has a significantly higher average firing rate. A black dashed vertical line marks 'Stimulus Onset' at x=0, and a red dashed vertical line marks 'Stimulus Offset' at x=2.2.
+
+The right subplot is titled "FSU Responses: 30 Hz vs 1500 Hz PRF". Average firing rate (spikes/s) is on the y-axis and time relative to trial start (s) is on the x-axis. The blue line represents the average FSU firing rate for the 1500 Hz PRF condition, and the green line represents the average FSU firing rate for the 30 Hz PRF condition. As in the left plot, the green line (30Hz PRF) has a significantly higher average firing rate. A black dashed vertical line marks 'Stimulus Onset' at x=0 and a red dashed vertical line marks 'Stimulus Offset' at x=2.2.
+
+ISSUES:
+None
+
+Cell 38
+==========
+
+OVERVIEW:
+This cell introduces the next step in the analysis: Analyzing the response magnitude to quantify the strength of the neural responses under different conditions.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 39
+==========
+
+OVERVIEW:
+This cell calculates the response magnitude for RSUs and FSUs in both the 1500 Hz and 30 Hz PRF conditions. It defines a function, `calculate_response_magnitude`, which calculates the percent change in firing rate from baseline during a stimulation period from 0 to 0.5 seconds. It defines the baseline period as the average firing rate from t=-1.0 to -0.5 seconds, and the stimulation period average firing rate from t=0.0 to 0.5 seconds relative to trial start. The cell then prints the percentage change in firing rate from baseline for both cell types under both PRF conditions.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 40
+==========
+
+OVERVIEW:
+This cell introduces the visualization of the previously calculated response magnitudes for a better comparison.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 41
+==========
+
+OVERVIEW:
+This cell creates a bar plot visualizing the response magnitudes (percent change in firing rate from baseline) for RSUs and FSUs under both the 30 Hz and 1500 Hz PRF conditions. The plot displays the percent change in firing rate on the y-axis for each condition.
+
+IMAGE DESCRIPTIONS:
+The bar plot titled "Neural Response Magnitude by Cell Type and PRF" displays the percent change in firing rate from baseline on the y-axis for different cell types and PRFs. From left to right, the bars represent 'RSU - 30 Hz' (lightgreen), 'RSU - 1500 Hz' (lightblue), 'FSU - 30 Hz' (darkgreen), and 'FSU - 1500 Hz' (darkblue). All bars are negative, indicating a decrease in firing rate from baseline during stimulation. The decrease is largest for RSU under the 1500 HZ condition.
+
+ISSUES:
+None
+
+Cell 42
+==========
+
+OVERVIEW:
+This cell provides a summary of the key findings from the notebook. It recaps the cell type distribution, trial structure, neural responses (including differences between RSUs and FSUs), and the comparison between different PRFs (30 Hz and 1500 Hz). This summary helps to consolidate the information explored in the notebook and highlights the significant observations made.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 43
+==========
+
+OVERVIEW:
+This cell outlines potential future directions for analysis, suggesting further explorations of the dataset. It proposes investigating additional PRF conditions, trial-by-trial variability, spatial distribution of responses, temporal dynamics, and comparisons across subjects. This provides guidance for further investigation and extends the scope of the analysis beyond the current notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+

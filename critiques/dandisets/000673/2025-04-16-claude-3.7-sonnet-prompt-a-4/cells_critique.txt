@@ -1,0 +1,487 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell introduces the notebook’s focus: Dandiset 000673, which contains data related to the control of working memory by phase–amplitude coupling of human hippocampal neurons. It serves as a title and sets the context for the subsequent analysis and exploration.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell contains a disclaimer indicating that the notebook was automatically generated and may not be fully verified. This is important context for anyone using the notebook, alerting them to potential inaccuracies or errors.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell provides a detailed overview of Dandiset 000673. It describes the content of the dataset, the experimental setup (working memory task), and the key findings of the associated research. It also provides links to Neurosift for interactive data exploration and to the public code repository. The description is informative and helps users understand the context and potential value of the data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell outlines the contents and goals of the notebook. It lists the key steps and analyses that will be performed, providing a roadmap for the reader. It clearly states the aim of providing an overview and helping users get started with their own investigations.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell introduces the need for specific Python packages to run the notebook. It serves as an introduction to the subsequent code cell where these packages will be installed or imported.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell imports the necessary Python packages for data handling, DANDI/NWB interaction, visualization, and signal processing. It also configures display settings, such as suppressing warnings and setting a theme for plots. This is a standard setup cell in a scientific Python notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell introduces the process of loading the Dandiset using the DANDI API. It prepares the reader for the code that will follow.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell connects to the DANDI archive, retrieves the specified Dandiset (000673), and lists its assets. It also prints basic information about the Dandiset, including its ID, name, the number of assets, and the paths and sizes of the first 5 assets. This provides a basic overview of the data contained within the Dandiset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell indicates the focus on a specific NWB file (subject 26, session 1) and describes the data it contains: LFP recordings, spike data, trial information, and stimulus metadata related to the Sternberg working memory task. This sets the stage for the subsequent data loading and exploration.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell loads a specific NWB file from the Dandiset using its asset ID and the `remfile` library (to efficiently work with remote data). Then, it extracts and prints key metadata from the NWB file, such as the file identifier, session description, subject information (ID, age, sex, species), institution, and lab. This provides a basic overview of the file's contents and context.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell introduces the next step: examining the detailed experiment description within the NWB file to understand the experimental protocol and task structure.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell prints the experiment description stored in the NWB file. It confirms that the data pertains to electrophysiological recordings and behavior from the Sternberg task performed on epilepsy patients implanted with electrodes, as described in the previous markdown cells.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell introduces the exploration of electrode information within the NWB file. It highlights the importance of understanding the anatomical regions from which the LFP and spike data were recorded.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 14
+==========
+
+OVERVIEW:
+This cell retrieves the electrode information from the NWB file and presents it in a pandas DataFrame. It prints the total number of electrodes and the number of electrodes in each location (hippocampus left/right, amygdala left/right). It also displays the first few rows of the DataFrame, providing a glimpse into the structure and content of the electrode information. This is a good step to understand the experimental setup.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 15
+==========
+
+OVERVIEW:
+This cell introduces the exploration of the trial structure in the NWB file. It identifies the task as a Sternberg working memory task and prepares the reader for examining the trial-related information.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 16
+==========
+
+OVERVIEW:
+This cell extracts trial information from the NWB file into a pandas DataFrame. It prints the total number of trials and the names of the columns in the trial data. It then displays the first few rows of the DataFrame, focusing on the 'loads', 'response_accuracy', and 'probe_in_out' columns. This gives a quick overview of the key trial parameters and behavioral outcomes.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 17
+==========
+
+OVERVIEW:
+This cell introduces an analysis of behavioral performance in relation to the memory load in the Sternberg task.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 18
+==========
+
+OVERVIEW:
+This cell calculates the average response accuracy for each memory load in the Sternberg task and visualizes this relationship using a bar plot. The plot displays the accuracy (%) on the y-axis and the memory load (1 and 3) on the x-axis. The height of each bar represents the average accuracy for the corresponding memory load. The plot includes a title, axis labels, gridlines, and annotations indicating the number of trials (n=70) for each load. The plot shows nearly 100% accuracy for both loads.
+
+IMAGE DESCRIPTIONS:
+The image is a bar plot showing the accuracy by memory load. The x-axis shows memory load with values "1" and "3". The y-axis shows accuracy in percent from 0 to 100. There are two bars, one for each memory load. Both bars reach nearly 100% accuracy. The bars are light blue and labeled with "n=70" above each bar.
+
+ISSUES:
+None
+
+Cell 19
+==========
+
+OVERVIEW:
+This cell introduces the visualization of a single trial timeline to illustrate the structure of the Sternberg task.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 20
+==========
+
+OVERVIEW:
+This cell generates a visualization of the timeline for a single, randomly selected trial with a memory load of 3. The plot represents the different phases of the Sternberg task: Fixation, Encoding (1, 2, and 3), Maintenance, Probe, and Response. The x-axis represents time, with vertical lines marking the start of each phase and shaded rectangles illustrating the duration of each phase. The title includes the trial number, memory load, whether the probe was in memory, and response accuracy.
+
+IMAGE DESCRIPTIONS:
+The image is a timeline of a Sternberg task trial. The x-axis represents time in seconds. The y-axis is not labeled, but represents the progression of the trial. The trial phases are represented by shaded rectangles, each a different color. The 'Fixation' phase is gray, the 'Encoding 1', 'Encoding 2', and 'Encoding 3' phases are green, the 'Maintenance' phase is blue, and the 'Probe' phase is red. Vertical black lines delineate the transitions between phases. Text labels above and below the timeline indicate the name and timing of each event. The title indicates the trial number, load, whether the probe was present in memory (Yes), and whether the response was correct (Correct).
+
+ISSUES:
+None
+
+Cell 21
+==========
+
+OVERVIEW:
+This cell introduces the next analysis step: loading and visualizing local field potential (LFP) data recorded during the task. It specifies that the analysis will focus on data from the hippocampus electrodes.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 22
+==========
+
+OVERVIEW:
+This cell retrieves the LFP data from the NWB file and prints its shape, sampling rate, and starting time. It also retrieves the electrode information associated with the LFP data and prints the number of electrodes at each location. Finally, it filters the electrodes to identify those located in the hippocampus and prints the number of hippocampus electrodes found.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 23
+==========
+
+OVERVIEW:
+This cell sets the stage for visualizing LFP data from a hippocampal electrode during a trial with a memory load of 3.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 24
+==========
+
+OVERVIEW:
+This cell selects the first available hippocampal electrode and extracts the LFP data for a previously selected sample trial (with memory load 3). It generates a plot showing the LFP signal (voltage over time) during the trial. The plot also includes vertical dashed lines indicating the timing of key trial events (Fixation, Encoding, Maintenance, Probe, and Response), with different colors for each event to match the timeline plot created earlier.
+
+IMAGE DESCRIPTIONS:
+The image shows a plot of LFP (Local Field Potential) recording from the hippocampus during a trial. The x-axis represents "Time from trial start (seconds)" and the y-axis represents "Voltage (V)". A blue line shows the fluctuating LFP signal over time. Vertical dashed lines indicate the timing of different events within the trial. Gray dashed line represents the "Fixation", Green dashed lines represent the "Encoding 1","Encoding 2", "Encoding 3", Blue dashed line represent "Maintenance", Red dashed line represent "Probe", and Purple dashed line represent "Response". A legend in the upper right corner clarifies which color corresponds to which event. The title denotes that it's LFP recording from hippocampus_left (Trial 115, Load 3.0).
+
+ISSUES:
+None
+
+Cell 25
+==========
+
+OVERVIEW:
+This cell introduces the next analysis step: performing time-frequency analysis on the LFP data to examine the different frequency bands present during the task.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 26
+==========
+
+OVERVIEW:
+This cell computes and visualizes the spectrogram of the hippocampal LFP data for the selected trial. The spectrogram displays the power spectral density (in dB/Hz) as a function of time (from trial start) and frequency (up to 100 Hz). The plot uses a colormap ('viridis') to represent the power levels. Vertical dashed lines are added to indicate the timing of key trial events.
+
+IMAGE DESCRIPTIONS:
+The image is a spectrogram of hippocampal LFP data during a trial. The x-axis represents "Time from trial start [s]", and the y-axis represents "Frequency [Hz]" from 0 to 100. The color intensity represents "Power Spectral Density [dB/Hz]", with a colorbar on the right showing the dB scale (from -30 to 20). Vertical dashed lines indicates the timing of different events within the trial. Gray dashed line represents the "Fixation", Green dashed lines represent the "Encoding 1","Encoding 2", "Encoding 3", Blue dashed line represent "Maintenance", Red dashed line represent "Probe", and Purple dashed line represent "Response". The title indicates it is the spectrogram of Hippocampal LFP (Trial 115, Load 3.0).
+
+ISSUES:
+None
+
+Cell 27
+==========
+
+OVERVIEW:
+This cell transitions the analysis to examining the spiking activity of individual neurons recorded in the session, setting the stage for subsequent code and analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 28
+==========
+
+OVERVIEW:
+This cell retrieves information about the recorded units (neurons) from the NWB file. It prints the total number of units and the available unit properties (column names in the `units_df`). It calculates and prints summary statistics (mean, min, max) for unit quality metrics such as 'waveforms_mean_snr', 'waveforms_peak_snr', and 'waveforms_isolation_distance', is these metrics are in the `units_df`. If 'waveforms_isolation_distance' is available, it generates a histogram showing the distribution of isolation distances across the units.
+
+IMAGE DESCRIPTIONS:
+The image is a histogram displaying the distribution of unit isolation distances. The x-axis represents "Isolation Distance," and the y-axis represents "Number of Units." The histogram has bins of varying isolation distances, with the majority of units concentrated in the lower isolation distance range (less than 500). A few units have very high isolation distances (around 2500). The bars are light blue. The distribution is skewed to the right.
+
+ISSUES:
+None
+
+Cell 29
+==========
+
+OVERVIEW:
+This cell prepares the analysis for visualizing the spiking activity of a hippocampal unit during the same trial analyzed earlier with the LFP data, providing context and continuity.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 30
+==========
+
+OVERVIEW:
+This cell visualizes the spiking activity of the first unit recorded in the session during the selected sample trial (the same trial used for LFP analysis). It extracts the spike times for the unit, filters them to include only those occurring during the trial, and generates a raster plot. The raster plot shows each spike as a vertical black line, with time relative to the start of the trial on the x-axis. Vertical dashed lines indicate the timing of key trial events, aligned with LFP data. The title indicates that the unit is Unit 0 and the trial is Trial 115.
+
+IMAGE DESCRIPTIONS:
+The image is a raster plot displaying the spike times for a single unit during a trial. The x-axis represents "Time from trial start (seconds)". Each vertical black line represents a single spike event. Vertical dashed lines indicate the timing of different events within the trial. Gray dashed line represents the "Fixation", Green dashed lines represent the "Encoding 1","Encoding 2", "Encoding 3", Blue dashed line represent "Maintenance", Red dashed line represent "Probe", and Purple dashed line represent "Response". The title indicates that it displays Spike Times for Unit 0 (Trial 115). The y-axis is not labeled but visually is a line from 0 to 1.
+
+ISSUES:
+None
+
+Cell 31
+==========
+
+OVERVIEW:
+This cell introduces the analysis of comparing neural activity across different memory loads, with the goal of identifying variations in firing patterns related to memory load.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 32
+==========
+
+OVERVIEW:
+This cell analyzes the spiking activity of a single neuron during the maintenance period of the Sternberg task, comparing activity across different memory loads (1, 2, and 3). A function `get_maintenance_spikes` is defined to extract spikes occurring during the maintenance period for each trial and normalize spike times relative to the start and end (probe onset) of the maintenance period. Raster plots are then generated for each memory load, showing the normalized spike times for each trial on the y-axis. Vertical blue and red lines indicate the start and end of the maintenance period, respectively.
+
+IMAGE DESCRIPTIONS:
+The image contains three raster plots, one for each memory load (1, 2, and 3), depicting the spike activity of a single unit during the maintenance period. The x-axis represents the normalized time within the maintenance period, from 0 (maintenance start) to 1 (probe onset). The y-axis represents individual trials for each load. Each black vertical line represents a spike. Blue dashed lines mark the maintenance start (x=0), and red dashed lines mark the probe onset (x=1). The 'Load 2 Trials' subplot is empty, indicating a lack of spikes or potentially of trials for that load. The top subplot displays 'Load 1 trials (n=70)' and the bottom subplot displays 'Load 3 Trials (n=70)'. Load 3 has slightly more dense representation of spikes. The title of the figure is 'Maintenance Period Spike Activity for Unit 0 by Memory Load'.
+
+ISSUES:
+The "Load 2 Trials" subplot is completely empty, suggesting an issue in the data or code that prevents spikes (or trials) from being analyzed for load 2. This should be investigated.
+
+Cell 33
+==========
+
+OVERVIEW:
+This cell introduces the visualization of stimulus images used in the Sternberg task. This adds a visual element to the notebook and allows readers to understand the stimuli used in the experiment.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 34
+==========
+
+OVERVIEW:
+This cell retrieves stimulus templates from the NWB file, prints the total number of stimulus images, and displays a sample of four images. Each image is shown in a separate subplot, with a title indicating its image ID. The images appear to be various everyday objects and animals.
+
+IMAGE DESCRIPTIONS:
+The image displays four sample stimulus images arranged in a 2x2 grid, each with a title that displays the image ID. The images show:
+1. Top left: A blue car.
+2. Top right: A puffin on a cliff.
+3. Bottom left: A Formula 1 race car on a track.
+4. Bottom right: An elephant standing in a field.
+
+ISSUES:
+None
+
+Cell 35
+==========
+
+OVERVIEW:
+This cell introduces the next analysis phase, exploring the relationship between stimulus presentations and neural activity.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 36
+==========
+
+OVERVIEW:
+This cell retrieves stimulus presentation information from the NWB file, including the number of presentations and unique images. It converts the data into a pandas DataFrame with columns for 'image_index' (referencing the stimulus templates), 'timestamp', and 'image_id' (obtained by mapping the index to the actual image ID). The cell then prints the first few rows of the resulting DataFrame.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The "image_id" column in the output DataFrame displays the raw RGB pixel data for each image instead of the actual image ID string. The code attempts to map the image index to image IDs from the stimulus templates, but apparently it does not work as expected.
+
+This can be mitigated by converting the `image_id_mapping` keys and values to strings before mapping `stim_df`.
+
+```
+# Match image indices to image IDs
+image_id_mapping = {}
+for i, img_id in enumerate(stimulus_templates.order_of_images[:]):
+    image_id_mapping[str(i)] = img_id
+
+stim_df['image_id'] = stim_df['image_index'].astype(str).map(image_id_mapping)
+```
+
+Cell 37
+==========
+
+OVERVIEW:
+This cell sets the stage for analyzing the pattern of image presentations during the experiment.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 38
+==========
+
+OVERVIEW:
+This cell generates a scatter plot visualizing the stimulus presentations over time. The x-axis represents time in seconds, and the y-axis represents the image index. Each dot on the plot represents a single stimulus presentation, with its position indicating the time of presentation and the index of the presented image. The plot provides an overview of the sequence and timing of stimulus presentations throughout the experiment.
+
+IMAGE DESCRIPTIONS:
+The image is a scatter plot titled "Timeline of Stimulus Presentations." The x-axis is labeled "Time (seconds)." The y-axis is labeled "Image Index". Each dot represents a stimulus presentation event, so the dot's x value represents the time and the y value is the index of the image that was presented. The data is clustered into distinct groups based on Image Index. The data seems to follow patterns of repeating particular images within a set period.
+
+ISSUES:
+None
+
+Cell 39
+==========
+
+OVERVIEW:
+This cell provides a summary of the analyses performed in the notebook, highlighting the key steps and findings. It also suggests several avenues for future research using the Dandiset, including more advanced analyses such as theta-gamma phase-amplitude coupling, population-level analyses, and cross-subject comparisons. It concludes by emphasizing the value of the Dandiset for investigating human memory processes.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+

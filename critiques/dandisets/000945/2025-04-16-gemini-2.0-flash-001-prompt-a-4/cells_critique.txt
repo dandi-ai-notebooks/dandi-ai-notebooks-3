@@ -1,0 +1,148 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell introduces the notebook and briefly describes the Dandiset it will explore (Dandiset 000945): neural spiking data from rat somatosensory cortex in response to transcranial focused ultrasound stimulation (tFUS). It sets the context for the subsequent analysis and provides the overall topic of the notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell contains a disclaimer about the notebook being AI-generated and not fully verified. It's important to highlight potential inaccuracies and encourage caution in interpreting the results. This is crucial for responsible use of the analysis presented.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell provides a detailed overview of Dandiset 000945, summarizing the experimental design, data acquisition methods (electrophysiology with tFUS in rats), and file naming conventions. It includes the original dataset description by the authors and a neurosift link for interactive exploration. The cell also outlines the key steps the notebook will cover: loading the Dandiset, accessing assets, loading NWB files, exploring metadata, and visualizing trial and spike data. It effectively sets the stage for the subsequent code and analysis. There is a typo in the neurosift link where the Dandiset ID appears to be incorrect (001176 instead of 000945).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The neurosift link contains an incorrect Dandiset ID.
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell lists the Python packages necessary to execute the code in the notebook. It serves as a helpful dependency list for the user.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell utilizes the `dandi` package to connect to the DANDI archive, retrieve Dandiset 000945, and list the first five assets (files) contained within the Dandiset. The code establishes a connection to the DANDI API, retrieves the specified Dandiset, iterates through the assets, and prints the file paths of the first five assets.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell introduces the process of loading an NWB file selected from the Dandiset, focusing on exploring its metadata next. It provides the specific file name (`sub-BH497/sub-BH497_ses-20240310T143729_ecephys.nwb`) and its corresponding URL on the DANDI archive. This sets up the following cell to actually perform the loading and metadata exploration.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell loads the NWB file specified in the previous cell using `remfile`, `h5py`, and `pynwb`. It then extracts and prints key metadata attributes from the NWB file object, including session description, identifier, session start time, institution, and subject ID. The printed metadata provides a glimpse into the experimental context and subject information associated with the data. It also prints warnings about conflicting versions of 'hdmf-common', 'core', and 'hdmf-experimental', which may or may not be important in this case.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+There's a mismatch: the code uses the asset ID `a4e04662-e4cb-49f3-9076-41e04e833a11`, but the output shows `Subject ID: BH497` and `Identifier: BH498_3000_200_anes`, which suggests the data actually belongs to subject BH498. This is confusing and suggests an error either in the selected asset, or in the metadata of the NWB file itself (which would be a DANDI Archive issue, not specifically a notebook issue). The notebook should point out this mismatch. Also, the notebook should suppress the UserWarning messages to improve clarity or at least acknowledge that these warnings are expected, given the versions of underlying libraries reported.
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell is a simple header that introduces the next section of the notebook, which will focus on loading and visualizing trial data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell loads trial start and stop times from the NWB file and calculates the trial durations. It then generates a line plot showing trial duration as a function of trial number. It makes use of matplotlib and seaborn.
+
+IMAGE DESCRIPTIONS:
+The plot shows a line graph of trial durations versus trial number. The x-axis represents the trial number, ranging from 0 to 500. The y-axis represents the trial duration in seconds. The plot shows mostly constant duration, with two small jumps in duration around trials 100 and 200. The y-axis's scale has a large exponent (1e-12+2.2), suggesting that the durations are very close to zero.
+
+ISSUES:
+The plot is not informative, because the y-axis scaling obscures any meaningful variation between the trial durations. The y-axis label displays "1e-12+2.2", indicating that the plotted trial durations are extremely small. This is likely an error in how the data is being processed or interpreted from the NWB file. It is highly unlikely that the trial durations are on the order of 1e-12+2.2 seconds. The notebook should address this issue and correct the plot. Also, it's good practice to include the sampling rate of the data being plotted.
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell introduces the next part of the notebook, which focuses on visualizing spike times.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell loads spike times and cell type labels for each unit from the NWB file. It prints basic information, such as the number of units, the first five unit IDs, and the unique cell type labels. It then selects the first 10 units and plots their spike times as vertical lines, with unit ID on the y-axis and time on the x-axis.
+
+IMAGE DESCRIPTIONS:
+The plot displays spike times for the first 10 units. The x-axis represents time in seconds, ranging from approximately 0 to 0.9. The y-axis represents the Unit ID, ranging from 0 to 9. Each vertical line represents a spike event for the corresponding unit at a particular time. The plot shows that most units tend to fire at specific times, which gradually increase with each unit. Unit 0 fires first around 0.07 seconds, Unit 1 around 0.15 seconds, and so on until Unit 9 fires around 0.85 seconds.
+
+ISSUES:
+The figure shows only a very small portion of the recording (less than 1 second of data). Given that the recording should have 500 trials each lasting 2.5 seconds (according to the Dandiset overview), the plot shows only a tiny window into the overall data. This is misleading and doesn't represent the full temporal dynamics of the neural activity. It would be more informative to show the spike times across several trials or perhaps show a raster plot across a longer timescale. Also, the cell type labels are represented by numerical values (1.0 and 2.0), but the notebook doesn't explain what cell types these correspond to, thereby limiting the usefulness of the plot. Finally, the code uses `np.where(unit_ids == unit_id)[0][0]` to find the unit index. While this works, it assumes that `unit_id` is present in `unit_ids`. It would be better to confirm it exists or use a more robust approach like creating a dictionary that maps the `unit_id` to the index.
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell summarizes the notebook's content, highlighting the steps performed, such as loading data via the DANDI API, and visualizing trials and spike times. It also suggests potential avenues for future analysis, including comparing neural activity during different experimental conditions and exploring the influence of anesthesia.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+

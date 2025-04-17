@@ -1,0 +1,556 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell serves as the introduction to the notebook. It provides the title, a warning about the AI-generated nature of the content, a brief overview of the scientific question addressed by Dandiset 000673, and a pointer to the Dandiset on the Neurosift platform. It clearly states the notebook's purpose: to explore neurophysiological recordings related to working memory and phase-amplitude coupling.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell provides background information on working memory and the Sternberg task used in the experiment. It summarizes the key findings of the original research related to theta-gamma phase-amplitude coupling (TG-PAC) and its role in working memory. It also outlines the steps that will be taken in the notebook: loading data, examining LFP data, analyzing behavior, visualizing stimuli and neural responses, and exploring neural oscillations.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This is a simple introductory cell that indicates the following cells will specify the required packages for the notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell imports the necessary Python packages for data analysis and visualization, including numpy, matplotlib, pandas, scipy, h5py, remfile, pynwb, seaborn, and dandi.dandiapi. It also sets the plotting style using seaborn. This cell ensures that all required libraries are available before proceeding with the notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell introduces the process of loading the dataset from the DANDI archive using the DANDI API. It specifies that the notebook will focus on subject 35 (sub-35_ses-1_ecephys+image.nwb).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell connects to the DANDI archive using the `DandiAPIClient` and retrieves the Dandiset with ID "000673". It then lists all assets (files) in the Dandiset and prints the first five asset paths. This provides a user with verification that the connection to DANDI was established correctly and allows them to preview the available files.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell reiterates the focus on subject 35's data and clarifies that the NWB file for this subject contains both electrophysiological and image data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell loads the NWB file for subject 35 from the DANDI archive. It uses a known asset ID to directly download the file. It then uses `remfile` and `h5py` to access the file remotely and reads it using `pynwb`. Warning messages about conflicting namespace versions and potential data transposition are printed during the file loading process.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+1. The warning message "ElectricalSeries 'LFPs': The second dimension of data does not match the length of electrodes. Your data may be transposed." indicates a potential data interpretation issue. The notebook should address whether the data needs to be transposed before further analysis. This warning should be investigated and the code adjusted if necessary.
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell serves as an introduction to the exploration of the NWB file's contents.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell prints basic metadata from the NWB file, including session description, file ID, start time, experimenter(s), lab, institution, and subject information (ID, age, sex, and species). This allows users to quickly grasp the context of the dataset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell introduces the next section of the notebook, focusing on the experimental task (Sternberg working memory task) and its parameters.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell extracts the trials data from the NWB file and converts it into a pandas DataFrame. It prints the number of trials and the column names, then displays the first five trials. This allows the user to inspect the structure of the trial information and understand the meaning of each column.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell provides a description of the different columns in the trials DataFrame, explaining the meaning of each column and its relevance to the Sternberg task.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 14
+==========
+
+OVERVIEW:
+This cell performs behavioral analysis on the trials data. First, it calculates and prints the distribution of memory loads. Then, it generates two bar plots: one showing the response accuracy as a function of memory load, and another showing the reaction time as a function of memory load.
+
+IMAGE DESCRIPTIONS:
+1. **Accuracy by Memory Load:** A bar plot displaying the mean response accuracy (percentage) for each memory load. The x-axis represents the 'Memory Load', with values of 1 and 3. The y-axis represents 'Accuracy (%)'. Each bar corresponds to a memory load, with the height of the bar indicating the average accuracy for that load. The accuracy for load 1 is around 72.5%, and for load 3 it is around 78%.
+2. **Reaction Time by Memory Load:** A bar plot displaying the mean reaction time (seconds) for each memory load. The x-axis represents the 'Memory Load', with values of 1 and 3. The y-axis represents 'Reaction Time (seconds)'. Each bar corresponds to a memory load with the bar's height indicating average reaction time. The reaction time for load 1 is approximately 2.45 seconds and for load 3 it is approximately 2.75 seconds.
+
+ISSUES:
+None
+
+Cell 15
+==========
+
+OVERVIEW:
+This cell interprets the results of the previous cell's behavioral analysis, noting the counterintuitive result of slightly higher accuracy for load 3. The cell sets up the next analysis step, focusing on accuracy based on whether the probe was in memory or not.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 16
+==========
+
+OVERVIEW:
+This cell calculates and plots the response accuracy based on whether the probe stimulus was present in the original encoding set ('in memory') or not ('not in memory'). A bar plot visualizes the results.
+
+IMAGE DESCRIPTIONS:
+**Response Accuracy by Probe Type:** A bar plot showing the accuracy for probes that are "Not in memory" and probes that are "In memory". The x-axis represents "Probe Type" and has two categories: "Not in memory" and "In memory". The y-axis represents "Accuracy (%)". The bar for "Not in memory" is at approximately 96% accuracy, while the bar for "In memory" is around 55% accuracy.
+
+ISSUES:
+
+The line `accuracies = [in_out_accuracy.get(pt, 0) for pt in probe_types]` seems a bit clumsy. Although it makes sense in this example, it seems dangerous because it is masking an error and defaulting to 0. If there were an 'index' that was not 0 or 1, the same thing would happen.
+A more explicit error should be raised if there are invalid probe types, or a warning printed.
+
+Cell 17
+==========
+
+OVERVIEW:
+This cell interprets the results of the previous analysis, suggesting a possible response bias towards rejecting items as "not in memory".
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 18
+==========
+
+OVERVIEW:
+This cell introduces the section focused on exploring LFP data, emphasizing its relevance to neural oscillations related to working memory.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 19
+==========
+
+OVERVIEW:
+This cell extracts the LFP data and its sampling rate from the NWB file. It prints the shape of the LFP data and the sampling rate. It also extracts the electrode information and displays it as a DataFrame.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 20
+==========
+
+OVERVIEW:
+This cell indicates that a segment of LFP traces will be visualized in the next step.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 21
+==========
+
+OVERVIEW:
+This cell plots a 5-second segment of LFP data from all 8 channels. It calculates the time axis based on the sampling rate. Each channel's LFP signal is plotted with a vertical offset for better visualization.
+
+IMAGE DESCRIPTIONS:
+**LFP Traces (5-second sample):** A line plot showing LFP data from 8 channels over a 5-second interval. The x-axis represents 'Time (seconds)' ranging from 0 to 5 seconds. The y-axis represents 'Voltage (V) + offset'. Each channel's LFP signal is plotted with a small vertical offset from the others. The channels displayed are Channels 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0 and 8.0. The LFP signals appear to be fluctuating with varying amplitudes and frequencies. Overall there is a drift upwards in the voltage towards the end of the 5 second period.
+
+ISSUES:
+The scaling and offset are weird. Although the plot is functional, it is not clear what the scaling is. The y axis is not labeled with appropriate values. The y axis formatting should be fixed.
+
+Cell 22
+==========
+
+OVERVIEW:
+This cell provides an interpretation of the LFP traces displayed in the previous cell, pointing out variations in oscillation amplitudes across channels and a notable voltage increase around the 4-5 second mark.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 23
+==========
+
+OVERVIEW:
+This cell calculates and plots the power spectrum of the LFP signals for each channel, using Welch's method. The plot displays the power spectral density as a function of frequency (up to 50 Hz) on a semi-logarithmic scale.
+
+IMAGE DESCRIPTIONS:
+**Power Spectrum of LFP Signals:** A line plot visualizing the power spectrum of LFP signals for multiple channels. The x-axis represents 'Frequency (Hz)' ranging from 0 to 50 Hz. The y-axis represents 'Power Spectral Density' displayed on a logarithmic scale. Each line corresponds to the power spectrum of different channels: Channels 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0 and 8.0. The power spectral densities show a decay with increasing frequency for all channels, with channel 4 having the highest power up to around 10 hz. There is significant variation between channels, likely due to differences in electrode impedance and location.
+
+ISSUES:
+None
+
+Cell 24
+==========
+
+OVERVIEW:
+This cell interprets the power spectrum plot, noting the concentration of power in lower frequencies (delta and theta bands) and the decrease in power at higher frequencies (gamma range).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 25
+==========
+
+OVERVIEW:
+This cell introduces an analysis of neural activity during different phases of the working memory task.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 26
+==========
+
+OVERVIEW:
+This cell defines functions to extract LFP data segments and compute power spectra. It then selects the first 10 trials of the data, divides each trial into encoding, maintenance, and retrieval phases based on timestamps from the trials DataFrame. For each phase and trial, it extracts the corresponding LFP segment from channel 4 (identified earlier as having high-amplitude oscillations). It computes the power spectrum for each extracted segment with the welch method, averages the spectra across trials for each phase, and plots the resulting average power spectra (up to 30 Hz) for encoding, maintenance, and retrieval phases. The time window for maintenance and retrieval are fixed at 1 second due to missing endpoint timestamps.
+
+IMAGE DESCRIPTIONS:
+**Power Spectrum by Trial Phase (Channel 4):** A line plot comparing the average power spectra during the encoding, maintenance, and retrieval phases of the working memory task for channel 4. The x-axis, labeled 'Frequency (Hz)', ranges from 0 to 30Hz. The y-axis represents 'Power Spectral Density'. The encoding (blue) phase shows the highest power, sharply peaking near 2 Hz, followed by maintenance (orange) and retrieval (green). There is a sharp falloff power in all three phases, beginning around 2 Hz.
+
+ISSUES:
+1. Endpoint determination. The "Maintenance phase" and "Retrieval phase" sections use a fixed window of 1 second, because there is no obvious duration data to extract from the `trials_df`. This seems like a crude estimation, and may be invalid, because the original `timestamps_Maintenance_end` and `timestamps_Probe_end` timestamp columns are missing to calculate the lengths for these phases. This should be indicated more prominently, like a warning message.
+2. The padding implementation within `compute_power_spectrum` is problematic. Using a fixed `nperseg` of 256, segments shorter than this will be zero-padded, which artificially alters the power spectrum. Ideally, trials with shorter segments, should be dropped, or a smaller `nperseg` could be chosen dynamically based on trial length.
+3. Number of trials too low. The number of trials is set to 10 (`num_trials = 10`). This is too low to draw any strong conclusions.
+4. "Pick a channel for analysis (using channel 4 which showed high amplitude)". The channel is hard coded. But the visualization in the prior step shows that channel 7 also has a high oscillation. This code should compare channel 4 and channel 7 directly in a plot.
+
+
+Cell 27
+==========
+
+OVERVIEW:
+This cell offers an interpretation of the power spectrum analysis performed in the preceding cell. It discusses the differences in power spectral density across the encoding, maintenance, and retrieval phases.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The interpretations provided here are speculative due to the small number of trials used, the crude estimation of durations for the Maintenance and Retrieval phases, the forced padding of trials and the hard-coded nature of the channel. This reliance on limited and potentially flawed data may lead to inaccurate conclusions, underscoring the notebook's disclaimer about the AI-generated content being unverified. The cell makes potentially overreaching claims based on limited evidence.
+
+
+Cell 28
+==========
+
+OVERVIEW:
+This cell plots the relative power spectrum for the encoding, maintenance, and retrieval phases, where the power for each phase is normalized by the mean power across all three phases. This normalization aims to highlight the differences in spectral power between phases.
+
+IMAGE DESCRIPTIONS:
+**Relative Power Spectrum by Trial Phase (Channel 4):** A line plot showing the relative power spectrum for encoding (blue), maintenance (orange), and retrieval (green) phases, with frequency on the x-axis (0-30 Hz) and relative power on the y-axis. The plot reveals dynamic shifts in relative power across the different phases. Encoding and Retrieval are largely anticorrelated, meaning that when one has a high amplitude, the other has a low amplitude. During maintenance the relative power is broadly lower than encoding and retrieval.
+
+ISSUES:
+The plot reveals relative differences between conditions, but it is difficult to interpret meaningfully. This is because the underlying assumptions are so flawed, as discussed above. Because of this it is hard to interpret meaningfully. The large fluctuations in this visualization are likely due to noise from the computation.
+
+Cell 29
+==========
+
+OVERVIEW:
+This cell interprets the relative power spectrum plot, discussing enhanced and suppressed activity in different frequency bands during the encoding, maintenance, and retrieval phases.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+Again, the interpretations provided here are highly speculative, given the problems outlined in a prior review. The issues in prior cells render these conclusions questionable. The cell makes potentially overreaching claims based on limited evidence. It would be best to cut this entire section, as it is misleading and based on flawed computations. The relative power calculations accentuate noise and make interpretations even harder.
+
+Cell 30
+==========
+
+OVERVIEW:
+This cell introduces the analysis of time-frequency changes within a single trial.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 31
+==========
+
+OVERVIEW:
+
+This cell generates a time-frequency representation (spectrogram) of the LFP signal for a single trial (trial 6) on Channel 4. A spectrogram is plotted, and the vertical lines mark the timing of key events (Fixation, Encoding, Maintenance, and Probe) within the trial.
+
+IMAGE DESCRIPTIONS:
+**LFP Spectrogram for Trial 6 (Channel 4):** A spectrogram depicting the time-frequency representation of LFP activity in channel 4 during a single trial. The x-axis, labeled 'Time (seconds)', represents the duration of the trial. The y-axis, labeled 'Frequency (Hz)', ranges from 0 to 30 Hz. The color intensity represents the power spectral density in dB, ranging from approximately -60 dB (dark purple) to +20 dB (yellow). Vertical dashed lines indicate the timing of key events: Fixation (red), Encoding (green), Maintenance (blue), and Probe (magenta). There appears to be elevated power in the lower frequencies at the start of the trial during Fixation.
+
+ISSUES:
+The choice of `nperseg=128` and `noverlap=64` will result in a spectrogram with poor frequency resolution. The frequency resolution is `sampling_rate / nperseg` which results in \~3.1 Hz resolution, and the frequencies below that are not discernible. The notebook, which aimed to separate theta and gamma waves, has a low frequency resolution and an extremely small dataset to work with. Thus the claims are invalid.
+
+Cell 32
+==========
+
+OVERVIEW:
+This cell provides an interpretation of the spectrogram from the previous cell, linking time-frequency dynamics to different phases of the working memory task.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The interpretation of the spectrogram is not valid. The claims are speculative and potentially incorrect due to low frequency resolution, the issues outlined in the prior evaluations, and are potentially misleading for the end user. It would be best to remove this section.
+
+It contains weasel words like "notable", "suggesting", "may reflect", and "potentially".
+
+Cell 33
+==========
+
+OVERVIEW:
+This cell introduces the exploration of visual stimuli used in the task, which are part of the dataset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 34
+==========
+
+OVERVIEW:
+This cell retrieves the stimulus image templates from the NWB file. It prints the number of stimulus images and the first few image IDs. It then displays four sample images in a 2x2 grid.
+
+IMAGE DESCRIPTIONS:
+The plot shows four face images that have each been rotated ~90 degrees clockwise. The images are in a 2x2 grid.
+- Image 1 (top left): An older gentleman with glasses.
+- Image 2 (top right): Nicholas Cage against a blurred background.
+- Image 3 (bottom left): A fair-skinned man against a blue background.
+- Image 4 (bottom right): A blond man in a suit.
+
+ISSUES:
+The images have been rotated 90 degrees. This impacts the utility of this visualization, because it is difficult to interpret. This is surprising, and worth investigating.
+There should be a warning printed about image rotation, and the image should be transposed to correct this.
+There should also be a histogram of image intensities.
+
+Cell 35
+==========
+
+OVERVIEW:
+This cell provides a description of the visual stimuli (face images), their relevance to working memory tasks, and the rationale behind using such stimuli.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The content of this cell is not technically wrong, but the fact that the images have been rotated is not mentioned here, and should be.
+
+Cell 36
+==========
+
+OVERVIEW:
+This cell retrieves and plots stimulus presentation timing information. It gets the stimulus presentation timestamps and IDs for the first 100 presentations and plots them over time.
+
+IMAGE DESCRIPTIONS:
+**Stimulus Presentation Timing (First 100 Presentations):** This is a line plot with markers depicting the stimulus presentation timing for the first 100 presentations. The x-axis represents 'Time (seconds)', covering approximately 0 to 300 seconds. The y-axis represents 'Stimulus ID', and shows what stimulus was presented at each marked time. Points show when a stimulus occurred.
+
+ISSUES:
+None
+
+Cell 37
+==========
+
+OVERVIEW:
+This cell interprets the stimulus presentation plot, pointing out the structured pattern in stimulus presentation over time.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 38
+==========
+
+OVERVIEW:
+This cell introduces the analysis of theta-gamma coupling in the LFP data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 39
+==========
+
+OVERVIEW:
+This cell performs a basic analysis of theta-gamma phase-amplitude coupling (TG-PAC) on a 2-second segment of LFP data during the maintenance phase of a single trial from channel 3. It includes bandpass filtering to extract theta (4-8 Hz) and gamma (30-100 Hz) oscillations, Hilbert transform to compute the phase of the theta band and the amplitude of the gamma band. These steps are shown in time series plots to visualize potential coupling.
+
+IMAGE DESCRIPTIONS:
+The plot consists of 4 subplots.
+- Top subplot: Raw LFP Signal (Maintenance Phase), showing the raw LFP data over time, where time ranges from 0.0 to 2.0 s. The y-axis ranges from -20 to 20 Voltage.
+- Second Subplot: Theta Band (4-8 Hz). The filtered data over the maintenance phase is shown. The amplitude is lower than the Raw LFP.
+- Third Subplot: Gamma Band (30-100 Hz). The filtered data over the maintenance phase is shown. This has a high frequency.
+- Fourth Subplot: Theta Phase and Gamma Amplitude. Time ranges from 0.0 to 2.0 s. The theta phase is plotted in blue (jagged), and the normalized gamma amplitude in red. The title is "Theta Phase and Gamma Amplitude".
+
+ISSUES:
+1.  *Inaccurate terminology:* Calling this a "Theta-Gamma Coupling Analysis" is a misnomer. All that has been done is bandpass filtering and then a hilbert transform. There is no analysis of whether the phase and amplitude are actually coupled. At the very least, this should plot the distribution of amplitudes for each point in the theta wave.
+2.  `maintenance_end = maintenance_start + 2.0`: Here the code once again enforces a fixed trial segment for an analysis, instead of extracting the actual end time value from the NWB file. This has issues as discussed previously.
+3.  The y axis labels are not formatted and difficult to interpret.
+4.  The plots are not understandable and not well explained.
+5. The data from only a single trial is used, so there is no guarantee that these effects are generalizable.
+
+Cell 40
+==========
+
+OVERVIEW:
+This cell attempts to interpret the time series plots in the context of theta-gamma coupling.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+As discussed earlier, simply plotting the time series data is *not* a "coupling analysis". This is not a valid analysis, particularly because the frequency resolution is low and because a single trial is used. This cell makes overreaching claims based on limited evidence. It is best to remove this section.
+
+The term "often associated" appears again as a weasel word.
+
+Cell 41
+==========
+
+OVERVIEW:
+This cell computes and plots a basic measure of phase-amplitude coupling by binning gamma amplitude according to theta phase. It creates phase bins from -pi to pi, bins the gamma amplitudes according to the corresponding theta phase, and plots the mean gamma amplitude for each phase bin.
+
+IMAGE DESCRIPTIONS:
+
+**Phase-Amplitude Coupling: Gamma Amplitude vs. Theta Phase:** The plot is a binned histogram with 20 bins. The x axis is "Theta Phase (rad)" ranging from -π to π. The y axis is "Mean Gamma Amplitude".
+Overall, the mean gamma amplitude is more or less uniformly distributed with some weak undulations.
+
+ISSUES:
+The current method, while better than simply showing the time series, is still flawed because of known issues with small number of trials, padding, and potentially rotated face images.
+Based on the parameters used this analysis is largely invalid and uninterpretable. The plot generated from this analysis does not show a clear relationship between the theta phase and gamma amplitude. There may be a *very* weak "coupling" however it is barely above the noise, given the small amount of data, which may lead to false positives. Once again, all of the analyses are conducted for a single trial, which will not generalize to multiple trials.
+
+The number of bins is arbitrary and no rationale is provided. You can try a different number of bins to show differences. Similarly, the frequency range of theta and gamma is arbitrarily specified and non-standard to the dataset.
+This section should be removed.
+
+Cell 42
+==========
+
+OVERVIEW:
+This cell attempts to interpret the phase-amplitude coupling plot, and relate it to previous claims and to the overall goal of investigating theta-gamma phase-amplitude coupling.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+Given the significant caveats discussed above, especially regarding the limited data and simplistic analysis, this entire "Theta-Gamma Coupling Analysis," including the plots and interpretations, can be considered misleading. Due to these severe limitations, this section should be removed to prevent misinterpretations and overreaching conclusions. The analysis doesn't show any significant coupling so it does not support claims or hypotheses. The description should be based on results and not on potential expectations.
+
+Cell 43
+==========
+
+OVERVIEW:
+This cell provides a summary of the analyses conducted in the notebook and suggests potential future directions for further research using the dataset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The summary provided here is not fully accurate. The notebook contains seriously flawed analyses and it would be misleading for the notebook to suggest that those sections were effective when they were not. The claims from sections on "Trial Phase Analysis" and "Theta-Gamma Coupling" are invalid given the limitations of the computations performed, and should be removed from this summary.
+
+The suggestions for future directions are valid, however they depend on proper data cleansing and use of proper methodology. There should be a warning about limitations to the existing analysis.
+
