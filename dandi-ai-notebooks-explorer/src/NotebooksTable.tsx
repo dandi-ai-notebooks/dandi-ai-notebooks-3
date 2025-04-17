@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Metadata, NotebookRankingsData, NotebookGradingsData } from './types';
+import { Metadata, NotebookRankingsData, NotebookGradingsData, Grade } from './types';
 import {
   Table,
   TableBody,
@@ -49,13 +49,14 @@ export default function NotebooksTable({ notebooks, critiques, notebookRankings,
   };
 
   const getNotebookGrade = useMemo(() => ((notebook: Metadata) => {
-    const key = `${notebook.dandiset_id}/${notebook.subfolder}`;
-    const grading = notebookGradings[key];
+    const grading = notebookGradings.find(
+      g => g.dandiset_id === notebook.dandiset_id && g.subfolder === notebook.subfolder
+    );
     if (!grading) return null;
 
     return {
-      total: grading.gradings.grades.reduce((sum, g) => sum + g.grade, 0),
-      thinking: grading.gradings.grades.map(g => g.thinking).join('\n\n'),
+      total: grading.gradings.grades.reduce((sum: number, g: Grade) => sum + g.grade, 0),
+      thinking: grading.gradings.grades.map((g: Grade) => `${g.question_id} (${g.grade}) ${g.thinking}`).join('\n\n'),
       url: `https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-3/blob/main/gradings/dandisets/${notebook.dandiset_id}/${notebook.subfolder}/grades.json`
     };
   }), [notebookGradings]);

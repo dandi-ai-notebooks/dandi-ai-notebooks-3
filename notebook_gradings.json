@@ -2413,5 +2413,1316 @@
         }
       }
     }
+  },
+  {
+    "dandiset_id": "001174",
+    "subfolder": "2025-04-17-o4-mini-high-prompt-b-5",
+    "gradings": {
+      "prompt_version": "2",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 1,
+          "thinking": "The notebook provides a clear introduction to the Dandiset 001174, mentioning that it contains calcium imaging data from SMA and M1 regions of macaques. It includes a direct link to view the dataset in Neurosift. The notebook also examines the structure of the dataset by listing its assets. While this provides a reasonable description, it doesn't go into extensive detail about the scientific purpose, experimental conditions, or other metadata that might be available about the dataset."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 2,
+          "thinking": "The notebook effectively demonstrates how to load information about the Dandiset using the dandi package. It connects to the DANDI Archive, retrieves Dandiset 001174, and lists its assets, showing the total number of assets and displaying the paths of the first five. This provides a good overview of how to access and explore the basic structure of the dataset."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 2,
+          "thinking": "The notebook shows how to load a specific NWB file from the DANDI Archive using remfile, h5py, and pynwb. It successfully retrieves the file via a URL, opens it as an HDF5 file, and reads its contents into an NWB object. The notebook demonstrates how to access basic information from the NWB file by printing the session description, identifier, and start time."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook loads multiple independent pieces of data from the NWB file:\n1. The calcium imaging data from the \"OnePhotonSeries\" for the max projection\n2. The event amplitude data for a specific ROI\n3. Metadata including sampling rate and starting time for the event amplitude data\n\nWhile more types of data could potentially be loaded from the NWB file, the notebook does demonstrate loading at least three independent pieces of information."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 2,
+          "thinking": "The notebook visualizes two independent pieces of data from the NWB file:\n1. A contrast-stretched max projection of the calcium imaging data\n2. A time series plot of the event amplitude for ROI 0\n\nBoth visualizations are well-implemented and appropriately labeled."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 1,
+          "thinking": "The plots shown in the notebook are of good quality. \n- The max projection image uses contrast stretching to enhance visibility\n- The time series plot includes proper axes labels (Time (s) and Event Amplitude (fluorescence)) and a title\n- The plots effectively represent the underlying data\n\nWhile the plots are good, they don't include additional features like plot legends, subplots for comparison, or statistical annotations that might make them \"very good\" quality."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": 0,
+          "thinking": "Based on the critique, there don't appear to be any significant issues with the plots in the notebook. The max projection image and time series plot are both properly displayed with appropriate labeling. There are no mentioned issues with scales, units, legibility, or other aspects of the visualizations."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": 0,
+          "thinking": "The critique doesn't highlight any issues with the analysis in the notebook. The analysis steps (loading data, creating a max projection, plotting a time series) are straightforward and appear to be executed correctly. There are no mentioned errors in calculations, methodology, or interpretation."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": 0,
+          "thinking": "Based on the critique, the notebook doesn't appear to draw any unsupported conclusions. It mainly focuses on demonstrating how to load and visualize data from the Dandiset without making scientific claims about the data itself. In the summary, it suggests potential directions for further analysis without making unjustified assertions."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": 0,
+          "thinking": "The critique doesn't mention any other issues with the notebook. The cells are well-organized, the code runs without errors, and there are appropriate explanations provided throughout. There's even a disclaimer about the notebook being AI-generated, encouraging caution in interpretation. No performance issues, inefficient code, or missing documentation are noted."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 2102,
+        "total_completion_tokens": 1139,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-17 18:51:04",
+        "system_info": {
+          "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+          "hostname": "system76-pc"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001174",
+    "subfolder": "2025-04-17-o4-mini-high-prompt-a-5",
+    "gradings": {
+      "prompt_version": "2",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 1,
+          "thinking": "Based on the critique, the notebook introduces Dandiset 001174 containing calcium imaging data from macaque monkeys, includes a link to the Dandiset on Neurosift, and outlines analysis steps. While it provides basic information, the critique doesn't indicate a comprehensive description of the dataset's experimental conditions, subject information, or detailed metadata."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 1,
+          "thinking": "Cell 4 demonstrates using the dandi library to connect to the DANDI Archive, retrieving the Dandiset object using its identifier, getting a list of assets, and displaying the total number and paths of the first five assets. This shows a reasonably good approach to loading Dandiset information."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 2,
+          "thinking": "Cell 6 demonstrates loading an NWB file using remfile, h5py, and pynwb libraries. Cell 8 then displays key metadata from the loaded NWB file, including session description, identifier, session start time, and timestamp reference time. This shows a reasonably complete approach to loading basic NWB information."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook loads multiple independent pieces of data: 1) OnePhotonSeries imaging frames in Cell 10, 2) EventAmplitude data in Cell 12, and 3) Fluorescence time series data in Cell 14. It also loads ROI masks from PlaneSegmentation in Cell 16. This demonstrates loading at least three independent pieces of data."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook visualizes multiple pieces of data: 1) The first imaging frame using plt.imshow in Cell 10, 2) Event amplitude time series for ROI 0 in Cell 12, 3) Fluorescence time series for ROI 0 in Cell 14, and 4) Superimposed ROI masks as a heatmap in Cell 16. This demonstrates visualization of at least three independent pieces of data."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 1,
+          "thinking": "The plots have appropriate titles, axis labels, and use suitable visualization techniques for the data types (imshow for images, line plots for time series). However, the critique notes the first imaging frame is \"quite dark and lacks contrast\", and the event amplitude plot shows a flat line that may not be informative. The fluorescence time series and ROI mask plots appear well-executed with no issues noted."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": -1,
+          "thinking": "The critique identifies two issues with the plots: 1) The first imaging frame in Cell 10 is \"quite dark and lacks contrast, potentially making it difficult to discern features\" and 2) The event amplitude plot in Cell 12 shows a flat line, which may indicate \"no events detected for ROI 0 during the first 100 time points, or there is an issue with the data itself.\" These appear to be relatively minor issues that don't prevent understanding the overall data."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": -1,
+          "thinking": "The critique notes one minor analysis issue: in Cell 12, the event amplitude plot shows a flat line, and \"it would be helpful to include a check to see if any ROI has activity during the shown window, or explore a different ROI.\" Additionally, the critique mentions that Cell 10 \"could also include checks to verify the existence of 'OnePhotonSeries' before attempting to access it.\" These are minor issues related to robustness of the code rather than fundamental analytical flaws."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": 0,
+          "thinking": "The critique doesn't mention any unsupported conclusions in the notebook. The notebook appears to focus on data loading, visualization, and exploration without making claims that aren't supported by the data."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": 0,
+          "thinking": "The critique doesn't mention any other significant issues with the notebook. The notebook appears to be well-structured with appropriate headings, imports necessary libraries, and follows a logical flow from loading data to visualizing different aspects of it."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 2961,
+        "total_completion_tokens": 1144,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-17 18:51:24",
+        "system_info": {
+          "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+          "hostname": "system76-pc"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001174",
+    "subfolder": "2025-04-15-gpt-4o-prompt-b-3",
+    "gradings": {
+      "prompt_version": "2",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 2,
+          "thinking": "The notebook provides a good description of the Dandiset in the first few cells, explaining that it contains calcium imaging data from SMA and M1 regions of macaque monkeys, with experimental conditions including rest and task engagement. It also provides some scientific context about studying projection neurons. While comprehensive, it could potentially provide more details about the specific tasks or experimental protocols."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 2,
+          "thinking": "Cell 7 demonstrates loading the Dandiset using the DANDI API, initializing a DandiAPIClient, retrieving the Dandiset, and listing the first five assets. This provides a clear demonstration of how to access the Dandiset information."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 1,
+          "thinking": "Cell 9 shows loading a specific NWB file from the Dandiset using a direct URL and accessing it with pynwb and h5py. It demonstrates how to access the file structure, though it would be better if it used the assets list from Cell 7 instead of a hardcoded URL."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 2,
+          "thinking": "The notebook shows loading two independent pieces of data: 1) OnePhotonSeries data in Cell 9, and 2) EventAmplitude data in Cell 11. Both are loaded from the NWB file and used for visualization."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 2,
+          "thinking": "The notebook visualizes two independent pieces of data: 1) The first frame of OnePhotonSeries data is displayed as a grayscale image in Cell 9, and 2) The mean event amplitude across units is plotted in Cell 11."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 1,
+          "thinking": "The plot quality is moderate. The grayscale image in Cell 9 is described as \"blurry, no clear structures\" and lacks proper contrast enhancement or processing. The line plot in Cell 11 has proper labeling (title, axis labels) but lacks context about what the units represent. Neither plot includes a colorbar, legend, or more sophisticated visualization techniques."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": -1,
+          "thinking": "There are some minor issues with the plots: 1) The grayscale image in Cell 9 is blurry and lacks proper contrast enhancement, 2) The line plot in Cell 11 doesn't clearly define what the units represent, and 3) The averaging across the first axis in Cell 11 is not explained. These are relatively minor and don't completely undermine the plots' value."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": -1,
+          "thinking": "There are some minor issues with the analysis: 1) The direct URL usage instead of programmatically determining it from assets list, 2) The unexplained averaging across the first axis of EventAmplitude data, 3) The incomplete explanation of what units represent, and 4) The non-robust indexing into nested data structures without proper error handling. These are implementation issues that don't fundamentally invalidate the analysis but could make it less robust or harder to interpret."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": 0,
+          "thinking": "Based on the critique, there don't appear to be any unsupported conclusions drawn in the notebook. The notebook primarily focuses on data loading and visualization without making significant claims about the data itself. Cell 12 suggests directions for future analysis but doesn't make unsupported claims about the current data."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": 0,
+          "thinking": "No other significant issues are mentioned in the critique. The notebook includes appropriate requirements, clear structure, and even a disclaimer about it being AI-generated which promotes critical evaluation."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 2492,
+        "total_completion_tokens": 1049,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-17 18:51:43",
+        "system_info": {
+          "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+          "hostname": "system76-pc"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001174",
+    "subfolder": "2025-04-16-claude-3.7-sonnet-prompt-a-5",
+    "gradings": {
+      "prompt_version": "2",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 2,
+          "thinking": "The notebook does an excellent job describing the Dandiset. Cells 1 and 3 provide comprehensive information about the dataset, including the brain regions (SMA and M1), species (macaque monkeys), data modality (calcium imaging), and experimental tasks (resting and arm-reaching). Cell 3 specifically gives a very good brief overview of the data and includes a link to Neurosift. The description is thorough and helps readers understand the context of the data."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 2,
+          "thinking": "The notebook demonstrates loading the Dandiset information very effectively. Cells 7-10 show how to use the DANDI API to connect to the archive, retrieve the specific Dandiset (001174), list the assets, and select a specific asset. The code prints essential information including the number of assets, Dandiset name and description, and details about specific assets. This approach is comprehensive and well-executed."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 2,
+          "thinking": "The notebook shows how to load an NWB file excellently. Cells 11-14 demonstrate loading the NWB file using remote file access (avoiding a full download), which is an efficient approach. The code uses remfile, h5py, and pynwb to access the file and extract basic metadata such as session ID, description, start time, file creation date, and subject information. The notebook also explores the imaging device information and imaging plane characteristics in cells 15-16."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook loads multiple independent pieces of data from the NWB file:\n1. Raw imaging data from OnePhotonSeries (cell 18)\n2. ROI segmentation data including masks (cells 22-24)\n3. Fluorescence traces (cell 26)\n4. Event amplitude data (cell 30)\nThis exceeds the requirement for three independent pieces of data."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook visualizes multiple independent pieces of data:\n1. Raw imaging frames at different time points (cell 20)\n2. ROI masks for individual ROIs (cell 24)\n3. Fluorescence traces for multiple ROIs (cell 28)\n4. Comparison of fluorescence trace and event amplitudes for a single ROI (cell 32)\n5. Correlation matrix of fluorescence activity between ROIs (cell 34)\nThis exceeds the requirement for three visualizations."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 1,
+          "thinking": "The plots in the notebook are of reasonably good quality. They include appropriate axes labels, titles, and color bars where needed. However, there are some issues noted: the raw imaging frames show non-uniform illumination that could benefit from better normalization; the plot labels in the correlation heatmap are too dense making it hard to read; and there's a warning from plt.tight_layout() suggesting layout issues. While functional, the plots could be improved in terms of visual clarity and information presentation."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": -1,
+          "thinking": "Several minor issues with plots were noted:\n1. In cell 20, there's non-uniform illumination in the raw images that could benefit from better normalization or contrast enhancement\n2. In cell 20, there's a warning from plt.tight_layout() indicating layout issues\n3. In cell 24, there's an off-by-one error in ROI mask indexing/labeling\n4. In cell 32, there's some confusion in the code comments about time ranges (2 vs 5 minutes)\n5. In cell 34, the axis labels are too dense making the correlation heatmap harder to read\nNone of these are major issues that completely invalidate the plots, but they do affect the quality and clarity."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": -1,
+          "thinking": "There are a few minor analysis issues in the notebook:\n1. In cell 16, indicator and location fields show \"N/A\" - this might be worth investigating to ensure complete metadata analysis\n2. In cell 24, there's a mismatch between ROI mask shape (292, 179) and image dimensions (320, 200) without addressing alignment\n3. In cell 30, there's a slight difference in sampling rates between datasets (10.00373 Hz vs 10 Hz) which is noted but not addressed in the analysis\n4. In cell 32, the event detection is not working as expected, resulting in only raw event amplitude being plotted\n5. In cell 34, the correlation analysis doesn't yield meaningful results, possibly due to aggressive downsampling or time window selection\n\nThese are methodological issues that affect the analysis quality but don't completely invalidate the notebook's approach or conclusions."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": 0,
+          "thinking": "The notebook is generally careful about its conclusions. When analyses don't yield the expected results (such as the correlation analysis in cell 34 and attempted visualization in cell 36), the notebook honestly acknowledges this rather than forcing unfounded interpretations. The summary in cell 37 makes reasonable statements about what was found and suggests appropriate future directions. There are no instances where the notebook draws conclusions that aren't supported by the data shown."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": 0,
+          "thinking": "There are no significant other issues beyond what has been covered in the previous criteria. The notebook flows well, has a clear structure with introduction, methods, results, and conclusion sections, and includes defensive programming practices (like gracefully handling the case where no correlated ROIs were found). The code is generally well-documented with comments, and the markdown cells provide good context for each analysis step."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 4529,
+        "total_completion_tokens": 1497,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-17 18:52:12",
+        "system_info": {
+          "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+          "hostname": "system76-pc"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001174",
+    "subfolder": "2025-04-15-claude-3.7-sonnet-prompt-a-3",
+    "gradings": {
+      "prompt_version": "2",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 2,
+          "thinking": "The notebook provides a detailed description of the Dandiset in cells 1-3. It covers the dataset ID (001174), the experimental setup (calcium imaging in SMA and M1 of macaques during arm reaching tasks), the imaging method (miniature microscopes with GCaMP6f), and the potential value for understanding motor control and movement disorders. The description is thorough and provides good context for the analyses that follow."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 2,
+          "thinking": "Cell 7 demonstrates how to load information about the Dandiset using the DandiAPIClient. It retrieves the Dandiset metadata, prints the ID, name, and description, and lists the assets (NWB files) within the Dandiset, including their paths and sizes. This provides a clear and effective demonstration of how to access Dandiset information."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 2,
+          "thinking": "Cells 8-9 show how to load a specific NWB file from the Dandiset. The notebook selects a particular file (\"sub-Q/sub-Q_ophys.nwb\"), explains the rationale for the selection, and demonstrates how to load it using remfile and pynwb. The code prints key metadata about the session and subject. Cells 10-13 further explore the NWB file structure, showing the acquisition data streams, processing modules, and the properties of the OnePhotonSeries data. This provides a thorough demonstration of how to load and explore an NWB file."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook demonstrates loading multiple independent pieces of data from the NWB file:\n1. Raw calcium imaging frames (cells 14-15)\n2. ROI spatial footprints/masks (cells 16-21)\n3. Fluorescence time series for ROIs (cells 22-25)\n4. Event amplitude data (cells 26-27)\nThis shows at least 4 different types of data being loaded from the NWB file, which exceeds the requirement for the highest grade."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook visualizes multiple independent pieces of data:\n1. Raw calcium imaging frames (cell 15)\n2. ROI spatial footprints/masks - both combined (cell 19) and individual (cell 21)\n3. Fluorescence time series (cell 25)\n4. Event amplitudes (cell 27)\n5. Activity heatmap (cell 29)\n6. Correlation matrix (cell 31)\n7. Correlated/anti-correlated pairs (cell 33)\n8. Combined spatial-temporal visualization (cell 35)\nThis demonstrates at least 8 different visualizations of data from the NWB file, which significantly exceeds the requirement for the highest grade."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 2,
+          "thinking": "The plots in the notebook are of very good quality overall. They generally include appropriate labels, titles, and colorbars where relevant. The visualizations are well-designed to clearly convey the data being displayed. For example, the ROI spatial footprint visualization uses a custom colormap to make individual ROIs distinguishable, the fluorescence time series plots use different colors and include a legend to identify different ROIs, and the combined spatial-temporal visualization effectively combines structural and functional information. The plots are informative and aesthetically pleasing."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": -1,
+          "thinking": "There are some minor issues with the plots in cell 33, where the correlation coefficients are displayed as 'nan' and the most correlated pair of ROIs and the most anti-correlated pair are identified as the same neurons (ROI 1 and ROI 2). This is likely due to the sparse nature of the signals, but it does represent a minor issue with the visualization as it fails to accurately represent the correlation relationships. This is the only notable issue with the plots in the notebook."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": -1,
+          "thinking": "The correlation analysis in cell 33 has an issue where it identifies the same pair of neurons as both the most correlated and most anti-correlated, with 'nan' correlation values. This suggests a problem either in the correlation computation or in the identification of the maximum/minimum correlations. However, this is the only analysis issue identified, and it's relatively minor considering the overall scope and quality of the analyses presented in the notebook. The other analyses, such as the visualization of ROI masks, fluorescence time series, and the combined spatial-temporal visualization, appear to be implemented correctly."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": 0,
+          "thinking": "The notebook is primarily exploratory and descriptive, focusing on demonstrating how to access, load, and visualize data from the Dandiset. It doesn't draw significant conclusions about the data beyond what is directly observable in the visualizations. The summary in cell 36 and the future directions in cell 37 are appropriately cautious and don't make claims that aren't supported by the analyses performed. The notebook acknowledges its AI-generated nature and advises caution in interpreting the results."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": 0,
+          "thinking": "No other significant issues were identified in the critique. The code is well-structured and documented, the visualizations are clear and informative, and the notebook provides a comprehensive introduction to working with the Dandiset. The notebook follows a logical progression from loading the Dandiset to exploring different aspects of the data, and it includes appropriate context and explanations throughout."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 6402,
+        "total_completion_tokens": 1477,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-17 18:52:42",
+        "system_info": {
+          "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+          "hostname": "system76-pc"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001174",
+    "subfolder": "2025-04-15-gemini-2.0-flash-001-prompt-b-3",
+    "gradings": {
+      "prompt_version": "2",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 2,
+          "thinking": "The notebook provides a clear description of the Dandiset, including information about the type of data (calcium imaging), the brain regions studied (SMA and M1 of macaque monkeys), the imaging technique (one-photon calcium imaging with GCaMP6f), and the experimental context (rest and arm reaching task). This is covered in Cell 3, and the description is concise yet informative."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 2,
+          "thinking": "The notebook demonstrates loading information about the Dandiset using the DANDI API. Cell 8 shows how to connect to the DANDI archive, retrieve the Dandiset with ID \"001174\", and list the first five assets. This provides users with a clear example of how to access Dandiset metadata."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 1,
+          "thinking": "The notebook shows how to load basic information from an NWB file in Cells 10-12. It demonstrates retrieving the file using remfile and h5py, opening it with pynwb, and accessing specific metadata fields like session description, identifier, and session start time. However, there's an issue noted in Cell 12 where only the session_start_time is displayed in the output despite code that should show all three pieces of metadata."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 2,
+          "thinking": "The notebook demonstrates loading at least two independent pieces of data from the NWB file: 1) Raw fluorescence data for ROIs (Cell 14) and 2) Image masks associated with ROIs (Cell 17). Both of these data types are successfully loaded and subsequently visualized."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 2,
+          "thinking": "The notebook visualizes two independent pieces of data: 1) Raw fluorescence time series data for three ROIs (Cell 14) and 2) Spatial distribution of ROIs using image masks (Cell 17). Both visualizations are well-executed with proper axes, titles, and accompanying descriptions."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 2,
+          "thinking": "The plots in the notebook appear to be of good quality. The fluorescence plots in Cell 14 show the data for each ROI clearly with proper labeling of axes and titles. The spatial distribution plot in Cell 17 effectively uses a colormap to show the ROI locations with a colorbar. The overall presentation is enhanced by using seaborn styling."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": 0,
+          "thinking": "There are no significant issues with the plots mentioned in the critique. The plots have proper axes labels, titles, and colorbars where appropriate. The only potential minor issue is that the fluorescence plots in Cell 14 might benefit from showing all ROIs on a single plot for easier comparison, but this is a matter of preference rather than a clear issue."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": -1,
+          "thinking": "There is one minor issue with the analysis noted in Cell 9, where the filename referenced in the markdown text does not match the file names listed in the previous cell's output. This could potentially lead to confusion but doesn't affect the actual code execution since the code itself appears to use the correct file."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": 0,
+          "thinking": "The notebook doesn't appear to draw any unsupported conclusions. Cell 15 makes an assessment about the quality of the fluorescence signals (good amplitude, low noise), but this is a straightforward observation based on the plotted data. Cell 20 suggests possible future analyses but frames these as suggestions rather than conclusions."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": -1,
+          "thinking": "There is one minor issue noted in Cell 12 where the output only displays the session_start_time even though the code retrieves session_description and identifier as well. This could be addressed by making the print statements more explicit. Additionally, there's a minor inconsistency in Cell 9 where the referenced filename doesn't match what was previously shown."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 3227,
+        "total_completion_tokens": 1108,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-17 18:53:02",
+        "system_info": {
+          "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+          "hostname": "system76-pc"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001174",
+    "subfolder": "2025-04-15-gpt-4o-prompt-a-3",
+    "gradings": {
+      "prompt_version": "2",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 2,
+          "thinking": "The notebook provides a good description of the Dandiset in Cell 2, including its title, ID, a brief description of the dataset (calcium imaging in SMA and M1 of macaques during motor tasks), the license, keywords, and citation information. This gives a reasonably complete overview of the Dandiset."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 1,
+          "thinking": "Cell 7 demonstrates using the dandiapi library to connect to the DANDI archive, retrieve Dandiset 001174, and list its assets. It shows the total number of assets and the paths of the first five assets. This is a reasonably good demonstration of loading information about the Dandiset."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 1,
+          "thinking": "Cell 9 loads an NWB file from a specified URL using remfile and h5py, reads it into a pynwb.NWBFile object, and prints the session description and the number of acquisition data series. This demonstrates loading basic information from an NWB file in the Dandiset reasonably well."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 1,
+          "thinking": "The notebook only loads one piece of data - the OnePhotonSeries data from the loaded NWB file in Cell 11. No other independent pieces of data are loaded from the NWB file."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 1,
+          "thinking": "The notebook only visualizes one piece of data - the OnePhotonSeries data at a single timepoint in Cell 11. No other independent pieces of data are visualized from the NWB file."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 1,
+          "thinking": "There is only one plot in the notebook (Cell 11), which visualizes the OnePhotonSeries data as a heatmap. The plot includes a title, axis labels, and a colorbar, which makes it reasonably good quality."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": -2,
+          "thinking": "The visualization in Cell 11 only shows a single arbitrary timepoint, which doesn't demonstrate neuron activity patterns over time as claimed in the markdown cell. A more helpful visualization would show either a mean fluorescence across time, a maximum projection, or allow selection of different timepoints. This is a major issue with the plot."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": 0,
+          "thinking": "The notebook doesn't perform much analysis beyond loading and visualizing a single timepoint of data. While this is limited, it doesn't contain errors or issues in the analysis that is performed."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": 0,
+          "thinking": "The notebook doesn't draw any significant conclusions about the data. Cell 12 simply summarizes what was done and suggests future directions. There are no unsupported conclusions."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": 0,
+          "thinking": "The notebook is quite limited in scope, only loading and visualizing a single piece of data at a single timepoint. It doesn't fully demonstrate the potential of the dataset or provide a comprehensive exploration. However, what it does do appears to be implemented correctly without other major issues."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 2084,
+        "total_completion_tokens": 922,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-17 18:53:18",
+        "system_info": {
+          "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+          "hostname": "system76-pc"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001174",
+    "subfolder": "2025-04-16-claude-3.7-sonnet-prompt-b-5",
+    "gradings": {
+      "prompt_version": "2",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 1,
+          "thinking": "The notebook provides a reasonably good description of the Dandiset. It mentions the Dandiset ID (001174), data modality (calcium imaging), brain regions studied (SMA and M1), and experimental context (resting or arm reaching). The notebook also prints basic information about the Dandiset including its ID, name, and a brief description that explains the rationale for the study and experimental approach. However, while the description is adequate, it doesn't go into extensive detail about the experimental design, subject population, or other aspects that would constitute a very thorough description."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 2,
+          "thinking": "The notebook demonstrates how to load information about the Dandiset very well. It uses direct Dandiset ID reference, prints basic information (ID, name, description), and explains the organization of the dataset by subject and session. It also clearly specifies which NWB file will be used (subject Q, session 20220915) and shows how to access the asset URL. The code effectively demonstrates how to access the Dandiset information without requiring a full download."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 2,
+          "thinking": "The notebook shows very well how to load basic information from an NWB file. It demonstrates streaming the file directly from the URL using remfile, h5py, and pynwb. It extracts and prints basic session information (description, start time, creation date) and subject information (ID, species, sex, age). It also explores the structure of the NWB file, identifying available data within acquisition, processing, and devices sections. This provides a comprehensive overview of the NWB file's metadata and structure."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook demonstrates loading multiple pieces of data from the NWB file:\n1. Raw calcium imaging data from the OnePhotonSeries object\n2. ROI masks from the ImageSegmentation and PlaneSegmentation objects\n3. Fluorescence traces from the Fluorescence and RoiResponseSeries objects\n4. Event amplitude data from the EventAmplitude object\nThese are all independent pieces of data from the NWB file, exceeding the requirement for three pieces of data."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook demonstrates visualizing several independent pieces of data:\n1. Single frame of raw calcium imaging data\n2. Multiple frames (4) of raw calcium imaging data at different timepoints\n3. ROI masks for 9 individual ROIs\n4. Composite image of all ROI masks\n5. Event amplitude traces for selected ROIs\n6. Total neural activity across all ROIs over time\n7. Correlation matrix heatmap between ROIs\nThis exceeds the requirement for three independent visualizations."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 2,
+          "thinking": "The plots in the notebook are generally of very good quality. They include appropriate titles, axis labels, colorbars for images, and legends when necessary. The visualizations effectively communicate the data being presented, whether it's individual frames, ROI masks, time series data, or correlation patterns. The use of different visualization types (images, line plots, heatmaps) is appropriate for the different data types being presented. The technical quality of the visualizations appears high based on the descriptions."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": -1,
+          "thinking": "There are some minor issues with the plots. In cells 23 and 25, the ROI masks have a shape of (40, 292, 179), but the visualization only uses two dimensions and doesn't fully utilize the weights of the mask. In cell 46, the network visualization plot is essentially blank due to underlying correlation matrix issues with constant inputs, making this visualization ineffective. These issues impact the clarity and accuracy of some visualizations but don't prevent understanding of the main data features."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": -2,
+          "thinking": "There are major issues with the analysis, particularly in the correlation and network analysis sections. In cell 43, the code calculates Pearson correlations without handling constant inputs properly, leading to NaN values in the correlation matrix. This issue propagates to cell 46, resulting in a blank network visualization that provides no meaningful information. Cell 44 claims to identify clusters of neurons with similar activity patterns, but this is not supported by the visualization which shows mostly near-zero correlations. These issues significantly impact the validity of the correlation and network analyses."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": -2,
+          "thinking": "The notebook contains some unsupported conclusions. In cell 44, it claims \"We can identify clusters of neurons with similar activity patterns,\" but this isn't supported by the visualization which shows mostly near-zero correlations. In cell 47, it attempts to interpret a blank graph as a dendrogram, which is completely incorrect. In cell 48, it concludes \"The data reveals clear patterns of neural activity, with distinct events visible in individual neurons and periods of coordinated activity across the population,\" which is only partially supported by the visualizations and contradicted by the network analysis showing almost no network activity. These represent major unsupported conclusions that could mislead readers about the data."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": -1,
+          "thinking": "There are some minor issues in the notebook:\n1. In cells 16 and 22, the markdown cells reference variables (`one_photon_series.data.shape`, `one_photon_series.rate`, `len(plane_segmentation)`) that were defined in previous code cells. While this works, it would be better practice to either rewrite the text in a way that doesn't depend on variable substitution or to redefine the variables in these cells.\n2. The notebook doesn't properly address the presence of NaN values in the fluorescence data when calculating correlations.\nThese are minor issues that don't significantly impact the overall functionality or understanding of the notebook."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 7405,
+        "total_completion_tokens": 1531,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-17 18:53:46",
+        "system_info": {
+          "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+          "hostname": "system76-pc"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001335",
+    "subfolder": "2025-04-17-claude-3.7-sonnet-prompt-b-5",
+    "gradings": {
+      "prompt_version": "2",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 2,
+          "thinking": "The notebook effectively describes the Dandiset 001335 in the introduction (Cell 1), mentioning its purpose and content. In Cell 3, it reinforces the description of the dataset's content. Further details about the experimental setup, including blocks and odor presentations, are provided throughout the notebook as the data is explored."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 2,
+          "thinking": "The notebook demonstrates loading the Dandiset using the DANDI API in Cells 3-4. It shows how to use `DandiAPIClient` to access and list assets within the Dandiset, displaying their paths, IDs, and sizes. This provides a clear example of how to access information about the Dandiset."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 2,
+          "thinking": "Cells 5-6 demonstrate loading an NWB file from the DANDI archive using `remfile` and `pynwb`. The notebook shows how to retrieve the download URL for an asset, create a file-like object with `remfile`, and then use `h5py` and `pynwb` to open and load the NWB data. Related metadata is extracted and displayed in Cell 8, including session description, identifier, start time, and subject information."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook loads multiple pieces of data from the NWB file:\n1. Experimental block information (Cell 10)\n2. Odor presentation intervals (Cell 12)\n3. Electrode configuration data (Cell 17)\n4. LFP (Local Field Potential) data (Cells 21, 23)\n5. Unit spike times (Cells 28, 30)\nThis demonstrates loading more than three independent pieces of data from the NWB file."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook visualizes multiple pieces of data from the NWB file:\n1. Odor presentation sequence over time (Cells 13, 15)\n2. Depth distribution of electrodes (Cell 19)\n3. LFP signals from selected channels (Cell 23)\n4. Spectrogram of LFP data (Cell 25)\n5. Power spectrum of LFP signal (Cell 26)\n6. Spike raster plots for odor responses (Cell 33)\n7. Firing rate comparisons across odors (Cell 36)\nThis demonstrates visualization of more than three independent pieces of data."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 2,
+          "thinking": "The plots in the notebook are of very good quality. They include appropriate labels for axes, legends for different data series, and clear representations of the data. The plots also use appropriate visual elements like color coding, dashed lines for boundaries, shaded regions for time periods, and error bands for statistical uncertainty. Examples include the odor presentation timeline (Cell 13), electrode depth visualization (Cell 19), LFP signal plots (Cell 23), spectrograms (Cell 25), and the odor response comparisons (Cell 36)."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": 0,
+          "thinking": "No issues with the plots were mentioned in the critique. All plots appear to be well-executed with appropriate labels, legends, and visual elements. The descriptions indicate that the plots effectively communicate the intended information."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": 0,
+          "thinking": "No issues with the analysis were mentioned in the critique. The notebook appears to perform appropriate analyses for exploring the dataset, including temporal analysis of experimental blocks, spectral analysis of LFP data, and response analysis of neural units to different odors."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": 0,
+          "thinking": "The critique does not mention any unsupported conclusions in the notebook. The interpretations and summaries appear to be based on the data and analyses performed. Cell 27 notes the presence of theta and gamma oscillations, which is supported by the spectral analysis, and Cell 37 summarizes findings that appear to be derived from the analyses conducted in the notebook."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": 0,
+          "thinking": "The critique does not mention any other issues with the notebook. The flow from introduction to data loading, exploration, and analysis appears logical and well-executed. The notebook includes appropriate transitions between sections and clear explanations of the analyses being performed."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 4905,
+        "total_completion_tokens": 1202,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-17 18:54:08",
+        "system_info": {
+          "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+          "hostname": "system76-pc"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001335",
+    "subfolder": "2025-04-15-gpt-4o-prompt-b-3",
+    "gradings": {
+      "prompt_version": "2",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 1,
+          "thinking": "The notebook provides a brief introduction to Dandiset 001335, mentioning that it contains Neuropixels recordings from mouse hippocampus during odor presentation. While it gives a basic description, it doesn't go into great detail about the experimental conditions, the specific questions the data was collected to address, or other metadata that would provide a more comprehensive description."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 2,
+          "thinking": "The notebook demonstrates loading the Dandiset information using the DANDI API by connecting to the archive, retrieving the specific Dandiset (001335), and listing its assets. It shows the number of assets and displays the paths of the first few assets. This provides a clear demonstration of how to programmatically access Dandiset metadata."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 2,
+          "thinking": "The notebook shows how to load an NWB file from the Dandiset using remfile to stream the file from a URL, then uses h5py to open it as an HDF5 file, and finally uses pynwb to read the NWB data structure. This demonstrates a complete workflow for accessing and opening an NWB file from the Dandiset."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 1,
+          "thinking": "The notebook demonstrates loading LFP data from the NWB file, extracting the first 500 samples from channel 0. However, it only shows loading one type of data (LFP) and doesn't demonstrate loading any other data types that might be present in the NWB file, such as spiking data, stimuli information, or behavioral data."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 1,
+          "thinking": "The notebook only visualizes one piece of data: the LFP recording from channel 0. The visualization is a simple line plot showing voltage over sample number. There are no other visualizations of different data types or of the same data type presented in alternative ways."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 1,
+          "thinking": "The single plot in the notebook includes appropriate axis labels (\"Sample Number\" for x-axis and \"Voltage (V)\" for y-axis), a title indicating it's showing LFP data from Channel 0, and a legend. The plot effectively shows the pattern of the LFP data over time. The quality of the visualization is reasonably good, though not exceptional."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": 0,
+          "thinking": "There don't appear to be any significant issues with the plot itself. It has proper labels, a title, and displays the data clearly. The critique doesn't mention any issues with the plot's legibility, accuracy, or presentation."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": 0,
+          "thinking": "The notebook is quite basic in its analysis, simply loading and plotting LFP data without performing any more sophisticated analyses. However, this limited scope doesn't necessarily constitute an \"issue\" - it's just fairly minimal. The notebook doesn't make any analytical errors within what it does attempt."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": 0,
+          "thinking": "The notebook doesn't appear to draw any unsupported conclusions. It mainly focuses on demonstrating how to access and visualize data, without making claims about the biological significance of the data patterns or drawing conclusions that would require statistical validation."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": 0,
+          "thinking": "No other issues were identified in the critique. The notebook appears to function as intended, with appropriate imports, code that executes without errors, and clear documentation of steps. The notebook successfully demonstrates a basic workflow of loading and visualizing data from a Dandiset, albeit in a limited way."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 1843,
+        "total_completion_tokens": 1033,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-17 18:54:25",
+        "system_info": {
+          "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+          "hostname": "system76-pc"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001335",
+    "subfolder": "2025-04-17-gemini-2.0-flash-001-prompt-b-5",
+    "gradings": {
+      "prompt_version": "2",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 2,
+          "thinking": "The notebook provides a good description of the Dandiset in Cell 3, specifying the type of data (Neuropixels recordings), the brain region (hippocampus), the animal model (head-fixed mice), and the experimental paradigm (odor presentation). It also provides a link to the Dandiset on Neurosift. This gives the reader a good understanding of what the Dandiset contains."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 1,
+          "thinking": "Cell 7 demonstrates how to connect to the DANDI archive using the dandiapi library, retrieve the specified Dandiset (001335), and list its assets. It prints the number of assets found and lists the paths. This is a reasonable demonstration of accessing Dandiset information."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 2,
+          "thinking": "The notebook effectively shows how to load an NWB file in Cell 9 using remfile to access the remote file and h5py and pynwb to read the data. It demonstrates accessing the LFP data from the file structure. It then does the same for spike times data in Cell 12. This is a good demonstration of loading basic information from an NWB file."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 2,
+          "thinking": "The notebook demonstrates loading two independent pieces of data from the NWB file: (1) LFP data in Cell 9, selecting the first 4 electrodes and a 1-second time window, and (2) spike times data from the units table in Cell 12. This meets the criteria for a grade of 2."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 2,
+          "thinking": "The notebook visualizes two independent pieces of data: (1) LFP data for 4 electrodes over a 1-second time window in Cell 9, and (2) a histogram of spike times across the recording duration in Cell 12. Both visualizations effectively represent the data with proper axes and labels."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 2,
+          "thinking": "The plots in the notebook are of good quality. The LFP plot in Cell 9 shows the data for multiple electrodes with different colors, vertical offsets for clarity, proper axes labels, and a title. The spike time histogram in Cell 12 also has clear axes and labels. Both plots effectively communicate the data they represent."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": 0,
+          "thinking": "There are no significant issues reported with the plots. The LFP plot appropriately uses vertical offsets to make the data from different electrodes distinguishable, and the spike time histogram effectively shows the distribution of spikes over time."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": 0,
+          "thinking": "No issues with the analysis were reported in the critique. The code for loading and visualizing the data appears to work correctly, and the descriptions of what the plots show are accurate."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": 0,
+          "thinking": "The critique does not mention any unsupported conclusions drawn in the notebook. The notebook appears to stick to describing what the data shows and suggesting possible future directions for analysis without making unfounded claims."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": -1,
+          "thinking": "The only minor issue mentioned is in Cell 7, where the code prints \"First 5 assets:\" when there is only 1 asset found. This is a very minor stylistic issue that doesn't affect the functionality or understanding of the notebook."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 2314,
+        "total_completion_tokens": 1001,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-17 18:54:46",
+        "system_info": {
+          "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+          "hostname": "system76-pc"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001335",
+    "subfolder": "2025-04-15-gpt-4o-prompt-a-3",
+    "gradings": {
+      "prompt_version": "2",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 2,
+          "thinking": "The notebook provides a good description of the Dandiset in cell 3, including contributors, DANDI ID, license, a link to the archive, and experimental setup (Neuropixels recordings from hippocampus of head-fixed mice during odor presentation). It also mentions keywords in cell 7 (hippocampus, neuropixels, olfaction). While not exhaustive, this provides a reasonably clear understanding of what the dataset contains."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 2,
+          "thinking": "The notebook effectively shows how to load information about the Dandiset in cell 6. It connects to the DANDI Archive using the DANDI API, retrieves the specific Dandiset (001335), and lists the first five assets. It also displays the total number of assets (19) found in the dataset. This is a clear demonstration of loading Dandiset information."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 2,
+          "thinking": "Cell 7 demonstrates loading basic information from an NWB file in the Dandiset well. It constructs a URL to access a specific NWB file, opens it using remfile and h5py, and loads it into a pynwb.NWBFile object. It then extracts and displays metadata including session description, identifier, experimenter, and keywords."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 1,
+          "thinking": "The notebook demonstrates loading one main piece of data: LFP data from the ecephys processing module (in cell 8). While it also accesses metadata in cell 7, this would still count as only one independent piece of data being loaded from the NWB file."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 1,
+          "thinking": "The notebook visualizes only one piece of data: the LFP data in cell 8. The visualization shows the first 1000 samples of the first 10 electrodes, plotted as voltage over time. No other data types are visualized."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 1,
+          "thinking": "The LFP plot in cell 8 is of reasonably good quality. It includes appropriate labels for the x-axis (Time (s)) and y-axis (Voltage (V)), a title (\"LFP Data Sample\"), and displays multiple electrode traces. The figure size is set explicitly (15, 5) for better visibility. However, it could be improved with a legend to identify which line corresponds to which electrode, and possibly better color distinction between lines."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": -1,
+          "thinking": "The LFP plot lacks a legend to identify which line corresponds to which electrode, making it difficult to distinguish between the 10 electrodes shown. Additionally, the y-axis scale information isn't provided in the description, making it harder to interpret the magnitude of the voltage fluctuations. These are minor issues that don't prevent understanding the basic nature of the data but do limit its interpretability."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": -1,
+          "thinking": "The notebook is fairly straightforward and doesn't attempt complex analysis, which avoids major analytical issues. It loads data and creates a basic visualization. However, the analysis is quite limited - it only examines LFP data from a small subset of electrodes and a brief time window, without exploring other important aspects of the dataset. The notebook acknowledges this limitation by suggesting future analyses in cell 9."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": 0,
+          "thinking": "Based on the critique, the notebook doesn't appear to draw any unsupported conclusions. It remains descriptive rather than interpretive, showing the data without making claims about what the data means. Cell 9 suggests future analyses but doesn't make premature claims about what those analyses might show."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": 0,
+          "thinking": "No other significant issues are mentioned in the critique. The notebook flows logically, includes a disclaimer about being auto-generated, provides necessary imports, and properly closes file connections. It's straightforward and focused on its limited scope."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 2640,
+        "total_completion_tokens": 1125,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-17 18:55:06",
+        "system_info": {
+          "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+          "hostname": "system76-pc"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001335",
+    "subfolder": "2025-04-17-claude-3.7-sonnet-prompt-a-5",
+    "gradings": {
+      "prompt_version": "2",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 1,
+          "thinking": "The notebook provides a good description of Dandiset 001335, which contains Neuropixels recordings from the hippocampus of head-fixed mice during odor presentation. It includes a link to explore the dataset on Neurosift, which is very helpful. However, it does not go into extensive detail about the experimental design or the scientific goals of the dataset."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 2,
+          "thinking": "The notebook demonstrates loading the Dandiset very well. It uses the dandi-api library to connect to the DANDI archive, retrieve information about the Dandiset, and get a list of assets. It shows how to initialize a DandiAPIClient, retrieve the Dandiset, and access the assets. It also prints the number of assets found and the paths of the first five assets."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 2,
+          "thinking": "The notebook demonstrates how to load an NWB file from the Dandiset very well. It defines the asset_id, constructs the URL using the DANDI API, and uses remfile and h5py to open the file. It then uses pynwb to read the file into an NWB object for analysis. It also shows how to access key metadata from the NWB file, such as session information, experimenter information, and subject information."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook loads multiple pieces of data from the NWB file:\n1. Experimental block timing information\n2. Odor presentation intervals\n3. Electrode information\n4. LFP (Local Field Potential) data\n5. Spike times for neural units\nThis is more than three independent pieces of data."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook visualizes multiple pieces of data from the NWB file:\n1. Odor presentation times and experimental blocks (Cell 18)\n2. LFP data from selected channels (Cell 24)\n3. Power spectral density of LFP data (Cell 26)\n4. Spike times for selected units during odor presentation (Cell 30)\n5. Firing rates of units around the time of odor presentation (Cell 32)\n6. Heatmap of change in firing rates in response to different odors (Cell 34)\n7. Relationship between electrode depth and unit responses (Cell 36)\nThis is more than three independent visualizations."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 1,
+          "thinking": "The plots in the notebook are of reasonably good quality. They include appropriate axis labels, titles, and legends. The plots use different colors to represent different data elements. However, there are some issues with the plots, such as overlapping labels and the lack of scale bars on some plots. The plots are functional but could be improved for better readability."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": -1,
+          "thinking": "There are several minor issues with the plots:\n1. In Cell 24, the y-axis lacks a scale in uV and a scale bar for voltage differences.\n2. In Cell 30, the y-axis labels are very long and overlapping, making the plot less readable.\n3. In Cell 32, the plots are aliased (they appear like lines connecting the points of a histogram).\n4. In Cell 36, the points are very overlapping, and the text of the electrode group objects takes up excessive space.\nThese are all minor issues that affect readability but don't fundamentally compromise the plots' ability to convey information."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": -1,
+          "thinking": "There are a few minor issues with the analysis:\n1. In Cell 12, the \"Session Start Time\" is in the future, which is odd and possibly an error in the metadata.\n2. In Cell 24, there's no guarantee that all odors are only presented once, so it might be better to find all presentations of a specific odor.\n3. In Cell 32 and Cell 34, the \"active units\" criterion is not very meaningful. It would be better to select neurons based on significant differences in firing rates.\nThese issues don't fundamentally invalidate the analysis but could lead to less optimal or potentially misleading results."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": 0,
+          "thinking": "The notebook doesn't draw many explicit conclusions. It presents the data and visualizations but generally avoids making strong claims about what the results mean. The final cell suggests potential avenues for future investigation but doesn't make unsupported conclusions about the current data. There don't appear to be any unsupported conclusions in the notebook."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": 0,
+          "thinking": "There don't appear to be any other significant issues with the notebook beyond those already mentioned in the other categories. The notebook is well-structured, with clear headings and transitions between sections. It provides a good introduction to the Dandiset and demonstrates how to load, visualize, and begin analyzing the data."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 6209,
+        "total_completion_tokens": 1345,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-17 18:55:29",
+        "system_info": {
+          "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+          "hostname": "system76-pc"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001275",
+    "subfolder": "2025-04-17-gpt-4o-prompt-b-5",
+    "gradings": {
+      "prompt_version": "2",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 1,
+          "thinking": "The notebook introduces Dandiset 001275, mentioning it contains neurophysiology data from primates performing a mental navigation task. It includes a link to the Dandiset on NeuroSift. While the description is brief, it does provide the basic information about the dataset content and purpose."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 2,
+          "thinking": "Cell 4 demonstrates using the `dandi` library to connect to the DANDI archive and retrieve the specified Dandiset (\"001275\"). It shows how to list the first five assets (NWB files) within the Dandiset, which provides a good overview of how to access the dataset."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 2,
+          "thinking": "Cell 6 shows how to load a specific NWB file from a remote URL using `remfile` and `pynwb`. It demonstrates opening the file using `remfile` and `h5py`, and reading the NWB file using `pynwb`, which is a reasonable approach for accessing NWB data."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 2,
+          "thinking": "Cell 6 demonstrates loading two independent pieces of data from the NWB file: eye position data and hand position data, along with their associated timestamps. This shows how to extract behavioral data from the NWB file."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 2,
+          "thinking": "Cell 6 visualizes both the eye position data (horizontal and vertical components) and hand position data over time in two separate plots. These visualizations show how to display behavioral data from the NWB file."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 1,
+          "thinking": "The plots have proper labels for axes (Time (s), Position (meters), Position (voltage)), include legends where applicable (for the eye position plot distinguishing horizontal vs. vertical), and have grid lines for better readability. While they're not overly complex, they're of reasonably good quality."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": -1,
+          "thinking": "There's a minor issue with the hand position plot using \"Position (voltage)\" as the y-axis label without further explanation of how voltage relates to position. Additionally, both plots show only a small time window (less than 100 seconds) which may not be representative of the full dataset."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": 0,
+          "thinking": "The analysis is quite basic, only showing raw data visualization without any advanced processing or insight extraction. Cell 7 acknowledges this limitation by suggesting future directions. While not problematic per se, the analysis is minimal."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": 0,
+          "thinking": "The notebook doesn't draw any significant conclusions from the data; it simply visualizes the raw eye and hand position data and suggests future directions for more in-depth analysis. The commentary remains factual and doesn't overstate findings."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": 0,
+          "thinking": "No other significant issues are apparent from the critique. The notebook acknowledges its AI-generated nature and encourages caution. It focuses on a specific aspect of the dataset (behavioral data) and achieves its stated goals without major problems."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 1838,
+        "total_completion_tokens": 933,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-17 18:55:45",
+        "system_info": {
+          "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+          "hostname": "system76-pc"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001275",
+    "subfolder": "2025-04-17-claude-3.7-sonnet-prompt-b-5",
+    "gradings": {
+      "prompt_version": "2",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 2,
+          "thinking": "The notebook provides a thorough description of Dandiset 001275, explaining that it contains neural recordings from two macaques during a mental navigation task. It clearly states the focus of the study (neural mechanisms of spatial representation in the posterior parietal cortex), provides links to the dataset, and gives details about the structure of the assets, including the different file types for each subject. The description in cells 3, 8, and 13 is comprehensive."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 2,
+          "thinking": "The notebook demonstrates loading the Dandiset effectively in cells 6-8. It uses the DANDI API to connect to the archive, retrieves the specified Dandiset (001275), and lists the available assets. It also explains the structure of the assets, identifying the two subjects and the different file types available for each session."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 2,
+          "thinking": "The notebook shows how to load basic information from an NWB file in the Dandiset in cells 9-12. It loads a specific NWB file using its asset ID, constructs the download URL, uses remfile and h5py to stream the file, and opens it with pynwb. It then examines and prints metadata attributes including session ID, subject ID, species, sex, age, session date, session description, lab, and institution."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook demonstrates loading multiple pieces of data from the NWB file:\n1. Trial information (cell 15) - converted to a pandas DataFrame\n2. Unit data (cell 37) - retrieved and converted to a DataFrame\n3. Electrode information (cell 47) - retrieved and explored\nThis shows at least three independent pieces of data being loaded from the NWB file."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook visualizes multiple pieces of data from the NWB file:\n1. Distribution of trial types (cell 17)\n2. Success rate by trial type (cell 19)\n3. Response time distributions (cell 22)\n4. Response time conditioned on success (cell 25)\n5. Actual vs produced vector (cell 28)\n6. Absolute error distribution (cell 31) \n7. Start-target landmark combinations as a heatmap (cell 34)\n8. Distribution of unit qualities (cell 39)\n9. Distribution of firing rates (cell 42)\n10. Firing rates by unit quality (cell 44)\n11. Firing rate vs electrode depth (cell 49)\n12. Simulated firing rates in successful vs failure trials (cell 53)\n\nThis shows more than three independent visualizations of data."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 2,
+          "thinking": "The plots in the notebook are generally of high quality. They have appropriate titles, axis labels, and legends where needed. The visualizations effectively convey the intended information, using appropriate plot types for each analysis (bar charts, histograms, scatter plots, heatmaps). The plots are also properly formatted with good use of color to distinguish between different categories (e.g., trial types, unit qualities)."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": -1,
+          "thinking": "There are very few issues with the plots. The one minor issue noted is in cell 28, where the scatter plot reveals vertical bands of data points that are not explained or examined. This pattern could warrant further investigation but doesn't significantly detract from the overall quality of the visualization."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": -1,
+          "thinking": "There are a couple of minor issues with the analysis:\n1. In cell 28, the filtering of produced vector `tp` using `reasonable_tp_mask = trials_df['tp'].abs() < 10` is somewhat arbitrary and not well justified.\n2. In cell 31, there's a `SettingWithCopyWarning` when creating new columns in the DataFrame, which is a minor coding issue.\n3. In cell 53, the analysis is based on simulated data rather than actual spike times aligned with trial timings, though this limitation is explicitly acknowledged.\n\nNone of these are major issues that significantly impact the analysis."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": -1,
+          "thinking": "There is one minor unsupported conclusion in cell 50, where the notebook suggests that \"Good units (blue) tend to show higher firing rates, particularly at intermediate depths.\" The scatter plot provided does not present a convincing case for this observation given the limited number of data points and their scattered nature. This is a minor overinterpretation of the data but not a major unsupported conclusion."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": -1,
+          "thinking": "No other significant issues are apparent in the notebook. The only other potential issue is the warning message in cell 10 about namespace version conflicts, which might indicate a potential problem with the installation, but this doesn't affect the functionality of the notebook."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 7073,
+        "total_completion_tokens": 1338,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-17 19:11:33",
+        "system_info": {
+          "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+          "hostname": "system76-pc"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001275",
+    "subfolder": "2025-04-17-gpt-4o-prompt-a-5",
+    "gradings": {
+      "prompt_version": "2",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 2,
+          "thinking": "The notebook provides a good description of the Dandiset. It specifies the Dandiset ID (001275), names it (\"Mental Navigation in Primates\"), and provides a concise overview explaining that it contains neurophysiology data from primates performing a mental navigation task, with data from the entorhinal cortex. It also includes a link to the dataset on Neurosift. The notebook also includes metadata from a loaded NWB file that gives additional details about the experiment: \"Two monkeys (Macaca mulatta) performed a mental navigation task. Each session was recorded with 64-channel laminar electrodes targeting the medial entorhinal cortex. During this task, monkeys had to mentally navigate to a previously seen target location by integrating self-motion cues.\""
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 2,
+          "thinking": "The notebook demonstrates how to load information about the Dandiset using the DANDI API. It shows how to connect to the DANDI Archive, retrieve the specified Dandiset (001275), and list the assets (files) within the Dandiset. The output shows that there are 4 assets in the dataset and lists the first 5 (all 4 in this case). The implementation is clear and effective."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 2,
+          "thinking": "The notebook shows how to load an NWB file from the Dandiset and extract basic information from it. It uses pynwb, h5py, and remfile to load a specific NWB file by its URL, and then extracts and prints metadata including the session description, identifier, session ID, and session start time. This demonstrates a clear understanding of how to access and work with NWB files from DANDI."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 1,
+          "thinking": "The notebook demonstrates loading one piece of data from an NWB file - the eye position data from the \"behavior\" processing module. While this is done effectively, only one type of data is loaded. To get a higher score, the notebook would need to show loading of additional independent data types from the NWB file."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 1,
+          "thinking": "The notebook visualizes one piece of data from the NWB file - the eye position data, showing X and Y positions over time. The visualization is clear and includes proper labels for axes, a title, and a legend. However, to get a higher score, the notebook would need to visualize additional independent data types from the NWB file."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 1,
+          "thinking": "The plot of eye position data is of reasonably good quality. It uses an appropriate figure size, includes clear axis labels (\"Time (s)\" and \"Position (m)\"), a descriptive title (\"Eye Position Over Time\"), and a legend identifying the X and Y position lines. The figure shows the data effectively and is easy to understand."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": 0,
+          "thinking": "There don't appear to be any issues with the plot. The figure is properly sized, labeled, and titled. The data visualization is appropriate for the type of data being shown (time series of X and Y positions)."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": 0,
+          "thinking": "There are no significant analyses performed in the notebook beyond loading and visualizing the data, so there are no analysis issues to report. The notebook focuses on introducing the dataset and demonstrating basic data access rather than performing complex analyses."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": 0,
+          "thinking": "The notebook doesn't draw any conclusions from the data. It simply demonstrates how to access and visualize the data, and suggests potential avenues for further analysis. There are no unsupported claims or interpretations."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": 0,
+          "thinking": "There don't appear to be any other issues with the notebook. It's well-structured, explains its purpose clearly, and provides a good introduction to working with a Dandiset. The code cells execute without errors, and the markdown cells provide appropriate context. The notebook also includes a disclaimer noting that it was AI-generated and may contain unverified information."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 2500,
+        "total_completion_tokens": 1151,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-17 19:12:23",
+        "system_info": {
+          "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+          "hostname": "system76-pc"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001275",
+    "subfolder": "2025-04-17-gemini-2.0-flash-001-prompt-b-5",
+    "gradings": {
+      "prompt_version": "2",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 1,
+          "thinking": "The notebook provides a reasonable description of the Dandiset in the introduction, mentioning it's Dandiset 001275 containing neurophysiology data from primates during a mental navigation task. However, it doesn't go into extensive detail about the experimental design, the animals used, or the specific research questions that the original data collection aimed to address."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 2,
+          "thinking": "Cell 2 effectively shows how to connect to the DANDI archive, retrieve the specific Dandiset (001275), and list its assets. The code fetches the Dandiset and shows how to access basic information about its contents, including printing the total number of assets and displaying the first few asset paths."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 2,
+          "thinking": "Cell 4 demonstrates how to load an NWB file from the Dandiset using pynwb, h5py, and remfile. It successfully retrieves the file from the provided URL, opens it as an HDF5 file, and reads its contents into an nwb object. The metadata of the NWB file is displayed, showing information about devices, electrode groups, electrodes, experimenters, trials, session details, and subject information."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook shows how to load multiple pieces of data from the NWB file:\n1. Eye position data (x and y coordinates) and corresponding timestamps in cell 6\n2. Spike counts from the units table in the ecephys processing module in cell 9\n3. Trial data (response time 'rt' and go cue time 'gocuettl') in cell 12\nThis demonstrates loading three independent pieces of data from the NWB file."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook visualizes three different pieces of data from the NWB file:\n1. Eye position (x and y) over time plot in cell 6\n2. Histogram of spike counts for each unit in cell 9\n3. Scatter plot of response time vs. go cue time for each trial in cell 12\nThis shows visualization of three independent pieces of data."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 1,
+          "thinking": "The plots in the notebook are reasonably good quality. They include titles, axis labels, and in the case of the eye position plot, a legend and grid for better readability. However, there are some issues with axis labels (discussed in plot issues), and the plots could benefit from more detailed formatting or additional insights."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": -2,
+          "thinking": "There are some issues with the plots:\n1. In the eye position plot (cell 6), the y-axis label \"Eye Position (meters)\" is likely incorrect, as eye position is typically measured in degrees or arbitrary units, not meters.\n2. In the response time vs. go cue time plot (cell 12), the x-axis label \"Go Cue Time (s)\" is probably inaccurate as it likely refers to a property relating to the delay between the go cue and target landmark.\n3. The response time plot has extreme outliers (approaching 500 seconds) that are not addressed in the analysis.\nThese constitute multiple issues with the plots, with at least one (the incorrect units labeling) being a major issue that could lead to misinterpretation."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": -2,
+          "thinking": "There are some analysis issues in the notebook:\n1. The notebook doesn't address the extreme outliers in the response time data (approaching 500 seconds), which likely represent errors or trials where the animal disengaged.\n2. The interpretation of the \"gocuettl\" variable may be incorrect.\n3. The notebook doesn't provide sufficient context for interpreting the spike count distribution.\nThese constitute at least one major issue (not addressing the extreme outliers) that affects the interpretation of the data."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": 0,
+          "thinking": "Based on the critique, the notebook doesn't appear to draw many unsupported conclusions. It mostly describes the data and suggests potential avenues for further analysis rather than making definitive claims about the results. The few interpretations provided (e.g., about the spike count distribution) appear to be reasonably supported by the visualizations."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": 0,
+          "thinking": "No other major issues are mentioned in the critique. The notebook includes appropriate disclaimers about its AI-generated nature and provides a reasonable structure for exploring the dataset. While there could be improvements in data interpretation and plot labeling (addressed in other criteria), no additional significant issues were identified."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 2667,
+        "total_completion_tokens": 1273,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-17 19:12:45",
+        "system_info": {
+          "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+          "hostname": "system76-pc"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001275",
+    "subfolder": "2025-04-17-gemini-2.0-flash-001-prompt-a-5",
+    "gradings": {
+      "prompt_version": "2",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 1,
+          "thinking": "The notebook provides a high-level overview of Dandiset 001275 in Cell 3, mentioning it contains neurophysiology data from primates performing a mental navigation task. It includes a link to the associated publication and to the Dandiset in Neurosift. While it gives a basic description, it doesn't go into great detail about the experimental design, specific research questions, or the significance of the data."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 2,
+          "thinking": "The notebook demonstrates loading the Dandiset using the DANDI API in Cell 8, retrieving a list of assets and displaying the first five, confirming successful connection. It also selects a specific NWB file in Cell 9 and provides the direct download URL. The approach is clear and effective."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 2,
+          "thinking": "The notebook demonstrates loading an NWB file in Cell 10 using remfile and pynwb, and displays the file object with its metadata. It then explores specific metadata attributes in Cells 12-14, including session_description, identifier, and session_start_time. This provides a good introduction to accessing basic information from the NWB file."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook shows how to load multiple independent pieces of data from the NWB file: eye position data (Cell 16), hand position data (Cell 20), trial data (Cell 24), and units data (Cell 27). This covers behavioral and electrophysiological data, demonstrating a comprehensive approach to data loading."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 2,
+          "thinking": "The notebook visualizes two independent pieces of data: eye position data (Cell 17) and hand position data (Cell 21). It doesn't visualize the trial data or units data. While it does show two different visualizations, it doesn't reach the threshold for three or more visualized data pieces."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 1,
+          "thinking": "The plots shown have several issues. The timestamps are not properly aligned as the sample_rate is not used correctly, the x-axis values are very large without proper normalization, and the y-axis units are questionable (e.g., \"Eye Position (meters)\" when the units are likely arbitrary, and \"Hand Position (voltage)\" which is ambiguous). These issues affect the interpretability and accuracy of the visualizations."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": -3,
+          "thinking": "There are multiple major issues with the plots: 1) The timestamps are not properly aligned with the data, 2) The x-axis values are very large and not normalized relative to session_start_time, 3) The y-axis units are problematic and likely incorrect (\"meters\" for eye position, \"voltage\" for hand position). These issues significantly impact the interpretability and accuracy of the visualizations."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": -1,
+          "thinking": "The analysis has some minor issues, primarily related to how the data is interpreted and presented in the plots. The notebook doesn't make erroneous claims about the data itself, but the visualization problems affect how the data is presented. There are no major analytical errors beyond the plotting issues already noted."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": 0,
+          "thinking": "The notebook is generally cautious in its interpretations and doesn't draw many explicit conclusions. The descriptions of the plots in Cells 18 and 22 accurately describe what is shown, even though the plots themselves have issues. The summary in Cell 29 suggests potential future analyses without making unsupported claims about the current data."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": 0,
+          "thinking": "No other significant issues are mentioned in the critique. The notebook has a clear structure, appropriately imports necessary packages, and includes a disclaimer about being AI-generated. While the plotting issues are significant, they've been captured in the plot-issues category already."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 3310,
+        "total_completion_tokens": 1100,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-17 19:13:06",
+        "system_info": {
+          "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+          "hostname": "system76-pc"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001275",
+    "subfolder": "2025-04-17-claude-3.7-sonnet-prompt-a-5",
+    "gradings": {
+      "prompt_version": "2",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 1,
+          "thinking": "The notebook provides a good description of the Dandiset in Cell 3, including an overview of the experiment (mental navigation in primates), a link to the original publication, and a link to Neurosift. It outlines what the notebook will cover but doesn't go into extensive detail about the dataset's purpose, methodology or significance."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 2,
+          "thinking": "The notebook demonstrates loading the Dandiset very well in Cells 6-7. It connects to the DANDI archive using DandiAPIClient, retrieves the Dandiset with ID \"001275\", and lists the assets (files) within the Dandiset. It also prints the number of assets found and displays the paths of the first five assets, giving users a clear understanding of how to access the dataset programmatically."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 2,
+          "thinking": "The notebook shows how to load basic information from an NWB file very well in Cells 8-10. It defines a URL for a specific NWB file, uses remfile and h5py to access it remotely, and loads it using pynwb. It then extracts and displays basic metadata including file identifier, subject ID, species, session ID, session start time, lab, institution, and session description."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook demonstrates loading multiple pieces of data from the NWB file:\n1. Trial information (Cells 11-13)\n2. Eye position data (Cells 15-16)\n3. Hand position data (Cell 19)\n4. Unit (neuron) information (Cells 22-23)\n5. Spike times (Cell 28)\n6. Electrode information (Cell 37)\nThis covers at least three independent pieces of data (behavioral, neural, and electrode data)."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook demonstrates visualization of multiple pieces of data:\n1. Trial success rates and validity (Cell 14 - pie charts)\n2. Eye position data (Cells 17-18 - line plots, scatter plot, hexbin plot)\n3. Hand position data (Cell 20 - line plot, histogram)\n4. Unit quality distribution (Cell 23 - bar plot)\n5. Firing rate distribution (Cell 24 - histogram)\n6. Spike timing (Cell 28 - raster plot)\n7. Peri-Stimulus Time Histograms (Cells 29, 31, 32)\n8. Electrode positions (Cell 38 - scatter plot)\n9. Behavioral correlations (Cells 35, 40, 42 - scatter plots)\nThis covers at least three independent pieces of data being visualized."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 1,
+          "thinking": "The plots in the notebook are generally of good quality with appropriate titles, labels, and legends. Many plots use seaborn styling for improved aesthetics. The PSTH plots, electrode position plot, and eye position plots are particularly well done. However, some plots have issues (like empty plots in Cell 41) and there are concerns about data validity in some of the behavioral correlation plots."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": -2,
+          "thinking": "Several issues with plots were identified:\n1. Trial type plots in Cell 31 show two blank plots for Trial Types 1 and 2, which should be explained better\n2. Cell 41 shows a completely empty violin plot with no explanation\n3. The scatter plot in Cell 42 has questionable x-axis units (delay values of 10^6 seconds = 11 days)\n4. Some of the response time values in Cell 40 seem implausibly high (~100 seconds)\nThese represent at least two major issues that impact the interpretation of the data."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": -2,
+          "thinking": "There are several analysis issues:\n1. In Cell 19, there's a concern that hand_positions array is 1D but expected to be 2D\n2. The response time values in Cells 40-42 appear problematic, with some values being unrealistically high (up to 500 seconds)\n3. The delay values in Cell 42 (10^6 seconds) seem implausibly long\n4. The notebook doesn't adequately address or explain why Trial Types 1 and 2 have almost no trials\nThese represent several major issues that affect data interpretation."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": 0,
+          "thinking": "The notebook generally avoids making strong unsupported conclusions. In Cell 43 (the summary), it appropriately highlights findings and potential relationships observed in the data without overreaching. It doesn't make claims about causality or significance that aren't supported by the analyses shown. There are some questionable data interpretations (like with response times), but these aren't presented as firm conclusions."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": 0,
+          "thinking": "No other significant issues were mentioned in the critique beyond those already covered in the plot and analysis issues sections. The notebook appears to be well-structured with appropriate introductions for each section, and the code generally runs without errors (although there are concerns about data validity in some sections)."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 7440,
+        "total_completion_tokens": 1415,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-17 19:13:33",
+        "system_info": {
+          "platform": "Linux-6.8.0-57-generic-x86_64-with-glibc2.35",
+          "hostname": "system76-pc"
+        }
+      }
+    }
   }
 ]

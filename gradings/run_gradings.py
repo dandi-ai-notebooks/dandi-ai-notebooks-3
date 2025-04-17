@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Dict, Any, List, Tuple, TypedDict
 from dataclasses import dataclass
 from helpers.run_completion import run_completion
+from html import escape as html_escape
 
 class XMLParsingError(Exception):
     """Custom exception for XML parsing errors."""
@@ -52,6 +53,30 @@ class GradingEntry(TypedDict):
     grade: int
     thinking: str
 
+def escape_xml_chars(xml_text: str) -> str:
+    """
+    Escape '<' and '>' everywhere *except* inside our whitelisted tags.
+    """
+    _ALLOWED_TAGS = [
+        '<grade>', '</grade>',
+        '<question_id>', '</question_id>',
+        '<thinking>', '</thinking>',
+    ]
+    _PLACEHOLDER = '__TAG_{:02d}__'
+    _PLACEHOLDER_RE = re.compile(r'__TAG_(\d{2})__')
+    # 1 . swap each allowed tag for a unique placeholder
+    for i, tag in enumerate(_ALLOWED_TAGS):
+        xml_text = xml_text.replace(tag, _PLACEHOLDER.format(i))
+
+    # 2 . escape everything that remains
+    xml_text = html_escape(xml_text, quote=False)   # keeps & and quotes unchanged
+
+    # 3 . put the real tags back
+    def _restore(match: re.Match) -> str:
+        return _ALLOWED_TAGS[int(match.group(1))]
+
+    return _PLACEHOLDER_RE.sub(_restore, xml_text)
+
 def parse_grades_xml(xml_text: str) -> List[GradeBlock]:
     """Parse grades from XML text into a list of GradeBlock objects.
 
@@ -65,8 +90,10 @@ def parse_grades_xml(xml_text: str) -> List[GradeBlock]:
         XMLParsingError: If XML is malformed or missing required elements
     """
     try:
+        # Escape < and > characters not part of our tags before wrapping
+        escaped_xml = escape_xml_chars(xml_text)
         # Wrap in root element for parsing multiple grade blocks
-        wrapped_xml = f"<grades>{xml_text}</grades>"
+        wrapped_xml = f"<grades>{escaped_xml}</grades>"
         root = ET.fromstring(wrapped_xml)
 
         grades: List[GradeBlock] = []
@@ -153,9 +180,9 @@ def main():
     total_completion_tokens: int = 0
 
     # Process each dandiset
-    for a in notebooks:
+    for ii, a in enumerate(notebooks):
         dandiset_id, subfolder, cells_critique_path = a
-        print(f"\nProcessing gradings for {dandiset_id}/{subfolder}")
+        print(f"\n[{ii + 1}/{len(notebooks)}] Processing {dandiset_id}/{subfolder}")
 
         # Check if gradings already exist
         output_dir = gradings_base_dir / dandiset_id / subfolder
@@ -166,6 +193,8 @@ def main():
             if existing_grades.get("prompt_version") == prompt_version:
                 print(f"Grades for {dandiset_id}/{subfolder} already exist.")
                 continue
+            print(f"Deleting existing grades for {dandiset_id}/{subfolder} to regenerate.")
+            os.remove(output_file)
 
         with open(cells_critique_path, "r") as f:
             critiques = f.read()

@@ -24,7 +24,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [notebookRankings, setNotebookRankings] = useState<NotebookRankingsData>({});
-  const [notebookGradings, setNotebookGradings] = useState<NotebookGradingsData>({});
+  const [notebookGradings, setNotebookGradings] = useState<NotebookGradingsData>([]);
 
   useEffect(() => {
     loadData();

@@ -69,10 +69,8 @@ export interface NotebookGradings {
   }
 }
 
-export interface NotebookGradingsData {
-  [key: string]: {
-    dandiset_id: string;
-    subfolder: string;
-    gradings: NotebookGradings;
-  };
-}
+export type NotebookGradingsData = {
+  dandiset_id: string;
+  subfolder: string;
+  gradings: NotebookGradings;
+}[];
