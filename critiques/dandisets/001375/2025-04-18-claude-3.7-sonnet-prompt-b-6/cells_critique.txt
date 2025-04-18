@@ -1,0 +1,552 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell introduces the notebook and specifies the Dandiset (001375) that will be explored. The title clearly indicates the subject matter: investigating GABA disruption in the septum using DREADDs. This sets the context for the analysis presented in subsequent cells.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell presents a disclaimer, which is critical in the context of AI-generated content. It alerts the user that the notebook's content has not been fully verified and encourages careful review of the code and interpretation of results. This transparency is essential for responsible use of an AI-generated notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell provides an introduction to the dataset being explored. It includes a direct link to the Dandiset on the DANDI Archive. It also provides background information about the study's objectives, including the experimental setup (DREADDs targeting GABAergic neurons in the medial septum), the task (running laps in a virtual hallway), and the research goal (examining the effects of GABAergic disruption on hippocampal and neocortical activity).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell outlines the structure and content of the notebook. It provides a roadmap by listing the key steps, including loading and exploring metadata, examining the dataset structure, loading and visualizing neural recordings and spike trains, and exploring the relationship between neural activity and behavior. This is useful for the user to understand what to expect in the rest of the notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell introduces the need for specific Python packages to be installed, preparing the user for the code needed to execute the notebook. It sets the stage for the installation commands likely to come in the next cell.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell imports the necessary Python packages for data analysis and visualization. It imports `pynwb` and `h5py` for working with NWB files, `remfile` for remote file access, `numpy` for numerical operations, `pandas` for data manipulation, `matplotlib.pyplot` for basic plotting, and `seaborn` for enhanced visualizations. It also sets the default figure size using `plt.rcParams`.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell serves as a heading, signaling the start of the process of loading the Dandiset. It prepares the reader for the code that will actually perform the loading in the subsequent cell(s).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell uses the `dandi` library to connect to the DANDI Archive and retrieve information about Dandiset 001375. It retrieves the Dandiset's metadata, prints the name and URL, lists the assets within the Dandiset, and prints the paths of the first 5 assets. This provides a basic overview of the Dandiset's contents.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The output states "Found 3 assets in the dataset" and then "First 5 assets", which is contradictory and confusing. There can be at most 3 assets listed. The printed URL has extra information appended to it ("/0.250406.1855") compared to the URL specified in the earlier markdown cell, though both are valid.
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell introduces the next step in the analysis: exploring the contents of the dataset. It reiterates that the dataset contains NWB files with neural recordings, providing context for the subsequent code.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell iterates through the assets obtained in the previous cell and extracts the file path, file size (in MB), and asset identifier. It then creates a Pandas DataFrame to display this information in a structured table.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell provides a more detailed description of the dataset structure. It explains the composition of recordings, including two subjects, the number of sessions for each, the variation in recording sessions with locations, and the nature of data within (spikes, raw electrophysiology).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell indicates the start of loading and exploring an NWB file. It specifies that the first file will be loaded, which is from subject MS13B, guiding the reader through the next step.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell loads the first NWB file from the Dandiset (asset ID `ce525828-8534-4b56-9e47-d2a34d1aa897`, corresponding to MS13B), and extracts and prints basic information, including the session ID, description, start time, and file creation date. The cell uses `remfile` to handle remote file access and `pynwb` to read the NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The UserWarning from hdmf about ignoring a cached namespace version is a bit noisy but probably unimportant. The output correctly displays file metadata for this subject.
+
+Cell 14
+==========
+
+OVERVIEW:
+This cell introduces the next step in exploration: the subject information within the NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 15
+==========
+
+OVERVIEW:
+This cell retrieves and prints information about the subject from the NWB file, including the subject ID, age, sex, species, and a brief description, thus providing context.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 16
+==========
+
+OVERVIEW:
+This cell introduces the electrode information, focusing on the use of silicon probe arrays and preparing for an examination of the electrode setup.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 17
+==========
+
+OVERVIEW:
+This cell extracts and prints the electrode information from the NWB file. It gets the electrode information, prints the total number of electrodes, iterates through the electrode groups (shank1 and shank2), prints their descriptions, locations, and device information, and displays the head of the `electrodes` DataFrame. This provides details about the recording setup.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 18
+==========
+
+OVERVIEW:
+This cell sets up the code for visualizing the electrode positions.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 19
+==========
+
+OVERVIEW:
+This cell generates a scatter plot visualizing the electrode positions based on their x and y coordinates. Electrodes are grouped by 'group_name' (shank1 and shank2), and each group is represented by a different color. The plot includes a title, axis labels, a legend, and a grid for better readability.
+
+IMAGE DESCRIPTIONS:
+The plot depicts electrode positions in 2D space, with X position on the horizontal axis and Y position on the vertical axis. Two distinct vertical clusters of points are visible, corresponding to the two electrode groups, "shank1" and "shank2". Shank1 (blue) is located at X ~ -20, and shank2 (brown) is located at X ~ 0 and  X ~ 20. Each cluster has the same number of electrodes placed vertically spanning from approximately 0 to 2000.
+
+ISSUES:
+There is something wrong with shank2 electrode x position which shows some of the electrodes with x = 20 and one with x = 16. It might be good to investigate the raw data shown in the electrode table from the last cell.
+
+Cell 20
+==========
+
+OVERVIEW:
+This cell interprets the electrode position plot shown in the previous cell. It explains that electrodes are arranged in vertical shanks and that these are used to record from different layers of the brain.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 21
+==========
+
+OVERVIEW:
+This cell shifts the focus to the neural units (neurons) within the dataset, specifying that the next step will be to examine the neurons and their properties. This prepares the user for the code related to spike times and neuron characteristics.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 22
+==========
+
+OVERVIEW:
+This cell retrieves information about neural units (neurons) from the NWB file. It extracts the number of units and available columns of the units table. The cell then calculates the firing rates for each unit based on its spike times and the recording duration. The code adds the firing rates to the units DataFrame, calculates and prints descriptive statistics of the firing rates, and generates a histogram visualizing the distribution of firing rates across the population of neurons.
+
+IMAGE DESCRIPTIONS:
+The histogram shows the distribution of firing rates across all units. The x-axis represents the firing rate in Hz, and the y-axis represents the number of units. The distribution is right-skewed, with a majority of neurons having firing rates below 10 Hz, and a long tail extending to higher firing rates. The histogram provides a visual representation of the typical firing rate range for the recorded neurons.
+
+ISSUES:
+The variable `recording_duration` is calculated as the max of `nwb.trials['stop_time'][:]`, which is appropriate. There's a loop to iterate the `spike_times`, even though it can be vectorized using `np.array([len(x) for x in nwb.units['spike_times']]) / recording_duration`. Although the looping is unnecessary, it is functionally correct.
+
+Cell 23
+==========
+
+OVERVIEW:
+This cell attempts to interpret the histogram of firing rates generated in the previous cell but makes an incorrect assertion about bimodality. It also provides a (possibly correct) interpretation of the firing rate distribution, suggesting that lower-firing neurons are likely principal excitatory neurons and higher-firing neurons are likely inhibitory interneurons.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The markdown states that the histogram shows a bimodal distribution. Based on the previous image, the distribution appears unimodal and right-skewed, not bimodal. This is an incorrect interpretation. The association of firing rate ranges with cell types is speculative but plausible.
+
+Cell 24
+==========
+
+OVERVIEW:
+This cell introduces the generation of a spike raster plot to visualize the firing patterns of individual neurons.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 25
+==========
+
+OVERVIEW:
+This cell creates a spike raster plot for the first 10 units in the dataset. It iterates through each of the selected units and plots vertical lines (`|`) at the times when each neuron fired a spike. The plot shows time on the x-axis and the unit number on the y-axis, providing a visual representation of the spiking activity of individual neurons over time.
+
+IMAGE DESCRIPTIONS:
+The spike raster plot displays the firing patterns of the first 10 units. Each row represents a neuron, and each vertical tick mark represents a spike. The x-axis represents time, spanning from 0 to approximately 5000 seconds. Some units display relatively consistent firing rates, while other units have periods of increased or decreased activity. Unit #0 has very few spikes in the interval.
+
+ISSUES:
+The plot is not very informative. Most neurons have consistent firing rates across the entire range. The plot suggests there might be artifacts such as dead neurons or neurons activated for a certain period of time. This could be a reflection of the experimental design or the quality of the recordings. It would be more valuable to relate the spiking activity to behavioral events (e.g., timestamps when animal is running laps).
+
+Cell 26
+==========
+
+OVERVIEW:
+This cell introduces the next phase of analysis: exploring the trial information. It clarifies the experimental context, stating that the mice were running laps in a virtual hallway.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 27
+==========
+
+OVERVIEW:
+This cell retrieves and analyzes the trial information from the NWB file. It calculates and prints the total number of trials, lists the column names, calculates trial durations, prints summary statistics for trial duration, and generates a plot of trial durations over trial number and a histogram of trial durations.
+
+IMAGE DESCRIPTIONS:
+The first plot displays trial durations as a function of trial number. Most trials have durations between 5 and 20 seconds, but there are some outliers with considerably longer durations (e.g., near trial 200 with duration greater than 160 seconds). The second plot shows the distribution of trial durations as a histogram. The distribution is right-skewed toward shorter durations.
+
+ISSUES:
+None
+
+Cell 28
+==========
+
+OVERVIEW:
+This cell provides an interpretation of the trial duration plots from the previous cell. It accurately describes the trial duration distribution and suggests a plausible explanation for the variability in trial durations in relation to the animal's behavior.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 29
+==========
+
+OVERVIEW:
+This cell moves to analyzing neural responses to trial events, presenting that peri-stimulus time histograms (PSTHs) aligned to trial start will be plotted.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 30
+==========
+
+OVERVIEW:
+This cell generates peri-stimulus time histograms (PSTHs) for a few selected units, aligned to the start time of each trial. The PSTH plots the firing rate of each neuron as a function of time relative to the trial start. The time window spans 1 second before trial start to 3 seconds after. A vertical dashed line is added at time zero to indicate the trial start.
+
+IMAGE DESCRIPTIONS:
+The plot shows PSTHs for 5 different units (labeled Unit 1 through Unit 5). Firing rates are plotted from -1 second to +3 seconds relative to the trial start (denoted by a vertical dashed line at 0 seconds). Unit 3 shows an increase in the firing rate after the trial begins. Unit 2 has a transient increase in firing rate just before the trial, followed by a decline after the trial starts.
+
+ISSUES:
+None
+
+Cell 31
+==========
+
+OVERVIEW:
+This cell interprets the PSTH plot, noting different response patterns to the start of trials, including increased firing, decreased firing, and transient responses and it suggests that these different response patterns suggest that the neurons have different functional roles in the task.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 32
+==========
+
+OVERVIEW:
+This cell introduces the exploration of raw electrophysiology data. It acknowledges the data's large size and states that only a small segment will be examined.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 33
+==========
+
+OVERVIEW:
+This cell extracts a short segment (0.1 seconds) of raw electrophysiology data from a few channels on each shank (shank1 and shank2) and plots the raw traces. This enables visual inspection of the raw signal.
+
+IMAGE DESCRIPTIONS:
+The figure shows two subplots, one for Shank 1 and one for Shank 2. Each subplot shows the raw electrophysiological signal over time for three different channels. For Shank 1, the channels are labeled channels 0, 1, and 2. The signals appear noisy, with fluctuations on multiple time scales. For Shank 2, the channels are labeled channels 128, 129, and 130. These channel traces have a downward initial deflection, followed by a slow upward drift over time.
+
+ISSUES:
+The shape of Shank2 looks very different than that of Shank1. This may be worth looking into. Also I am not sure that "amplitude" should have units of uV, as the units of the `time_series` dataset are mV.
+
+Cell 34
+==========
+
+OVERVIEW:
+This cell provides an interpretation of the raw trace plots generated in the previous cell. It highlights visually discernible features such as fast oscillations, potential action potentials, differences in signal characteristics between channels, and potential artifacts.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 35
+==========
+
+OVERVIEW:
+This cell transitions to comparing recordings from different subjects by loading data from another NWB file, specifically one of the MS14A recordings.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 36
+==========
+
+OVERVIEW:
+This cell loads the second NWB file (MS14A - obj-12781w8) using its asset ID. It then extracts and prints basic information about this file, including the subject ID, session description, number of electrodes, number of units, and number of trials.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 37
+==========
+
+OVERVIEW:
+This cell transitions to comparing the trial structure between the two subjects (MS13B and MS14A).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 38
+==========
+
+OVERVIEW:
+This cell compares the trial durations between subjects MS13B and MS14A by generating a box plot of trial durations for each subject. The code concatenates trial data from both subjects into a single Pandas DataFrame and then uses `seaborn` to create the boxplot.
+
+IMAGE DESCRIPTIONS:
+The boxplot compares trial durations for subjects MS13B and MS14A. Both subjects have similar median trial durations, though MS13B has a longer tail to longer durations. There are a number of outlier trials with longer durations for both subjects.
+
+ISSUES:
+None
+
+Cell 39
+==========
+
+OVERVIEW:
+This cell sets up the user for code that will compare the neural activity of MS13B and MS14A by examining firing rate distributions.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 40
+==========
+
+OVERVIEW:
+This cell calculates and compares the firing rate distributions for subjects MS13B and MS14A. The cell generates a histogram that overlays the firing rate distributions for the two subjects, allowing for visual comparison.
+
+IMAGE DESCRIPTIONS:
+The historgram plots the distribution of firing rates for each subject. Most of the units are have low firing rates between 0 and 10 Hz. MS14A has very few units with firing rates greater than 40 Hz, while MS13B has more. It seems as though MS14A has much higher count for units with lower firing rate.
+
+ISSUES:
+The `firing_rate_data` DataFrame construction seems to rely on the old `firing_rates` variable instead on `firing_rates_2`. It appears that 33 firing rates calculated from MS13B were used rather than the 68 firing rates from MS14A. It should instead be
+```
+firing_rate_data = pd.DataFrame({
+    'firing_rate': firing_rates + firing_rates_2,
+    'subject': ['MS13B'] * len(firing_rates) + ['MS14A'] * len(firing_rates_2)
+})
+```
+to make sure this is done correctly.
+
+Cell 41
+==========
+
+OVERVIEW:
+This cell frames the overall goal of the experiment, which is to study the effects of disrupting septal GABAergic activity using DREADDs on hippocampal and neocortical activity. It acknowledges the limitations in directly analyzing DREADD activation effects without precise timing information. It moves on to correlate firing rates and travel duration, which might be related to experimental manipulation.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 42
+==========
+
+OVERVIEW:
+This cell aims to examine the relationships between neural activity (firing rates) and trial performance (duration). First, a function `get_trial_firing_rates` is defined to calculate the average firing rate across all units during each trial, counting the spikes of all neurons within each trial. Secondly, this function is then applied to the first subject (MS13B) trial data. Then a scatterplot visualizes the relation between trial duration and averaged firing rate of subject MS13B.
+
+IMAGE DESCRIPTIONS:
+
+The scatter plot shows each trial event from subject MS13B plotted as a function of trial duration (x-axis) and the average firing rate (y-axis). There appears to be a negative relationship between trial duration and average firing rate of neurons. As the travel distance increased, the average firing rate decreased such that trials with the longest durations have the lowest firing rates.
+
+ISSUES:
+The inner loop can be optimized by getting rid of `sum` as it is applied on a boolean; this will improve execution speed. Also, the same analysis should be done for MS14A to get a complete overview of the data.
+
+Cell 43
+==========
+
+OVERVIEW:
+This cell provides a conclusion to the notebook. It summarizes the explored aspects of the Dandiset 001375. It recaps the various components of the dataset examined and it suggests future steps for analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 44
+==========
+
+OVERVIEW:
+This cell introduces the listing of closing resources, which can be code or markdown (e.g., links to the DANDI archive).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 45
+==========
+
+OVERVIEW:
+This cell closes the open NWB files (`h5_file` and `h5_file_2`) to release resources, which is good practice.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+

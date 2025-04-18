@@ -1,0 +1,269 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell introduces the notebook's focus: Dandiset 001375, which concerns research on Septum GABA Disruption using DREADDs. The title is informative and sets the stage for the subsequent analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell is a disclaimer, warning the user that the notebook was AI-generated and may contain errors. This is crucial for responsible use of the notebook and manages user expectations.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell provides a brief description of the Dandiset (001375) featured in the notebook, including its focus on the effects of septal GABAergic activity disruption on hippocampal and neocortical activity. It also provides a direct link to the Dandiset on the DANDI Archive, which is essential for reproducibility and further exploration.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell outlines the scope of the notebook by listing the key steps involved in exploring the Dandiset: loading the Dandiset and an NWB file, exploring NWB file metadata, and visualizing electrophysiology data. This is a useful roadmap for the user.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell lists the Python packages required to run the notebook. This allows users to ensure that they have the necessary dependencies installed before proceeding. The list includes core packages for neurodata handling, numerical computation, and data visualization.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell uses the DANDI API to connect to the DANDI archive, retrieve the specified Dandiset (001375), and print some basic information, including the Dandiset name and URL. It then lists the first 5 assets (NWB files) found within the Dandiset. The purpose is to demonstrate how to programmatically access the Dandiset and its contents.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell specifies which NWB file will be loaded for further exploration: `sub-MS13B/sub-MS13B_ses-20240725T190000_ecephys.nwb`. It also provides the direct URL to download this asset from the DANDI archive. This allows the user to easily locate and access the specific file being used by the notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell loads the NWB file specified in the previous cell using `pynwb`, `h5py`, and `remfile`. It reads the file from the provided URL and then accesses and prints several metadata attributes of the NWB file: `session_description`, `identifier`, `session_start_time`, `timestamps_reference_time`, `file_create_date`, and `acquisition`. This demonstrates how to access basic information stored in the NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+- The large output of the 'acquisition' field as a LabelledDict directly in the textual output could be improved by selecting and displaying only particularly insightful items.
+
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell introduces the next stage of the notebook: loading and visualizing electrophysiology data from the NWB file that was loaded in the previous cell. This sets the expectation for the content of the following cells.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell imports the necessary libraries for plotting: `matplotlib.pyplot`, `numpy`, and `seaborn`. It also sets the default plotting style using `sns.set_theme()`. This ensures that the notebook is ready for generating visualizations.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell accesses and prints various attributes of the "time_series" object within the "acquisition" group of the NWB file. It displays information such as `starting_time`, `rate`, `resolution`, `comments`, `description`, `conversion`, `offset`, `unit`, and the shape and data type of the `data` array. This provides insight into the properties of the electrophysiology data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell provides a transition to the visualization stage. It states the intent to load a subset of the electrophysiology data and plot it. It also includes a note about potential loading time due to data streaming, which is important for the user to be aware of.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell loads a subset of the electrophysiology data (the first 1000 timepoints from the first 10 channels). It then generates a line plot showing the voltage over time for each of the 10 channels. The plot includes appropriate labels for the x-axis ("Time (samples)"), y-axis ("Voltage (mV)"), and title ("Electrophysiology Data"). This provides a basic visualization of the data.
+
+IMAGE DESCRIPTIONS:
+The image is a line plot showing electrophysiology data. The x-axis represents "Time (samples)" and ranges from 0 to 1000. The y-axis represents "Voltage (mV)" and ranges from approximately -3000 to 1500. There are 10 lines plotted, each representing a different channel. The lines show fluctuating voltage values over time, indicating the electrical activity recorded.
+
+ISSUES:
+None
+
+Cell 14
+==========
+
+OVERVIEW:
+This cell serves as a transition to exploring the electrodes table within the NWB file. It prepares the user for the following cells, which will presumably involve examining the electrode metadata.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 15
+==========
+
+OVERVIEW:
+This cell accesses and prints the column names of the electrodes table in the NWB file. The output shows the available metadata for each electrode, including spatial coordinates (x, y), location, filtering information, group assignment, group name, and a label. This is a helpful overview of the available electrode information.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 16
+==========
+
+OVERVIEW:
+This cell converts the electrodes table to a Pandas DataFrame and displays the first 5 rows using `.head()`. This provides a clear view of the electrode metadata for the first few electrodes, including x and y coordinates, location, filtering, group assignment (as an ElectrodeGroup object and a group name), and labels. This is helpful for understanding the electrode configuration.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 17
+==========
+
+OVERVIEW:
+This cell serves as a transition to exploring the units table within the NWB file, focusing on spike-sorted data. This prepares the user for what to expect in the following cells.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 18
+==========
+
+OVERVIEW:
+This cell prints the column names of the units table, which in this case only contains 'spike_times'. This indicates the presence of spike-sorted data in the NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 19
+==========
+
+OVERVIEW:
+This cell converts the units table to a Pandas DataFrame and displays the first 5 rows using `.head()`. This shows the spike times for the first 5 units. Each unit has a list of spike times, representing when that neuron fired.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 20
+==========
+
+OVERVIEW:
+This cell sets the stage for visualizing the spike times of the first unit. It indicates that the following code will load these spike times and create a plot.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 21
+==========
+
+OVERVIEW:
+This cell loads the first 100 spike times from the first unit (`nwb.units.spike_times[0:100]`) and generates a raster plot. The raster plot visualizes the timing of individual spikes. The x-axis represents time in seconds, and the y-axis represents the unit (neuron). Each vertical line indicates a spike event. The plot includes labels for the x-axis ("Time (s)"), y-axis ("Unit"), and a title ("Spike Times for Unit 0").
+
+IMAGE DESCRIPTIONS:
+The image presents a raster plot titled "Spike Times for Unit 0". The x-axis, labeled "Time (s)", spans a range from approximately 0 to 85 seconds. The y-axis, labeled "Unit", is essentially a line at y=0. Vertical lines (tick marks) are plotted along this line, each representing the occurrence of a spike. The distribution of these vertical lines visually indicates the spike times of a neuron.
+
+ISSUES:
+The y-axis label 'Unit' is not very informative. Ideally, it would have been better to have no y-axis label, but having 'Unit' is not wrong.
+There could have been a better way to showcase the 'sampling' of first 100 out of an unknown number of spike times. Even though the sampling is only useful for showcasing and exploration, more can be done to clearly emphasize this aspect to the reader. This can be done in text or in the visualization.
+
+Cell 22
+==========
+
+OVERVIEW:
+This cell provides a summary of the notebook's content and suggests potential future directions for exploring the Dandiset further. The summary highlights the key functionalities demonstrated: loading a Dandiset, loading an NWB file, and visualizing electrophysiology data. The "Possible future directions" section suggests exploring other NWB files, examining other data modalities like stimulus information, and performing advanced analysis such as spike sorting. This section can prompt users to expand upon the provided analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
