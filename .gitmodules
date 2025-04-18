@@ -31,3 +31,6 @@
 [submodule "dandisets/001195"]
 	path = dandisets/001195
 	url = https://github.com/dandi-ai-notebooks/001195
+[submodule "dandisets/001375"]
+	path = dandisets/001375
+	url = https://github.com/dandi-ai-notebooks/001375
