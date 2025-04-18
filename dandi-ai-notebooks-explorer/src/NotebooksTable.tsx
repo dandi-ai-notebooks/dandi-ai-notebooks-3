@@ -69,7 +69,7 @@ export default function NotebooksTable({ notebooks, critiques, notebookRankings,
   }), [notebookRankings]);
 
   const getPromptUrl = (prompt: string) => {
-    return `https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-2/blob/main/templates/${prompt}`;
+    return `https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-3/blob/main/templates/${prompt}`;
   };
 
   const getRankingsUrl = (notebook: Metadata) => {
