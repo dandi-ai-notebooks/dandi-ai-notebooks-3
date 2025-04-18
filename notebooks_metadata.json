@@ -432,6 +432,60 @@
     "subfolder": "2025-04-17-gpt-4o-prompt-b-5"
   },
   {
+    "dandiset_id": "001195",
+    "model": "openai/gpt-4o",
+    "prompt": "prompt-a-6.txt",
+    "total_prompt_tokens": 118842,
+    "total_completion_tokens": 2147,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 89.32736706733704,
+    "timestamp": "2025-04-18 19:47:49",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-18-gpt-4o-prompt-a-6"
+  },
+  {
+    "dandiset_id": "001195",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-a-6.txt",
+    "total_prompt_tokens": 337196,
+    "total_completion_tokens": 9079,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 280.2411241531372,
+    "timestamp": "2025-04-18 19:46:19",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-18-claude-3.7-sonnet-prompt-a-6"
+  },
+  {
+    "dandiset_id": "001195",
+    "model": "google/gemini-2.0-flash-001",
+    "prompt": "prompt-a-6.txt",
+    "total_prompt_tokens": 134556,
+    "total_completion_tokens": 2523,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 51.311376333236694,
+    "timestamp": "2025-04-18 19:31:35",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-18-gemini-2.0-flash-001-prompt-a-6"
+  },
+  {
     "dandiset_id": "001335",
     "model": "openrouter/quasar-alpha",
     "prompt": "prompt-a-1.txt",

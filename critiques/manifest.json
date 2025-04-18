@@ -105,6 +105,21 @@
     "dandisets/001174/2025-04-18-gpt-4o-prompt-d-5/cells_critique.json",
     "dandisets/001174/2025-04-18-gpt-4o-prompt-d-5/cells_critique.txt",
     "dandisets/001174/2025-04-18-gpt-4o-prompt-d-5/summary_critique.txt",
+    "dandisets/001195/2025-04-18-claude-3.7-sonnet-prompt-a-6/cells_critique.json",
+    "dandisets/001195/2025-04-18-claude-3.7-sonnet-prompt-a-6/cells_critique.txt",
+    "dandisets/001195/2025-04-18-claude-3.7-sonnet-prompt-a-6/summary_critique.txt",
+    "dandisets/001195/2025-04-18-gemini-2.0-flash-001-prompt-a-5/cells_critique.json",
+    "dandisets/001195/2025-04-18-gemini-2.0-flash-001-prompt-a-5/cells_critique.txt",
+    "dandisets/001195/2025-04-18-gemini-2.0-flash-001-prompt-a-5/summary_critique.txt",
+    "dandisets/001195/2025-04-18-gemini-2.0-flash-001-prompt-a-6/cells_critique.json",
+    "dandisets/001195/2025-04-18-gemini-2.0-flash-001-prompt-a-6/cells_critique.txt",
+    "dandisets/001195/2025-04-18-gemini-2.0-flash-001-prompt-a-6/summary_critique.txt",
+    "dandisets/001195/2025-04-18-gpt-4o-prompt-a-5/cells_critique.json",
+    "dandisets/001195/2025-04-18-gpt-4o-prompt-a-5/cells_critique.txt",
+    "dandisets/001195/2025-04-18-gpt-4o-prompt-a-5/summary_critique.txt",
+    "dandisets/001195/2025-04-18-gpt-4o-prompt-a-6/cells_critique.json",
+    "dandisets/001195/2025-04-18-gpt-4o-prompt-a-6/cells_critique.txt",
+    "dandisets/001195/2025-04-18-gpt-4o-prompt-a-6/summary_critique.txt",
     "dandisets/001275/2025-04-17-claude-3.7-sonnet-prompt-a-5/cells_critique.json",
     "dandisets/001275/2025-04-17-claude-3.7-sonnet-prompt-a-5/cells_critique.txt",
     "dandisets/001275/2025-04-17-claude-3.7-sonnet-prompt-a-5/summary_critique.txt",
@@ -214,5 +229,5 @@
     "templates/notebook_critic_cells_system_prompt.txt",
     "templates/notebook_critic_summary_system_prompt.txt"
   ],
-  "file_count": 213
+  "file_count": 228
 }

@@ -1,0 +1,98 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell is an introductory markdown cell that sets the stage for the rest of the notebook. It introduces the Dandiset being explored (001195), briefly describes the study's focus (dopamine projections and loneliness), and outlines the types of data included (calcium imaging, behavioral videos, and electrophysiology). It also provides a warning about the AI-generated nature of the notebook and lists the required Python packages. The cell effectively orients the reader to the notebook's purpose and scope.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This markdown cell serves as a section header, indicating that the following cells will focus on loading the Dandiset using the DANDI API. It prepares the reader for the code related to data loading.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell uses the `dandi` library to connect to the DANDI Archive and retrieve information about Dandiset 001195. It retrieves the Dandiset's metadata, including its name and citation URL. It also lists the first five assets (files) within the Dandiset. This cell successfully demonstrates how to programmatically access and explore the Dandiset's contents.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 4
+==========
+
+OVERVIEW:
+This markdown cell announces the intention to load a specific NWB file from the Dandiset and display its metadata. It explicitly names the NWB file that will be used for demonstration. This prepares the reader for the subsequent code that will load and inspect the NWB file's contents.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell loads a specific NWB file from the DANDI Archive using its URL and then extracts and prints some basic metadata, including the NWB identifier, session description, and session start time. The code uses `remfile` to handle remote file access via the URL and `pynwb` to load and parse the NWB file. The cell demonstrates how to access and display metadata from an NWB file.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 6
+==========
+
+OVERVIEW:
+This markdown cell introduces the next step: visualizing data from the loaded NWB file. It specifically mentions focusing on a `CurrentClampSeries` to avoid generating excessive output. It sets the expectation that the code will demonstrate how to access and plot a small portion of the data.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell visualizes a segment of data from a `CurrentClampSeries` within the loaded NWB file. It accesses the data from the `current_clamp-response-01-ch-0` acquisition, takes the first 100 samples, and plots them as a line graph. The plot displays the voltage response over the sample index, with appropriate labels and a title. This cell provides a basic example of visualizing electrophysiology data from an NWB file.
+
+IMAGE DESCRIPTIONS:
+The image is a line plot that visualizes the voltage response over time. The x-axis represents the "Sample Index," ranging from 0 to 100. The y-axis represents "Voltage (Volts)," ranging from approximately -2312 to -2305 volts. The plot shows a fluctuating voltage signal, visualized with a blue line. At the top of the plot, there's a title "Sample Voltage Response from CurrentClampSeries". A legend in the top left corner identifies the data as "Voltage Response (First 100 samples)".
+
+ISSUES:
+None.
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell provides a summary of the notebook's contents and suggests potential directions for future analysis. It reiterates that the notebook demonstrated loading and visualizing data from Dandiset 001195 and proposes further analysis options like detailed examination of datasets, advanced visualizations, and dataset integration.
+
+IMAGE DESCRIPTIONS:
+None.
+
+ISSUES:
+None.
+

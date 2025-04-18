@@ -1,0 +1,149 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell contains the title of the notebook, which introduces the specific Dandiset being explored (001195) and its research topic - the relationship between dorsal raphe dopamine projections and loneliness. This cell sets the context for the entire notebook and provides a concise summary of the study's focus.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell contains a disclaimer. It informs the user that the notebook was automatically generated and may contain errors, urging them to exercise caution when interpreting the content. This disclaimer is important for setting expectations and reminding the user to critically evaluate the information presented.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell provides a brief summary of the Dandiset 001195, outlining the research focus on brain regions involved in social behavior and loneliness. It includes a link to the Dandiset on Neurosift for further exploration and cites the associated publication. The Neurosift link allows users to visually explore the fileset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell outlines the structure and content of the notebook, providing a roadmap for the user. It lists the key steps: loading the Dandiset, loading an NWB file, visualizing electrophysiology data, and summarizing findings and future directions. This roadmap helps the user understand the notebook's purpose and what to expect in the subsequent sections.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell lists the Python packages required to execute the code in the notebook. It serves as a checklist for the user to ensure they have the necessary dependencies installed before proceeding.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell introduces the next major section of the notebook: loading the Dandiset using the DANDI API. It acts as a header for the following cells that will demonstrate the process.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell uses the DANDI API to connect to the DANDI archive, retrieve Dandiset 001195, and list its assets. It prints the total number of assets found and displays the paths of the first five assets as an example.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell introduces the next section focusing on loading and exploring a Neurodata Without Borders (NWB) file from the Dandiset assets. It serves as a header to indicate what the following cells will demonstrate.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell loads an NWB file from a specified URL within the Dandiset using `pynwb`, `h5py`, and `remfile`. It then prints the session description and experimenter metadata from the loaded NWB file. The use of `remfile` appears appropriate here for handling remote files.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell serves as a header, indicating the next step: visualizing data extracted from the NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell extracts the first 10 data points from a current clamp acquisition in the NWB file and plots them. The plot displays voltage (V) on the y-axis against the sample index on the x-axis. The title "Current Clamp Response - First 10 Data Points" clearly describes the data being visualized.
+
+IMAGE DESCRIPTIONS:
+The image is a line plot titled "Current Clamp Response - First 10 Data Points". The x-axis is labeled "Sample Index" and ranges from 0 to 9. The y-axis is labeled "Voltage (V)" and ranges from approximately -2311 to -2308. The line plot shows the voltage values fluctuating over the 10 samples, with a notable peak around sample index 3-4.
+
+ISSUES:
+None. However, plotting only the first 10 data points might not be very informative. A larger segment of the data would provide a more representative view of the current clamp response. Also, displaying the values as floats with that many digits after the decimal are irrelevant. There is no information on the sampling rate, and it is not possible to tell what the time scale of the recording is.
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell summarizes the performed analysis and suggests potential future directions. It mentions that the notebook provided a brief overview of the electrical data and proposes further analysis, such as optimizing data loading and exploring full-session data across multiple files, to gain a more comprehensive understanding of neural behavior in social contexts.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
