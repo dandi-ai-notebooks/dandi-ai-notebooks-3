@@ -1,0 +1,258 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell provides the title of the notebook, which clearly states the Dandiset being explored and the specific type of data within that Dandiset. It sets the context for the notebook's content.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell contains a warning that the notebook was AI-generated and hasn't been fully verified, urging caution when interpreting the results. This is an important disclaimer for the user.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell gives a short introduction to the Dandiset being explored. It provides a link to the Dandiset on the DANDI Archive and a link to explore it using Neurosift. This is useful for the user to get more information about the data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell describes the structure of the notebook. It lists the steps that the notebook will go through, which is helpful for the user to know what to expect.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell lists the Python packages needed to execute the notebook. This is useful for the user to ensure they have the necessary dependencies installed.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell introduces the section where the Dandiset will be loaded using the DANDI API. It serves as a heading.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell uses the `dandiapi` library to connect to the DANDI archive, retrieve the specified Dandiset (001363), and list the first five assets (NWB files) within the Dandiset. The output displays the number of assets found and the paths of the first five assets. This cell successfully demonstrates how to access the contents of a Dandiset programmatically.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell introduces the section in which data from a specific NWB file will be loaded and visualized. It mentions how the URL for the asset was obtained (using the DANDI API), which is consistent with the previous cell, although the specific subject ID (BH589, vs BH643 in previous cells) and date are concerning.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The subject ID (BH589) and session date (20240827) in the filename are different from those listed in the previous cell (BH643 and multiple 20241220 dates). This suggests an inconsistency or error in selecting the NWB file. This NWB file may not actually exist in the dandiset. This needs to be fixed to ensure the notebook is using the correct NWB file.
+
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell loads an NWB file from a specified URL using `remfile`, `h5py`, and `pynwb`. It reads the file into a `nwb` object. The cell imports necessary libraries and then proceeds to access the NWB file. There are UserWarning messages about namespace versions, but they don't appear to halt the execution.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The URL used to access the NWB file is hardcoded. This makes it difficult to change the file being analyzed. It also doesn't match the file path specified in the previous markdown cell (`sub-BH589/sub-BH589_ses-20240827T160457_ecephys.nwb`). It would be better to dynamically select which asset to load based on the output from the first code cell or to update the markdown to match the loaded asset. The namespace version warnings, although they don't stop execution, suggest potential compatibility issues between the libraries being used and the NWB file. It might be worth investigating those warnings to ensure data is being read correctly.
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell is a simple introductory statement, indicating the intention to examine metadata from the NWB file loaded in the prior cell.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell accesses and displays the `session_description` attribute of the loaded NWB file. The output shows that the session description is "Rat Ultrasound Array Stimulation".
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell accesses and displays the `identifier` attribute of the loaded NWB file. The output shows the identifier string.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell accesses and displays the `session_start_time` attribute of the loaded NWB file. The output shows the date and time the session started.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 14
+==========
+
+OVERVIEW:
+This cell introduces loading and visualizing the `ElectricalSeries` data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 15
+==========
+
+OVERVIEW:
+This cell accesses the `ElectricalSeries` data from the NWB file, extracts the data and the sampling rate, and prints their shapes, data type, and value respectively.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 16
+==========
+
+OVERVIEW:
+This cell describes the action to be performed which is to plot a subset of the `ElectricalSeries` data - specifically the first 1000 samples from the first channel.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 17
+==========
+
+OVERVIEW:
+This cell plots the first 1000 samples of the first channel of the `ElectricalSeries` data. The x-axis represents time in seconds, and the y-axis represents voltage. The plot is titled accordingly and the axes are labelled.
+
+IMAGE DESCRIPTIONS:
+The plot displays a time series of voltage values. The x-axis (Time (s)) ranges approximately from 0 to 0.04 seconds. The y-axis (Voltage (V)) ranges from approximately -2e-5 to 2e-5. The plot shows rapid fluctuations in voltage over the short time interval.
+
+ISSUES:
+None
+
+Cell 18
+==========
+
+OVERVIEW:
+This markdown cell introduces the next section of the notebook where the user will examine trials data and plot the distribution of trial durations.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 19
+==========
+
+OVERVIEW:
+This cell accesses the "trials" data from the NWB file, converts it into a Pandas DataFrame, and subtracts the `session_start_time` from the `start_time` and `stop_time` columns. Finally, it prints the first few rows of the DataFrame.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The subtraction of `session_start_time` from start and stop times appears to be implemented incorrectly. The printed values for start_time and stop_time are all the same large negative number (-1.724789e+09), which is highly unlikely for trial start and stop times relative to the apparent session start time. The `.timestamp()` method converts the datetime object to seconds since the epoch (1970-01-01). Subtracting *that* from the *already* relative start and end times makes little sense. The start and stop times within the nwb object are already relative to the session start time, so no conversion should be needed. The fact that these numbers are all exactly the same also suggests an anomaly. This code likely contains a critical error that affects the outcome. The correct approach would be to skip the timestamp conversion and direct subtraction since the times are stored relative to the session start already.
+
+Cell 20
+==========
+
+OVERVIEW:
+This cell calculates the duration of each trial by subtracting the start time from the stop time and then plots a histogram of these durations.
+
+IMAGE DESCRIPTIONS:
+The histogram shows the distribution of trial durations. The x-axis represents the trial duration in seconds, and the y-axis represents the number of trials. The histogram shows one single very large bin near a value of 1.5 seconds, indicating that nearly all trials have the same duration.
+
+ISSUES:
+Due to the error in the previous cell where `start_time` and `stop_time` were almost identical, the calculated durations are all very close to zero. This results in a histogram with a single, narrow bar. This plot does not accurately represent the distribution of trial durations because of the preceding calculation error. Because of this, the conclusions drawn from the plot would be invalid. The x-axis range is also misleading, suggesting durations from 1 to 2 seconds.
+
+Cell 21
+==========
+
+OVERVIEW:
+This cell summarizes the contents of the notebook and suggests future analysis directions.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The summary is partially inaccurate due to the errors in calculating trial durations. The suggested future directions are reasonable given the context of the dataset.
+

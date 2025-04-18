@@ -3997,6 +3997,228 @@
   },
   {
     "dandiset_id": "001363",
+    "subfolder": "2025-04-18-gpt-4o-prompt-b-5",
+    "gradings": {
+      "prompt_version": "3",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 1,
+          "thinking": "The notebook introduces Dandiset 001363 in the first cell, providing a title, description, and link to Neurosift. While this gives basic information about the Dandiset, there isn't extensive detail about the dataset's purpose, experimental methods, or scientific context. It's a reasonable introduction but not highly detailed."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 2,
+          "thinking": "Cell 4 effectively loads the Dandiset using the DandiAPIClient and displays the first 5 assets, showing their paths. This demonstrates how to connect to the DANDI archive and retrieve basic information, covering the essential steps needed to access a Dandiset programmatically."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 2,
+          "thinking": "Cell 6 demonstrates loading a specific NWB file from the Dandiset using its URL with remfile and h5py. It successfully extracts and displays basic metadata like session description, start time, and identifier. Despite some warnings (which are noted as not critical), the cell effectively shows how to access basic NWB information."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 1,
+          "thinking": "From the critique, I can see that the notebook only loads one piece of data - the 'ElectricalSeries' data in Cell 8. There's no evidence of loading multiple independent pieces of data from the NWB file."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 1,
+          "thinking": "The notebook only visualizes one piece of data - the voltage signal from the first electrode for the first 2000 samples (shown in Cell 8). There's no evidence of additional or different data visualizations."
+        },
+        {
+          "question_id": "advanced-visualization",
+          "grade": 0,
+          "thinking": "The only visualization shown is a basic time series plot of voltage data from a single electrode. There is no advanced visualization involving multiple types of data from the NWB file."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 1,
+          "thinking": "The plot in Cell 8 is described as having appropriate axis labels, a title, and a grid to enhance readability. It displays voltage fluctuations over time (sample index) and seems to be properly formatted and clear. This indicates reasonably good quality."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": 0,
+          "thinking": "No specific issues with the plot are mentioned in the critique. The plot appears to be well-formatted with proper labels and a grid."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": 0,
+          "thinking": "The notebook is basic in its approach, mostly focusing on loading and displaying data rather than conducting detailed analysis. No analytical issues are mentioned in the critique. The only warning mentioned is related to version conflicts in cached namespaces which is not considered critical."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": 0,
+          "thinking": "The critique doesn't mention any conclusions being drawn in the notebook, let alone unsupported ones. The notebook appears to be descriptive in nature, showing how to access and visualize data without making claims about the data itself."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": -1,
+          "thinking": "The only issue mentioned is a UserWarning from hdmf.spec.namespace in Cell 6, indicating version conflicts in cached namespaces. This is noted as \"likely not critical\" and more of a clarity issue than a functional problem. This would qualify as a minor issue only."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 1729,
+        "total_completion_tokens": 988,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-18 15:17:31",
+        "system_info": {
+          "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+          "hostname": "jupyter-magland"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001363",
+    "subfolder": "2025-04-18-claude-3.7-sonnet-prompt-b-5",
+    "gradings": {
+      "prompt_version": "3",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 2,
+          "thinking": "The notebook does a very good job of describing the Dandiset. In cells 3-4, it provides detailed information about the experimental design, including the stimulation parameters, trial structure, and electrode configuration. The notebook clearly explains that the dataset contains neural spiking data from rat somatosensory cortex using flexible electrodes responding to transcranial focused ultrasound. It also includes information about the specific parameters varied in the experiments (pressure, duty cycle, PRF). This is a comprehensive description that gives the reader a clear understanding of the dataset."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 2,
+          "thinking": "The notebook effectively demonstrates how to load information about the Dandiset. In cells 8-11, it shows how to connect to the DANDI archive using the dandiapi library, retrieve the specified Dandiset (001363), and list the available assets (NWB files). It explains the naming convention of the files and selects a specific file for further analysis. This approach provides a clear workflow for accessing and navigating the Dandiset."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 2,
+          "thinking": "The notebook shows how to load basic information from an NWB file very well. In cells 12-17, it demonstrates how to load the remote NWB file using remfile and h5py, extract metadata (session ID, description, start time, institution, subject information), retrieve electrode information and convert it to a Pandas DataFrame, and explore electrode groups. It provides a comprehensive approach to accessing and interpreting the basic structure and metadata of the NWB file."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook shows how to load multiple independent pieces of data from the NWB file:\n1. Electrode position data (cell 16)\n2. Trial structure information (cell 21)\n3. Raw electrophysiological data (cell 27-28)\n4. Data from multiple trials for averaging (cell 35)\n5. Data from a second NWB file for comparison (cell 39-41)\n\nThis demonstrates loading more than three independent pieces of data from the NWB files in the Dandiset."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook demonstrates visualization of multiple types of data from the NWB files:\n1. Electrode positions visualization (cell 18)\n2. Trial start times visualization (cell 23)\n3. Inter-trial intervals histogram (cell 24)\n4. Raw voltage traces for selected channels (cell 29)\n5. Spectrogram for frequency analysis (cell 32)\n6. Average voltage traces across trials (cell 36)\n7. Comparison of raw voltage traces from two sessions (cell 42)\n8. Comparison of spectrograms from two sessions (cell 43)\n9. Bar plot comparing frequency band powers (cell 46)\n\nThis demonstrates visualization of more than three independent pieces of data from the NWB files."
+        },
+        {
+          "question_id": "advanced-visualization",
+          "grade": 1,
+          "thinking": "The notebook shows several advanced visualizations involving multiple types of data:\n1. The spectrogram analysis (cells 32-33) combines time and frequency domain information\n2. The side-by-side comparison of spectrograms from two different sessions (cell 43) allows for comparison of frequency content under different stimulation parameters\n3. The bar plot (cell 46) comparing power in different frequency bands between sessions combines frequency analysis results across multiple experimental conditions\n\nThese visualizations effectively combine multiple data types (time-domain signals, frequency content, experimental conditions) to create informative advanced visualizations."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 2,
+          "thinking": "The plots in the notebook are generally of very good quality. They have appropriate:\n- Titles that describe the content\n- Labeled axes with units\n- Legends where needed\n- Appropriate color schemes\n- Visual elements that enhance interpretation (like vertical lines indicating stimulation onset/offset)\n- Use of offsets to visualize multiple traces\n- Appropriate sizing and layout\n\nThe visualizations effectively communicate the data being presented and facilitate interpretation."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": -1,
+          "thinking": "There is only one minor issue identified with the plots:\n- In cell 36, there's a small inconsistency in the y-axis label (\"Time (s) from stimulation onset\" should read \"Time (s) relative to stimulation onset\" for consistency with other plots)\n\nThis is a very minor issue that doesn't significantly impact the interpretation of the plot."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": -1,
+          "thinking": "There are a few minor issues with the analysis:\n1. In cell 46, the average power values hover around -100 dB, which may indicate that the analysis is mostly capturing noise rather than meaningful signal differences \n2. In cell 35, the code uses a fixed window based on the first trial duration when extracting multiple trials, which could potentially cause issues if trials vary significantly in length\n\nThese are relatively minor issues that don't invalidate the overall approach but could be improved upon."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": -1,
+          "thinking": "There are a few instances of unsupported or potentially incorrect conclusions:\n1. In cell 25, the interpretation gives an incorrect average inter-trial interval (2.5 seconds when it should be 2.0 seconds) and an incorrect range\n2. In cell 48, the summary again incorrectly states that inter-trial intervals average around 2.5 seconds\n3. In cell 48, the conclusions about spectral analysis identifying stimulation-specific effects in different frequency ranges may be overstated, given that the power values were around -100dB (consistent with noise)\n\nThese are minor unsupported conclusions that don't fundamentally mislead the reader but should be corrected."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": 0,
+          "thinking": "No other significant issues were identified in the notebook. The notebook has a logical flow, appropriate explanations of the code and visualizations, and follows good practices for reproducible analysis. There was a disclaimer in cell 2 acknowledging that the notebook was AI-generated and hasn't been fully verified, which is appropriate."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 7258,
+        "total_completion_tokens": 1622,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-18 15:18:01",
+        "system_info": {
+          "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+          "hostname": "jupyter-magland"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001363",
+    "subfolder": "2025-04-18-gemini-2.0-flash-001-prompt-b-5",
+    "gradings": {
+      "prompt_version": "3",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 1,
+          "thinking": "The notebook provides a link to the Dandiset on the DANDI Archive and a link to explore it using Neurosift. It includes the title which mentions the Dandiset being explored, but doesn't go into much detail about the content, purpose, or significance of the Dandiset. There's reasonable information but not extensive descriptions."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 2,
+          "thinking": "The notebook demonstrates using the dandiapi library to connect to the DANDI archive, retrieve the specified Dandiset (001363), and list assets within the Dandiset. This is done effectively with proper code execution and output display."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 2,
+          "thinking": "The notebook shows how to load an NWB file using remfile, h5py, and pynwb. It also demonstrates accessing basic metadata information like session_description, identifier, and session_start_time. Despite warnings about namespace versions, the loading appears successful."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 2,
+          "thinking": "The notebook loads two independent pieces of data from the NWB file: 1) ElectricalSeries data, and 2) trials data. Both are loaded and examined, although there are issues with how the trials data is processed."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 1,
+          "thinking": "The notebook visualizes two types of data: 1) ElectricalSeries data through a time series plot, and 2) trial durations through a histogram. However, the trial duration visualization is based on incorrectly processed data, making that visualization invalid."
+        },
+        {
+          "question_id": "advanced-visualization",
+          "grade": 0,
+          "thinking": "The notebook does not create any advanced visualizations involving multiple types of data from the NWB file. The visualizations shown are basic single-data-type plots."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 1,
+          "thinking": "The ElectricalSeries plot appears to be reasonably well-made with proper axes labels and title. The histogram, however, is based on incorrect calculations, showing a misleading single bar. The overall quality is diminished due to this issue."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": -2,
+          "thinking": "There is a major issue with the trial duration histogram, as it's based on incorrectly processed data. The calculation error (subtracting session_start_time.timestamp() from already-relative times) leads to all durations being nearly identical, resulting in a misleading plot."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": -2,
+          "thinking": "There's a major issue with how the trials data is processed. The code incorrectly manipulates the start_time and stop_time by subtracting session_start_time.timestamp(), which appears to be a fundamental misunderstanding of how the times are stored in the NWB file. This leads to incorrect trial durations which affects subsequent analysis."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": -1,
+          "thinking": "The notebook's summary refers to the trial duration analysis, which is based on incorrect calculations. While not explicitly stating conclusions about the durations, it implies that the analysis was valid, which is not supported by the actual data processing."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": -1,
+          "thinking": "There's a discrepancy between the NWB file referenced in the markdown cell (sub-BH589/sub-BH589_ses-20240827T160457_ecephys.nwb) and the actual URL used to load the file. Additionally, the URL is hardcoded rather than dynamically selected from the Dandiset assets. These are minor issues that don't prevent the notebook from running but could cause confusion."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 3018,
+        "total_completion_tokens": 1069,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-18 15:18:22",
+        "system_info": {
+          "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+          "hostname": "jupyter-magland"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001363",
     "subfolder": "2025-04-18-gemini-2.0-flash-001-prompt-a-5",
     "gradings": {
       "prompt_version": "3",

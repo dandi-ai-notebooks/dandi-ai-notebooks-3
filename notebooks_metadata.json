@@ -1297,6 +1297,60 @@
   },
   {
     "dandiset_id": "001363",
+    "model": "openai/gpt-4o",
+    "prompt": "prompt-b-5.txt",
+    "total_prompt_tokens": 115659,
+    "total_completion_tokens": 2299,
+    "total_vision_prompt_tokens": 523,
+    "total_vision_completion_tokens": 89,
+    "elapsed_time_seconds": 99.34446048736572,
+    "timestamp": "2025-04-18 15:14:12",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-18-gpt-4o-prompt-b-5"
+  },
+  {
+    "dandiset_id": "001363",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-b-5.txt",
+    "total_prompt_tokens": 1071482,
+    "total_completion_tokens": 27765,
+    "total_vision_prompt_tokens": 12847,
+    "total_vision_completion_tokens": 1879,
+    "elapsed_time_seconds": 672.9801232814789,
+    "timestamp": "2025-04-18 15:12:32",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-18-claude-3.7-sonnet-prompt-b-5"
+  },
+  {
+    "dandiset_id": "001363",
+    "model": "google/gemini-2.0-flash-001",
+    "prompt": "prompt-b-5.txt",
+    "total_prompt_tokens": 423664,
+    "total_completion_tokens": 6269,
+    "total_vision_prompt_tokens": 9542,
+    "total_vision_completion_tokens": 145,
+    "elapsed_time_seconds": 87.94099283218384,
+    "timestamp": "2025-04-18 15:01:19",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-18-gemini-2.0-flash-001-prompt-b-5"
+  },
+  {
+    "dandiset_id": "001363",
     "model": "openrouter/quasar-alpha",
     "prompt": "prompt-b-1.txt",
     "total_prompt_tokens": 303017,
