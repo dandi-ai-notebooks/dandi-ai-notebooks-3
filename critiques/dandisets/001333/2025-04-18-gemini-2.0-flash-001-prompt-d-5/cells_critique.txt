@@ -1,0 +1,110 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell introduces the Dandiset being explored in the notebook, specifically Dandiset 001333, which contains Parkinson's Electrophysiological Signal Dataset (PESD). The cell provides a title for the notebook, setting the context for the subsequent analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell serves as a disclaimer, explicitly stating that the notebook was AI-generated and not fully verified. It warns users to exercise caution when interpreting the code and results, highlighting the potential for inaccuracies or errors. This is crucial for responsible use of the notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell provides an overview of the Dandiset (001333) and the notebook's purpose. It describes the dataset's content (electrophysiological signals from Parkinson's and healthy subjects, Beta ARV, and LFP signals from the STN) and provides a link to Neurosift for interactive exploration. It also outlines the key steps the notebook will cover: loading the Dandiset, loading LFP data, and visualizing it. Finally, it lists the required Python packages for running the notebook. This cell effectively sets the stage for the subsequent code and analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell uses the DANDI API to connect to the DANDI archive, retrieve Dandiset 001333, and list the assets (NWB files) within the Dandiset. It prints the total number of assets found and the paths of the first five assets to the console. This confirms that the connection to the DANDI archive is successful and that the notebook can access the files within the specified Dandiset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell prepares the user for the next step: loading a specific NWB file from the Dandiset. It specifies the file `sub-healthy-simulated-beta/sub-healthy-simulated-beta_ses-1044_ecephys.nwb` and provides the direct download URL for the asset, which can be useful for alternative access methods. It indicates that metadata from this file will be displayed.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell loads the specified NWB file from the provided URL using `remfile`, `h5py`, and `pynwb`. It then extracts and prints the `session_description`, `identifier`, and `session_start_time` from the NWB file's metadata. This demonstrates how to access basic information stored within the NWB file. The warning message about the hdmf namespace is a known issue and doesn't seem to affect the functionality here.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell introduces the next part of the notebook, which focuses on loading and visualizing Local Field Potential (LFP) data from the previously loaded NWB file. It serves as a transition to the more detailed data analysis and plotting steps.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell loads and visualizes a subset of the LFP data (Beta Band Voltage) from the previously loaded NWB file. It extracts the `lfp_data` and `lfp_timestamps` from the appropriate location within the NWB structure. The cell then selects the first 1000 samples for plotting and creates a line plot of voltage against time using Matplotlib. The plot includes labels for the axes, a title, and gridlines for better readability. The seaborn theme is also applied for visual appeal.
+
+IMAGE DESCRIPTIONS:
+The image is a time series plot of LFP data, specifically the Beta Band Voltage. The x-axis represents time in seconds, ranging from approximately 10 to 30 seconds. The y-axis represents the Beta Band Voltage in Volts, ranging from approximately 0 to 0.00012. The plot shows a fluctuating voltage signal over time, with several peaks and troughs. The plot's background is a light grey color, and gridlines are present to enhance readability.
+
+ISSUES:
+None
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell summarizes the key achievements of the notebook: loading and visualizing LFP data from a DANDI archive Dandiset (specifically, electrophysiological signals from both healthy and parkinsonian subjects). It highlights that the LFP data shows oscillatory behavior, typical for beta band voltage. Furthermore, it proposes several potential future research directions, including exploration of other NWB files within the same Dandiset, a comparative analysis between LFP data from parkinsonian and healthy subjects, and investigation of the relationships between Beta ARV and LFP signals.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+

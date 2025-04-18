@@ -1,0 +1,160 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell contains the title of the notebook. It clearly identifies the notebook's purpose: to explore a specific Dandiset (001363) containing neural spiking data from the rat somatosensory cortex.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell provides a warning that the notebook was AI-generated and may contain errors. It advises caution when interpreting the code and results. This is important for the reader to understand the notebook's limitations.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell provides a brief overview of the Dandiset being explored (001363). It describes the type of data (neural spiking in rat somatosensory cortex), the experimental paradigm (focused ultrasound), and the key variables manipulated (pressure and duty cycles). It includes links to the Dandiset on the DANDI Archive and to a Neurosift visualization of the data. This cell effectively sets the context for the analysis to follow.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell outlines the steps that the notebook will cover. It lists the key tasks: connecting to the DANDI archive, listing assets, loading an NWB file, exploring its metadata, loading and visualizing electrophysiology data, and exploring trial-related information. This provides a clear roadmap for the reader.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell lists the Python packages required to run the notebook. This is crucial for ensuring that the user can reproduce the analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell connects to the DANDI archive, retrieves Dandiset 001363, and lists the first 5 assets (files) within the Dandiset. It uses the `dandiapi` library to interact with the DANDI archive. The output shows that 55 assets were found, and the first 5 are NWB files associated with subject BH643.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell introduces the loading of an NWB file and exploration of its metadata. It explicitly states which file will be loaded: `sub-BH589/sub-BH589_ses-20240827T160457_ecephys.nwb`. This improves clarity for the subsequent code.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell loads the specified NWB file from the DANDI archive using `remfile` and `h5py`, then extracts and prints key metadata attributes such as session description, identifier, session start time, institution, and subject ID.  The metadata provides context for understanding the experiment.
+The warnings in the output are related to namespace conflicts within the `hdmf` library, which `pynwb` depends on. These warnings don't necessarily indicate an error, but suggest that different versions of the same namespaces are being loaded, which could potentially cause issues.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell introduces the loading and visualization of electrophysiology data. Serves as a transition to the next section.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell loads electrophysiology data from the NWB file, selects a subset of channels and time points, and plots the data. It first retrieves the 'ElectricalSeries' object from the NWB file, then extracts the data and sampling rate. It then selects the first 32 channels and 10000 timepoints. Finally, it creates a time vector and plots the selected data.
+
+IMAGE DESCRIPTIONS:
+The image is a line plot showing electrophysiology data. The x-axis represents time in seconds, ranging from approximately 0 to 0.4 seconds. The y-axis represents voltage in Volts. There are 32 lines plotted, corresponding to the 32 channels selected. The plot shows the voltage fluctuations over time for each channel. All channels appear to display noisy signals.
+
+ISSUES:
+None
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell introduces the exploration of trial-related information. It acts as a transition to the next section.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell accesses the 'trials' table in the NWB file, prints the column names (start\_time, stop\_time), converts the table into a Pandas DataFrame, and prints the first 5 rows of the DataFrame. This allows the user to examine the structure and content of the trial data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell summarizes the notebook's accomplishments: loading and visualizing electrophysiology data and exploring trial-related information. It then suggests future analysis directions, focusing on the effects of transcranial focused ultrasound stimulation (tFUS) and the influence of duty cycle and PRF on the neural response.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+

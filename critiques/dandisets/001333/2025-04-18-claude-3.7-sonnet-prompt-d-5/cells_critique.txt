@@ -1,0 +1,293 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell provides an introduction to the notebook and the Dandiset it explores (001333, Parkinson's Electrophysiological Signal Dataset or PESD). The cell outlines the content of the dataset (Beta ARV and LFP signals from healthy and parkinsonian subjects), highlights the significance of beta oscillations as biomarkers for Parkinson's Disease, provides a link to explore the dataset via Neurosift, gives an overview of what the notebook will cover (loading, examining, analyzing, visualizing, comparing), and lists the required Python packages. The initial disclaimer about AI generation is important to keep in mind.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell introduces the next section, which focuses on loading the Dandiset. It sets the stage for using the DANDI API to access the Dandiset information.
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell uses the `dandi` library to connect to the DANDI archive, retrieve Dandiset 001333, and list its assets. It imports necessary libraries, initializes the `DandiAPIClient`, retrieves the Dandiset using its ID ("001333"), and then lists the assets associated with it via `dandiset.get_assets()`. Finally, it prints the number of assets, the Dandiset ID and a sample of the asset paths.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell introduces the next step: examining the structure of an NWB file within the Dandiset. It clarifies that a file from a simulated healthy subject will be used for this purpose to illustrate the data types present.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell loads a specific NWB file from the Dandiset and extracts basic metadata. It first defines the `asset_id` and `file_path` for a selected NWB file. Then, it constructs the URL for accessing the file through the DANDI API. It uses `remfile` to handle remote file access and `h5py` to open the file. Finally, it uses `pynwb` to read the NWB file and prints key metadata attributes like session description, identifier, session start time, file create date, and experimenter.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell introduces the next step: examining subject information from the previously loaded NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell extracts and prints subject-related information from the NWB file loaded in the previous cell. It accesses the `nwb.subject` attribute and prints the subject ID, description, species, sex, and age. The output reveals that the data is from a "healthy-simulated-beta" subject, described as a simulated dataset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell introduces the next step: exploring keywords and publication information associated with the dataset. It sets the expectation that this metadata will be examined in the subsequent code cell.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell retrieves and prints the keywords and related publications associated with the NWB file. It iterates through `nwb.keywords` and `nwb.related_publications` to display each item. The output shows the dataset's keywords (e.g., ecephys, LFP, Parkinson's Disease, Beta Band) and links to related publications.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell introduces the next section, which focuses on exploring electrode information within the NWB file. It sets up the expectation that the electrode configuration will be examined in the following code cell.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell extracts and displays electrode information from the NWB file. It converts the `nwb.electrodes` table to a Pandas DataFrame using `to_dataframe()`. It then prints the number of electrodes and displays the DataFrame, showing information such as location, group, group name, and label for each electrode.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell introduces the next step: exploring the electrode group structure (shanks) in the NWB file. It states the electrodes are organized into groups.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell iterates through the electrode groups in the NWB file and prints their details. It accesses the `nwb.electrode_groups` dictionary and prints the group name, description, location, and device for each group. The output indicates that there are multiple "shank" groups, each described as a simulated electrode group within a simulated brain network.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 14
+==========
+
+OVERVIEW:
+This cell introduces the analysis of beta band voltage data from the LFP electrical series within the NWB file. It sets the context for the subsequent code, indicating the focus will be on analyzing this particular data type.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 15
+==========
+
+OVERVIEW:
+This cell retrieves, describes, and summarizes the Beta Band Voltage data from the LFP electrical series of the NWB file. It accesses the `LFP` data interface within the `ecephys` processing module and then retrieves the `Beta_Band_Voltage` electrical series. It prints the shape of the data and timestamps arrays, their units, calculates and prints the estimated sampling frequency, and prints basic descriptive statistics (min, max, mean, std) of the voltage data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 16
+==========
+
+OVERVIEW:
+This cell introduces the visualization of the beta band voltage time series data. It makes clear that the subsequent code will generate a plot to show the temporal characteristics of the data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 17
+==========
+
+OVERVIEW:
+This cell generates two plots of the beta band voltage time series data. The first plot shows the entire time series, while the second provides a zoomed-in view of a subset of the data (first 300 samples). The axes are labeled with appropriate units, and the plots have titles that include the subject ID.
+
+IMAGE DESCRIPTIONS:
+The first image shows a plot of Beta Band Voltage over time for subject "healthy-simulated-beta". The x-axis is labeled "Time (seconds)" and ranges from approximately 10 to 38 seconds. The y-axis is labeled "Voltage (volts)" and ranges from 0 to 0.00014. The plot displays a fluctuating time series with voltages oscillating between the minimum and maximum values.
+
+The second image shows a "zoomed" version of the same plot, displaying the same type of data. However, the x-axis "Time (seconds)" ranges from 10 to 16 seconds. The y-axis "Voltage (volts)" has the same range as before, and the plot displays a segment of the same fluctuating time series.
+
+ISSUES:
+None
+
+Cell 18
+==========
+
+OVERVIEW:
+This cell introduces the calculation and visualization of the power spectral density (PSD) of the beta band voltage data. It clarifies the purpose of the PSD analysis, which is to understand the frequency characteristics of the signal.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 19
+==========
+
+OVERVIEW:
+This cell calculates and visualizes the power spectral density (PSD) of the beta band voltage data using Welch's method. The PSD is plotted on a semi-logarithmic scale. The beta band (13-30 Hz) is highlighted on the plot. The total power, beta band power, and beta power ratio are calculated and printed. The plotting code itself is standard.
+
+IMAGE DESCRIPTIONS:
+The image shows the Power Spectral Density (PSD) of the beta band voltage data for the subject "healthy-simulated-beta". The x-axis represents "Frequency (Hz)", ranging from 0 to 30 Hz. The y-axis represents "Power/Frequency (V^2/Hz)" on a logarithmic scale and ranges from about 10^-15 to 10^-10. A blue line represents the PSD. The region between 13 Hz and 30 Hz is highlighted with a yellow translucent band, representing the beta band. Overall, the PSD decreases with increasing frequency, with a relatively flat portion from 0 to 5 Hz and a steep drop-off beyond 5 Hz.
+
+ISSUES:
+None
+
+Cell 20
+==========
+
+OVERVIEW:
+This cell introduces the comparison of beta band voltage data across multiple sessions. The goal is to assess the variability of the data across different recording sessions.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 21
+==========
+
+OVERVIEW:
+This cell compares the beta band voltage data across three sessions. It defines a dictionary of sessions and their corresponding asset IDs. A function, `process_nwb`, is defined to load and extract data from each NWB file, taking only the first 300 samples. It then plots the overlaid time series data from the different sessions. The code checks that the data is identical across sessions before plotting.
+
+IMAGE DESCRIPTIONS:
+The image shows a plot comparing the Beta Band Voltage across three sessions: "1044", "1046", and "162". The x-axis displays "Time (seconds)" from approximately 10 to 16 seconds. The y-axis displays "Voltage (volts)" ranging from 0 to roughly 0.00013. The data from each session overlaps exactly, indicating that the same data underlies all three traces in the figure, despite the presence of a legend that suggests otherwise. All traces in the plot fall along an identical green line.
+
+ISSUES:
+The key issue with the cell is that the overlaid time series from the three sessions appear identical. The check implemented in the code confirms that data is identical across sessions! Likely a problem in the way asset_id's were selected. The plot is misleading because it suggests variability when there is none. The claim made in the text heading that this is a "comparison across multiple sessions" is invalid in the current state. The legend also creates a false impression of multiple distinct sessions.
+
+Cell 22
+==========
+
+OVERVIEW:
+This cell introduces a more quantitative approach to assessing similarities of the data across sessions by calculating the correlation between the first 300 samples of each session.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 23
+==========
+
+OVERVIEW:
+This cell calculates the correlation between the beta band voltage data from the three sessions and visualizes the results as a heatmap. Because the data is identical across session, a small amount of noise is added to the time series to allow correlation calculation in the cases where the data is not identical. Because of this noise being added artificially, the figure does not represent an actual similarity.
+The added `figtext` is VERY important as it puts into context the findings and states "Note: Sessions appear highly correlated because the dataset contains identical simulated data files.".
+
+IMAGE DESCRIPTIONS:
+The image shows a heatmap of the correlation matrix between three sessions: "1044", "1046", and "162". The x and y axes are labeled with the session IDs. The heatmap displays the correlation values between each pair of sessions. The heatmap is uniformly yellow, with values of '1' in each cell (diagonal and off-diagonal), indicating a perfect correlation between all session pairs and autosimilarity between each session and itself. There is a note below the heatmap indicating the high correlation values are because the dataset contains identical simulated data files.
+
+ISSUES:
+The issue is that the analysis and resulting heatmap is misleading without the provided text under the figure which is critical to contextualize the figure and avoid confusion. The added noise mitigates the error, but is a bit of a hack. The fact that the underlying data is the same across all sessions limits the usefulness of this cell. However, with the contextualizing text it is a worthwhile exercise because the code is still correct! The "Adding small noise" output messages should be removed. Better to state "Due to issues with dataset, correlations are calculated but the data is the same across all files".
+
+Cell 24
+==========
+
+OVERVIEW:
+This cell provides a discussion and interpretation of the notebook's key findings, significance, and limitations. It summarizes the data structure, beta band activity findings in the healthy simulated subject, and the important observation that the sessions examined contained identical data. The cell then discusses the significance of the dataset for studying PD biomarkers, lists the limitations of only examining healthy simulated subjects and finally, provides future directions for analysis. The added note about identical files existing in the different sessions is super useful.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
