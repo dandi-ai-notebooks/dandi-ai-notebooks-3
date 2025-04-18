@@ -30,6 +30,12 @@ def copy_template_files(output_dir: str, prompt: str):
         'generate.py',
         f'{prompt}.txt'
     ]
+    # read the prompt.txt to see if it mentions critique_dandiset_notebook.py
+    with open(os.path.join(templates_dir, f'{prompt}.txt'), 'r') as f:
+        prompt_content = f.read()
+    if 'critique_dandiset_notebook.py' in prompt_content:
+        files_to_copy.append('critique_dandiset_notebook.py')
+        files_to_copy.append('notebook_critic_cells_system_prompt.txt')
 
     for file in files_to_copy:
         src = os.path.join(templates_dir, file)

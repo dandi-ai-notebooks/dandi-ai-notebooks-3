@@ -1,0 +1,112 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell serves as an introduction to the notebook. It provides an overview of the Dandiset (001275) related to mental navigation in primates, its connection to a published study, and the focus on entorhinal cortex data. It outlines the notebook's purpose: loading the Dandiset, exploring assets, loading data from an NWB file, and visualizing the data. It also lists the required Python packages.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell uses the DANDI API to connect to the DANDI archive and retrieve the specified Dandiset ("001275"). It then gets a list of assets within the Dandiset and prints the number of assets found and the paths of the first five assets. It effectively demonstrates how to access and explore the contents of a Dandiset programmatically.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell introduces the next step: loading and exploring a specific NWB file from the Dandiset. It names the file (`sub-amadeus/sub-amadeus_ses-01042020_behavior+ecephys.nwb`) and provides a direct download link for the asset. This prepares the reader for the subsequent code that will load and analyze the data within this NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell loads the specified NWB file using the `pynwb`, `h5py`, and `remfile` libraries. It retrieves the file from the DANDI archive using its URL and then reads it into an `nwb` object. Finally, it prints the `nwb` object itself, the session description, the identifier, and the session start time to display some of the metadata contained within the file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell serves as a transition, indicating the next step in the notebook will focus on loading and visualizing eye position data from the previously loaded NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell loads a subset (first 10000 data points) of eye position data and corresponding timestamps from the NWB file. It normalizes the timestamps by subtracting the initial timestamp. It then generates a plot showing the eye position in the X and Y directions over time. The plot includes labels for the axes, a title, and a legend to distinguish between the X and Y positions.
+
+IMAGE DESCRIPTIONS:
+The plot shows two lines representing the X and Y coordinates of the eye position over time. The x-axis represents time in seconds, ranging from 0 to approximately 80 seconds. The y-axis represents the eye position in pixels, ranging from approximately -20 to 40. The blue line represents the X coordinate, and the orange line represents the Y coordinate. The plot shows that the eye position changes over time, with some periods of relatively stable position and some periods of more rapid movement. There's an abrupt spike in the eye position X around the 80-second mark.
+
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell serves as a transition, indicating the next step in the notebook will focus on loading and visualizing unit data, specifically the distribution of spike counts across different units.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell accesses the unit data from the "ecephys" processing module of the NWB file. It converts this data into a pandas DataFrame and prints the first few rows to display the available information about each unit (e.g., spike times, amplitude, channel,ContamPct, original_cluster_id, Amplitude, n_spikes, depth, quality, sh, KSLabel, fr). It then generates a histogram showing the distribution of spike counts across all units, with the number of spikes on the x-axis and the number of units on the y-axis.
+
+IMAGE DESCRIPTIONS:
+The image is a histogram showing the distribution of spike counts across neural units. The x-axis represents the number of spikes, ranging from 0 to approximately 450,000. The y-axis represents the number of units, ranging from 0 to 20.. Most units have a relatively small number of spikes (less than approximately 100,000), with a large peak at the lower end of the x-axis. There are fewer units with higher spike counts, trailing off towards the right side of the histogram.
+
+ISSUES:
+None
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell provides a summary of the notebook's accomplishments, highlighting the ability to load a DANDI dataset, access NWB files, and visualize data. It also suggests potential avenues for future exploration and analysis, such as examining other data modalities (LFP), performing detailed eye movement analysis (saccade detection), and investigating the relationship between neural activity and behavior.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+

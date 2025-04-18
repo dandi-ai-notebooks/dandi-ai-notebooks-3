@@ -225,7 +225,7 @@ def get_summary_critique(cells_critique_text: str):
 
 def main():
     dandisets_base_dir = Path(__file__).parent.parent / "dandisets"
-    notebooks = find_notebooks(str(dandisets_base_dir), prefixes=["2025-04-15", "2025-04-16", "2025-04-17"])
+    notebooks = find_notebooks(str(dandisets_base_dir), prefixes=["2025-04-15", "2025-04-16", "2025-04-17", "2025-04-18"])
     print(f"Found {len(notebooks)} notebooks to process")
 
     total_cells_prompt_tokens = 0

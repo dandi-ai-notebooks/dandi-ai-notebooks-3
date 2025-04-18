@@ -17,6 +17,10 @@ def generate():
     os.makedirs(working_dir, exist_ok=True)
     shutil.copy('tools.py', working_dir + '/tools.py')
     shutil.copy('tools_cli.py', working_dir + '/tools_cli.py')
+    if os.path.exists('critique_dandiset_notebook.py'):
+        shutil.copy('critique_dandiset_notebook.py', working_dir + '/critique_dandiset_notebook.py')
+    if os.path.exists('notebook_critic_cells_system_prompt.txt'):
+        shutil.copy('notebook_critic_cells_system_prompt.txt', working_dir + '/notebook_critic_cells_system_prompt.txt')
 
     # Read config.yaml
     with open('config.yaml', 'r') as f:
