@@ -794,6 +794,24 @@
   {
     "dandiset_id": "001333",
     "model": "openai/gpt-4o",
+    "prompt": "prompt-d-5.txt",
+    "total_prompt_tokens": 140584,
+    "total_completion_tokens": 2728,
+    "total_vision_prompt_tokens": 517,
+    "total_vision_completion_tokens": 88,
+    "elapsed_time_seconds": 128.3118999004364,
+    "timestamp": "2025-04-18 14:22:06",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-18-gpt-4o-prompt-d-5"
+  },
+  {
+    "dandiset_id": "001333",
+    "model": "openai/gpt-4o",
     "prompt": "prompt-a-5.txt",
     "total_prompt_tokens": 68203,
     "total_completion_tokens": 1827,
@@ -808,6 +826,42 @@
       "python_version": "3.11.10"
     },
     "subfolder": "2025-04-17-gpt-4o-prompt-a-5"
+  },
+  {
+    "dandiset_id": "001333",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-d-5.txt",
+    "total_prompt_tokens": 1314771,
+    "total_completion_tokens": 16308,
+    "total_vision_prompt_tokens": 7743,
+    "total_vision_completion_tokens": 1267,
+    "elapsed_time_seconds": 630.7597572803497,
+    "timestamp": "2025-04-18 14:19:57",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-18-claude-3.7-sonnet-prompt-d-5"
+  },
+  {
+    "dandiset_id": "001333",
+    "model": "google/gemini-2.0-flash-001",
+    "prompt": "prompt-d-5.txt",
+    "total_prompt_tokens": 178947,
+    "total_completion_tokens": 3166,
+    "total_vision_prompt_tokens": 1914,
+    "total_vision_completion_tokens": 59,
+    "elapsed_time_seconds": 61.43943452835083,
+    "timestamp": "2025-04-18 14:09:26",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-18-gemini-2.0-flash-001-prompt-d-5"
   },
   {
     "dandiset_id": "001333",

@@ -2517,6 +2517,80 @@
   },
   {
     "dandiset_id": "001333",
+    "subfolder": "2025-04-18-gpt-4o-prompt-d-5",
+    "gradings": {
+      "prompt_version": "3",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 1,
+          "thinking": "The notebook introduces Dandiset 001333 which contains electrophysiological data from Parkinson's patients and control subjects. It mentions the focus on subthalamic nucleus (STN) signals, specifically Beta Average Rectified Voltage (ARV) and Local Field Potential (LFP). While it provides a basic description, it doesn't go into extensive detail about the dataset's content, purpose, or methodology."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 2,
+          "thinking": "The notebook demonstrates loading the Dandiset well. It imports the necessary libraries (DandiAPIClient), connects to the DANDI archive, retrieves Dandiset 001333, fetches the assets, and displays the total number and paths of the first 5 assets. This provides a clear example of how to access a Dandiset."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 2,
+          "thinking": "The notebook shows how to load an NWB file from the Dandiset using remfile, h5py, and pynwb. It extracts and displays basic metadata from the NWB file, including the session description, session start time, and experiment description. This demonstrates good basic information extraction from an NWB file."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 1,
+          "thinking": "The notebook shows how to load one piece of data from the NWB file - specifically the 'Beta_Band_Voltage' data and its corresponding timestamps. It doesn't demonstrate loading any other independent data types from the file."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 1,
+          "thinking": "The notebook visualizes one piece of data: the Beta Band Voltage over time. The visualization includes appropriate axis labels and a title. No other data types are visualized."
+        },
+        {
+          "question_id": "advanced-visualization",
+          "grade": 0,
+          "thinking": "The notebook does not create an advanced visualization that combines multiple types of data. It only shows a basic time series plot of Beta Band Voltage."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 1,
+          "thinking": "The plot created is of reasonably good quality. It has proper axis labels (Time (s) and Voltage (V)), a title (\"Beta Band Voltage Over Time\"), and includes a grid for better readability. The plot effectively displays the voltage fluctuations over time."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": 0,
+          "thinking": "There are no reported issues with the plot in the critique. The plot appears to be correctly formatted with appropriate labels and displays the data effectively."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": 0,
+          "thinking": "There are no reported issues with the analysis in the critique. The notebook correctly loads and visualizes the data as intended, though the analysis is quite basic."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": 0,
+          "thinking": "The notebook does not appear to draw any unsupported conclusions. The final cell simply summarizes what was covered and suggests potential future directions for analysis."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": 0,
+          "thinking": "No other issues are reported in the critique. The notebook follows a logical flow, properly imports libraries, loads data, visualizes it, and closes connections to release resources."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 1909,
+        "total_completion_tokens": 946,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-18 14:24:03",
+        "system_info": {
+          "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+          "hostname": "jupyter-magland"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001333",
     "subfolder": "2025-04-17-gpt-4o-prompt-a-5",
     "gradings": {
       "prompt_version": "3",
@@ -2582,6 +2656,154 @@
         "total_completion_tokens": 997,
         "model": "anthropic/claude-3.7-sonnet",
         "timestamp": "2025-04-18 13:04:11",
+        "system_info": {
+          "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+          "hostname": "jupyter-magland"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001333",
+    "subfolder": "2025-04-18-claude-3.7-sonnet-prompt-d-5",
+    "gradings": {
+      "prompt_version": "3",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 2,
+          "thinking": "The notebook provides a good description of Dandiset 001333 (Parkinson's Electrophysiological Signal Dataset or PESD). It explains what types of data are included (Beta ARV and LFP signals from healthy and parkinsonian subjects), mentions the significance of beta oscillations as biomarkers for Parkinson's Disease, and provides a link to explore the dataset via Neurosift. The introduction is thorough and contextualizes the dataset well."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 2,
+          "thinking": "The notebook effectively demonstrates how to load information about the Dandiset. It imports the necessary libraries, initializes the DandiAPIClient, retrieves the Dandiset using its ID (\"001333\"), and lists the assets associated with it. It also prints the number of assets, the Dandiset ID, and a sample of the asset paths, providing a good overview of the Dandiset's contents."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 2,
+          "thinking": "The notebook shows how to load basic information from an NWB file in the Dandiset quite well. It defines the asset_id and file_path for a specific NWB file, constructs the URL for accessing the file through the DANDI API, uses remfile to handle remote file access, and uses pynwb to read the NWB file. It extracts and displays key metadata attributes like session description, identifier, session start time, file create date, and experimenter. It also examines subject information, keywords, publication information, and electrode configurations from the NWB file."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook demonstrates loading several pieces of data from the NWB file:\n1. Beta Band Voltage data from the LFP electrical series\n2. Electrode information converted to a Pandas DataFrame\n3. Electrode group (shanks) structures\nAdditionally, when comparing across sessions, it loads data from multiple NWB files.\nThis covers at least three independent pieces of data loaded from the NWB files."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 3,
+          "thinking": "The notebook shows multiple visualizations of data from the NWB files:\n1. Two plots of the beta band voltage time series (full and zoomed view)\n2. Power spectral density (PSD) of the beta band voltage data\n3. Comparison plot of beta band voltage data across multiple sessions\n4. Heatmap of correlations between sessions\nThese represent at least three independent visualizations of data from the NWB files."
+        },
+        {
+          "question_id": "advanced-visualization",
+          "grade": 1,
+          "thinking": "The notebook includes an advanced visualization in the form of the power spectral density (PSD) plot with the beta band highlighted. This visualization incorporates frequency analysis of the time series data, calculates total power and beta band power, and presents the results in a semi-logarithmic plot with a highlighted region. While there are other visualizations in the notebook, this PSD analysis represents the most advanced one, combining multiple data processing steps with an informative visualization."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 1,
+          "thinking": "The plots in the notebook are of reasonably good quality. They include:\n- Time series plots with proper axis labels and units\n- PSD plot with logarithmic scaling and highlighted frequency band\n- A comparison plot of multiple sessions\n- A correlation heatmap with descriptive text\nAll plots have titles, axis labels, and appropriate scaling. The PSD plot includes highlighting of the relevant frequency band. The quality is good but not exceptional - for example, the comparison plot shows identical data without much visual distinction."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": -2,
+          "thinking": "There is one major issue with the plots: the comparison plot of beta band voltage across three sessions displays identical data for all sessions, creating a misleading visualization. The code even checks that the data is identical before plotting. This is a significant issue because it suggests variability between sessions when there is none. However, the notebook does acknowledge this limitation in the correlation heatmap with a note stating \"Sessions appear highly correlated because the dataset contains identical simulated data files\" and in the discussion section, so the notebook is aware of and transparent about this issue."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": -1,
+          "thinking": "The main analysis issue is related to the comparison across sessions, where the notebook attempts to compare data that is actually identical across different files in the dataset. The notebook addresses this by adding artificial noise to calculate correlations, which is a workaround but not ideal. However, the notebook is transparent about this limitation, clearly stating that the sessions contain identical data files. Besides this issue, the other analyses (Beta Band Voltage extraction, PSD calculation) appear to be performed correctly."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": 0,
+          "thinking": "The notebook is careful not to draw unsupported conclusions. In fact, it explicitly acknowledges the limitations of the analysis, particularly regarding the identical data across sessions. The discussion section provides a balanced interpretation of the findings, acknowledges the limitations (only examining healthy simulated subjects, sessions containing identical data), and suggests appropriate future directions. The notebook avoids making strong claims that aren't supported by the data."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": 0,
+          "thinking": "No significant other issues are apparent from the critique. The notebook is well-structured with clear markdown cells introducing each section, and code cells that accomplish their stated goals. The limitations in the dataset (identical data across sessions) are acknowledged transparently. The code appears to be well-organized without errors or warnings mentioned in the critique."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 3947,
+        "total_completion_tokens": 1479,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-18 14:24:34",
+        "system_info": {
+          "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+          "hostname": "jupyter-magland"
+        }
+      }
+    }
+  },
+  {
+    "dandiset_id": "001333",
+    "subfolder": "2025-04-18-gemini-2.0-flash-001-prompt-d-5",
+    "gradings": {
+      "prompt_version": "3",
+      "grades": [
+        {
+          "question_id": "describe-dandiset",
+          "grade": 2,
+          "thinking": "The notebook provides a good description of the Dandiset 001333, mentioning it's a Parkinson's Electrophysiological Signal Dataset (PESD) containing electrophysiological signals from Parkinson's and healthy subjects, Beta ARV, and LFP signals from the STN. It also provides a link to Neurosift for interactive exploration. This gives a clear understanding of what the dataset contains."
+        },
+        {
+          "question_id": "load-dandiset",
+          "grade": 2,
+          "thinking": "The notebook effectively demonstrates loading the Dandiset using the DANDI API. It retrieves Dandiset 001333, lists assets (NWB files) within it, and shows the total count of assets and displays the paths of the first five assets. This clearly shows how to access and explore a Dandiset."
+        },
+        {
+          "question_id": "load-nwb",
+          "grade": 2,
+          "thinking": "The notebook shows how to load an NWB file from the URL using remfile, h5py, and pynwb. It extracts and displays basic metadata from the NWB file, including session_description, identifier, and session_start_time. This demonstrates competent handling of basic NWB file loading."
+        },
+        {
+          "question_id": "load-nwb-data",
+          "grade": 1,
+          "thinking": "The notebook loads LFP data (specifically Beta Band Voltage) from the NWB file, extracting both the lfp_data and lfp_timestamps. However, it only loads one type of data (LFP data), so it deserves a score of 1."
+        },
+        {
+          "question_id": "visualize-nwb-data",
+          "grade": 1,
+          "thinking": "The notebook visualizes the LFP data (Beta Band Voltage) as a time series plot with appropriate axis labels and title. However, it only visualizes one type of data, so it deserves a score of 1."
+        },
+        {
+          "question_id": "advanced-visualization",
+          "grade": 0,
+          "thinking": "The notebook does not create an advanced visualization involving multiple types of data. It only shows a basic time series plot of a single data type (LFP data)."
+        },
+        {
+          "question_id": "plot-quality",
+          "grade": 1,
+          "thinking": "The plot shown is of reasonably good quality with appropriate axes labels, a title, and gridlines for better readability. The seaborn theme is applied for visual appeal."
+        },
+        {
+          "question_id": "plot-issues",
+          "grade": 0,
+          "thinking": "No issues with the plot were mentioned in the critique. The plot includes appropriate labels, title, and styling."
+        },
+        {
+          "question_id": "analysis-issues",
+          "grade": 0,
+          "thinking": "No issues with the analysis were mentioned in the critique. The notebook correctly loads and visualizes the data, though the analysis is relatively basic."
+        },
+        {
+          "question_id": "unsupported-conclusions",
+          "grade": 0,
+          "thinking": "The notebook mentions that the LFP data shows oscillatory behavior typical for beta band voltage, which appears to be a reasonable observation based on the visualization. The notebook also proposes potential future research directions without making unsupported claims."
+        },
+        {
+          "question_id": "other-issues",
+          "grade": 0,
+          "thinking": "No other issues were mentioned in the critique. The notebook includes a disclaimer about being AI-generated, which is a responsible approach."
+        }
+      ],
+      "metadata": {
+        "total_prompt_tokens": 2076,
+        "total_completion_tokens": 951,
+        "model": "anthropic/claude-3.7-sonnet",
+        "timestamp": "2025-04-18 14:24:49",
         "system_info": {
           "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
           "hostname": "jupyter-magland"
