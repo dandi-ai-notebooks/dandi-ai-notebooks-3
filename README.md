@@ -136,11 +136,17 @@ Each generated notebook undergoes a thorough critique process:
 ### prompt-a Series
 Direct notebook generation without preliminary exploration phase. Each incremental version (prompt-a-1, prompt-a-2, etc.) represents an iteration of improvements to the generation process, with higher numbers indicating more recent versions.
 
+For example: [prompt-a-5.txt](templates/prompt-a-5.txt)
+
 ### prompt-b Series
 Enhanced notebook generation that includes a preliminary data exploration phase before creating the notebook. This allows the AI to better understand the dataset structure and contents before generating analysis code. Like the 'a' series, version numbers indicate iterations of improvements.
 
+For example: [prompt-b-5.txt](templates/prompt-b-5.txt)
+
 ### prompt-d Series
 Similar to the 'b' series but includes an additional notebook critique phase. After initial generation, the notebook undergoes a critique operation, and based on the feedback received, the AI may modify the notebook to create an improved final version.
+
+For example: [prompt-d-5.txt](templates/prompt-d-5.txt)
 
 ## Development
 
