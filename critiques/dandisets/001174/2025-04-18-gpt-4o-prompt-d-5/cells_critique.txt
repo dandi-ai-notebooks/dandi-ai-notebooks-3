@@ -1,0 +1,112 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell is a markdown cell that serves as an introduction to the notebook. It provides an overview of the Dandiset (001174), its focus on calcium imaging data from macaque motor cortices (SMA and M1), and the overall goals of the notebook. It also lists the required Python packages for running the notebook. The notebook objectives are clearly laid out to guide the user. The disclaimer at the beginning of the notebook is a good practice, since the content is auto-generated.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell is a markdown cell that introduces the next section of the notebook, focusing on loading the Dandiset using the DANDI API. It acts as a section header, informing the reader about the upcoming code and its purpose.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell contains code to load the Dandiset using the DANDI API. It imports necessary libraries, connects to the DANDI archive, retrieves the specified Dandiset ("001174"), and lists the assets within the Dandiset. Subsequently, it loads an NWB file from a specified URL using `remfile` and `h5py`, reads the contents using `pynwb`, and prints the session description from the NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 4
+==========
+
+OVERVIEW:
+This markdown cell introduces the next section of the notebook, which focuses on visualizing imaging data. It serves as a section header to guide the reader.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 5
+==========
+
+OVERVIEW:
+This markdown cell provides a more specific introduction to what will be visualized in the following cell(s). It indicates that the visualization will focus on the first plane of the OnePhotonSeries data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell extracts the first plane of data from the "OnePhotonSeries" object within the loaded NWB file and visualizes it as an image using `matplotlib`. The image is displayed with the 'viridis' colormap, a title, and a colorbar.
+
+IMAGE DESCRIPTIONS:
+The image shows a heatmap of fluorescence intensity for the first plane of the OnePhotonSeries data. The x and y axes represent the spatial dimensions of the imaging plane (pixel indices). The color of each pixel corresponds to the fluorescence intensity, with the 'viridis' colormap mapping lower intensities to darker blues and higher intensities to brighter yellows. A colorbar is displayed on the right side of the image, providing a scale for the intensity values. The brightest region is at approximately the center of the image, with intensity dropping off towards the edges.
+
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This markdown cell introduces the next section of the notebook, focusing on exploring fluorescence changes over time for a specific region of interest (ROI). It serves as a section header to guide the reader.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell extracts fluorescence time series data for the first 100 time points of ROI 0 from the "Fluorescence" data interface within the NWB file's processing module. It then plots this data with time on the x-axis and fluorescence intensity on the y-axis. The plot includes a title and axis labels.
+
+IMAGE DESCRIPTIONS:
+The image is a line plot showing the fluorescence intensity of a single ROI (ROI 0) over time. The x-axis represents time (from 0 to 99), and the y-axis represents fluorescence intensity. Initially, the fluorescence intensity is close to zero. Around time point 30, there is a sharp increase in fluorescence intensity, reaching a peak value around 12.5. Following the peak, the fluorescence intensity gradually decreases over time.
+
+ISSUES:
+None
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell is a markdown cell that provides a summary of the notebook's accomplishments and suggests potential future directions for analysis. It also reiterates the disclaimer about the AI-generated nature of the notebook and the need for careful verification of results.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+

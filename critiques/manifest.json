@@ -96,6 +96,15 @@
     "dandisets/001174/2025-04-17-o4-mini-high-prompt-b-5/cells_critique.json",
     "dandisets/001174/2025-04-17-o4-mini-high-prompt-b-5/cells_critique.txt",
     "dandisets/001174/2025-04-17-o4-mini-high-prompt-b-5/summary_critique.txt",
+    "dandisets/001174/2025-04-18-claude-3.7-sonnet-prompt-d-5/cells_critique.json",
+    "dandisets/001174/2025-04-18-claude-3.7-sonnet-prompt-d-5/cells_critique.txt",
+    "dandisets/001174/2025-04-18-claude-3.7-sonnet-prompt-d-5/summary_critique.txt",
+    "dandisets/001174/2025-04-18-gemini-2.0-flash-001-prompt-d-5/cells_critique.json",
+    "dandisets/001174/2025-04-18-gemini-2.0-flash-001-prompt-d-5/cells_critique.txt",
+    "dandisets/001174/2025-04-18-gemini-2.0-flash-001-prompt-d-5/summary_critique.txt",
+    "dandisets/001174/2025-04-18-gpt-4o-prompt-d-5/cells_critique.json",
+    "dandisets/001174/2025-04-18-gpt-4o-prompt-d-5/cells_critique.txt",
+    "dandisets/001174/2025-04-18-gpt-4o-prompt-d-5/summary_critique.txt",
     "dandisets/001275/2025-04-17-claude-3.7-sonnet-prompt-a-5/cells_critique.json",
     "dandisets/001275/2025-04-17-claude-3.7-sonnet-prompt-a-5/cells_critique.txt",
     "dandisets/001275/2025-04-17-claude-3.7-sonnet-prompt-a-5/summary_critique.txt",
@@ -165,12 +174,12 @@
     "dandisets/001335/2025-04-17-gemini-2.0-flash-001-prompt-b-5/cells_critique.json",
     "dandisets/001335/2025-04-17-gemini-2.0-flash-001-prompt-b-5/cells_critique.txt",
     "dandisets/001335/2025-04-17-gemini-2.0-flash-001-prompt-b-5/summary_critique.txt",
-    "helpers/__pycache__/run_completion.cpython-312.pyc",
+    "helpers/__pycache__/run_completion.cpython-311.pyc",
     "helpers/run_completion.py",
     "make_manifest.py",
     "run_critiques.py",
     "templates/notebook_critic_cells_system_prompt.txt",
     "templates/notebook_critic_summary_system_prompt.txt"
   ],
-  "file_count": 171
+  "file_count": 180
 }
