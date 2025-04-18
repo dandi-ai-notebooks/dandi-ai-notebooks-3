@@ -52,6 +52,11 @@ How well does the notebook show how to visualize data from an NWB file in the Da
 2: Two independent pieces of data are visualized
 3: Three or more independent pieces of data are visualized
 
+question_id: advanced-visualization
+Does the notebook create an advanced visualization involving multiple types of data from an NWB file in the Dandiset?
+0: No advanced visualization is shown or is done ineffectively
+1: A high quality advanced visualization is shown
+
 question_id: plot-quality
 What is the quality of the plots in the notebook?
 0: No plots are shown or are done very poorly

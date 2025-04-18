@@ -10,6 +10,10 @@ from dataclasses import dataclass
 from helpers.run_completion import run_completion
 from html import escape as html_escape
 
+num_questions = 11
+model_for_gradings = "anthropic/claude-3.7-sonnet"
+prompt_version = "3"
+
 class XMLParsingError(Exception):
     """Custom exception for XML parsing errors."""
     pass
@@ -104,16 +108,13 @@ def parse_grades_xml(xml_text: str) -> List[GradeBlock]:
             except ValueError as e:
                 raise XMLParsingError(f"Failed to parse grade block: {str(e)}")
 
-        if len(grades) != 10:
-            raise XMLParsingError(f"Expected 10 grade blocks, found {len(grades)}")
+        if len(grades) != num_questions:
+            raise XMLParsingError(f"Expected {num_questions} grade blocks, found {len(grades)}")
 
         return grades
 
     except ET.ParseError as e:
         raise XMLParsingError(f"Invalid XML format: {str(e)}")
-
-model_for_gradings = "anthropic/claude-3.7-sonnet"
-prompt_version = "2"
 
 def find_critiqued_notebooks(base_dir: str) -> List[Tuple[str, str, str]]:
     """Find notebooks that have been critiqued."""
