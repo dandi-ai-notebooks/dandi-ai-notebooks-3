@@ -1,0 +1,472 @@
+Cell 1
+==========
+
+OVERVIEW: This cell introduces the notebook and specifies the Dandiset (001195) that will be explored. It also provides a brief description of the Dandiset's content, setting the stage for the subsequent analysis.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+
+Cell 2
+==========
+
+OVERVIEW: This cell contains a warning, informing the reader that the notebook was AI-generated and may contain errors. This is a crucial disclaimer for the user to interpret the results with caution.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+
+Cell 3
+==========
+
+OVERVIEW: This cell provides an overview of Dandiset 001195. It summarizes the types of data available (electrophysiology and calcium imaging with behavioral videos) and outlines the notebook's analysis plan, which includes loading metadata, working with electrophysiology and calcium imaging data, and visualizing neuronal responses.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+
+Cell 4
+==========
+
+OVERVIEW: This cell lists the Python packages required to execute the notebook. It specifies common scientific computing and data analysis libraries like `pynwb`, `matplotlib`, `numpy`, `pandas`, and `seaborn`, along with `remfile`, `h5py`, and `dandi` which are more specific to data access and handling NWB files.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 5
+==========
+
+OVERVIEW: This cell imports the necessary Python packages listed in the previous cell and sets up the plotting style using Seaborn. It imports specific modules from `dandi` and `pynwb`, and standard libraries with typical aliases. The plotting style is initialized using `sns.set_theme()`, and the default figure size is set using `plt.rcParams`.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 6
+==========
+
+OVERVIEW: This cell introduces the next section of the notebook, focusing on connecting to the DANDI Archive and exploring the Dandiset. It serves as a heading for the subsequent cells that will perform these actions.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 7
+==========
+
+OVERVIEW: This cell connects to the DANDI Archive using the `dandi` package and retrieves the Dandiset with ID "001195". It then extracts and prints the Dandiset's name and URL.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 8
+==========
+
+OVERVIEW: This cell introduces the next subsection about exploring the Dandiset's metadata. It serves as a heading to improve organization.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 9
+==========
+
+OVERVIEW: This cell displays metadata for the Dandiset, including a truncated description, keywords, anatomical regions studied, and measurement techniques. The code iterates through lists of keywords, anatomy, and measurement techniques to print them in a formatted manner. A conditional statement handles the case where measurement technique information is unavailable.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES:
+- The measurement techniques section reports that "Measurement technique information not available" even though keywords like "electrophysiology" and "calcium imaging" suggest such information might exist. It would be helpful to investigate other metadata fields if available, or modify the loop to access the information if it's located differently. The notebook could be improved by displaying available measurement techniques if present, and only displaying the "not available" message if no such data is found after a comprehensive search.
+
+Cell 10
+==========
+
+OVERVIEW: This cell serves as a heading, indicating that the following cells will list the assets (files) contained within the Dandiset.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 11
+==========
+
+OVERVIEW: This cell retrieves a list of assets in the Dandiset and filters them into electrophysiology ('icephys.nwb') and calcium imaging ('image+ophys') categories based on their file paths. It then prints the number of assets in each category and lists the first three files of each type along with their sizes in megabytes.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 12
+==========
+
+OVERVIEW: This cell introduces the section focusing on intracellular electrophysiology data. It provides context by explaining that these are patch-clamp recordings from neurons in the Dorsal Raphe Nucleus (DRN), the source of dopamine neurons projecting to different brain regions.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 13
+==========
+
+OVERVIEW: This cell is a heading for the next section, which details the process of loading an electrophysiology NWB file.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 14
+==========
+
+OVERVIEW: This cell loads an electrophysiology NWB file from a specified URL. It uses `remfile` to access the remote file, `h5py` to handle the HDF5 format, and `pynwb` to read the NWB data into a `nwb_icephys` object.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 15
+==========
+
+OVERVIEW: This cell introduces the exploration of the electrophysiology file's metadata.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 16
+==========
+
+OVERVIEW: This cell extracts and prints metadata from the `nwb_icephys` object related to the recording session, subject, and cell. It accesses attributes such as `session_description`, `session_start_time`, `experimenter`, and various subject properties (`subject_id`, `age`, `sex`, `species`, `description`).
+It uses `hasattr` to check if lab metadata exists, accessing additional information like `cell_id`, `slice_id`, `targeted_layer`, and `inferred_layer`.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 17
+==========
+
+OVERVIEW: This cell is a section header that introduces the topic of understanding acquisition and stimulus data within the electrophysiology file.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 18
+==========
+
+OVERVIEW: This cell gets and prints the number and names of the acquisition and stimulus series present in the NWB file. It iterates through the keys of `nwb_icephys.acquisition` and `nwb_icephys.stimulus` to display the names of a few series from each category. This helps the user understand the structure and content of the data.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 19
+==========
+
+OVERVIEW: This cell introduces the analysis of neuronal responses to current injections. It sets the stage for extracting and visualizing these responses, explaining the focus on recordings with varying stimulus intensities.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 20
+==========
+
+OVERVIEW: This cell defines a function `plot_response` that extracts and plots the neuronal response (membrane potential) to a specific stimulus (current injection) from an NWB file. The function takes the NWB file object, response key, and stimulus key as input. It extracts the response and stimulus data, converts their units to mV and pA if needed, and creates a time vector. It then plots the membrane potential and stimulus current over time in two subplots, including titles, labels, and a grid. It handles the case where a stimulus key is not found. The function includes a calculation of the mean stimulus amplitude during what is considered the steady state portion (0.2 to 0.8 seconds) for use in titling the response plot.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES:
+- The conversion value, extracted by the line `conversion = nwb_file.acquisition[response_key].conversion`, is then multiplied by 1000 when converting to mV, which is potentially confusing or incorrect. It may be helpful to print out the conversion factor to clarify its units and magnitude.
+- The `stim_steady` calculation may be fragile. The hardcoded 0.2 and 0.8 second values rely on a fixed range for analysis, which might not be suitable for all recordings. It is dependent on the sample rate and might not capture the intended "steady" portion of the stimulus if the recording duration varies. Using a proportion of the total recording time might be more robust.
+- The function calculates the mean stimulus amplitude and includes it in the title of the response plot. This is a good idea, but consider including units in the axis titles as well.
+- The function prints a message to the console when a stimulus key is not found, but proceeds to plot zero values for the stimulus in this case. This is good practice, but perhaps it is worth including a separate if statement to check whether there is *any* stimulus and if there isn't stimulus, skip the stimulus subplot altogether to avoid misleading visual information.
+- Overall, the function is well-structured and documented. It effectively addresses the core task of visualizing neuronal responses to stimuli.
+
+Cell 21
+==========
+
+OVERVIEW: This cell is a transition sentence, indicating that the next step will be to select and plot recordings with different stimulus intensities using the `plot_response` function defined in the previous cell.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 22
+==========
+
+OVERVIEW: This cell iterates through a predefined list of indices (4, 10, and 16) to select different stimulus intensities. For each index, it constructs the corresponding `response_key` and `stim_key` and calls the `plot_response` function to generate a plot of the membrane potential response and stimulus current. The plots are arranged in a 3x2 subplot grid. A check is performed to ensure that the response and stimulus keys *are* found in the NWB file before plotting. A title is added to the figure.
+
+IMAGE DESCRIPTIONS:
+The output image contains six plots, arranged in a 3x2 grid.
+- The left column shows the membrane potential (mV) over time (s) for three different current injections. The titles of these plots indicate the mean stimulus amplitude during the steady state portion of the stimulus. The y axis titles seem to be on the order of 1e13 or 1e14 mV, which seems extremely high if the conversion to mV was performed correctly in the function; otherwise the units should be in volts rather than mV. The actual membrane potential as plotted appears to be close to zero.
+- The right column shows the stimulus current (pA) over time (s) corresponding to each of the membrane potential plots. The stimulis waveforms plotted show constant current injection between approximately 0.1 to 0.2 seconds. The axes are clearly labeled.
+
+ISSUES:
+- The values reported in the y-axis for the membrane potential plots are nonsensical (on the order of 1e13 and 1e14 mV near zero). This likely points to an error in the conversion or plotting within the `plot_response` function. *This is a critical error that needs correction.* It also explains the large values in the title. Even if those are in pA, the values still seem excessive. It appears the conversion factor is not working properly.
+- Related to the above point, the titles of the response plots use scientific notation but could be improved for readability.
+- The code includes some hardcoded values (indices 4, 10, 16, and the axis indices). Using a more descriptive variable name or including a comment about what each index represents would improve readability.
+- It would be helpful to add a brief interpretation of the plots (e.g., what the different current injections reveal about the neuron's response).
+
+Cell 23
+==========
+
+OVERVIEW: This cell introduces the analysis of action potentials generated in response to current injection. It prepares the reader for the following code focusing on spiking properties.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 24
+==========
+
+OVERVIEW: This cell searches for a current clamp recording that elicits action potentials. It iterates through the first 30 potential `response_key` indices and checks if the membrane potential exceeds 0 mV, which serves as a proxy for action potentials. If action potentials are detected, it prints the corresponding `response_key`, plots the response and stimulus using the `plot_response` function, and breaks the loop.
+
+IMAGE DESCRIPTIONS:
+The output image shows the membrane potential response to a current injection that elicits an action potential. The top plot displays the membrane potential (mV) over time (s). There is a clear action potential visible, but the y axis values appear incorrect and extremely high (on the order of 1e14 pA), even though there is an action potential visible in the plot. It also shows the membrane potential starting at approximately -75 mV before rising towards 0 mV and generating an action potential. The bottom plot shows the stimulus current (pA) over time (s), showing the magnitude and timing of the current injection. The y axis title for the lower plot also appears incorrect at 1e14 pA.
+
+ISSUES:
+- The very large values on the y-axis title of the lower plot indicates the same plotting and unit conversion issue persists, as first identified in a previous cell. *This needs to be addressed.* Also the y axis max for the stimulus plot is also incorrect.
+- The condition `np.any(response_mV > 0)` as a criterion for AP detection is overly simplistic. It would include recordings with noise or other artifacts. While it works as a basic filter in this case, a more robust method (e.g. thresholding the derivative of the membrane potential) would be more accurate.
+- Despite the issue above, the cell successfully identifies and plots a recording with apparent action potentials; however, the interpretation of the plot is limited. Consider adding a sentence or two discussing the observed response characteristics (e.g., firing rate, adaptation).
+- It may be useful to comment that the search will stop at the first AP detected.
+
+Cell 25
+==========
+
+OVERVIEW: This cell introduces the analysis of the current-voltage (I-V) relationship. It explains the goal of examining the steady-state membrane potential in response to varying current injections.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 26
+==========
+
+OVERVIEW: This cell calculates and plots the current-voltage (I-V) relationship using the electrophysiology data. It iterates through the first 30 stimulus/response pairs and extracts the mean stimulus current and the steady-state membrane potential for each. The steady-state voltage is calculated as the mean of the membrane potential between 50% to 80% of the recording duration to avoid initial transients. The code applies a further filter of `response_steady[response_steady < -20]` to exclude membrane potential values above -20 mV, intended to eliminate action potentials. The extracted current and voltage values are then plotted as a scatter plot with an overlaid line, representing the I-V curve. It plots this data into the x and y axes.
+
+IMAGE DESCRIPTIONS:
+
+The plot shows the current-voltage (I-V) relationship.
+
+- The x-axis represents the current (pA)
+- The y-axis represents the steady-state membrane potential (mV).
+The plot displays a scatter plot of individual data points, overlaid with a black line connecting the points. One data point at the extreme right seems to deviate from the general trend, resulting in a sharp decline of the line connecting the points. The x-axis values at the extreme right are on the order of 1e13, which corresponds with prior incorrect unit scaling.
+The x-axis and y-axis are labeled accordingly.
+
+ISSUES:
+- It appears that the same unit conversion factor from prior cells is affecting the scaling of the x axis, and the x-axis values are extremely high, indicating that there is still a problem with the way the current units are plotted.
+- The method for excluding action potentials is not very robust. It relies on a hardcoded voltage threshold (`response_steady < -20`). Action potentials can have various amplitudes, and this threshold might not be appropriate for all recordings. Ideally, action potential detection methods should be employed (as touched upon previously). The threshold might be sufficient, but a brief justification or explanation of why -20 mV was chosen would be useful.
+- There is a stray point near the top right of the graph that appears to be an outlier, and it pulls the I-V curve off track. It would be worth checking why that occurred and considering whether to eliminate the outlier or explore the data for that stimulus more fully.
+- There is no further analysis on the I-V curve, such as calculating the cell's input resistance or discussing the shape of the curve. While the notebook is an "introduction", one or two such calculations with brief discussion would enhance the educational value.
+- The code calculates the steady state by taking the mean of the membrane potential between 50% to 80% of the recording duration. It should be consistent with how the mean stimulus was calculated between 20% and 80% of the recording duration. It would be less confusing to keep the time point ranges the same, or explain why it deviated. Furthermore, the 50%-80% range may be sensitive to the experimental paradigm as mentioned before.
+
+
+
+Cell 27
+==========
+
+OVERVIEW: This cell introduces the section focusing on calcium imaging data. It provides context by explaining that these recordings are from the Central Amygdala (CeA), a projection target of Dorsal Raphe Dopamine neurons.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 28
+==========
+
+OVERVIEW: This cell is a heading indicating the loading of a calcium imaging NWB file will be performed in subsequent cells.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 29
+==========
+
+OVERVIEW: This cell loads a calcium imaging NWB file from a specified URL using `remfile`, `h5py`, and `pynwb`. The resulting `nwb_calcium` variable stores the NWB data.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 30
+==========
+
+OVERVIEW: This cell introduces the exploration of the calcium imaging file's metadata.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 31
+==========
+
+OVERVIEW: This cell prints metadata information from the calcium imaging NWB file including session details, experimenter, descriptions, stimulus notes, and subject information.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 32
+==========
+
+OVERVIEW: This cell introduces the exploration of the calcium imaging data structure from the NWB file.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 33
+==========
+
+OVERVIEW: This cell extracts and prints information about the calcium imaging data, the imaging plane, and processed ROIs from the NWB file `nwb_calcium`. The code accesses attributes such as frame rate, image dimensions, location, indicator, excitation wavelength, device description, and manufacturer. It checks if fluorescence and segmentation data are available within the "ophys" processing module, and if so, prints the number of ROIs, the number of time points, the sampling rate, and, in the case of segmentation data, a description.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 34
+==========
+
+OVERVIEW: This cell is a heading indicating that the next cells will focus on visualizing a sample calcium imaging frame.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 35
+==========
+
+OVERVIEW: This cell loads the first frame from the calcium imaging series and displays it using `plt.imshow` with a grayscale colormap. It includes a colorbar to indicate the intensity scale and a title for the plot. It wraps the image loading and display code in a `try...except` block to handle potential errors during remote file access.
+
+IMAGE DESCRIPTIONS:
+
+The output image is a grayscale representation of a single frame from the calcium imaging data.
+
+- It shows a roughly circular region with varying levels of gray intensity.
+- There are brighter, more intense areas that could represent regions of high calcium activity, such as individual cells. There are other regions that appear darker with low calcium activity.
+- A colorbar is present on the right side of the image to relate the gray scale to the intensity values.
+
+ISSUES:
+- The resolution of the image doesn't show single cells very well (it is somewhat blurry). Exploring ways to enhance or sharpen the image could improve visualization.
+- It might be useful to briefly discuss the features observed in the sample frame (e.g., regions with high/low intensity) to guide the user's interpretation.
+- Given that calcium imaging data is often analyzed as changes in fluorescence over time (delta F/F0), consider adding a visualization of this normalized data in the next cells. This would demonstrate a more common and informative way to represent calcium imaging signals.
+
+Cell 36
+==========
+
+OVERVIEW: This cell introduces the analysis of calcium fluorescence traces.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 37
+==========
+
+OVERVIEW: This cell retrieves the fluorescence data (F) and its corresponding time vector (t) from the NWB file. To improve plotting speed, it downsamples both the fluorescence data (F_ds) and the time vector (t_ds), aiming for approximately 2000 timepoints after downsampling. This downsampled data will be used in the subsequent plotting cell.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 38
+==========
+
+OVERVIEW: This cell plots the fluorescence traces for a few randomly selected ROIs (regions of interest) from the calcium imaging data. It selects a random subset of ROIs and normalizes each trace by subtracting the minimum and dividing by the range, adding a small constant to prevent division by zero. Finally, it plots the normalized traces with a vertical offset for better visualization.
+
+IMAGE DESCRIPTIONS:
+The image displays a plot of calcium fluorescence traces over time for five randomly selected ROIs (regions of interest).
+- The x-axis represents time, ranging from approximately 0 to 800 seconds.
+- The y-axis displays the normalized fluorescence intensity with a vertical offset to separate the traces. Each trace is labeled with its ROI number (e.g., ROI 64, ROI 56).
+- Different traces exhibit varying patterns of fluorescence activity and amplitude over time, suggesting differences in neuronal activity across the selected cells. Some traces show distinct peaks, indicating periods of increased calcium influx, while others show more sustained or irregular activity.
+- The signals are relatively noisy and raw.
+
+ISSUES:
+- More explanation could be given for what the traces represent. Are these the signals from neuronal activity?
+- The normalization is done according to `(trace - np.min(trace) / (np.max(trace) - np.min(trace) + 1e-6)`, which is a min-max normalization from 0 to 1. It would be great to compare this to more standard and useful measures, like delta F over F0.
+- The traces in the plot appear quite noisy. Applying some smoothing (e.g., a moving average filter) could improve visualization of underlying trends.
+- Consider labeling the stimulus period on the plot (based on the metadata in `nwb_calcium.stimulus_notes`) to see how the ROIs respond to the stimulus.
+- Add a sentence or two discussing the observed patterns of activity in the ROIs. Highlighting differences in activity patterns or potential relationships between ROIs would improve the analysis.
+
+Cell 39
+==========
+
+OVERVIEW: This cell introduces the calculation of the mean activity across all ROIs.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 40
+==========
+
+OVERVIEW: This cell calculates the mean fluorescence activity across all ROIs and plots it over time. It computes the average fluorescence signal at each timepoint across all ROIs in the downsampled data `F_ds`. It then generates a line plot showing the mean fluorescence over time.
+
+IMAGE DESCRIPTIONS:
+
+The plot shows the average calcium activity across all ROIs over time.
+
+- The x-axis represents time, ranging from 0 to 800 seconds.
+- The y-axis represents the mean fluorescence intensity. The mean fluorescence activity is plotted against the time, represented as a blue line.
+- On the plot, a user can see an overall trend or pattern of activity across the entire ROI population.
+
+ISSUES:
+- There is still a high degree of visible noise, as noted previously, that could be cleaned with basic filtering.
+- Consider adding information about the stimulus period to the plot to examine whether the global ROI activity exhibits stimulus-related responses.
+- Additional analysis, such as examining the frequency content of the mean activity or correlating it with behavioral data (if available in the Dandiset) would provide a richer understanding.
+- Consider plotting the standard deviation or standard error as a shaded region around the average, to indicate the variance in the ROIs.
+
+Cell 41
+==========
+
+OVERVIEW: This cell introduces the generation of an activity heatmap across all ROIs.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 42
+==========
+
+OVERVIEW: This cell generates a heatmap visualizing the calcium activity of all ROIs over time. It transposes the downsampled fluorescence data `F_ds` so that each row represents an ROI and each column represents a timepoint. The `imshow` function is used to display the data as a heatmap, with the x-axis representing time, the y-axis representing ROI number, and the color intensity representing fluorescence levels.
+
+IMAGE DESCRIPTIONS:
+
+The output is a heatmap displaying the calcium activity of all ROIs over time.
+
+- The x-axis represents time, with values ranging from approximately 0 to 750 seconds.
+- The y-axis represents the ROI number, ranging from 0 to approximately 75.
+- The color intensity represents the fluorescence level, with a color bar on the right side mapping the fluorescence values. The color ranges from dark purple (low) to white (high activity).
+- Horizontal bands of different colors indicate that different ROIs show various activity levels. Overall, the bands show neuronal activity during the time period.
+
+ISSUES:
+- The heatmap does not show the ROI that each number refers to, or spatial information. Is it possible to plot each ROI in its correct location superimposed with the mean flourescence values that are demonstrated here? Are there tools in pynwb that would enable this?
+- The color scale is fine, but again, the stimulus period could be indicated on the graph to see the effect of the stimulus more easily.
+- The code displays the heatmap and labels, but a discussion of the observed patterns is missing. For instance, some bands display greater fluorescence than others. Do particular ROIs respond more robustly? Are there groups of ROIs that fire together? Patterns such as these should be described.
+- No data processing steps appear to have been taken other than downsampling. As with the raw fluorescence data, delta F over F0 normalization may be more appropriate than displaying it raw.
+
+Cell 43
+==========
+
+OVERVIEW: This cell summarizes the analyses performed in the notebook, highlighting the key findings from both the electrophysiology and calcium imaging data. It emphasizes the insights gained into the properties of DRN neurons and the activity patterns in the CeA, and reminds the reader that this is all within the context of studying loneliness-like states.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 44
+==========
+
+OVERVIEW: This cell outlines potential future directions for analyzing the Dandiset, suggesting specific analyses that build upon the work done in the notebook. These suggestions include correlating calcium imaging data with behavior, comparing activity between social conditions, analyzing optogenetic effects, performing spatial analysis of CeA activity, and comparing electrophysiological properties across different neuron types.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
