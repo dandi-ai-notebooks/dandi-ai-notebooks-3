@@ -6,7 +6,7 @@ Structure of the notebook:
 
 Start with an appropriate title for the notebook, such as "Exploring Dandiset {{ DANDISET_ID }}: ..." (that should be a markdown heading).
 
-Prominently inform the user that the notebook was AI-generated using dandi-notebook-gen and has not been fully verified, and that they should be cautious when interpreting the code or results.
+Prominently inform the user that the notebook was AI-generated and has not been fully verified, and that they should be cautious when interpreting the code or results.
 
 Provide an overview of the Dandiset. Include a link to the Dandiset of the form https://dandiarchive.org/dandiset/{{ DANDISET_ID }}
 
