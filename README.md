@@ -4,6 +4,8 @@ A system for generating, critiquing, and grading Jupyter notebooks for DANDI dat
 
 Latest results: https://dandi-ai-notebooks.github.io/dandi-ai-notebooks-3/
 
+:warning: You'll see a ranking column and a grading column. This might be confusing. I would ignore the "ranking". This was an experiment, and at this point I feel like the grade is more useful.
+
 ## Overview
 
 This project automates the process of:
