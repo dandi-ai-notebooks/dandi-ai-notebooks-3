@@ -702,6 +702,60 @@
     "subfolder": "2025-04-18-gemini-2.0-flash-001-prompt-b-6"
   },
   {
+    "dandiset_id": "001375",
+    "model": "openai/gpt-4o",
+    "prompt": "prompt-d-6.txt",
+    "total_prompt_tokens": 192488,
+    "total_completion_tokens": 3559,
+    "total_vision_prompt_tokens": 1188,
+    "total_vision_completion_tokens": 97,
+    "elapsed_time_seconds": 202.67202162742615,
+    "timestamp": "2025-04-18 21:55:24",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-18-gpt-4o-prompt-d-6"
+  },
+  {
+    "dandiset_id": "001375",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-d-6.txt",
+    "total_prompt_tokens": 1437605,
+    "total_completion_tokens": 32568,
+    "total_vision_prompt_tokens": 12676,
+    "total_vision_completion_tokens": 2029,
+    "elapsed_time_seconds": 975.311630487442,
+    "timestamp": "2025-04-18 21:52:01",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-18-claude-3.7-sonnet-prompt-d-6"
+  },
+  {
+    "dandiset_id": "001375",
+    "model": "google/gemini-2.0-flash-001",
+    "prompt": "prompt-d-6.txt",
+    "total_prompt_tokens": 199340,
+    "total_completion_tokens": 3851,
+    "total_vision_prompt_tokens": 2412,
+    "total_vision_completion_tokens": 128,
+    "elapsed_time_seconds": 77.43773198127747,
+    "timestamp": "2025-04-18 21:35:45",
+    "system_info": {
+      "platform": "Linux-5.10.234-225.921.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-18-gemini-2.0-flash-001-prompt-d-6"
+  },
+  {
     "dandiset_id": "001335",
     "model": "openrouter/quasar-alpha",
     "prompt": "prompt-a-1.txt",

@@ -1,0 +1,101 @@
+Cell 1
+==========
+
+OVERVIEW:
+This is a markdown cell that serves as an introduction to the notebook. It provides the title, a warning about the AI-generated nature of the notebook, a brief overview of the experiment, a link to the Dandiset on the DANDI Archive, and a list of topics covered in the notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This markdown cell lists the required Python packages for running the notebook. This is good practice to ensure the user has the correct dependencies installed before running the code.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This code cell uses the DANDI API to connect to the DANDI Archive, retrieve Dandiset 001375, and print basic information about it, including the name and URL. It also lists the first 5 assets in the Dandiset. This cell successfully demonstrates how to access and inspect a Dandiset programmatically.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This markdown cell specifies the NWB file to be loaded and provides its asset URL. This gives the user clear direction as to which file will be used for further analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 5
+==========
+
+OVERVIEW:
+This code cell loads the specified NWB file from the given URL using `remfile`, `h5py`, and `pynwb`. It then prints some basic metadata from the NWB file, including session description, session start time, subject ID, and age. This cell demonstrates how to load an NWB file from a remote source and access its metadata.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 6
+==========
+
+OVERVIEW:
+This markdown cell introduces the next step in the notebook: visualizing a subset of the multi-channel time series data. It specifies which channels and time range will be visualized. This prepares the user for the subsequent code.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This code cell loads a subset of the data from the NWB file (the first 6000 time points of the first 10 channels) and plots it. Each channel is offset vertically for better visualization. The x-axis represents time, and the y-axis represents the amplitude plus an offset. The plot is titled "Subset Multi-channel Time Series Overview," and the axes are labeled appropriately. Finally, the code closes file connections.
+
+IMAGE DESCRIPTIONS:
+The image is a plot titled "Subset Multi-channel Time Series Overview". The x-axis is labeled "Time (s)" and ranges from 0.0 to 0.2. The y-axis is labeled "Amplitude (mV) + offset." There are 10 lines plotted, each representing a channel (0-9). Each channel's data is offset vertically. The legend on the upper right corner indicates which color belongs to which channel. The plot visualizes the raw voltage traces of the first 10 channels for the first 200ms.
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This final markdown cell provides a brief summary of what the notebook covered: loading and visualizing data from an NWB file. It also suggests potential directions for future analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
