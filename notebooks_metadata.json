@@ -1837,6 +1837,24 @@
   },
   {
     "dandiset_id": "001361",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-b-6.txt",
+    "total_prompt_tokens": 1883760,
+    "total_completion_tokens": 29291,
+    "total_vision_prompt_tokens": 14797,
+    "total_vision_completion_tokens": 2558,
+    "elapsed_time_seconds": 899.5300834178925,
+    "timestamp": "2025-04-23 22:12:50",
+    "system_info": {
+      "platform": "Linux-5.10.235-227.919.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-23-claude-3.7-sonnet-prompt-b-6"
+  },
+  {
+    "dandiset_id": "001361",
     "model": "google/gemini-2.0-flash-001",
     "prompt": "prompt-b-6.txt",
     "total_prompt_tokens": 596739,
