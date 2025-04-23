@@ -186,6 +186,9 @@ def main():
     # Select representative notebooks
     selected = select_representative_notebooks(notebooks)
 
+    # Let's display them backwards, because the first is usually the longest, and we don't want the reviewer to get burned out
+    selected = selected[::-1]
+
     # Print results
     print(f"\nSelected {len(selected)} notebooks for review:")
     for nb in selected:
@@ -204,9 +207,6 @@ def main():
     print_score_distribution(selected)
 
     print("")
-
-    # Let's display them backwards, because the first is usually the longest, and we don't want the reviewer to get burned out
-    selected = selected[::-1]
 
     for i, nb in enumerate(selected):
         dandiset_id = nb['dandiset_id']
