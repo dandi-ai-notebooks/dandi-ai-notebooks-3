@@ -1,5 +1,7 @@
 Please review the following notebooks. You will need an API key, which you can get from Jeremy.
 
+:warning: If the notebooks do not show up in your browser, try using a different browser or clearing your cache.
+
 * 1. [for-review/dandisets/001333/67222db72ad08d668e703b23438e2196aee5131b/001333.ipynb](https://dandi-ai-notebooks.github.io/dandi-notebook-review/review?url=https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-3/blob/main/for-review/dandisets/001333/67222db72ad08d668e703b23438e2196aee5131b/001333.ipynb)
 * 2. [for-review/dandisets/001174/44920add26d5b8ecdf43d3254ca80ce7bbf85436/001174.ipynb](https://dandi-ai-notebooks.github.io/dandi-notebook-review/review?url=https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-3/blob/main/for-review/dandisets/001174/44920add26d5b8ecdf43d3254ca80ce7bbf85436/001174.ipynb)
 * 3. [for-review/dandisets/000945/11d420c53512e5eff42f7691cc8318b060607bad/000945.ipynb](https://dandi-ai-notebooks.github.io/dandi-notebook-review/review?url=https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-3/blob/main/for-review/dandisets/000945/11d420c53512e5eff42f7691cc8318b060607bad/000945.ipynb)
