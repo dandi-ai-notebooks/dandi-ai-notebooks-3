@@ -10,9 +10,9 @@ from dataclasses import dataclass
 from helpers.run_completion import run_completion
 from html import escape as html_escape
 
-num_questions = 11
+num_questions = 12
 model_for_gradings = "anthropic/claude-3.7-sonnet"
-prompt_version = "3"
+prompt_version = "4"
 
 class XMLParsingError(Exception):
     """Custom exception for XML parsing errors."""

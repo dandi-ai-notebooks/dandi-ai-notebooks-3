@@ -55,7 +55,7 @@ How well does the notebook show how to visualize data from an NWB file in the Da
 question_id: advanced-visualization
 Does the notebook create an advanced visualization involving multiple types of data from an NWB file in the Dandiset?
 0: No advanced visualization is shown or is done ineffectively
-1: A high quality advanced visualization is shown
+1: At least one high quality advanced visualization is shown
 
 question_id: plot-quality
 What is the quality of the plots in the notebook?
@@ -64,29 +64,37 @@ What is the quality of the plots in the notebook?
 2: Very good quality
 
 question_id: plot-issues
-What issues are there with the plots in the notebook?
+Are there issues with the plots in the notebook?
 0: No issues
 -1: Some minor issues only
 -2: At least one major issue
 -3: Two or more major issues
 
-question_id: analysis-issues
-What issues are there with the analysis in the notebook?
-0: No issues
--1: Some minor issues only
--2: At least one major issue
--3: Two or more major issues
+question_id: plot-redundancy
+Is there excessive redundancy between the plots in the notebook?
+0: No excessive redundancy between the plots
+-1: Some minor redundancy only
+-2: At least one major redundancy between the plots
+-3: Two or more major redundancies between the plots
 
 question_id: unsupported-conclusions
-What unsupported conclusions are drawn in the notebook?
+Are there unsupported conclusions in the notebook?
 0: No unsupported conclusions
 -1: Some minor unsupported conclusions
 -2: At least one major unsupported conclusion
 -3: Two or more major unsupported conclusions
 
 question_id: other-issues
-What other issues are there with the notebook?
+Are there other issues with the notebook?
 0: No other issues
--1: Some minor issues only
--2: At least one major issue
--3: Two or more major issues
+-1: Some minor other issues only
+-2: At least one major other issue
+-3: Two or more major other issues
+
+question_id: overall-effectiveness
+What is your overall rating of the effectiveness of this notebook for getting started loading, visualizing, and analyzing this Dataset?
+-2: Very ineffective
+-1: Somewhat ineffective
+0: Neutral
+1: Somewhat effective
+2: Very effective
