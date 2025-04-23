@@ -1,0 +1,693 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell introduces the Dandiset being explored in the notebook, "001375: Septum GABA Disruption with DREADDs". It serves as a title and provides context for the subsequent analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell provides a disclaimer indicating that the notebook's content was AI-generated and may not be fully verified. It cautions the reader to interpret the code and results cautiously. This is good practice, managing the user's expectations.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell introduces the "Overview" section of the notebook. It serves as a heading.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell provides a brief overview of the Dandiset 001375. It describes the experiment's purpose (investigating the effects of disrupting septal GABAergic activity), the experimental setup (virtual hallway), the subjects (MS13B and MS14A), and the recording method (silicon probes). It also provides a direct link to the Dandiset on the DANDI Archive.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell introduces the "What This Notebook Covers" section of the notebook. It serves as a heading to outline the notebook's scope.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell lists the topics covered in the notebook. It provides a clear outline of the notebook's workflow and the analyses performed.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell introduces the "Required Packages" section, setting the stage for listing the necessary Python libraries.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell lists the Python packages required to execute the notebook. It includes a brief description of each package's purpose, which helps the user understand their roles in the analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell imports the necessary Python packages listed in the previous cell. It also sets the plotting style using Seaborn and configures the default figure size for Matplotlib plots.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell introduces the "Loading the Dandiset" section, signaling the start of the data loading process.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell provides a brief introductory sentence to the code that will load the Dandiset information.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell uses the DANDI API to connect to the DANDI archive and retrieve information about the specified Dandiset ("001375"). It extracts and prints the Dandiset's name, URL, description, and contributors. Finally, it lists the assets (NWB files) contained within the Dandiset, including their paths. The contributor section has sophisticated logic to accomodate different formats in the metadata field within the DANDI API.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell introduces the section focused on exploring the NWB files within the Dandiset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 14
+==========
+
+OVERVIEW:
+This cell indicates that the notebook will focus on exploring the NWB file associated with subject MS13B.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 15
+==========
+
+OVERVIEW:
+This cell loads an NWB file (specifically, the one associated with subject MS13B) from the DANDI archive using its URL. It utilizes `remfile` to access the file remotely, then reads it using `pynwb`. It retrieves and prints basic information about the NWB file, including the session description, identifier, session start time, and the duration of the recording. The recording duration is calculated using the shape of the time series data and the sampling rate. It also prints a UserWarning about namespace versions - which is safe to ignore.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 16
+==========
+
+OVERVIEW:
+This cell introduces a subsection focused on extracting and displaying information about the subject from the NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 17
+==========
+
+OVERVIEW:
+This cell extracts and prints information about the subject from the loaded NWB file. The printed information includes the subject ID, description, species, sex, and age.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 18
+==========
+
+OVERVIEW:
+This cell introduces a subsection focused on exploring the electrode setup information within the NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 19
+==========
+
+OVERVIEW:
+This cell provides context, indicating that the following code will examine the electrode configurations used during the recordings.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 20
+==========
+
+OVERVIEW:
+This cell iterates through the electrode groups in the NWB file and prints information about each group. The printed information includes the group name, description, location, and the device used (including its description and manufacturer).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 21
+==========
+
+OVERVIEW:
+This cell retrieves electrode information from the NWB file and converts it into a Pandas DataFrame. It prints the total number of electrodes and displays the first few rows of the DataFrame, showing the x, y coordinates, location, filtering, group, group_name, and label information for each electrode.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 22
+==========
+
+OVERVIEW:
+This cell generates a scatter plot visualizing the spatial positions of the electrodes. It groups the electrodes based on their 'group_name' and plots their x and y coordinates. Each group is represented by a different color, as indicated in the legend. The plot includes axis labels, a title, a legend, and a grid for better readability. Both shanks appear tightly clustered, vertically.
+
+IMAGE DESCRIPTIONS:
+The plot shows the electrode positions as a scatter plot. The x-axis represents the X position (μm), and the y-axis represents the Y position (μm). There are two clusters of electrodes, representing 'shank1' and 'shank2'. The electrodes are arranged vertically, indicating a linear arrangement of electrodes within each shank. The X positions for each shank are around -20 and 20 micrometers, respectively. The Y positions range from around 0 to 2100 micrometers.
+
+ISSUES:
+None
+
+Cell 23
+==========
+
+OVERVIEW:
+This cell provides a summary and interpretation of the electrode setup based on the previous analysis and plot. It states the number of shanks, the number of electrodes per shank, the arrangement of electrodes (vertical column), and the brain regions where the shanks were positioned.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 24
+==========
+
+OVERVIEW:
+This cell introduces a subsection dedicated to exploring trial information in the NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 25
+==========
+
+OVERVIEW:
+This cell introduces the purpose of the following code, which is to examine the trial structure within the experiment's data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 26
+==========
+
+OVERVIEW:
+This cell extracts trial information from the NWB file and converts it into a Pandas DataFrame. It prints the total number of trials and displays the first 5 trials in the DataFrame including the columns 'start_time' and 'stop_time'.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 27
+==========
+
+OVERVIEW:
+This cell calculates the duration of each trial by subtracting the start time from the stop time. It adds a new 'duration' column to the `trials_df` DataFrame. It then prints the mean, minimum, maximum, and median trial durations in seconds, providing a statistical summary of the trial lengths.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 28
+==========
+
+OVERVIEW:
+This cell generates a histogram of the trial durations. The x-axis represents the duration in seconds, and the y-axis represents the frequency. The histogram is divided into 30 bins to visualize the distribution of trial durations. Most trials appear to clustered between 0 and 20 seconds, with some trials having durations between 20 and 40 seconds. There are a couple of trials even longer.
+
+IMAGE DESCRIPTIONS:
+The histogram shows the distribution of trial durations. The x-axis is labeled "Duration (seconds)" and the y-axis is labeled "Frequency." The histogram is heavily skewed to the right, with the majority of trials having short durations (less than 20 seconds). A few trials have much longer durations, extending to nearly 170 seconds.
+
+ISSUES:
+None
+
+Cell 29
+==========
+
+OVERVIEW:
+This cell summarizes the key findings from the trial analysis based on the previous calculations and plot. It describes the number of trials, the typical trial duration, the mean duration, and the presence of some longer trials.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 30
+==========
+
+OVERVIEW:
+This cell introduces the section dedicated to exploring the raw electrophysiological data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 31
+==========
+
+OVERVIEW:
+This cell introduces the purpose of the following code, which is to examine a snippet of the raw electrophysiological data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 32
+==========
+
+OVERVIEW:
+This cell extracts a small segment (0.1 seconds) of raw electrophysiological data from the loaded NWB file. It selects the first four channels and plots their amplitudes over time. To improve readability, each channel's signal is offset vertically by a fixed amount. The plot displays time on the x-axis and amplitude (with offset) on the y-axis. The sampling rate and shape of the data is printed before the short segment is extracted and plotted.
+
+IMAGE DESCRIPTIONS:
+The plot shows the raw electrophysiology signal for four channels (0, 1, 2, and 3) over a 0.1-second window of time. The x-axis is labeled "Time (s)", ranging from 100.00 to 100.10 seconds. The y-axis is labeled "Amplitude (μV) + offset." Each channel's signal is plotted with a different color and offset vertically for clarity. The signals appear noisy, with some shared fluctuations between channels.
+
+ISSUES:
+None
+
+Cell 33
+==========
+
+OVERVIEW:
+This cell indicates that the subsequent code will compare the raw electrophysiological signals recorded from different electrode groups (shanks).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 34
+==========
+
+OVERVIEW:
+This cell compares raw electrophysiological signals from different electrode groups (shanks). It retrieves the electrode IDs for shank1 and shank2, selects the first three electrodes from each shank, and plots their raw data over time. The signals are offset vertically for better visualization.
+
+IMAGE DESCRIPTIONS:
+The plot displays the raw signals from different electrode groups (shanks). The x-axis represents "Time (s)," ranging from 100.00 to 100.10 seconds. The y-axis represents "Amplitude (μV) + offset." The plot shows overlaid signals for 3 channels from each of shank 1, and shank 2. The legend specifies "Shank1-0", "Shank1-1", "Shank1-2", and "Shank2-128", "Shank2-129", "Shank2-130" corresponding to the first three electrode ids from each shank. The signals appear noisy with an apparent large deflection downward around 100.03 seconds.
+
+ISSUES:
+None
+
+Cell 35
+==========
+
+OVERVIEW:
+This cell provides an interpretation of the raw electrophysiological data and compares signals from different electrode groups (shanks). It notes the presence of high-frequency oscillations, varying amplitudes, and both slow and fast activity. It suggests that the different patterns observed in the signals from different channels may indicate recordings from different neural populations or brain regions. It also mentions the need for further analysis to confirm this hypothesis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 36
+==========
+
+OVERVIEW:
+This cell introduces the section focused on exploring single-unit activity.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 37
+==========
+
+OVERVIEW:
+This cell serves as an introduction, indicating that the following code will focus on analyzing the spiking activity of individual neurons.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 38
+==========
+
+OVERVIEW:
+This cell retrieves the units table from the NWB file and converts it into a Pandas DataFrame. It prints the total number of units and displays the first 5 units including column 'spike_times'.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 39
+==========
+
+OVERVIEW:
+This cell serves as an introduction to the subsequent code, which computes basic statistics related to each identified neuronal unit.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 40
+==========
+
+OVERVIEW:
+This cell calculates statistics for each unit in the dataset. For each unit, it accesses its spike times, computes the number of spikes, mean firing rate, inter-spike intervals (ISIs), mean ISI, and coefficient of variation of ISIs (CV ISI). It stores these statistics in a list of dictionaries, then converts this list to a Pandas DataFrame named `unit_stats_df`. Finally, it prints the average, minimum, and maximum spike rates across all units. The code uses the index `i` to get the spike times and unit id to store the stats, instead of the unit_id stored in the `units_df.index`, ensuring that the correct unit index is being used to get the `spike_times`.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 41
+==========
+
+OVERVIEW:
+This cell generates a histogram showing the distribution of mean spike rates across all units. The x-axis represents the mean spike rate in Hertz (Hz), and the y-axis represents the number of units.
+
+IMAGE DESCRIPTIONS:
+The histogram shows the distribution of mean spike rates across units. The x-axis is labeled "Mean Spike Rate (Hz)" and the y-axis is labeled "Number of Units." The distribution is right skewed, with most units having low mean spike rates. The data suggests units are most commonly firing at around 2-8 Hz. The rate tapers off, but there appears to be one unit with a mean spike rate as high as 58 Hz.
+
+ISSUES:
+None
+
+Cell 42
+==========
+
+OVERVIEW:
+This cell serves as an introduction, explaining that the following code will analyze the relationship between a unit's firing rate and regularity.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 43
+==========
+
+OVERVIEW:
+This cell generates a scatter plot showing the relationship between each unit's mean spike rate and the coefficient of variation (CV) of its inter-spike intervals (ISIs). It filters out units with NaN values in the 'cv_isi' column. The x-axis represents the mean spike rate (Hz), and the y-axis represents the CV of ISI.
+
+IMAGE DESCRIPTIONS:
+The scatter plot displays the relationship between the mean spike rate and the coefficient of variation of ISI for the recorded units. The x-axis represents the "Mean Spike Rate (Hz)", ranging from 0 to 60 Hz. The y-axis represents the "Coefficient of Variation of ISI", ranging from 0 to 3.5. Most data points are clustered at lower spike rates (below 20 Hz). There is no clear relationship, but the CV of ISI values appear more scattered at lower mean spike rates than higher spike rates.
+
+ISSUES:
+None
+
+Cell 44
+==========
+
+OVERVIEW:
+This cell summarizes the key findings from the single-unit activity analysis. It describes:
+1. The range of firing rates observed across units, noting that most units have firing rates below 20 Hz.
+2. The relationship between firing rate and regularity (CV of ISI), noting that at lower firing rates, there is a wider range of CV values, and that there are too few high-firing rate units to make any conclusions.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 45
+==========
+
+OVERVIEW:
+This cell introduces the section focused on examining the spiking activity around the trials.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 46
+==========
+
+OVERVIEW:
+This cell introduces the section, stating that the following code will analyze the relationship between spiking activity and behavioral trials.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 47
+==========
+
+OVERVIEW:
+This cell analyzes the spiking activity of selected units around the start and end of selected trials. It selects the top three units with the highest mean firing rates and the first five trials. For each unit and trial, it identifies spikes that occur within a 2-second window around the start of the trial, calculates the time of theses spikes relative to the trial-start, and plots these spikes as vertical lines on a scatter plot. Each row in the plot corresponds to a unique unit-trial combination. The normalized time relative to trial start is on the x axis. Vertical red and green lines mark the start and end times of the trial.
+
+IMAGE DESCRIPTIONS:
+The plot shows the spike activity of three selected units around the start and end times of five selected trials. The x-axis represents "Time Relative to Trial Start (s)", ranging from approximately -2.5 to 15. The y-axis represents different combinations of units and trials, labeled as "U[unit_id]-T[trial_id]". Each spike is marked as a small vertical line. The start of each trial (time 0) is marked by a vertical dashed red line, while the end of each trial is marked by a vertical dashed green line. The varying density and temporal distribution of spikes within and across the trials and units suggest differences in trial-related activity.
+
+ISSUES:
+None
+
+Cell 48
+==========
+
+OVERVIEW:
+This cell provides an interpretation of the trial-aligned spike raster plot generated in the previous cell. It notes that the spike patterns are relatively consistent throughout the trials and that the trial boundaries don't seem to strongly modulate the spiking behavior. It also observes that different units exhibit distinct firing patterns.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 49
+==========
+
+OVERVIEW:
+This cell introduces the final section of the notebook, focusing on comparing data across multiple sessions.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 50
+==========
+
+OVERVIEW:
+This cell introduces the goal of the following code, to compare data across multiple sessions, presumably from the same dandiset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 51
+==========
+
+OVERVIEW:
+This cell compares data from two different sessions (MS13B and MS14A). It loads the second NWB file, then it compares these sessions based on basic session information (subject ID, date), recording duration, number of trials, trial duration statistics (mean, min, max), number of units, and electrode group locations.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 52
+==========
+
+OVERVIEW:
+This cell generates a histogram comparing the distributions of trial durations between the two sessions (MS13B and MS14A). It plots the histograms with some transparency to allow for visual comparison. It also includes a legend indicating the session label and the number of trials. The file handles for the second session are closed.
+
+IMAGE DESCRIPTIONS:
+The plot shows the distribution of trial durations for two sessions, MS13B and MS14A. A blue histogram represents MS13B (387 trials), and an orange histogram represents MS14A (716 trials). The x-axis is labeled "Trial Duration (seconds)," and the y-axis is labeled "Frequency." Both distributions are right-skewed, with the majority of trials having short durations, but MS13B has a longer-tailed distribution, with some trials well beyond 20 seconds. MS14A appears to have almost all trials under 20 seconds.
+
+ISSUES:
+None
+
+Cell 53
+==========
+
+OVERVIEW:
+This cell summarizes the key differences observed between the two recording sessions (MS13B and MS14A). It highlights differences in recording locations, trial structure, unit count, and recording duration. It also provides a concluding sentence that relates the highlighted differences back to the overall experimental design and goals of the study.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 54
+==========
+
+OVERVIEW:
+This cell introduces the "Summary and Future Directions" section, signaling the end of the analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 55
+==========
+
+OVERVIEW:
+This cell provides a summary of the analyses performed in the notebook and suggests potential avenues for future exploration. It recaps the key findings and proposes several analyses that could be conducted to further investigate the data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 56
+==========
+
+OVERVIEW:
+This cell introduces a "Cleanup" section, which may contain code to release resources or perform other cleanup operations.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 57
+==========
+
+OVERVIEW:
+This cell ensures that the file handles opened in earlier cells are closed. This frees up resources and prevents potential issues.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+

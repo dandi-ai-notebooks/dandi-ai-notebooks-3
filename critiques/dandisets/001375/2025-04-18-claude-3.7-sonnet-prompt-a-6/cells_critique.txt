@@ -1,0 +1,346 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell contains a title for the Jupyter notebook, indicating that the notebook will explore Dandiset 001375, which involves a study of septum GABA disruption using DREADDs. This title provides context for the entire notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell contains a disclaimer stating that the notebook was AI-generated and not fully verified. It advises caution in interpreting the results and suggests validating findings. This is important for the reader to understand the limitations of the presented material.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell provides an overview of the Dandiset being explored (001375) and outlines the goals of the notebook. It includes the Dandiset title, a brief description of the underlying study, the Dandiset URL, and a numbered list of steps that will be performed in the notebook. This section clearly sets the scope and objectives for the reader.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell lists the Python packages required to run the notebook. This is helpful to the user, as they can install them if needed.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell serves as a heading for the section where the Dandiset will be loaded. It provides a clear marker for the start of this process in the notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell contains the code to connect to the DANDI archive, retrieve metadata about Dandiset 001375, and list the assets (NWB files) within the Dandiset. It imports necessary libraries, connects to the DANDI API, retrieves and prints the Dandiset name, description, contributors, URL, and lists the names and sizes of the assets.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell introduces the next part of the notebook, which involves loading and exploring one of the NWB files within the Dandiset. It specifies that the file from subject MS13B will be used, and provides a brief description of the data (electrophysiology data from a virtual hallway task). This clarifies the purpose of the following cells.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell loads and explores an NWB file from the DANDI archive. It selects the NWB file associated with subject MS13B, constructs the download URL using a hardcoded asset ID, opens the file using `remfile` and `h5py`, then reads it using `pynwb`. Finally, it prints basic information about the NWB file, including the session description, identifier, session start time, and file creation date. The warning about namespace version mismatch is also displayed.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The asset ID is currently hardcoded. While it accomplishes the immediate goal, it reduces the reusability and robustness of the notebook. It would be more robust to programmatically determine the asset ID. Despite the warning message regarding namespace version mismatch, the cell still functions correctly and provides the requested information.
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell serves as a heading for the section where subject information will be examined, providing context for the subsequent code.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell extracts and prints subject-specific information from the loaded NWB file, including subject ID, species, sex, age, and a brief description.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell serves as a heading to introduce the exploration of electrode groups and recording setup information.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell extracts and prints information about the electrode groups and recording setup from the NWB file. It iterates through the electrode groups, printing their description, location, and device information. It then converts the electrode table to a Pandas DataFrame, prints the first 5 rows, and displays the distribution of electrodes across the groups using `value_counts()`.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell introduces the examination and visualization of raw electrophysiology data stored in the NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 14
+==========
+
+OVERVIEW:
+This cell retrieves and visualizes a small segment of raw electrophysiology data from the NWB file. It retrieves the `time_series` object, prints its shape, sampling rate, units, and duration. Then, it selects a 0.1-second window of data from the first 5 channels. Each channel's signal is offset for better visualization, plotted against time, and labelled with the channel number. The plot includes axes labels, a title, legend, and grid.
+
+IMAGE DESCRIPTIONS:
+The plot visualizes 0.1 seconds worth of raw electrophysiological data from 5 channels. The x-axis represents time in seconds, ranging from approximately 100.00 to 100.10. The y-axis represents the signal in mV, with an offset applied to each channel for visual clarity. Each channel (0-4) is plotted as a separate line in a different color, with a legend in the upper right corner identifying each channel. The signals appear noisy and fluctuate. A grid is present in the background for easier reading.
+
+ISSUES:
+None
+
+Cell 15
+==========
+
+OVERVIEW:
+This cell introduces the exploration of trial information in the dataset, linking the trials to laps run by the mouse in a virtual hallway.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 16
+==========
+
+OVERVIEW:
+This cell extracts and analyzes trial (lap) information from the NWB file. It converts the trials table into a Pandas DataFrame, prints the number of trials, and displays the first 5 trials. It then computes the duration of each trial and provides descriptive statistics for the trial durations. Finally, it generates a plot visualizing the duration of each trial across all trials.
+
+IMAGE DESCRIPTIONS:
+The plot displays trial duration versus trial number. The x-axis represents the "Trial Number," ranging from 0 to approximately 400. The y-axis represents "Trial Duration (s)", ranging from 0 to 160 seconds. Each trial is represented by a blue circle connected by a line, showing the duration of each trial. Most trials have durations between 0 and 40 seconds, but there's a clear outlier around trial number 220 that is significantly longer (approximately 160 seconds). There are also several other less prominent trials that are longer than the average trial (between 20-40 seconds).
+
+ISSUES:
+None
+
+Cell 17
+==========
+
+OVERVIEW:
+This cell provides a brief interpretation of the plot generated in the previous cell, stating that the plot shows how the animal's behavior (trial/lap duration) varied.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 18
+==========
+
+OVERVIEW:
+This cell provides a heading for the section where information about neural units and their spiking activity will be explored.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 19
+==========
+
+OVERVIEW:
+This cell extracts and prints information about neural units from the NWB file. It converts the units table to a Pandas DataFrame, prints the number of units, and displays the first few rows of the DataFrame, including the spike times for each unit.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 20
+==========
+
+OVERVIEW:
+This cell introduces the visualization of spike times for a subset of neural units.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 21
+==========
+
+OVERVIEW:
+This cell generates a raster plot of spike times for a subset of neural units. It defines a function to retrieve spike times for a given unit ID. It selects the first 5 units, retrieves their spike times, and plots them as vertical lines on a raster plot. The x-axis represents time, and the y-axis represents the unit number. The plot displays the firing pattern of each unit over time, and the x-axis is limited to the 100-200 second timeframe for better visualization.
+
+IMAGE DESCRIPTIONS:
+The plot is a spike raster plot showing the activity of 5 selected units. The x-axis represents time in seconds, ranging from 100 to 200. The y-axis represents the unit number, labeled Unit 0 through Unit 4. Each vertical line represents a spike event for a given unit at a specific time. The unit at level 'Unit 2' appears to be constantly spiking across the interval.
+
+ISSUES:
+None
+
+Cell 22
+==========
+
+OVERVIEW:
+This cell introduces the calculation and visualization of firing rates for the neural units.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 23
+==========
+
+OVERVIEW:
+This cell calculates and visualizes the average firing rates of all units. It iterates through each unit, retrieves the spike times, calculates the firing rate (number of spikes divided by the total recording time, using the end time of the last trial), and stores the firing rate and unit ID. It then generates a bar plot showing the average firing rate for each unit.
+
+IMAGE DESCRIPTIONS:
+The plot is a bar graph displaying the "Average Firing Rates of All Units." The x-axis represents "Unit ID," ranging from 0 to approximately 32. The y-axis represents "Firing Rate (Hz)," ranging from 0 to 60 Hz. Each bar corresponds to a unit, with the height of the bar indicating the average firing rate of that unit. The firing rates vary considerably across the units, with some units having very low firing rates (close to 0 Hz) and others having much higher firing rates (up to nearly 60 Hz).
+
+ISSUES:
+None
+
+Cell 24
+==========
+
+OVERVIEW:
+This cell introduces the exploration of how neural activity relates to behavior (trials).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 25
+==========
+
+OVERVIEW:
+This cell explores the relationship between neural activity (spiking) and behavior (trials). It first selects a single unit (unit 0) to analyze. It defines a function to identify spikes occurring within a given trial. Then, it calculates the spike count and firing rate for the selected unit during each trial. These values are added as new columns to the `trials_df` DataFrame. Two plots are generated: one showing the spike count per trial, and another showing the firing rate per trial, both plotted against trial number. Lastly, a scatter plot examines the relationship between trial duration and firing rate.
+
+IMAGE DESCRIPTIONS:
+The first figure contains 2 subplots that share an x axis. The x-axis of both is titled "Trial Number" and it ranges from 0 to 400.
+
+The first subplot is titled "Unit 0 - Spike Count per Trial." The y-axis is labeled "Spike Count". Values range from 0 to about 450. Data is plotted as blue points connected by blue lines. There is one prominent data point at roughly trial number 225 with a spike count over 400. Other data points appear to be in a range from 0 - 100.
+
+The second subplot is titled "Unit 0 - Firing Rate per Trial". The y-axis is labeled "Firing Rate (Hz)" and the values range from 0 to 14 Hz. Data is plotted as red points connected by red lines. There are many peaks and valleys of neural activity.
+
+The second figure is a scatter plot with the title "Unit 0 - Firing Rate vs. Trial Duration.". The x-axis is labeled "Trial duration (s)", with values ranging from 0-160. The y-axis is again "Firing Rate (Hz)". It plots blue points that show a general cluster of high spiking activity occurring in short duration trials.
+
+ISSUES:
+None
+
+Cell 26
+==========
+
+OVERVIEW:
+This cell introduces the idea of combining multiple units' activity for advanced visualization.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 27
+==========
+
+OVERVIEW:
+This cell creates a more complex visualization, showing the spiking activity of multiple units across selected trials. It selects the first 5 trials and the first 5 units. For each trial and unit combination, it retrieves spike times, filters the spikes to include only those occurring within the trial, normalizes the spike times to the trial's start time, and plots the spikes. Trial boundaries are marked with horizontal lines, and each trial is labeled on the left. The plot displays each unit's normalized spiking activity in relation to the start of the trial.
+
+IMAGE DESCRIPTIONS:
+The plot is a raster plot that shows spike times across multiple trials and units. The x-axis is labeled "Time from Trial Start (s)" and ranges from -0.5 to 10. The y-axis has no tick marks, but the y-axis is organized by trials. Thin grey dashed lines run horizontally to separate each trial. Each of the 5 trials are labeled on the left side of the plot. Trial 0 is the bottom subplot. Within each trial, there are 5 units with spiking activity represented. Each color represents data from separate distinct trials.
+
+ISSUES:
+None
+
+Cell 28
+==========
+
+OVERVIEW:
+This cell provides a summary of the notebook's contents and suggests potential directions for future analysis of the dataset. It recaps the exploration of Dandiset 001375, highlights the key findings from the analysis of the "sub-MS13B" file, and offers seven suggestions for further investigations, including comparing pre- and post-DREADD activation activity, spatial coding analysis, cross-area correlations, population dynamics, spectral analysis, between-subject comparisons, and behavioral correlations.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
