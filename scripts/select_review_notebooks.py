@@ -205,6 +205,9 @@ def main():
 
     print("")
 
+    # Let's display them backwards, because the first is usually the longest, and we don't want the reviewer to get burned out
+    selected = selected[::-1]
+
     for i, nb in enumerate(selected):
         dandiset_id = nb['dandiset_id']
         subfolder = nb['subfolder']
