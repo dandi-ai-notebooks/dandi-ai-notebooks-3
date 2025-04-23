@@ -1783,6 +1783,24 @@
   },
   {
     "dandiset_id": "001361",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-a-6.txt",
+    "total_prompt_tokens": 246570,
+    "total_completion_tokens": 8323,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 186.3970422744751,
+    "timestamp": "2025-04-23 21:40:25",
+    "system_info": {
+      "platform": "Linux-5.10.235-227.919.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-23-claude-3.7-sonnet-prompt-a-6"
+  },
+  {
+    "dandiset_id": "001361",
     "model": "google/gemini-2.0-flash-001",
     "prompt": "prompt-a-6.txt",
     "total_prompt_tokens": 269360,
@@ -1816,6 +1834,42 @@
       "python_version": "3.11.10"
     },
     "subfolder": "2025-04-23-gpt-4o-prompt-a-6"
+  },
+  {
+    "dandiset_id": "001361",
+    "model": "google/gemini-2.0-flash-001",
+    "prompt": "prompt-b-6.txt",
+    "total_prompt_tokens": 596739,
+    "total_completion_tokens": 5291,
+    "total_vision_prompt_tokens": 6998,
+    "total_vision_completion_tokens": 291,
+    "elapsed_time_seconds": 99.27892851829529,
+    "timestamp": "2025-04-23 21:39:19",
+    "system_info": {
+      "platform": "Linux-5.10.235-227.919.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-23-gemini-2.0-flash-001-prompt-b-6"
+  },
+  {
+    "dandiset_id": "001361",
+    "model": "openai/gpt-4o",
+    "prompt": "prompt-b-6.txt",
+    "total_prompt_tokens": 379998,
+    "total_completion_tokens": 3427,
+    "total_vision_prompt_tokens": 4733,
+    "total_vision_completion_tokens": 313,
+    "elapsed_time_seconds": 196.38603234291077,
+    "timestamp": "2025-04-23 21:40:48",
+    "system_info": {
+      "platform": "Linux-5.10.235-227.919.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-23-gpt-4o-prompt-b-6"
   },
   {
     "dandiset_id": "001275",
