@@ -2306,6 +2306,24 @@
   {
     "dandiset_id": "000690",
     "model": "openai/gpt-4o",
+    "prompt": "prompt-b-7.txt",
+    "total_prompt_tokens": 724801,
+    "total_completion_tokens": 4499,
+    "total_vision_prompt_tokens": 1677,
+    "total_vision_completion_tokens": 160,
+    "elapsed_time_seconds": 234.23780584335327,
+    "timestamp": "2025-04-25 13:06:31",
+    "system_info": {
+      "platform": "Linux-5.10.235-227.919.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-25-gpt-4o-prompt-b-7"
+  },
+  {
+    "dandiset_id": "000690",
+    "model": "openai/gpt-4o",
     "prompt": "prompt-a-6.txt",
     "total_prompt_tokens": 159650,
     "total_completion_tokens": 2139,
@@ -2338,6 +2356,24 @@
       "python_version": "3.11.10"
     },
     "subfolder": "2025-04-25-gemini-2.0-flash-001-prompt-b-7"
+  },
+  {
+    "dandiset_id": "000690",
+    "model": "openai/gpt-4o",
+    "prompt": "prompt-d-7.txt",
+    "total_prompt_tokens": 474535,
+    "total_completion_tokens": 3991,
+    "total_vision_prompt_tokens": 521,
+    "total_vision_completion_tokens": 120,
+    "elapsed_time_seconds": 247.94106316566467,
+    "timestamp": "2025-04-25 13:06:49",
+    "system_info": {
+      "platform": "Linux-5.10.235-227.919.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-25-gpt-4o-prompt-d-7"
   },
   {
     "dandiset_id": "000690",
@@ -2446,6 +2482,24 @@
       "python_version": "3.11.10"
     },
     "subfolder": "2025-04-25-gemini-2.0-flash-001-prompt-a-7"
+  },
+  {
+    "dandiset_id": "000690",
+    "model": "openai/gpt-4o",
+    "prompt": "prompt-a-7.txt",
+    "total_prompt_tokens": 287068,
+    "total_completion_tokens": 2484,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 128.50059843063354,
+    "timestamp": "2025-04-25 13:04:36",
+    "system_info": {
+      "platform": "Linux-5.10.235-227.919.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-25-gpt-4o-prompt-a-7"
   },
   {
     "dandiset_id": "000690",
