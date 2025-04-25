@@ -10,7 +10,6 @@ def write_file(path, content):
         f.write(content)
 
 def format_question(question):
-    """Convert a question from JSON format to the system prompt format"""
     output = []
     output.append(f'question_id: {question["id"]}')
     output.append(question['text'])
@@ -23,8 +22,7 @@ def format_question(question):
     return '\n'.join(output)
 
 def main():
-    # Read the base system prompt
-    base_prompt = read_file('gradings2/templates/gradings_system_prompt.txt')
+    base_prompt = read_file('gradings2/templates/gradings_user_message_rubric.txt')
 
     # Split at the first question_id to separate the introductory text
     parts = base_prompt.split('question_id:', 1)
@@ -44,7 +42,7 @@ def main():
     final_content = intro_text + '\n' + '\n\n'.join(formatted_questions)
 
     # Write the output
-    write_file('gradings2/templates/gradings_system_prompt_with_questions.txt', final_content)
+    write_file('gradings2/templates/gradings_user_message_rubric_with_questions.txt', final_content)
 
 if __name__ == '__main__':
     main()

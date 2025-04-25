@@ -150,16 +150,16 @@ def find_notebooks(base_dir: str) -> List[Tuple[str, str, str]]:
 
     return results
 
-def read_gradings_system_prompt() -> str:
+def read_template_prompt(name: str):
     template_path = (
-        Path(__file__).parent / "templates" / "gradings_system_prompt_with_questions.txt"
+        Path(__file__).parent / "templates" / name
     )
     with open(template_path, "r") as f:
         content = f.read()
     return content
 
 def get_question_ids() -> List[str]:
-    p = read_gradings_system_prompt()
+    p = read_template_prompt("gradings_user_message_rubric_with_questions.txt")
     # each question has a line of the form
     # question_id: <question_id>
     ret = []
@@ -219,8 +219,10 @@ def create_message_content_for_cell(cell: Dict[str, Any]) -> List[Dict[str, Any]
         content.append({"type": "text", "text": "Unsupported cell type"})
     return content
 
-def get_gradings_for_notebook(notebook_obj: dict) -> Tuple[str, int, int]:
-    system_prompt = read_gradings_system_prompt()
+def get_gradings_for_notebook(notebook_obj: dict) -> Tuple[str, str, int, int]:
+    total_prompt_tokens = 0
+    total_completion_tokens = 0
+    system_prompt = read_template_prompt("gradings_system_message_1.txt")
 
     messages: List[Dict[str, Any]] = [
         {
@@ -239,11 +241,36 @@ def get_gradings_for_notebook(notebook_obj: dict) -> Tuple[str, int, int]:
             }
         )
 
-    assistant_response, _, prompt_tokens, completion_tokens = (
-        run_completion(messages=messages, model=model_for_gradings)
+    user_message_1 = read_template_prompt("gradings_user_message_1.txt")
+    messages.append(
+        {
+            "role": "user",
+            "content": user_message_1,
+        }
     )
 
-    return assistant_response, prompt_tokens, completion_tokens
+    image_descriptions, new_messages, prompt_tokens, completion_tokens = (
+        run_completion(messages=messages, model=model_for_gradings)
+    )
+    total_prompt_tokens += prompt_tokens
+    total_completion_tokens += completion_tokens
+    messages = new_messages # very important to update messages with the new messages from the model
+
+    user_message_2 = read_template_prompt("gradings_user_message_rubric_with_questions.txt")
+    messages.append(
+        {
+            "role": "user",
+            "content": user_message_2,
+        }
+    )
+    assistant_gradings, new_messages, prompt_tokens, completion_tokens = (
+        run_completion(messages=messages, model=model_for_gradings)
+    )
+    total_prompt_tokens += prompt_tokens
+    total_completion_tokens += completion_tokens
+    messages = new_messages
+
+    return assistant_gradings, image_descriptions, total_prompt_tokens, total_completion_tokens
 
 def main():
     dandiset_notebooks_base_dir = Path(__file__).parent.parent / "dandisets"
@@ -274,13 +301,15 @@ def main():
         with open(notebook_path, "r") as f:
             notebook_obj = json.load(f)
 
-        gradings_text, prompt_tokens, completion_tokens = get_gradings_for_notebook(notebook_obj)
+        gradings_text, image_descriptions, prompt_tokens, completion_tokens = get_gradings_for_notebook(notebook_obj)
         total_prompt_tokens += prompt_tokens
         total_completion_tokens += completion_tokens
+
         # Parse rankings text into structured format
         try:
             grades = parse_grades_xml(gradings_text, question_ids=get_question_ids())
         except XMLParsingError as e:
+            print(f"Error parsing grades: {str(e)}")
             print(gradings_text)
             raise Exception(f"Failed to parse grades: {str(e)}")
 
@@ -292,10 +321,18 @@ def main():
                 "grade": grade.grade
             })
 
+        print("Image descriptions:")
+        print(image_descriptions)
+        print("")
+
         print("Parsed grades:")
         for entry in gradings_entries:
             print(f"{entry['question_id']}: {entry['grade']}")
             print(f"Thinking: {entry['thinking']}\n")
+        print("")
+
+        print(f'Prompt tokens: {prompt_tokens}')
+        print(f'Completion tokens: {completion_tokens}')
 
         # Create output directory if needed
         os.makedirs(output_dir, exist_ok=True)
@@ -311,6 +348,7 @@ def main():
                 }
                 for entry in gradings_entries
             ],
+            "image_descriptions": image_descriptions,
             "metadata": {
                 "total_prompt_tokens": prompt_tokens,
                 "total_completion_tokens": completion_tokens,
