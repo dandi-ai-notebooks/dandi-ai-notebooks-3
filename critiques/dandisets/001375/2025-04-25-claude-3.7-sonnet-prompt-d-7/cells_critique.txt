@@ -1,0 +1,334 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell introduces the notebook's purpose: to explore Dandiset 001375, which investigates the effects of disrupting septal GABAergic activity on hippocampal and neocortical activity using DREADDs in mice running a virtual hallway. It clearly states that the notebook is AI-generated and may contain errors. It also lists the topics that the notebook will cover and provides a link to the Dandiset on the DANDI Archive. Finally, it mentions the required packages, which will likely be enumerated in the next cell.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell imports necessary Python libraries: `numpy` for numerical operations, `matplotlib.pyplot` for plotting, `pandas` for data manipulation, `h5py` for reading HDF5 files, `remfile` for accessing data remotely, `pynwb` for working with NWB files, and `seaborn` for enhanced visualizations. It also sets the seaborn theme.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell introduces the process of loading the Dandiset using the DANDI API and examining its metadata. It serves as a preamble to the subsequent code cell that will likely perform the actual loading and metadata inspection.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell uses the DANDI API client to retrieve and display metadata for Dandiset 001375. It retrieves the Dandiset, extracts its name, URL, and description, and prints them to the console. It iterates through the contributors list, handling cases where contributors are either strings or dictionaries and extracts their names. It then prints the list of contributors. Finally, it lists all the assets within the Dandiset, including their file paths and sizes in gigabytes.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell introduces the next step in the analysis: loading one of the NWB files from the Dandiset. It specifies that the file from subject MS13B will be used. This cell prepares the reader for the subsequent code where the NWB file will actually be loaded and analyzed.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell loads an NWB file from the DANDI archive using its asset ID. It constructs the URL for the file, then uses `remfile` to access it remotely. It then loads the file using `h5py` and reads it into a `pynwb.NWBFile` object. Finally, it prints the NWB file's identifier, session description, and session start time. A warning is printed from hdmf related to namespace versions, but it does not seem to affect functionality.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell provides a link to visualize the NWB file in Neurosift, a web-based tool for exploring neurophysiology data. It also introduces the next step: examining the subject information stored in the NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell extracts and prints information about the subject from the `nwb` file, including the subject ID, species, sex, age, and a brief description.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell introduces the next step, which involves exploring the electrodes and recording device information available in the NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell retrieves and displays electrode information from the NWB file. It converts the electrode data into a pandas DataFrame and prints the number of electrodes and column names. It then displays the first 5 rows of the DataFrame. Next, it counts the number of electrodes in each group (shank1 and shank2) and prints the counts. Finally, it iterates through the electrode groups and prints the description, location, device description, and device manufacturer for each group.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell introduces the exploration of trial information in the NWB file. It explains that the trials represent laps run by the mouse in a virtual hallway.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell explores trial information in the NWB file. It converts trial data into a pandas DataFrame, calculates trial durations, and displays basic statistics (min, max, mean, median) of the durations. It also prints the first 5 rows of the DataFrame. Finally, it generates two plots: a histogram showing the distribution of trial durations and a scatter plot showing trial durations over time. It converts start times to minutes.
+
+IMAGE DESCRIPTIONS:
+1.  **Histogram of Trial Durations:** The plot is a histogram showing the distribution of trial durations. The x-axis represents the duration of the trials in seconds, and the y-axis represents the count or frequency of trials. The histogram shows that most trials have short durations, with a large peak around 5-15 seconds. The frequency of trials decreases significantly as duration increases. There are very few trials lasting longer than 40 seconds, with a long tail to the right.
+2.  **Scatter Plot of Trial Durations Over Time:** The plot is a scatter plot showing trial durations over time. The x-axis represents time in minutes, calculated from the start time of the trials. The y-axis represents the duration of each trial in seconds. Each dot represents a single trial. The plot shows that most trials have shorter durations but a few outliers have much longer durations. The cluster of points indicates that the trial durations are consistent over time, except for one or two outliers.
+
+ISSUES:
+None
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell provides a brief interpretation of the trial duration plots, noting the common duration range and the presence of outliers. It also introduces the next section, which will focus on exploring the units (sorted neurons) in the recording.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 14
+==========
+
+OVERVIEW:
+This cell analyzes the "units" data, which represents sorted neurons. It converts the unit data into a pandas DataFrame and prints the number of units. It calculates the spike count for each unit by counting the elements in the 'spike_times' array. It calculates the average firing rate for each unit, dividing the spike count by the total recording time (calculated from the min and max trial stop times). It then prints statistics for the spike counts (min, max, mean, median), displays the first few units with their spike counts and average firing rates, and generates two histograms: one for the spike count distribution across units and one for the average firing rate distribution across units.
+
+IMAGE DESCRIPTIONS:
+1.  **Spike Count Distribution Across Units:** The plot is a histogram showing the distribution of spike counts across different units (neurons). The x-axis represents the number of spikes, and the y-axis represents the number of units. The histogram shows that most units have relatively few spikes (between approximately 0 and 50,000), while a smaller number of units have a much higher number of spikes. It appears that the distribution is skewed to the right.
+2.  **Average Firing Rate Distribution Across Units:** The plot presents the average firing rate distribution across units in the dataset. The x-axis indicates the firing rate in Hertz (Hz), while the y-axis displays the number of units. The plot is a histogram with bins showing the number of units within specific firing rate ranges. The distribution illustrates that a higher number of units fire at lower rates (less than 10 Hz), with the count decreasing as the firing rate increases.
+
+ISSUES:
+None
+
+
+Cell 15
+==========
+
+OVERVIEW:
+This cell introduces the next section which focuses on analyzing raw electrophysiology data. It indicates that a small sample of the data will be visualized.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 16
+==========
+
+OVERVIEW:
+This cell analyzes raw electrophysiology data from the NWB file. It accesses the `time_series` data and prints its shape, sampling rate, and units. It then samples 1 second of data from the first 5 channels. A plot showing 100ms of the raw data from sample channels is displayed where the traces are offset for better visibility. Finally, computes and plots the frequency content of the raw data for the first three channels using FFT, displaying amplitudes on a logarithmic scale and limiting the frequency range to 1000 Hz for better visualization.
+
+IMAGE DESCRIPTIONS:
+1.  **Raw Electrophysiology Data:** This plot displays a short segment (100ms) of raw electrophysiology data from the first 5 channels. The x-axis represents time in seconds, and the y-axis represents the amplitude in millivolts (mV), with an offset applied to each channel for clarity. Each line represents the voltage fluctuations of a single channel over time. The plot shows noisy, fluctuating signals, indicating neural activity.
+2.  **Frequency Content of Raw Data:** This plot displays the frequency content of the raw electrophysiology data for the first 3 channels, up to 1000 Hz. The x-axis represents frequency in Hertz (Hz), and the y-axis represents the amplitude on a logarithmic scale. Each line represents the frequency spectrum of a single channel. The plot shows a higher amplitude at lower frequencies, which indicates that much of the signal energy is concentrated in the slow components of the signal.
+
+ISSUES:
+None
+
+
+Cell 17
+==========
+
+OVERVIEW:
+This cell introduces the analysis of spike trains of selected units, preparing for the code that will perform the analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 18
+==========
+
+OVERVIEW:
+This cell selects three units (the first, middle, and last units in the `units_df`) for spike train analysis. It calculates the inter-spike intervals (ISIs) for each of these units. The cell then plots the ISI distribution for each selected unit in a single figure with three subplots. The ISI distributions are displayed as histograms with ISIs up to 500 ms.
+
+IMAGE DESCRIPTIONS:
+The image contains three histograms plotted side-by-side, each representing the Inter-Spike Interval (ISI) distribution for a different neuron (Unit 0, Unit 16, and Unit 32). Each subplot has the Inter-Spike Interval (s) on the x-axis and the Count on the y-axis. The x-axis range is from 0 to 0.5 seconds. All three histograms exhibit a similar shape: there is a large peak at very short ISIs, close to 0 seconds, then a sharp decay followed by a long tail extending to the higher ISI values within the plotted range. This distribution shape suggests that these neurons tend to fire in bursts, with short intervals between spikes within a burst, but also have longer periods of silence or less frequent spiking activity.
+
+ISSUES:
+None
+
+Cell 19
+==========
+
+OVERVIEW:
+This cell provides a brief interpretation of the ISI histograms, mentioning the refractory period and the diversity of firing patterns. It also introduces the final section, which will focus on analyzing neural activity in relation to behavioral trials.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 20
+==========
+
+OVERVIEW:
+This cell creates a Peri-Event Time Histogram (PETH) for the selected units around the start of each trial. The cell calculates firing rates of those units aligned to the start of the trial. It computes and displays a PETH (peri-event time histogram) showing firing rates of the selected neurons around the trial start times. The time window used extends from 2 seconds before to 10 seconds after the trial start, with a bin size of 0.5 seconds. To reduce processing time, only the first 100 trials are used. Finally, the PETH is plotted for each unit.
+
+IMAGE DESCRIPTIONS:
+The image is a plot of a Peri-Event Time Histogram (PETH) showing the average firing rates of three different units (Unit 0, Unit 16, and Unit 32) around the start of a trial. The x-axis represents the time relative to the trial start, ranging from -2 seconds to 10 seconds. The y-axis represents the firing rate in Hz. A vertical dashed red line indicates the trial start (time=0). Unit 32 (green line) shows a clear increase in firing rate shortly after trial start. Unit 0 and Unit 16 shows less activity.
+
+ISSUES:
+None
+
+Cell 21
+==========
+
+OVERVIEW:
+This cell summarizes the information gained from the PETH and introduces the generation of spike raster plots, preparing the reader for visualizing neural activity across trials.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 22
+==========
+
+OVERVIEW:
+This cell generates spike raster plots for the selected units, visually representing spike times across trials. It plots the occurrences of individual spikes in relation to trial start times, allowing for visual inspection of spike patterns across the 30 first trials.
+
+IMAGE DESCRIPTIONS:
+The image is made of three spike raster subplots. The x-axis represents the elapsed time within each trial, ranging from 0 to 20 seconds. The y-axis represents the trial number from 0 to 30. Each vertical line represents a spike. The top subplot visualizes the spiking pattern of Unit 0 across the first 30 trials. The middle subplot displays the raster plot for Unit 16 for the same set of trials. Unit 32's raster plot is shown on the bottom subplot, displaying a high density of spiking activity across all trials.
+
+ISSUES:
+None
+
+Cell 23
+==========
+
+OVERVIEW:
+This cell introduces the final analysis step: exploring the relationship between trial duration and neural activity.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 24
+==========
+
+OVERVIEW:
+This cell investigates the relationship between trial duration and firing rate for the selected units. It calculates the average firing rate for each selected unit within each trial, then generates scatter plots which depicts trial duration versus firing rate for those units across trials. It limits the analysis to the first 200 trials and displays the firing rate duration relationship separately for all three units.
+
+IMAGE DESCRIPTIONS:
+The image contains 3 scatter plots showing the relationship between trial duration and firing rate for neural Unit 0, Unit 16, and Unit 32. The scatter plots have the trial duration on the x-axis and firing rate on the y-axis. Most of the data points are clustered in the trial duration ranging from 8 to 15 seconds, with fewer data points scattered along longer trial durations. Unit 32 reveals dense cluster of results at firing rate above 10 Hz.
+
+ISSUES:
+None
+
+Cell 25
+==========
+
+OVERVIEW:
+This cell contains a reminder to close the NWB file after usage to release associated resources. This emphasizes good coding practices.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 26
+==========
+
+OVERVIEW:
+This cell closes the NWB file, the HDF5 file, and the remote file connection using the `close()` method, ensuring proper resource management and preventing potential issues with file access or memory leaks.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 27
+==========
+
+OVERVIEW:
+This cell summarizes the findings of the notebook, highlighting the key aspects of the dataset and the analyses performed. It provides a concise overview of what was learned through exploring Dandiset 001375. It also suggests several potential avenues for further analysis of the dataset, including exploring other files, performing more detailed behavioral analysis, examining changes in neural activity over time, investigating population-level activity, examining frequency-specific activity, and comparing pre- and post-DREADD activity.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+

@@ -1,0 +1,53 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell serves as an introduction to the notebook. It provides the title, a disclaimer about the AI-generated nature of the content without full verification, a brief overview of the Dandiset (000690) focusing on the Allen Institute Openscope - Vision2Hippocampus project, the Dandiset link, an outline of the notebook's contents (loading, exploring, examining eye tracking data, and visualizing corneal reflections), and a list of required Python packages.
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell connects to the DANDI Archive using the `dandiapi` client, retrieves Dandiset 000690, and prints basic information about the Dandiset, including its name and URL. It also lists the assets (files) contained within the Dandiset, displaying the paths of the first five assets.
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell focuses on loading eye tracking data from a specific NWB file within Dandiset 000690. It provides the file path and a Neurosift link for interactive exploration. The cell then uses `pynwb`, `h5py`, and `remfile` to load the NWB file from a remote URL. Finally, it prints basic session information from the loaded NWB file, including the session ID, institution, and start time.
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell visualizes the corneal reflection tracking data extracted from the NWB file. It accesses the 'corneal_reflection_tracking' spatial series within the `EyeTracking` acquisition. The first 1000 data points of the x and y coordinates are plotted against the sample index using matplotlib. The plot includes labels, a title, and a legend for clarity.
+
+IMAGE DESCRIPTIONS:
+The image shows a line plot of corneal reflection tracking data. The x-axis represents the sample index, ranging from 0 to 1000. The y-axis is labeled "Position (pixels)". Two lines are plotted: one representing the x-coordinate (blue) and the other representing the y-coordinate (orange) of the corneal reflection. Both lines exhibit fluctuating positions over the 1000 sample points. The title of the plot is "Corneal Reflection Tracking (First 1000 points)", and a legend distinguishes the x and y coordinates.
+
+ISSUES:
+None
+
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell summarizes the findings from the visualization of the corneal reflection tracking data. It observes fluctuations in both the x and y coordinates, suggesting moderate stability in eye tracking. It also proposes a correlation between the fluctuations or peaks with external events or stimuli presented during the experiment. The cell then suggests future analyses involving aligning these fluctuations with visual stimuli timestamps or other recorded neural activity.
+
+ISSUES:
+None
+
+

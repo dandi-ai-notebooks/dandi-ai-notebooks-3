@@ -1,0 +1,15 @@
+Based on the above, please provide a grading for the notebook.
+
+You will respond with a series of XML blocks of the form
+
+<grade>
+<question_id>ID</question_id>
+<thinking>Your rationale for the grade</thinking>
+<grade>numeric grade</grade>
+</grade>
+
+where ID is the ID of the question (e.g., describe-dandiset, load-dandiset, ...), and numeric_grade is your numeric integer grade according to the rubric below. Note that the grades can be negative integers as shown below in the rubric.
+
+Do not include any other text in your response. Just the XML blocks.
+
+Note: Warnings in the output cells should not be considered to be issues unless they relate to other problems with the notebook.

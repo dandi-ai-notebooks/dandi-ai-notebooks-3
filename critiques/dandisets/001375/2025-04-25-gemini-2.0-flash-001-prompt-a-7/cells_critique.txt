@@ -1,0 +1,207 @@
+Cell 1
+==========
+
+OVERVIEW: This cell serves as the title of the Jupyter notebook. It introduces the specific Dandiset (001375) that will be explored, as well as a brief description of the experiment associated with this Dandiset: Septum GABA Disruption with DREADDs.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+
+Cell 2
+==========
+
+OVERVIEW: This cell provides a disclaimer, stating the notebook was AI-generated and might contain errors. It warns users to be cautious while interpreting the content. This is good practice, especially with AI-generated content.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+
+Cell 3
+==========
+
+OVERVIEW: This cell provides an introduction to the notebook's purpose and scope. It gives a brief description of Dandiset 001375's experimental context (DREADDs to disrupt GABAergic activity) and links to the Dandiset on the DANDI Archive. It also outlines the steps that will be performed in the notebook: loading metadata, listing assets, loading an NWB file, and visualizing data. The numbered list serves as a roadmap for the user.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+
+Cell 4
+==========
+
+OVERVIEW: This cell lists the Python packages required to execute the code in the notebook. This is crucial for users to ensure they have the necessary dependencies installed before attempting to run the notebook.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+
+Cell 5
+==========
+
+OVERVIEW: This cell uses the DANDI API to retrieve and display information about Dandiset 001375. It connects to the DANDI Archive, retrieves the Dandiset's metadata (name, URL), and lists the first five assets (files) within the Dandiset.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES:
+1.  The printed Dandiset URL contains the version, which is fine but could be omitted for brevity and clarity, as users can always navigate to the specific version from the main Dandiset page.
+2.  The output shows only 3 assets in the dataset, despite the code printing the first 5. Suggest limiting the `for` loop to `assets` to avoid confusion.
+
+
+Cell 6
+==========
+
+OVERVIEW: This cell specifies which NWB file will be loaded and explored in the subsequent cells. It provides the file path, download URL and a direct link to view it in NeuroSift.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+
+Cell 7
+==========
+
+OVERVIEW: This cell loads the NWB file specified in the previous cell using `pynwb`, `h5py`, and `remfile`. It then extracts and prints the session description, identifier, and session start time. The use of `remfile` allows direct access to the NWB file from the web without downloading it first.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES:
+1.  The UserWarning from hdmf is not critical, but could be suppressed for cleaner output using `warnings.filterwarnings("ignore", category=UserWarning)`. It would be best to place that suppression command at the top of the notebook, right after the import statements.
+
+
+
+Cell 8
+==========
+
+OVERVIEW: This cell serves as a heading, indicating that the following cells will focus on exploring the electrode groups present in the loaded NWB file. It helps to structure the notebook and guide the user.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 9
+==========
+
+OVERVIEW: This cell extracts the electrode groups from the NWB file and prints information about them. It iterates through each electrode group, printing its name, description, location, device description, and device manufacturer. This provides insights into the recording setup used to generate the data.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 10
+==========
+
+OVERVIEW: This cell sets the stage for exploring the TimeSeries data within the `nwb.acquisition` object of the loaded NWB file. It acts as a heading, indicating the focus of the following cells.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 11
+==========
+
+OVERVIEW: This cell accesses the "time_series" object within the `nwb.acquisition` container of the NWB file. It then prints the starting time, rate, unit, and shape of the data. This provides fundamental information about the structure and properties of the recorded time series data.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES:
+1.  The line `time_series = acquisition["time_series"]` throws a KeyError because `acquisition` is an Items object, not a dictionary. To access the actual TimeSeries object, the code needs to iterate through the items within the acquisition group. The code should be changed to:
+
+```python
+acquisition = nwb.acquisition
+for name, time_series in acquisition.items():
+    print(f"Name: {name}")
+    print(f"Starting time: {time_series.starting_time}")
+    print(f"Rate: {time_series.rate}")
+    print(f"Unit: {time_series.unit}")
+    print(f"Data shape: {time_series.data.shape}")
+    break #Assuming there is only one time series
+```
+
+This is a critical error as it prevents the user from correctly accessing the TimeSeries data.
+
+Cell 12
+==========
+
+OVERVIEW: This cell explains the rationale behind visualizing only a subset of the TimeSeries data: the full dataset is too large to load into memory efficiently.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 13
+==========
+
+OVERVIEW: This cell loads a subset of the TimeSeries data (first 1000 rows and 10 channels) and plots it. Each channel's data is offset vertically for better visualization. The plot displays voltage (with offset) against time, allowing for a visual examination of the recorded signals.
+
+IMAGE DESCRIPTIONS: The plot displays the voltage signals for 10 channels over a short time period (approximately 0.03 seconds). Each channel's waveform is plotted with a vertical offset so that they can be distinguished. The x-axis represents time in seconds, and the y-axis represents voltage in mV plus an offset. The plot is titled "Subset of TimeSeries Data" and includes a legend identifying each channel. The seaborn theme is applied, giving the plot a gray background and white gridlines.
+
+ISSUES:
+1.  This code relies on the `time_series` object having been successfully loaded in the previous cell. But the KeyError persists, so the plot will not be generated. This is a compounding error. Correcting the previous cell to iterate through items in the acquisition group will fix this issue.
+
+
+Cell 14
+==========
+
+OVERVIEW: This cell introduces the exploration of trial data stored within the NWB file. It acts as a section header to improve the notebook's organization.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 15
+==========
+
+OVERVIEW: This cell accesses the trials data from the NWB file and presents it in a Pandas DataFrame. It retrieves and prints the trials description and column names. It then converts the trials data into a Pandas DataFrame and displays the first 5 rows, providing the user with a preview of the trial structure (start and stop times).
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 16
+==========
+
+OVERVIEW: This cell serves as a section header, indicating the notebook will now focus on exploring the units data within the NWB file.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 17
+==========
+
+OVERVIEW: This cell accesses the `units` data from the NWB file and displays it in a Pandas DataFrame. It prints the units description and column names, converts the units data into a Pandas DataFrame, and shows the first 5 rows. The spike times for each unit are shown as a list within the DataFrame.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 18
+==========
+
+OVERVIEW: This cell again emphasizes the importance of memory management by suggesting to avoid loading all spike times at once and promoting the exploration of spike times for individual units instead.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 19
+==========
+
+OVERVIEW: This cell accesses and prints the spike times for the first unit in the `units_df` DataFrame. It first checks if any units exist in the DataFrame to avoid errors if the NWB file doesn't contain any units data. It then retrieves the spike times for that unit and prints them.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+
+Cell 20
+==========
+
+OVERVIEW: This cell summarizes the key steps covered in the notebook and suggests potential future analysis directions. It reinforces the learning objectives and encourages further exploration of the dataset.
+
+IMAGE DESCRIPTIONS: None
+
+ISSUES: None
+

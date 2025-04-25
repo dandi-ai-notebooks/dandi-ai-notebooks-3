@@ -6,11 +6,13 @@ from pathlib import Path
 
 def main():
     # Get the path to the gradings directory
-    gradings_dir = Path(__file__).parent.parent / "gradings" / "dandisets"
+    gradings_dir = Path(__file__).parent.parent / "gradings2" / "dandisets"
     output_path = Path(__file__).parent.parent / "notebook_gradings.json"
 
     # Initialize the combined gradings list
     combined_gradings = []
+
+    prefixes = ['2025-04-24', '2025-04-25']
 
     # Walk through the gradings/dandisets directory
     for dandiset_dir in os.listdir(gradings_dir):
@@ -20,6 +22,12 @@ def main():
 
         # Process each subfolder within the dandiset directory
         for subfolder in os.listdir(dandiset_path):
+            starts_with_one_of_the_target_prefixes = any(
+                subfolder.startswith(prefix) for prefix in prefixes
+            )
+            if not starts_with_one_of_the_target_prefixes:
+                continue
+
             subfolder_path = dandiset_path / subfolder
             if not subfolder_path.is_dir():
                 continue

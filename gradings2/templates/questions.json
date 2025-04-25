@@ -1,0 +1,171 @@
+{
+  "questions": [
+    {
+      "id": "understand-dandiset",
+      "text": "How well did the notebook help you understand the purpose and content of the Dandiset?",
+      "options": [
+        { "value": 2, "label": "Very well" },
+        { "value": 1, "label": "Somewhat" },
+        { "value": 0, "label": "Not at all" }
+      ]
+    },
+    {
+      "id": "access-data",
+      "text": "After reviewing the notebook, do you feel confident in how to access data from this Dandiset?",
+      "options": [
+        { "value": 2, "label": "Yes, I know how to access and explore the data" },
+        { "value": 1, "label": "I have a general idea, but would need more guidance" },
+        { "value": 0, "label": "No, I’m still unsure how to access the data" }
+      ]
+    },
+    {
+      "id": "work-with-nwb",
+      "text": "Did the notebook help you understand the structure of the NWB file(s) and how to work with them?",
+      "options": [
+        { "value": 2, "label": "Yes, I understand the basics and could explore further on my own" },
+        { "value": 1, "label": "Somewhat, I still have questions" },
+        { "value": 0, "label": "No, I feel lost or confused" }
+      ]
+    },
+    {
+      "id": "visualization-helpful",
+      "text": "Did the visualizations in the notebook generally help you understand key aspects of the data?",
+      "options": [
+        { "value": 2, "label": "Yes, they made important points clear" },
+        { "value": 1, "label": "Somewhat" },
+        { "value": 0, "label": "No, the visualizations were generally confusing or unhelpful" }
+      ]
+    },
+    {
+      "id": "visualization-issues",
+      "text": "Did any of the visualizations make it harder to understand the data (e.g., due to poor formatting, unclear axes, or misleading displays)?",
+      "options": [
+        { "value": 0, "label": "No, the visualizations were clear and helpful" },
+        { "value": -1, "label": "One or more visualizations were unclear or hard to interpret" },
+        { "value": -2, "label": "Yes, one or more visualizations were misleading, confusing, or had substantial issues" }
+      ]
+    },
+    {
+      "id": "visualization-confidence",
+      "text": "Do you feel more confident creating your own visualizations of the data after seeing the examples in the notebook?",
+      "options": [
+        { "value": 2, "label": "Yes, I feel equipped to start exploring on my own" },
+        { "value": 1, "label": "Somewhat, but I’d still need guidance" },
+        { "value": 0, "label": "No, the notebook didn’t provide helpful examples" }
+      ]
+    },
+    {
+      "id": "visualization-structure",
+      "text": "How well did the visualizations show the structure or complexity of the data?",
+      "options": [
+        { "value": 2, "label": "Very well – they revealed important patterns or relationships" },
+        { "value": 1, "label": "Somewhat – they hinted at structure, but lacked depth" },
+        { "value": 0, "label": "Poorly – they didn’t help me understand the data structure" }
+      ]
+    },
+    {
+      "id": "unsupported-interpretations",
+      "text": "Were there any interpretations or conclusions in the notebook that felt unclear or not well supported by the data shown?",
+      "options": [
+        { "value": 0, "label": "No, everything felt reasonable and well-supported" },
+        { "value": -1, "label": "A few things seemed speculative or unclear" },
+        { "value": -2, "label": "Yes, there were several conclusions that didn’t seem supported" }
+      ]
+    },
+    {
+      "id": "redundant-examples",
+      "text": "Did any of the plots or examples feel unnecessarily repetitive or redundant?",
+      "options": [
+        { "value": 0, "label": "No, each plot/example helped add something new" },
+        { "value": -1, "label": "A few examples felt a bit repetitive" },
+        { "value": -2, "label": "Yes, too many examples seemed to show the same thing" }
+      ]
+    },
+    {
+      "id": "notebook-clarity",
+      "text": "How clear and easy was the notebook to follow?",
+      "options": [
+        { "value": 2, "label": "Very clear – easy to read and follow along" },
+        { "value": 1, "label": "Somewhat clear – a few confusing parts" },
+        { "value": 0, "label": "Not clear – I struggled to follow it" }
+      ]
+    },
+    {
+      "id": "code-reusability",
+      "text": "Did the notebook provide code you could easily reuse or adapt to explore the Dandiset yourself?",
+      "options": [
+        { "value": 2, "label": "Yes, the code is reusable and easy to adapt" },
+        { "value": 1, "label": "Somewhat, but I’d need to tweak things" },
+        { "value": 0, "label": "No, the code is hard to reuse or understand" }
+      ]
+    },
+    {
+      "id": "exploration-guidance",
+      "text": "Did the notebook help you understand what kinds of questions or analyses you could do next with this Dandiset?",
+      "options": [
+        { "value": 2, "label": "Yes, it gave clear ideas for further exploration" },
+        { "value": 1, "label": "Somewhat, I got a few ideas" },
+        { "value": 0, "label": "No, it didn’t help me think about what to do next" }
+      ]
+    },
+    {
+      "id": "overall-helpfulness",
+      "text": "Overall, how helpful was this notebook for getting started with this Dandiset?",
+      "options": [
+        { "value": 2, "label": "Very helpful" },
+        { "value": 1, "label": "Moderately helpful" },
+        { "value": 0, "label": "Not helpful" }
+      ]
+    },
+    {
+      "id": "neuroscience-expertise",
+      "text": "Your background in neuroscience:",
+      "options": [
+        { "value": 2, "label": "Expert" },
+        { "value": 1, "label": "Intermediate" },
+        { "value": 0, "label": "Novice" }
+      ],
+      "about_reviewer": true
+    },
+    {
+      "id": "python-expertise",
+      "text": "Your experience with data analysis in Python:",
+      "options": [
+        { "value": 2, "label": "Expert" },
+        { "value": 1, "label": "Intermediate" },
+        { "value": 0, "label": "Novice" }
+      ],
+      "about_reviewer": true
+    },
+    {
+      "id": "nwb-dandi-expertise",
+      "text": "Your experience with NWB/DANDI:",
+      "options": [
+        { "value": 2, "label": "Expert" },
+        { "value": 1, "label": "Intermediate" },
+        { "value": 0, "label": "Novice" }
+      ],
+      "about_reviewer": true
+    },
+    {
+      "id": "prior-dandiset-familiarity",
+      "text": "How familiar were you with this Dandiset before reviewing the notebook?",
+      "options": [
+        { "value": 2, "label": "Very familiar" },
+        { "value": 1, "label": "Somewhat familiar" },
+        { "value": 0, "label": "Not familiar" }
+      ],
+      "about_reviewer": true
+    },
+    {
+      "id": "review-confidence",
+      "text": "How confident do you feel in your ability to review this notebook?",
+      "options": [
+        { "value": 2, "label": "Very confident" },
+        { "value": 1, "label": "Somewhat confident" },
+        { "value": 0, "label": "Not confident" }
+      ],
+      "about_reviewer": true
+    }
+  ]
+}

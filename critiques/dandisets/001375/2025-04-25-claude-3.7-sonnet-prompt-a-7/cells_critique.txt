@@ -1,0 +1,592 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell serves as the title and introduction to the notebook. It states the Dandiset being explored (001375) and its subject, and also includes a warning that the notebook was AI-generated and that results should be independently verified. This is important for setting user expectations about the reliability and verification status of the content.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell provides an overview of the Dandiset being explored and outlines the specific steps that will be taken in the notebook. It includes a link to the Dandiset on the DANDI Archive, which is good practice. The numbered list clearly presents the analysis plan.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell lists the Python packages required to run the notebook. This is essential for users to ensure they have the necessary dependencies installed.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell imports the necessary Python packages, corresponding to the list provided in the previous cell. It also sets the Seaborn theme for plots, which enhances their visual appeal.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell acts as a section header, signaling the start of the Dandiset exploration. It provides context for the following cells.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell connects to the DANDI Archive using the `dandiapi` client and retrieves metadata for Dandiset 001375. It then prints several key metadata fields, including the name, ID, version, description, contributors, creation date, license, and variables measured. The attempt to handle cases where some metadata fields might be strings or dictionaries shows good coding practices.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+1.  The version `0.250406.1855` looks unusual for a version number. While it's technically correct, it might be helpful to add a comment explaining how DANDI versions are structured (e.g., auto-generated from timestamps) and that this isn't a "semantic" version number.
+2.  The date created, `2025-04-05T16:33:36.070433+00:00`, is in the future. This is a serious issue because it creates doubts about the integrity and correctness of the dandiset information. This needs to be addressed and a warning raised about the trustworthiness of the metadata.
+3.  The code includes handling for the `variableMeasured` field, but the output shows this field is missing in the metadata. It's fine that the code handles the case where it's missing, but it would be good to have some output stating that the field is not available in metadata, instead of nothing shown to the user.
+
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell acts as a section header, indicating the transition to exploring the assets within the Dandiset. It provides context for the following cells.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell retrieves and displays information about the assets within the Dandiset. It iterates through the assets, extracts their paths, sizes (converted to GB), and identifiers, and stores this information in a Pandas DataFrame. The code also attempts to get the content type (encoding format) for each asset, handling potential errors during metadata retrieval. The results are then printed to the console. Good effort is made to handle possible exceptions encountered while accessing the metadata for assets.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+1. The dates `20240725` and `20240906` in the paths are prior to the `dateCreated` in the previous cell (`2025-04-05`). This isn't necessarily an error, but it's worth pointing out the inconsistency and making sure these dates aren't meant to reflect recording dates in the future. This should be clarified with a comment.
+2. The `get_metadata` call inside the loop to extract `content_type` is performed without specifying which fields are to be extracted, making the call to the DANDI API less efficient. If only a single field like content_type is needed, it should be explicitly specified.
+3. The `content_type` is always "Unknown". The code should be updated so it displays useful information (e.g. the file type, such as nwb or mat). If the content type truly can't be determined from the metadata, then perhaps logic should be included to infer the content type based on the file extension in `asset.path`.
+
+
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell provides a summary of the assets found, stating that there are 3 NWB files and describing their contents in terms of subjects, brain regions, and experimental conditions. It also announces that one of the files will be examined in detail.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell acts as a section header, indicating the start of loading and exploring a specific NWB file. It mentions that the file from subject MS13B will be used.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell loads the NWB file for subject MS13B, using the URL provided. It uses `remfile` to stream the file directly from the DANDI Archive, which is efficient for large files. A timer is implemented to track the loading time. Then, it prints basic metadata from the NWB file, including identifier, session description, session start time, and file creation date.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+1.  There is a UserWarning related to namespace versions, which could indicate a version conflict or compatibility issue with the `hdmf` library. This should be investigated further, and handled gracefully to avoid confusing the user.
+2.  The session start time, `2024-07-25 19:00:00-07:00`, is inconsistent with the file creation date, `2025-04-05 16:50:15.663983-07:00`, in that it occurs *before* the file creation date - i.e. the recording happened before the file was created. Furthermore, it doesn't agree with the `dateCreated` field from the overall dandiset, which is concerning. This inconsistency should be explicitly flagged and discussed.
+3.  The session start time, `2024-07-25 19:00:00-07:00`, implies that summer time is currently in effect (PDT), but the file creation date `2025-04-05 16:50:15.663983-07:00` implies that summer time is *not* in effect (PDT). This is another inconsistency that should be flagged.
+4.  The code to create a loading timer is good, but the timing measurement is somewhat misleading: the `io = pynwb.NWBHDF5IO(file=h5_file)` call happens *before* the `h5_file = h5py.File(remote_file)` call, and thus the timer starts before it should. The timer should start just before the `h5py.File()` call, so the measurement accurately reflects data loading time.
+
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell provides a heading to indicate that the subject information within the NWB file will be explored.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell extracts and prints various attributes of the subject stored in the NWB file, such as subject ID, species, sex, age, and description.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 14
+==========
+
+OVERVIEW:
+This cell serves as a section header, signaling the beginning of the electrode setup exploration.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 15
+==========
+
+OVERVIEW:
+This cell explores the electrode setup described in the NWB file. It iterates through the electrode groups, printing their names, descriptions, locations, and the device they are associated with. It also displays a preview of the electrodes table as a Pandas DataFrame.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+1.  The `location` field for both electrode groups is "ventral hippocampus, visual cortex". This seems unlikely and should be investigated/verified. A comment should be added, acknowledging that this seems suspicious and encouraging the user to verify that this information agrees with the experimental design.
+2.  The electrode locations are reported as "unknown" in the electrode table (dataframe). Together with the point above, this indicates that the electrode location information in the NWB file is not represented with enough precision.
+3. The x,y coordinates for the electrodes are presented, but there is no indication of what coordinate system they are in, or the units for these x,y values. This should be stated explicitly (perhaps in the markdown cell above).
+
+
+Cell 16
+==========
+
+OVERVIEW:
+This cell serves as a section header, signaling the beginning of the trial information exploration.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 17
+==========
+
+OVERVIEW:
+This cell explores the trial information stored in the NWB file, converting it into a Pandas DataFrame. It displays the first 5 rows of the DataFrame. It then calculates and plots the distribution of trial durations as a histogram and plots the trial start times throughout the experiment.
+
+IMAGE DESCRIPTIONS:
+
+1.  **Distribution of Trial Durations:** This histogram shows trial duration on the x-axis (in seconds) versus the number of trials ('Count') on the y-axis. The distribution is highly skewed to the right, with most trials having durations of 0-20 seconds.
+2.  **Trial Start Times Throughout the Experiment:** This scatter plot shows the trial number on the x-axis and the trial start time (in minutes) on the y-axis. The plot shows the progress of the experiment chronologically. Trial start times increase roughly linearly with trial number, with a change in slope near trial 220, indicating that some intervals between trials were longer after that point.
+
+ISSUES:
+1.  There is no unit conversion for the trial start and stop times. It should be explicitly stated in the description that these values are in *seconds*.
+2.  The x-axis label "Trial Number" in the second plot is not helpful. It would be better to show the "Time (minutes)" on the x-axis as well, so that the user can determine *when* the change in slope occurred. Otherwise, the user has no way to know when that slope change occurred in real time.
+3.  The break around trial 220 is interesting, but there is no discussion of *why* there is a change in slope in the trial start times. What happened at that time? Did the experimenter take a break? This should be discussed (or at least acknowledged).
+
+
+Cell 18
+==========
+
+OVERVIEW:
+This cell acts as a section header, signaling the shift to exploring the sorted neurons, or units, data within the NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 19
+==========
+
+OVERVIEW:
+This cell retrieves and displays information about the sorted neurons (units) in the NWB file by converting the `nwb.units` table into a Pandas DataFrame. It then prints the number of units and displays a preview of the DataFrame.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 20
+==========
+
+OVERVIEW:
+This cell introduces the next step, which is to examine the spike times associated with the units. It serves as a transition to the following analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 21
+==========
+
+OVERVIEW:
+This cell visualizes the spike times for the first few units. It defines a helper function `get_spike_times` for extracting spike times. It then iterates through the first 5 units (or fewer, if there are less than 5 units), plotting a histogram of their spike times and printing the total number of spikes for each unit.
+
+IMAGE DESCRIPTIONS:
+The image contains 5 subplots, each displaying a histogram of spike times for a different neuron (Unit 1 through Unit 5). The x-axis of each histogram represents time in seconds, and the y-axis represents the count (number of spikes) within each time bin. Each subplot is labeled with the Unit number and "Spike Times." The x-axis (time)ranges from approximately 0 to 5000 seconds and the y-axis (count) varies depending on the unit, ranging from approximately 0 to 2500 counts.
+
+*   **Unit 1:** Shows a relatively low number of spikes, with some variability in firing rate over time (ranging from approximately 0 to 250 counts, with some peaks and lulls).
+*   **Unit 2:** The firing rate appears relatively constant at approx. 1000 counts for each bin.
+*   **Unit 3:** Has a very high firing rate, appearing constant at approx. 2500 counts for each bin.
+*   **Unit 4:** The firing rate varies more strongly over time, but with lower spike counts overall (ranging from approx. 0 to 500).
+*   **Unit 5:** Shows a modest firing rate, which appears constant at approx. 400 counts.
+
+ISSUES:
+1.  The loop iterates through `range(display_unit_count)`, using `i` as an index into `nwb.units.id`, but *also* using `i` to access the spike times via `spike_times = get_spike_times(nwb.units, i)`. This is incorrect! The `units['spike_times']` expects a *unit id*, not an index. This is why the `get_spike_times` function is defined to take a `unit_id`, and why the loop iterates through `unit_id = nwb.units.id[i]`. The `get_spike_times` call should thus be `spike_times = get_spike_times(nwb.units, unit_id)`. This is a *major* error!
+2.  The spike counts should be computed *before* the loop through the units, using vectorization, rather than appending to a list inside a loop.
+3.  The y-axis scales vary widely across the plots, but don't appear to be automatically determined. The plots should be updated to *automatically* scale the y-axis to fit the maximum spike count.
+4.  The x-axis scales show numbers that are far too large, due to an apparent matplotlib default. The `MaxNLocator` class could be used to fix this, as in an earlier cell. A comment should be added explaining that this is necessary and why.
+5.  There is almost no discussion of the plots, in terms of the differences (or similarities) between spike counts. Some discussion should be added to relate patterns to the experimental design. For example, do some neurons tend to fire more than others during the experiment duration? The units are plotted correctly (i.e. each one is a separate plot), but not *discussed* much.
+
+Cell 22
+==========
+
+OVERVIEW:
+This cell serves as a section header, signaling the start of visualizing raw electrophysiology data. It acknowledges the size of the dataset and the fact that it's being streamed remotely, justifying the decision to focus on a small subset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 23
+==========
+
+OVERVIEW:
+This cell accesses and visualizes a small subset of the raw electrophysiological data from the NWB file. It prints information about the time series data, such as sampling rate, number of channels, total recording length, and units. It then loads 1 second of data from the first four channels and plots the data as a time series.
+
+IMAGE DESCRIPTIONS:
+The image displays four subplots, each showing the raw electrophysiological data for a single channel (Channels 0, 1, 2, and 3) over a 1-second interval. The x-axis of each subplot represents time in seconds (ranging from 0 to 1), and the y-axis represents the amplitude of the signal in millivolts (mV). Each plot displays a fluctuating signal, indicative of neuronal activity. The signals across the channels appear visually similar, though there are slight differences in their amplitude and detailed waveform. The plots are well-labeled and provide a clear visualization of the raw data.
+
+ISSUES:
+1.  The code accesses the time series data from `nwb.acquisition['time_series']`, but this might be too specific. Often, time series data is stored in a more general location called `nwb.processing`. It would be better to check for time series data in *both* locations, and raise an exception if data is missing from both.
+2.  The code assumes `time_series.unit` will be in units of mV, but this might not always be the case. The code should either explicitly check to make sure the units are in mV, or it should display the units to the user so that they know what the y-axis is measuring. A comment should be added to state this assumption, and recommend checking the units for different datasets.
+3.  The plots display the time series data, but there is no discussion to help the user assess the significance of the data. Are these signals typical for this brain region and experimental setup? Are there any obvious artifacts present? Is the amplitude reasonable? Some discussion should be added to help the user interpret the data.
+
+Cell 24
+==========
+
+OVERVIEW:
+This cell introduces the next analysis step, which is to visualize the relationship between spike timing and trial timing.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 25
+==========
+
+OVERVIEW:
+This cell generates a raster plot showing the spike times of multiple units in relation to the start and stop times of a subset of trials. It selects the first 10 trials and up to 10 units to visualize. It then plots the trial periods as colored spans at the top, with trial numbers displayed in each span. Below the trials, it plots the spike times for each selected unit as vertical lines, sharing the x-axis with the trial plot.
+
+IMAGE DESCRIPTIONS:
+
+The image displays a raster plot showing the relationship between trial periods and spike times for multiple units.
+
+*   **Top Subplot (Trial Periods):** Displays 10 trials (T0 through T9) as colored, semi-transparent horizontal bars. Each trial has a different color, and the trial number is written in the center of each bar. The x-axis represents time in seconds.
+*   **Remaining Subplots (Unit Activity):** Each subsequent subplot displays the spike times for a single unit (Unit 1 through Unit 10) as short vertical black lines. The x-axis is shared with the top subplot, showing the time in seconds. The y-axis is not explicitly labeled, but each subplot is labeled with the unit number on the left (e.g., "Unit 1", "Unit 2", etc.).
+
+The structure of the plot allows for a visual comparison of when the units are firing in relation to the trials. For example, it is possible to see if a particular unit tends to fire more or less during certain trials.
+
+ISSUES:
+1.  As in a prior cell, the call to `get_spike_times` is incorrect. The `get_spike_times` function expects a *unit id*, not an index, so the `get_spike_times` call should thus be `spike_times = get_spike_times(nwb.units, unit_id)`. This is a *major* error!
+2.  It would be better if the trial ID was encoded in the `trial` variable, rather than using the loop index `i`. That would improve readability and robustness, in case `iterrows()` doesn't return trials in the correct order.
+3.  The y-axis labels "Unit #" are cut off on the left. The plot is too narrow to display these labels legibly.
+4.  The code generates a plot, but there is no discussion of the plot or its interpretation. The user is given no explanation of what to look for in the data. Does any unit clearly correlate with the trials? Is the neural activity related to the trial? The current notebook version doesn't include a description of the task performed by the animal, nor an explanation of what is meant by "trial."
+
+
+Cell 26
+==========
+
+OVERVIEW:
+This cell serves as a section header, indicating the beginning of the "Analyzing Spike Rates Across Trials" section.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 27
+==========
+
+OVERVIEW:
+This cell calculates the spike rates for each unit during each of the first 50 trials and visualizes the results as a heatmap. The `calculate_spike_rates` function computes the spike rate for each unit in each trial by dividing the number of spikes by the trial duration. The spike rates are then organized into a Pandas DataFrame and reshaped into a pivot table suitable for plotting as a heatmap. The heatmap displays the spike rates, with different colors representing different rate values.
+
+IMAGE DESCRIPTIONS:
+
+The image is a heatmap representing the spike rates of different units across the first 50 trials. The x-axis represents the "Trial ID" (ranging from 0 to 49), and the y-axis represents the "Unit ID" (ranging from 1 to 33). Each cell in the heatmap is colored according to the spike rate, with the color scale on the right indicating the corresponding spike rate values. Darker colors (purple/blue) indicate lower spike rates, while brighter colors (yellow/green) indicate higher spike rates.
+
+*   Certain units (e.g., units 1-3) consistently show high spike rates across most or all trials, as indicated by the bright yellow color.
+*   Other units exhibit lower spike rates across all trials.
+*   Some units seem to increase firing rates to some trials (eg. unit 10 on trial 2, unit 11 on trials 47-49)
+
+ISSUES:
+1.  As in a prior cell, the call to `get_spike_times` is incorrect. The `get_spike_times` function expects a *unit id*, not an index, so the `get_spike_times` call should thus be `spike_times = get_spike_times(nwb.units, unit_id)`. This is a *major* error!
+2.  The y-axis labels "Unit ID" are displayed in reverse order (33 at the bottom, 1 at the top). This is unconventional for heatmaps and difficult to interpret.
+3.  The labels in the plot are quite small, and difficult to read.
+4.  The code computes and displays the heatmap, but there no discussion or interpretation. What is the user supposed to learn from this plot? Is there substantial variation in spike rate patterns? How might these patterns relate to the effects of DREADDs on GABAergic activity? Does any of this relate to the task?
+5.  The y axis is labeled "Unit ID" and the x axis is labeled "Trial ID", but without referring to the experimental design, it is unclear what the term "Trial" means in the context of this experiment. For example, does it refer to a spatial location? If so, then it might make sense to sort the data according to a spatial or task-related basis, rather than just presenting them in order. Some improvements in description of the experiment and dataset would improve the analysis.
+
+Cell 28
+==========
+
+OVERVIEW:
+This cell acts as a section header, signaling the transition to exploring a second NWB file from subject MS14A. It provides a rationale for examining a second file, suggesting it will enable comparison of neural activity patterns.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 29
+==========
+
+OVERVIEW:
+This cell loads the second NWB file, corresponding to subject MS14A, retrieved from the DANDI Archive. It also prints the URL of the file and constructs/prints a Neurosift URL for interactive visualization, which is a nice addition. Finally, it displays basic metadata from the loaded NWB file, including the identifier, session description, and session start time.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+1.  The session start time, `2024-09-06 19:00:00-07:00`, is inconsistent with the file creation date of the Dandiset, `2025-04-05`. This discrepancy was noted earlier and should be flagged at each point in the analysis where it occurs.
+2. The UserWarning about namespace versions persists in this cell, as it did in the analysis of the first NWB file.
+3. Including the `dandisetVersion=draft` parameter might be dangerous in the long run, because this URL will become inoperable if the Dandiset is ever "released". Better to link to a specific version, or omit this parameter entirely. A comment should be added to make the user aware of this long-term issue.
+
+
+Cell 30
+==========
+
+OVERVIEW:
+This cell acts as a section header, indicating the start of the unit comparison between the two NWB files.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 31
+==========
+
+OVERVIEW:
+This cell compares the number of units and trials between the two NWB files. It retrieves the unit and trial data as DataFrames from both files and prints out the number of units and trials for each subject.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 32
+==========
+
+OVERVIEW:
+This cell serves as a section header, indicating the start of comparing spike timing patterns between the two subjects. It prepares the reader for the next analysis steps.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 33
+==========
+
+OVERVIEW:
+This cell does a visual comparison of spike timing patterns between the first 30 seconds of recordings from the two subjects. It defines a function `compare_spike_patterns` that generates a raster plot showing the spike times of the first 5 units from each subject. The x-axis represents time (in seconds), and the y-axis represents the unit ID. It also prints the total number of spikes for each of the plotted units within the 30-second window.
+
+IMAGE DESCRIPTIONS:
+
+The image presents a comparison of spike timing patterns between two subjects (MS13B and MS14A) over the first 30 seconds of recording.
+
+**Top Subplot (Subject MS13B):** This subplot displays the spike times for the first 5 units of subject MS13B. Each horizontal line represents a unit (labeled as Unit ID 1 through 5 on the y-axis), and vertical ticks along the line indicate the timing of individual spikes. Different units appear to have different firing patterns, with some showing more frequent spiking than others.
+
+**Bottom Subplot (Subject MS14A):** This subplot mirrors the top one, but for subject MS14A.
+
+By comparing the two subplots, one can visually assess differences in the spike timing patterns between the two subjects. For example, some units in one subject might exhibit higher firing rates or different temporal patterns compared to corresponding units in the other subject.
+
+ISSUES:
+1.  As in prior cells, the call to `get_spike_times` is incorrect. The `get_spike_times` function expects a *unit id*, not an index, so the `get_spike_times` call should thus be `spike_times = get_spike_times(nwb.units, unit_id)`. This is a *major* error!
+2.  The value `min(5, len(nwb1.units.id))` is used multiple times throughout the function, but it is not immediately obvious what counter is supposed to represent. A variable name like `number_of_units_to_plot` would be much more readable.
+3.  A small amount of jitter could be added to the y-axis, so the user can more easily distinguish different units.
+4.  The numbers of spikes are printed to the terminal output, but there is no discussion of the image at all. As a result it is impossible to know if any changes in the spike timings are related to the manipulations performed in the experiment.
+5. The description of "what the code does" overshadows "why the code does it" and "what the result means". For example, without knowing *where* in the brain these neurons are located, it is difficult to interpret their spike times. Are they in the hippocampus, which would directly relate to the task of running laps in a virtual hallway? Are they in the visual cortex, perhaps responding to textures in the hallway? Are they in the medial septum, which would reflect the DREADD manipulations? The notebook does not provide this information to the user.
+
+Cell 34
+==========
+
+OVERVIEW:
+This cell serves as a section header, indicating the shift to examining raw data from the second NWB file (subject MS14A).
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 35
+==========
+
+OVERVIEW:
+This cell samples and visualizes a small subset of raw electrophysiological data from the second subject's (MS14A) NWB file. The code is almost identical to a prior cell that visualized raw data from subject MS13B. It loads 1 second of data from the first four channels and plots the data as time series.
+
+IMAGE DESCRIPTIONS:
+The image shows four subplots, each displaying the raw electrophysiological data for a single channel (Channels 0, 1, 2, and 3) from Subject MS14A over a 1-second interval. The signals appear similar to those observed in the corresponding plot from Subject MS13B.
+
+ISSUES:
+1.  As noted in an earlier cell regarding the first subject, the code accesses the time series data from `nwb.acquisition['time_series']`, but this might be too specific. Often, time series data is stored in a more general location called `nwb.processing`. It would be better to check for time series data in *both* locations, and raise an exception if data is missing from both.
+2.  As noted in an earlier cell, the code assumes `time_series.unit` will be in units of mV, but this might not always be the case. The code should either explicitly check to make sure the units are in mV, or it should display the units to the user so that they know what the y-axis is measuring. A comment should be added to state this assumption, and recommend checking the units for different datasets.
+3.  While the raw data are plotted, no comparison is made to the data from the first subject (MS13B). Is spiking activity greater/less in one subject versus the other? Does activity in each channel correlate with activity from the other subject? An actual *comparison* should be made here, since the section title refers to *examining* the data, but not actually *comparing* it to anything.
+4.  This cell suffers from the same limitations as the prior raw data plot: the user is given no explanation of what to look for in the data. Does the data look clean? Are there any obvious artifacts present? Is the amplitude reasonable? This needs more discussion.
+
+Cell 36
+==========
+
+OVERVIEW:
+This cell serves as a section header, indicating that the analysis will now compare trial durations between the two subjects, MS13B and MS14A.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 37
+==========
+
+OVERVIEW:
+This cell compares the trial durations between the two subjects using histograms, boxplots, and summary statistics. It first calculates the duration of each trial for both subjects. Since the two subjects have different numbers of trials, the code includes a check with random resampling so that both distributions have the same size. It then creates a Pandas DataFrame for easy comparison. The final steps are to generate the histogram and boxplot visualizations, and calculate/display summary statistics of the trial durations.
+
+IMAGE DESCRIPTIONS:
+
+1.  **Distribution of Trial Durations by Subject:** This is a histogram that overlays the distributions of trial durations for both subjects MS13B (blue) and MS14A (orange). The x-axis represents the trial duration in seconds, and the y-axis represents the count (number of trials) for each duration bin. The histogram shows that both distributions are skewed to the right, with a higher concentration of trials having shorter durations. The message `UserWarning: No artists with labels found` is not very helpful.
+2.  **Trial Duration Comparison (Boxplot):** This boxplot compares the distributions of trial durations for MS13B and MS14A. The y-axis represents the trial duration in seconds. The box for each subject represents the interquartile range (IQR), with the median indicated by a horizontal line within the box. The whiskers extend to 1.5 times the IQR from the box, and any data points beyond the whiskers are plotted as individual outliers. There are several outliers evident in the plot. There is a clear offset between the two box plots: MS14A trials are shorter than MS13B trials.
+
+ISSUES:
+1.  The UserWarning indicates that the legend is not working in the histogram. This should be fixed.
+2.  The x-axis limits are truncated on the boxplot, hiding some of the outliers. This should be avoided.
+3.  The code includes random resampling of the trials for subject MS14A, but this technique is questionable because the resampled values are not truly independent/random (they are derived from the data from subject MS14A). The resampling is most likely used because the graphing and stastical tools can't handle different sizes of data. This subsampling introduces a bias in the results. Instead, statistical tests such as t-tests or Kolmogorov–Smirnov tests could be applied, which *can* naturally handle data from different distributions. This would *eliminate* the need for resampling.
+4.   It's useful to know about the distributions, but perhaps some more experiment-specific information would be helpful. For example, did MS13B have longer trials because it ran more laps in the virtual hallway (compared to MS14A)? Perhaps it would be more fruitful to characterize trials in terms of the animal's behavior, rather than based on how long each trial lasted.
+5.  There should be more discussion of *why* the difference in trial durations might exist. Does this represent some form of experimental manipulation or change in experimental procedures? This information could also be revealed in the metadata, if it was included in the NWB files.
+6. It looks like outlier values from the first NWB file are being hard-coded in. I am not sure where the reviewer got this information. But, if this is in the notebook, I would remove it.
+
+
+Cell 38
+==========
+
+OVERVIEW:
+This cell serves as a section header, introducing the spatial analysis of electrodes. It indicates that the subsequent cells will focus on visualizing the physical arrangement of the electrodes used in the recordings, setting expectations for the reader.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 39
+==========
+
+OVERVIEW:
+This cell visualizes the spatial arrangement of electrodes in the NWB file. It first resets the matplotlib style and retrieves electrode positions from the `nwb.electrodes` table. Then, it generates two plots:
+
+1.  A scatter plot showing the electrode positions for each electrode group on the same axes, distinguished by color.
+2.  A series of scatter plots (one subplot for each electrode group) showing the electrode positions, with electrode IDs labeled.
+
+Finally, the seaborn style is reapplied, for use during subsequent plots.
+
+IMAGE DESCRIPTIONS:
+
+1.  **Electrode Positions:** This scatter plot shows the x and y positions of electrodes, grouped by their "shank" identifier (shank1 and shank2). The different shanks are shown in different colors: shank1 is faint blue, and shank2 is orange. Both shanks show an approximately vertical arrangement. The x and y axes have equal scaling, such that the vertical arrangment is readily apparent. The code is well-labeled, and appropriate for showing these electrode positions.
+2.  **Electrode Groups:** The second plot separates the electrodes into two subplots, one for each shank (shank1 and shank2). Small labels are present at each location, which indicate which electrode has the corresponding location.
+
+ISSUES:
+1.  Earlier in the notebook, it was noted that the units of the x,y coordinates were not stated. This absence makes it impossible to properly interpret the spatial relationships between the probes. The units should be explicitly stated (perhaps in the markdown cell above).
+2.  The single scatter plot is helpful, the separate plots provide very little additional information. The labels are too small to be easily read, and the shapes are too simple the reveal any fine differences between electrodes (e.g. different electrodes being placed at different depths). This plot could be omitted.
+3.  As noted earlier in the notebook, the x and y coordinates for all electrodes in "shank1" are identical (20, 1375), and similarly, the x,y coordinates for all electrodes in "shank2" are also identical (20, 1375). As a result, the x,y coordinates are not sufficient to allow the user to distinguish individual electrodes. Rather, this indicates that the electrode location information in the NWB file is not represented with enough precision. This should be discussed in the analysis and conclusions.
+4.  There is no discussion of the spatial arrangement of the electrodes in relation to any anatomical or experimentally relevant structures. Are both shanks known to be in visual cortex? Is one shank in the cortex and the other in the hippocampus? Without that information, it's impossible for the user to know how to interpret the distribution of electrode locations.
+5. It would be useful to overlay the location of each electrode on a brain atlas (e.g. using a package like Brain Render). This would provide context to this information.
+
+Cell 40
+==========
+
+OVERVIEW:
+This cell summarizes the findings from the notebook's analysis of Dandiset 001375. It reiterates the purpose of the dataset and lists the key observations made during the exploration. It also suggests potential directions for more detailed analyses.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+1.  This summary fails to mention the many inconsistencies raised in the prior code reviews, including (1) the fact that the `dateCreated` field in the Dandiset is in the future, (2) there are inconsistencies between the various date fields (dandiset creation date, session start time within the NWB file, and dates embedded in the filepaths), and (3) the x,y coordinates for the location of the electrodes are constant across all electrodes, implying that the electrode location information in the NWB file is not represented with enough precision.
+2.  The summary mentions that the electrodes record from both ventral hippocampus and visual cortex, despite the fact that this information could not be consistently resolved from the existing metadata. The notebook never clearly showed *where* the electrodes were in each subject.
+3. The listed items in this summary are extremely general. For example, every dataset has "substantial variation in neural activity", so that is not meaningful. The "foundation for more detailed analyses" are the same general ones that could be applied to nearly any electrophysiological dataset with trial-based structure; they don't really leverage anything learned in the notebook.
+4. The summary provides no interpretation of the effects of DREADD activation. Are the DREADDs known to be present in a certain brain region? Was there a noticeable effect on the firing rate of certain neurons? What conclusions can the user draw regarding the application of DREADDs? It is not possible to determine anything about the effect of the experimental manipulation.
+5.  The notebook mentions examining raw electrophysiological data and sorted unit data, but there is no discussion of spike sorting quality *whatsoever*. The spike sorting quality can make an enormous difference in subsequent analysis, thus any notebook that analyzes sorted unit data should at least consider discussing how it believes the quality to be.
+
+Cell 41
+==========
+
+OVERVIEW:
+This cell outlines future directions for analyzing the dataset. It lists potential research questions and analysis techniques that could be applied, such as comparative analysis, cross-regional coupling, spectral analysis, behavioral correlates, and network analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+1.  The "future directions" are generic analyses that could be applied to almost any electrophysiology dataset, rather than tailored to the specific characteristics of this Dandiset or the findings from the notebook.
+2.  The list of future directions fails to address the most important question: how does disrupting septal GABAergic activity affect neural activity? That should be mentioned explicitly.
+3.  Given the known limitations and inconsistencies in the dataset (especially the imprecise electrode locations and problematic date fields), it would be helpful to include future directions related to verifying the data and metadata. For example, one could perform an independent validation of the electrode locations or investigate the reasons for the date inconsistencies.
+4. The fact that this notebook has produced an AI-generated analysis should be mentioned again, perhaps including a link to the first cell where this was originally stated.
+

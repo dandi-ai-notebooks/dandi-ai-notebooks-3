@@ -1,0 +1,124 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell introduces the notebook and states its purpose: exploring Dandiset 001375, which contains data from an experiment studying GABA disruption in the septum using DREADDs. It sets the context for the subsequent analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell provides a crucial disclaimer – the notebook was AI-generated and requires careful verification. This warns the user about potential inaccuracies or errors, promoting responsible interpretation of the content.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell provides an overview of the notebook's content and purpose. It explicitly states that the notebook will explore Dandiset 001375, summarizing the related experiment. It links the Dandiset on the DANDI Archive and previews the steps that the notebook will go through: loading metadata, listing assets, and loading/visualizing data from an NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell lists the Python packages necessary to execute the code within the notebook. This is helpful for ensuring the user has the correct environment set up.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell uses the `dandi` package to interact with the DANDI Archive API. It retrieves Dandiset 001375, prints its name and URL, and then lists all the assets (NWB files) within the Dandiset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell sets the stage for loading and exploring a specific NWB file from the Dandiset, clearly indicating which file will be loaded: `sub-MS13B/sub-MS13B_ses-20240725T190000_ecephys.nwb`. It provides the direct download URL for the file and a link to view it in NeuroSift.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell loads the NWB file specified in the previous cell using `pynwb`, `h5py`, and `remfile`. It reads the file from the provided URL and then extracts and prints some basic metadata, including the session description, identifier, and session start time. It also prints the entire contents of the nwb data structure, and omits `nwb.file_create_date` due to it being in the future, showcasing awareness of potential data anomalies.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell introduces the next step: loading and visualizing a segment of the time series data, representing raw electrophysiology recordings, from the previously loaded NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell extracts a segment of the time series data (first 1000 time points, first 5 channels) from the NWB file and visualizes it using Matplotlib. It plots each channel with a vertical offset for better visibility. The code handles the case where the sampling rate might not be explicitly defined in the NWB file.
+
+IMAGE DESCRIPTIONS:
+The generated plot shows the time series data for five channels. Each channel's signal is plotted as a line graph against time. The y-axis is labeled "mV + offset," and each channel is vertically offset by a multiple of 100 mV to prevent overlap. The x-axis represents "Time (s)". The plot is titled "Time series data for the first 5 channels," and a legend identifies each channel by its number. There appear to be large fluctuations in voltage over the short time covered by the plot.
+
+ISSUES:
+None
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell summarizes what the notebook has covered: loading metadata, listing assets, loading an NWB file, and visualizing time series data. It suggests potential avenues for further analysis, such as exploring other files, analyzing spike times, performing more advanced signal processing, and investigating behavioral data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+

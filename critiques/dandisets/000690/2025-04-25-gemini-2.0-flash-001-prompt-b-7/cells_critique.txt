@@ -1,0 +1,198 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell provides a title for the Jupyter notebook, indicating the specific Dandiset (000690) and project ("Allen Institute Openscope - Vision2Hippocampus") that the notebook will explore. The title sets the context for the entire notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell contains a warning message, stating that the notebook was AI-generated and not fully verified. It advises users to interpret the code and results with caution. This is a crucial disclaimer, as it manages user expectations and highlights potential unreliability in the notebook's content.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell provides a brief introduction to the notebook's purpose: to offer an overview of the Allen Institute Openscope - Vision2Hippocampus project, accessible as Dandiset 000690 on the DANDI Archive. It also includes a direct link to the Dandiset on the DANDI Archive, enhancing accessibility.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell outlines the key topics that the notebook will cover. It lists the steps involved in exploring the Dandiset, including loading metadata, accessing eye-tracking and running speed data, and visualizing pupil area and running speed over time. This provides a clear roadmap for the user.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell lists the Python packages necessary to execute the code within the notebook. It instructs the user to ensure these packages (pynwb, h5py, remfile, matplotlib, seaborn) are installed in their environment before proceeding. This is crucial for ensuring the notebook runs without errors.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell uses the `dandiapi` library to connect to the DANDI Archive, retrieve Dandiset 000690, and prints basic information and lists the first 5 assets. The code initializes a `DandiAPIClient`, retrieves the Dandiset, extracts metadata (name and URL), and lists the paths of the first five assets. This code serves to demonstrate how to programmatically access Dandisets and their associated metadata.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell introduces the process of loading and exploring an NWB file from the Dandiset. It specifies the exact file ("sub-692072/sub-692072_ses-1298465622.nwb") that will be loaded and analyzed in the subsequent code cell. This provides context for the next step in the notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell loads a specified NWB file from the DANDI Archive using `pynwb`, `h5py`, and `remfile`. It downloads the file from a given URL, opens it as an HDF5 file, then reads the NWB content. Finally, it prints key metadata like session description, session ID, and session start time. This cell demonstrates how to programmatically access the contents of NWB files hosted on DANDI.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The hardcoded URL is an asset URL, not a dandiset-relative path to a file, as suggested in the previous cell's description. The previous cell states that the notebook will load "sub-692072/sub-692072_ses-1298465622.nwb", however the URL actually points to  "fbcd4fe5-7107-41b2-b154-b67f783f23dc". The notebook would be improved by either making the URL based on the asset location or actually using dandi.dandiapi to download the asset. This URL may become invalid in the future. The deprecation warnings about hdmf versions also clutter the output and should ideally be addressed.
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell provides a direct link to the NWB file on the NeuroSift platform, allowing users to visualize and interact with the data in a user-friendly interface. The link includes the file URL, Dandiset ID, and Dandiset version. This enhances the user experience by facilitating easy access to data visualization tools.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The URL here uses the same asset-specific URL as in the previous cell. Ideally this would also refer to "sub-692072/sub-692072_ses-1298465622.nwb".
+
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell introduces the intention to access and visualize eye-tracking data within the loaded NWB file. It specifically mentions pupil tracking data and visualizing the pupil area over time. This sets the stage for the subsequent code that will perform these actions.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell retrieves eye-tracking data from the NWB file, specifically the `pupil_tracking.area` and its timestamps, and visualizes the pupil area over time using `matplotlib`. It loads the first 1000 samples, then creates a line plot showing the pupil area in meters against time in seconds. The plot includes labels and a title to describe the data.
+
+IMAGE DESCRIPTIONS:
+The image is a line graph titled "Pupil Area Over Time". The x-axis represents "Time (s)" ranging from approximately 15 to 30. The y-axis represents "Pupil Area (meters)" ranging from 0 to approximately 18000. The plot shows the pupil area fluctuating between around 2000 and 3000 meters for most of the time period, with a large, sharp spike occurring around 22.5 seconds, reaching almost 18000 meters.
+
+ISSUES:
+The y-axis label "Pupil Area (meters)" is incorrect, the units are likely square millimeters (mm^2), not meters. The plot looks reasonable for eye tracking data, but the units are misleading. There is a hardcoded range of data that is loaded. It might be good to allow that range to be customized.
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell provides a brief interpretation of the pupil area over time plot generated in the previous cell. It describes the general range of pupil area values and notes the presence of a large spike around 22.5 seconds, suggesting it could be a response to an external stimulus or other significant event.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+The units for the pupil area are still incorrect. The plot is in square millimeters, not meters. This could be misleading to anyone reading the notebook.
+
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell introduces the analysis of running speed data contained within the NWB file. It states that the notebook will access and visualize the running speed over time, setting the context for the following code.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 14
+==========
+
+OVERVIEW:
+This cell retrieves running speed data from the NWB file, specifically from the `running_speed` data interface within the `running` processing module. It loads the first 1000 samples of both speed data and timestamps, then generates a line plot showing running speed in cm/s against time in seconds.
+
+IMAGE DESCRIPTIONS:
+The image is a line graph titled "Running Speed Over Time". The x-axis represents "Time (s)" ranging from approximately 113 to 137. The y-axis represents "Running Speed (cm/s)" ranging from approximately -10 to 16. The plot shows the running speed fluctuating over time, with periods of low speed (near 0 cm/s) and several peaks reaching up to 10-15 cm/s. There are also some negative values, indicating movement in the opposite direction.
+
+ISSUES:
+The presence of negative values in "Running Speed" suggests that the data represents velocity, not speed. It is appropriate (and useful) to have negative values in velocity. It would potentially be good to ensure that is captured in any subsequent discussion. There is a hardcoded range of data that is loaded. It might be good to allow that range to be customized. The axes don't start at zero so it's hard to appreciate the scale of the changes. The time range in the plot skips from 30 s in the pupil area plot to over 100s in this plot. It could be good to explore how to align or compare these different measurements.
+
+Cell 15
+==========
+
+OVERVIEW:
+This cell provides a brief description of the running speed over time plot. It mentions the approximate range of running speed values, which spans from -10 cm/s to 16 cm/s.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 16
+==========
+
+OVERVIEW:
+This cell summarizes the notebook's contents, highlighting the exploration of eye-tracking and running speed data from Dandiset 000690. It then suggests potential future analyses such as correlating eye-tracking and running speed with each other and neural activity, and exploring other data modalities within the Dandiset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+

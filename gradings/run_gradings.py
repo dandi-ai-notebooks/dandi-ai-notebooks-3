@@ -10,9 +10,8 @@ from dataclasses import dataclass
 from helpers.run_completion import run_completion
 from html import escape as html_escape
 
-num_questions = 12
 model_for_gradings = "anthropic/claude-3.7-sonnet"
-prompt_version = "4"
+prompt_version = "5"
 
 class XMLParsingError(Exception):
     """Custom exception for XML parsing errors."""
@@ -81,7 +80,7 @@ def escape_xml_chars(xml_text: str) -> str:
 
     return _PLACEHOLDER_RE.sub(_restore, xml_text)
 
-def parse_grades_xml(xml_text: str) -> List[GradeBlock]:
+def parse_grades_xml(xml_text: str, *, question_ids: List[str]) -> List[GradeBlock]:
     """Parse grades from XML text into a list of GradeBlock objects.
 
     Args:
@@ -108,8 +107,14 @@ def parse_grades_xml(xml_text: str) -> List[GradeBlock]:
             except ValueError as e:
                 raise XMLParsingError(f"Failed to parse grade block: {str(e)}")
 
-        if len(grades) != num_questions:
-            raise XMLParsingError(f"Expected {num_questions} grade blocks, found {len(grades)}")
+        # check that the number of grades equals the number of questions
+        if len(grades) != len(question_ids):
+            raise XMLParsingError(f"Number of grades ({len(grades)}) does not match number of questions ({len(question_ids)})")
+        # check that the question IDs match
+        for i, grade in enumerate(grades):
+            q = grade.question_id
+            if not q in question_ids:
+                raise XMLParsingError(f"Question ID {q} not found in expected question IDs")
 
         return grades
 
@@ -120,6 +125,8 @@ def find_critiqued_notebooks(base_dir: str) -> List[Tuple[str, str, str]]:
     """Find notebooks that have been critiqued."""
     notebook_paths = []
 
+    prefixes = ['2025-04-24', '2025-04-25']
+
     # List dandiset directories
     for dandiset_id in os.listdir(base_dir):
         dandiset_path = os.path.join(base_dir, dandiset_id)
@@ -128,6 +135,11 @@ def find_critiqued_notebooks(base_dir: str) -> List[Tuple[str, str, str]]:
 
         # List subdirectories within dandiset
         for subfolder in os.listdir(dandiset_path):
+            starts_with_one_of_the_target_prefixes = any(
+                subfolder.startswith(prefix) for prefix in prefixes
+            )
+            if not starts_with_one_of_the_target_prefixes:
+                continue
             subfolder_path = os.path.join(dandiset_path, subfolder)
             if not os.path.isdir(subfolder_path):
                 continue
@@ -141,11 +153,22 @@ def find_critiqued_notebooks(base_dir: str) -> List[Tuple[str, str, str]]:
 
 def read_gradings_system_prompt() -> str:
     template_path = (
-        Path(__file__).parent / "templates" / "gradings_system_prompt.txt"
+        Path(__file__).parent / "templates" / "gradings_system_prompt_with_questions.txt"
     )
     with open(template_path, "r") as f:
         content = f.read()
     return content
+
+def get_question_ids() -> List[str]:
+    p = read_gradings_system_prompt()
+    # each question has a line of the form
+    # question_id: <question_id>
+    ret = []
+    for line in p.splitlines():
+        if line.startswith("question_id:"):
+            _, question_id = line.split(":", 1)
+            ret.append(question_id.strip())
+    return ret
 
 def get_gradings_for_notebook(cell_critiques_text: str) -> Tuple[str, int, int]:
     """Get rankings for a dandiset based on critiques."""
@@ -205,7 +228,7 @@ def main():
         total_completion_tokens += completion_tokens
         # Parse rankings text into structured format
         try:
-            grades = parse_grades_xml(gradings_text)
+            grades = parse_grades_xml(gradings_text, question_ids=get_question_ids())
         except XMLParsingError as e:
             print(gradings_text)
             raise Exception(f"Failed to parse grades: {str(e)}")
