@@ -1,0 +1,341 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell provides an introduction to the notebook, outlining its purpose, the specific Dandiset being explored (000690), the research question addressed by the dataset, a summary of the dataset's content (neural recordings, stimuli, behavior), and the file organization within the Dandiset (main NWB, image NWB, and probe NWB files). It also includes a warning about the AI-generated nature of the notebook. This cell effectively sets the stage for the subsequent analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell serves as a brief introduction to the next section, indicating that it will list the necessary Python packages for executing the notebook. It's a simple statement preparing the reader for the dependencies.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell imports the necessary Python packages. It imports standard libraries like NumPy, Pandas, Matplotlib, and Seaborn for data analysis and visualization. It also imports `pynwb`, `h5py`, and `remfile` for working with NWB files, and `DandiAPIClient` for interacting with the DANDI Archive.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell introduces the next step: accessing the Dandiset using the DANDI API. It serves as a transition, guiding the reader towards interacting with the DANDI archive.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell connects to the DANDI archive, retrieves the Dandiset with ID "000690", and prints basic information about it: the name, URL, and the number of assets it contains. It uses the `DandiAPIClient` to interact with the archive and fetches the Dandiset metadata, printing the name and URL. It then retrieves and prints the number of assets within the Dandiset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell elaborates on the dataset's file organization, reiterating the three types of NWB files present for each recording session: the main NWB file, the image NWB file, and the probe-specific NWB files. It also mentions the naming convention used for these files. Finally, it sets the stage for exploring the available subjects and sessions.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell iterates through the assets of the Dandiset to identify and count the unique subjects and sessions. It parses the file paths to extract subject and session information, categorizing each file as "main," "image," or "probe" based on its name. The cell then prints the total number of unique subjects, sessions, and each type of file found in the Dandiset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell introduces the process of loading an example NWB file, preparing the reader for exploring the data structure within the file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell selects a specific subject ("695763") and session ("1317661297") and then searches for the corresponding main NWB file within the list of assets. If the file is found, it prints the file path and constructs a Neurosift link for visualizing the data. If the specific file is not found, it iterates through the assets to find the first main NWB file available and prints corresponding information and a Neurosift link.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell provides a transition to loading the selected NWB file using remote streaming.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell loads the NWB file using `remfile` and `h5py` for remote streaming and `pynwb` to read the HDF5 file into an NWB object. Then, it prints basic session information such as the session ID, description, and start time. Finally, it lists the top-level groups present in the NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell transitions the focus to exploring the visual stimuli used in the experiment, highlighting their importance within the dataset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell examines stimulus presentation intervals within the NWB file. It first checks if the `intervals` field exists in the NWB file. It then identifies stimulus presentation intervals by searching for names containing "_presentations". It groups these stimuli by type and prints the number of variants for each type. Finally, it examines the first variant of the first three stimulus types in more detail, printing the number of presentations, total duration, average presentation duration, and the timing of the first presentation.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 14
+==========
+
+OVERVIEW:
+This cell provides further details of the visual stimuli used in the experiment. It lists and describes several types of stimuli, including simple moving bars (SAC) with variations, special bar types (Disco Bar, Vanishing Bar), geometric shapes (Dot, Disk, Ring), and natural movies (eagle swooping, squirrel/mice videos). The cell also explains the stimulus naming convention, describing how parameters like width, velocity, boundary type, and contrast are encoded in the stimulus names. Overall, this cell gives the reader a better understanding of stimuli used in the experiment, and how they are controlled.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 15
+==========
+
+OVERVIEW:
+This cell serves as a transition, focusing the notebook's attention on the eye-tracking data included in the dataset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 16
+==========
+
+OVERVIEW:
+This cell explores eye-tracking data if it exists within the NWB file. First, it checks for the 'EyeTracking' field in `nwb.acquisition`. If present, it prints the available components of the eye tracking data. If 'pupil_tracking' and 'area' data are available, the cell plots pupil area over time, and calculates and displays stats such as the baseline pupil area (25th percentile), the number of dilation events (instances where area > 1.5x baseline), and the percentage of time the pupil is dilated. Next, the cell checks for and plots blink data, showing instances of blinks over time. It also calculates and displays the blink rate.
+
+IMAGE DESCRIPTIONS:
+- **Pupil Area Plot:** This plot shows pupil area over time (sampled to a maximum of 10,000 points). The x-axis represents time in seconds, and the y-axis represents pupil area. The plot includes a horizontal dashed red line indicating the baseline pupil area. The plot also includes a text box displaying the baseline value, the number of dilation events (where pupil area exceeds baseline by a factor of 1.5), and the percentage of time the pupil is dilated. Overall, the plot depicts the dynamics of pupil area fluctuations over the sampled timeframe.
+- **Eye Blinks Plot:** This plot shows eye blinks over time (sampled to a maximum of 5,000 points). The x-axis is time in seconds, and the y-axis represents the blink status. The y-axis is categorical with two ticks, 0 and 1, labeled as "No Blink" and "Blink", respectively. The plot includes a text box with the total number of blinks and the blink rate (blinks/second) calculated from plotted data.
+
+ISSUES:
+None
+
+Cell 17
+==========
+
+OVERVIEW:
+This cell introduces the exploration of running wheel data, providing context for the subsequent code.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 18
+==========
+
+OVERVIEW:
+This cell explores the running wheel data. It first checks if the `running` module exists within the `nwb.processing` field. If present, it lists available data interfaces within the running module. If 'running_speed' data is found, it plots running speed against time (sampling down to a maximum of 10,000 points). The plot includes a horizontal dashed red line indicating moving threshold, along with the mean speed, max speed, and percentage of time the mouse spends moving (above the defined threshold).
+
+IMAGE DESCRIPTIONS:
+The plot shows running speed over time. The x-axis represents time in seconds and the y-axis represents speed in cm/s. A horizontal dashed red line indicates the moving threshold (5 cm/s). A text box indicates the mean speed, max speed, and percentage of time the animal spends moving above the threshold. Overall, the plot depicts the locomotion activity of the mouse during the recording session.
+
+ISSUES:
+None
+
+Cell 19
+==========
+
+OVERVIEW:
+This cell serves as a transition, shifting the focus to the neural data organization within the dataset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 20
+==========
+
+OVERVIEW:
+This cell focuses on the neural data stored in probe-specific NWB files. First, it closes the previously opened "main" NWB file to free up resources. It then searches for a probe-specific NWB file corresponding to the same subject. If found, it prints the path and generates a Neurosift link. The file is loaded, its session ID is printed, and electrode group information (name, description, location, device description, and sampling rate) is displayed. The code then checks for LFP data, plots LFP traces of a short sample period for the first 10 channels, and extracts /visualizes unit (putative neuron) firing rate distributions, along with metrics such as signal-to-noise ratio, ISI violations, presence ratio, and amplitude. Finally, it closes the probe file.
+
+IMAGE DESCRIPTIONS:
+- **LFP Traces Plot:** This plot displays local field potential (LFP) traces for channels 0-9 during a sampled period. The plot is a grid of 10 subplots, one for each channel. Each subplot shows the LFP signal over time, with the x-axis representing time (in seconds) and the y-axis representing the LFP signal.
+- **Firing Rates Distribution Plot:** This plot shows the distribution of firing rates for the neural units. The x-axis is firing rate in Hz, and the y-axis is the count. A red dashed line indicates the mean firing rate, while a green dotted line indicates the median firing rate. A legend clarifies which line is the mean and median.
+- **Quality Metrics Distribution Plots:** These plots (up to 4) display distributions of signal quality metrics of all putative neurons. Example metrics are signal-to-noise ratio (SNR), ISI violations, presence ratio, and amplitude.
+
+ISSUES:
+None
+
+Cell 21
+==========
+
+OVERVIEW:
+This cell introduces the analysis of the relationship between running speed and neural activity. It sets the context for investigating how locomotion relates to neural processing.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 22
+==========
+
+OVERVIEW:
+This cell creates simulated data to illustrate the potential relationship between running speed and neural activity. The script generates simulated running speed data with periods of activity using ramped starts and stops and then simulates neural activity for three types of neurons: a V1 neuron with increased activity during running; a hippocampal neuron with a complex adaptation effect; and a higher visual area neuron with a delayed response to running. Finally, the script plots the running speed and the firing rates of these simulated neurons against time.
+
+IMAGE DESCRIPTIONS:
+The figure has 4 subplots.
+- The first subplot shows the simulated running speed over time. The y-axis is "Speed (cm/s)". The periods of activity ("running_episodes") are visible.
+- The second subplot shows the simulated firing rate of a V1 neuron, which increases during simulated running. The y-axis is "Firing Rate (Hz)".
+- The third subplot shows the simulated firing rate of visual neuron from a higher area (compared V1), which has a delayed response, of around 1.5 sec, to the simulated running. The y-axis is "Firing Rate (Hz)".
+- The fourth subplot showws the simulated firing rate of a hippocampal neuron, showing adaptation to long periods of sustained running. The y-axis is "Firing Rate (Hz)".
+
+ISSUES:
+None
+
+Cell 23
+==========
+
+OVERVIEW:
+This cell introduces the concept of receptive fields and sets up a simulation to illustrate how they might be mapped in the dataset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 24
+==========
+
+OVERVIEW:
+This cell creates a simulated receptive field mapping based on neural responses to moving bars. The script generates visual space grid, and then creates receptive fields for different neuron types: V1 simple cell (creates oriented Gabor filter and another horizontal one, V1simple2_rf), higher visual area (larger and more complex, Higher_rf), and Hippocampal area (less spatially specific). Then it visualizes each of these simulated receptive fields in a subplot.
+
+IMAGE DESCRIPTIONS:
+This figure includes 4 subplots of the simulated receptive fields.
+- The first subplot ("V1 Simple Cell Oriented RF") visualizes a Gabor filter with a title, azimuth and elevation axis labels, and a response colorbar labeled "Response".
+- The second subplot ("V1 Simple Cell Horizontal RF") visualizes a Gabor filter tilted horizontally. The axis and colorbar are the same as in the first subplot.
+- The third subplot ("Higher Visual Area Complex RF") visualizes a complex cell-like RF. The axis and colorbar are the same as in the first subplot.
+- The fourth subplot ("Hippocampal Cell Spatial Preference") visualizes a less spatially specific radial gradient. It is titled "Hippocampal Cell Spatial Preference," has azimuth and elevation axis labels, and a response colorbar labeled "Response."
+
+ISSUES:
+None
+
+Cell 25
+==========
+
+OVERVIEW:
+This cell introduces the simulated neural responses to different stimulus types, setting up the scenario for illustrating how neural responses might evolve from simple feature detectors in early visual areas to more abstract representations in the hippocampus.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 26
+==========
+
+OVERVIEW:
+This cell generates simulated neural responses to different stimuli for different neuron types to illustrate how neural responses might evolve from simple feature detectors in early visual areas to more abstract representations in the hippocampus. The code defines four different stimulus types (`SAC_standard`, `SAC_wide`, `SAC_reverse`, `Natural_movie`) and their presentation periods. It then simulates the responses of three neuron types ('V1 Cell', 'Higher Visual Cell', 'Hippocampal Cell') to these stimuli. Each neuron type has different response weights for each stimulus and different temporal dynamics (e.g., fast onset, slow onset, adaptation). Finally, it visualizes the neural responses to different stimuli on the three types of neurons.
+
+IMAGE DESCRIPTIONS:
+The figure displays one subplot describing the stimulus timing for the four different conditions and three subplots, each representing one of the three neuron (brain area) types in the simulation: V1 Cell, Higher Visual Cell, and Hippocampal Cell. Each neural response subplot shows a distinct firing rate for that neuron's response to each of the stimuli, with clear differences depending on the neuron type. Vertical colored spans of different transparency highlight stimulus presentation: blue for SAC_standard, green for SAC_wide, red for SAC_reverse and purple for Natural_movie.
+
+ISSUES:
+None
+
+Cell 27
+==========
+
+OVERVIEW:
+This cell summarizes the Dandiset and outlines its research opportunities. First, it summarizes the dataset structure, including number of files, organization, and data types. It also provides a list of key research questions the dataset can address, related to receptive field transformations, parametric stimulus processing, behavioral state interactions, and natural vs. artificial stimuli processing. Finally, it lists some analysis approaches and pseudo-code for cross-area comparisons, stimulus selectivity analysis, and behavioral correlations.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+

@@ -1,0 +1,292 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell contains a markdown title for the Jupyter notebook. It provides a concise description of the Dandiset being explored (000690) and mentions the specific project it belongs to (Allen Institute Openscope - Vision2Hippocampus). This title sets the context for the rest of the notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell contains a markdown statement serving as a disclaimer. It informs users that the notebook's content, including the code and results, has been AI-generated and not fully verified. This is a crucial warning, advising users to exercise caution and critical judgment when using the notebook.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell introduces the Dandiset (000690) and the Vision2Hippocampus project. It explains the project's goal (understanding the evolution of visual stimuli representations across brain regions) and provides a direct link to the Dandiset on the DANDI Archive. This cell effectively sets the stage for the subsequent exploration of the data within the Dandiset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell outlines the structure and content of the notebook. It details the steps involved in exploring the Dandiset, including loading metadata, listing assets, exploring an NWB file, visualizing data, and suggesting future analysis directions. This provides a clear roadmap for the user.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell lists the Python packages required to execute the notebook code successfully. It includes essential libraries like `pynwb` for working with NWB files, `h5py` for HDF5 file interaction, `remfile` for accessing remote files, `matplotlib` and `seaborn` for plotting, and `numpy` and `pandas` for data manipulation. This ensures the user has the necessary dependencies.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell imports the Python libraries listed in the previous cell. These imports make the functionalities of these libraries available for use in subsequent code cells.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell introduces the section of the notebook focusing on loading the Dandiset using the DANDI API. It acts as a header, preparing the reader for the subsequent code related to this task.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell uses the `dandiapi` library to connect to the DANDI Archive, retrieve Dandiset 000690, and extract information. It then prints the Dandiset's name and URL, and lists the first five assets (files) in the Dandiset. This demonstrates how to programmatically access and explore the Dandiset's contents.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 9
+==========
+
+OVERVIEW:
+This cell acts as a header, signaling the beginning of the section where the notebook will load and explore the contents of a Neurodata Without Borders (NWB) file from the Dandiset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 10
+==========
+
+OVERVIEW:
+This cell specifies the NWB file to be loaded and analyzed: `sub-692072/sub-692072_ses-1298465622.nwb`. It provides the asset ID and URL for direct access to the file. It also includes a link to view the file in NeuroSift, offering an alternative interactive exploration method.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 11
+==========
+
+OVERVIEW:
+This cell loads the NWB file specified in the previous cell using `remfile` and `pynwb`. It then extracts and prints the session description, identifier, and session start time from the NWB file. This demonstrates how to access basic metadata within an NWB file. The warnings from hdmf are related to namespace versioning and do not appear to be critical errors.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 12
+==========
+
+OVERVIEW:
+This cell introduces the exploration of eye-tracking data within the loaded NWB file. It specifically mentions the `EyeTracking` acquisition, guiding the user towards a specific data stream within the file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 13
+==========
+
+OVERVIEW:
+This cell accesses the eye-tracking data within the NWB file. It navigates through the NWB structure to extract the `EyeTracking` spatial series. It then prints the shape of the data and timestamps, and the unit of measurement. Finally, it converts the data into a Pandas DataFrame for easier manipulation.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 14
+==========
+
+OVERVIEW:
+This cell generates a plot of the eye-tracking data. It uses `seaborn` for styling and `matplotlib` for plotting. The plot displays the x and y coordinates of the eye position over time (limited to the first 1000 timestamps). Labels and a title are added for clarity.
+
+IMAGE DESCRIPTIONS:
+The plot displays the x and y coordinates of eye position over time. The x-axis represents time in seconds, and the y-axis represents eye position in meters. The plot shows the first 1000 data points, with 'x' and 'y' coordinates represented by blue and orange lines, respectively. The plot contains the title "Eye Tracking Data" and a legend in the upper right corner which indicates the 'x' and 'y' coordinates. The x coordinate oscillates about 360 meters and the y coordinate oscillates about 250 meters. There are some relatively abrupt downward deflections in the data, possibly representing blinks or shifts in gaze.
+
+ISSUES:
+The y-axis label "Eye Position (meters)" is strange, as the values range from 225 to 375 meters. Eye positions should typically be in smaller units than this, so verification of the units is warranted. Also, it is not immediately clear from this plot what the animal is looking at or how the eye position relates to the experimental task. This context would assist in the interpretation of the plot.
+
+Cell 15
+==========
+
+OVERVIEW:
+This cell provides a brief description of the plot generated in the previous cell. It states that the plot displays the x and y coordinates of the eye position as a function of time.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 16
+==========
+
+OVERVIEW:
+This cell introduces the exploration of running speed data, indicating that it's located within the `processing` module of the NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 17
+==========
+
+OVERVIEW:
+This cell retrieves running speed data from the NWB file's `processing` module. It iterates through the data interfaces to access the "running_speed" object. It then prints the shape, timestamps shape, and unit of the data. Finally, it creates a Pandas DataFrame containing the running speed and corresponding timestamps.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 18
+==========
+
+OVERVIEW:
+This cell generates a plot of the running speed data. It plots running speed (cm/s) against time (s) for the first 1000 timestamps. It includes axis labels and a title for clarity.
+
+IMAGE DESCRIPTIONS:
+The plot shows running speed over time. The x-axis represents time in seconds, and the y-axis represents running speed in cm/s. The plot contains the title "Running Speed Data." Running speed oscillates between -10 and 15 cm/s. There are periods of relatively constant speed near 0 and several relatively sharp peaks and troughs in speed, indicating rapid acceleration and deceleration.
+
+ISSUES:
+None
+
+Cell 19
+==========
+
+OVERVIEW:
+This cell provides a brief descriptive caption for the running speed plot generated in the previous cell.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 20
+==========
+
+OVERVIEW:
+This cell introduces the exploration of stimulus presentation times, specifying that they're located in the `intervals` module and focusing on the `SAC_Wd15_Vel8_Bndry1_Cntst0_loop_presentations` interval.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 21
+==========
+
+OVERVIEW:
+This cell accesses and explores the stimulus presentation times stored in the `intervals` module of the NWB file. It accesses the `SAC_Wd15_Vel8_Bndry1_Cntst0_loop_presentations` interval, prints its description and column names, converts it into a Pandas DataFrame, and displays the first few rows of the DataFrame.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 22
+==========
+
+OVERVIEW:
+This cell serves as a header, indicating the intention to combine eye tracking and running speed data for further analysis.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 23
+==========
+
+OVERVIEW:
+This cell attempts to synchronize eye-tracking and running speed data based on timestamps. It uses `np.searchsorted` to find the indices of the running speed timestamps that are closest to the eye-tracking timestamps. It then adds a "running_speed" column to the eye_tracking_df DataFrame. Finally, it generates a scatter plot of eye position (x-coordinate) against running speed for the first 1000 data points.
+
+IMAGE DESCRIPTIONS:
+The plot shows a scatter plot of eye position (x coordinate) against running speed. The x-axis represents eye position in meters, and the y-axis represents running speed in cm/s. The plot contains the title "Eye Position vs Running Speed". The data points cluster in 2 distinct regions: Most data points are located near an eye position of 350 m and running speed of 0.25 cm/s. There are also two data points near an eye position of 280 m and running speed of 0.25 cm/s.
+
+ISSUES:
+The synchronization using `np.searchsorted` is a common approach, but it assumes the timestamps are monotonically increasing, which should be verified. Additionally, the resulting plot does not reveal any clear relationship between eye position and running speed, possibly due to the limited amount of data plotted (1000 points) or the lack of a meaningful correlation between these variables in this context. The values for eye position on the x-axis, once again measured in meters, are suspect. Furthermore, the plot created lacks any meaningful insight, and may need more careful exploration to reveal an interesting relationship.
+
+Cell 24
+==========
+
+OVERVIEW:
+This cell summarizes the actions performed in the notebook, including loading metadata, accessing eye-tracking and running speed data, visualizing the data, and exploring the relationship between eye-tracking and running speed. It also suggests several directions for future analysis such as exploring neural activity data, analyzing the relationship between eye tracking and stimulus presentation, investigating neural correlates of running speed, and performing more advanced analyses on the neural data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+

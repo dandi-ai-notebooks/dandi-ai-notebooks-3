@@ -1,0 +1,98 @@
+Cell 1
+==========
+
+OVERVIEW:
+This cell introduces the notebook by specifying the Dandiset being explored (001375), providing a brief summary of its content (disruption of septal GABAergic activity with DREADDs and its effect on hippocampal and neocortical activity), and linking to the dataset on the DANDI Archive. It warns that the notebook is AI-generated and may contain errors. It also specifies the required Python packages. The notebook's overall purpose is to explore time series data from one of the NWB files within the specified Dandiset. This cell sets the stage for the analysis by providing necessary background information.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 2
+==========
+
+OVERVIEW:
+This cell introduces the next section of the notebook, which will focus on loading the Dandiset metadata using the DANDI API.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+
+Cell 3
+==========
+
+OVERVIEW:
+This cell uses the `dandi` library to connect to the DANDI Archive, retrieve metadata and list assets of Dandiset 001375. It first initializes a `DandiAPIClient`, then fetches the Dandiset using its ID ("001375"). Finally, it prints the Dandiset's name and URL, as well as lists the paths of the first five assets (NWB files) found within the Dandiset.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 4
+==========
+
+OVERVIEW:
+This cell specifies which NWB file will be loaded and analyzed: `sub-MS13B/sub-MS13B_ses-20240725T190000_ecephys.nwb`. It also provides a link to the file on Neurosift, which allows a user to explore the file's contents in a visual interface.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 5
+==========
+
+OVERVIEW:
+This cell loads the specified NWB file from the DANDI Archive using `remfile`, `h5py`, and `pynwb`. First, it constructs the URL for the file. Then, it uses `remfile` to create a `remote_file` object, which is passed to `h5py` to open the file. Finally, `pynwb` is used to read this `h5py` file into an `nwb` object. After loading the file, it prints the session description, subject ID, age, and creation date from the NWB file's metadata.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 6
+==========
+
+OVERVIEW:
+This cell introduces the next section, which will focus on visualizing the time series data from the first five channels of the loaded NWB file.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
+Cell 7
+==========
+
+OVERVIEW:
+This cell extracts and visualizes time series data from the loaded NWB file. It retrieves the "time_series" from the nwb.acquisition, then extracts a subset of the data (first 1000 samples and first 5 channels) for quicker plotting. It then generates a line plot showing the amplitude of each channel over time (sample index). The plot includes labels, a title, and a legend for clarity. Finally, it closes the NWB file.
+
+IMAGE DESCRIPTIONS:
+The image is a line plot displaying time series data from the first 5 channels of an NWB file. The x-axis represents the "Sample Index" ranging from 0 to 1000. The y-axis represents "Amplitude (mV)", spanning from roughly -750 to 1500. Five distinct lines, each representing a different channel (Channel 1 to Channel 5), are plotted on the graph. A legend in the upper center identifies each line. The plot illustrates the fluctuating amplitude of each channel over time, apparently showing correlated neural activity across the channels.
+
+ISSUES:
+None
+
+Cell 8
+==========
+
+OVERVIEW:
+This cell provides a brief summary of the notebook's accomplishments, reiterating that a subset of Dandiset 001375 was explored by visualizing time series data from a single NWB file. It suggests potential avenues for further analysis, such as exploring more channels, conducting advanced analyses, examining relationships between electrode groups, or investigating trial data.
+
+IMAGE DESCRIPTIONS:
+None
+
+ISSUES:
+None
+
