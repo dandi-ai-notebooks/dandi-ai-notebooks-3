@@ -2377,6 +2377,24 @@
   },
   {
     "dandiset_id": "000690",
+    "model": "google/gemini-2.5-pro-preview-03-25",
+    "prompt": "prompt-a-7.txt",
+    "total_prompt_tokens": 274357,
+    "total_completion_tokens": 9812,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 188.98038268089294,
+    "timestamp": "2025-04-25 18:38:18",
+    "system_info": {
+      "platform": "Linux-5.10.235-227.919.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-25-gemini-2.5-pro-preview-03-25-prompt-a-7"
+  },
+  {
+    "dandiset_id": "000690",
     "model": "openai/gpt-4o",
     "prompt": "prompt-a-6.txt",
     "total_prompt_tokens": 159650,
@@ -2500,6 +2518,24 @@
       "python_version": "3.11.10"
     },
     "subfolder": "2025-04-23-gemini-2.0-flash-001-prompt-b-6"
+  },
+  {
+    "dandiset_id": "000690",
+    "model": "google/gemini-2.5-pro-preview-03-25",
+    "prompt": "prompt-b-7.txt",
+    "total_prompt_tokens": 319258,
+    "total_completion_tokens": 13476,
+    "total_vision_prompt_tokens": 3871,
+    "total_vision_completion_tokens": 2098,
+    "elapsed_time_seconds": 199.7406280040741,
+    "timestamp": "2025-04-25 18:38:43",
+    "system_info": {
+      "platform": "Linux-5.10.235-227.919.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-25-gemini-2.5-pro-preview-03-25-prompt-b-7"
   },
   {
     "dandiset_id": "000690",
