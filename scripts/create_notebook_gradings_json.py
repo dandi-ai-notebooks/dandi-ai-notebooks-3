@@ -6,7 +6,7 @@ from pathlib import Path
 
 def main():
     # Get the path to the gradings directory
-    gradings_dir = Path(__file__).parent.parent / "gradings" / "dandisets"
+    gradings_dir = Path(__file__).parent.parent / "gradings2" / "dandisets"
     output_path = Path(__file__).parent.parent / "notebook_gradings.json"
 
     # Initialize the combined gradings list

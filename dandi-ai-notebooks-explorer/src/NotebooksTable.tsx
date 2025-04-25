@@ -57,7 +57,7 @@ export default function NotebooksTable({ notebooks, critiques, notebookRankings,
     return {
       total: grading.gradings.grades.reduce((sum: number, g: Grade) => sum + g.grade, 0),
       thinking: grading.gradings.grades.map((g: Grade) => `${g.question_id} (${g.grade}) ${g.thinking}`).join('\n\n'),
-      url: `https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-3/blob/main/gradings/dandisets/${notebook.dandiset_id}/${notebook.subfolder}/grades.json`
+      url: `https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-3/blob/main/gradings2/dandisets/${notebook.dandiset_id}/${notebook.subfolder}/grades.json`
     };
   }), [notebookGradings]);
 
