@@ -12,6 +12,8 @@ def main():
     # Initialize the combined gradings list
     combined_gradings = []
 
+    prefixes = ['2025-04-24', '2025-04-25']
+
     # Walk through the gradings/dandisets directory
     for dandiset_dir in os.listdir(gradings_dir):
         dandiset_path = gradings_dir / dandiset_dir
@@ -20,6 +22,12 @@ def main():
 
         # Process each subfolder within the dandiset directory
         for subfolder in os.listdir(dandiset_path):
+            starts_with_one_of_the_target_prefixes = any(
+                subfolder.startswith(prefix) for prefix in prefixes
+            )
+            if not starts_with_one_of_the_target_prefixes:
+                continue
+
             subfolder_path = dandiset_path / subfolder
             if not subfolder_path.is_dir():
                 continue
