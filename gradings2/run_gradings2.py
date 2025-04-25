@@ -147,7 +147,6 @@ def find_notebooks(base_dir: str) -> List[Tuple[str, str, str]]:
             notebook_path = os.path.join(subfolder_path, f"{dandiset_id}.ipynb")
             if os.path.isfile(notebook_path):
                 results.append((dandiset_id, subfolder, notebook_path))
-                break
 
     return results
 
