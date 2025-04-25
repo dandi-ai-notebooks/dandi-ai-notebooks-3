@@ -632,6 +632,24 @@
   {
     "dandiset_id": "001375",
     "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-b-7.txt",
+    "total_prompt_tokens": 1533992,
+    "total_completion_tokens": 22907,
+    "total_vision_prompt_tokens": 18241,
+    "total_vision_completion_tokens": 2756,
+    "elapsed_time_seconds": 721.2154276371002,
+    "timestamp": "2025-04-25 11:50:08",
+    "system_info": {
+      "platform": "Linux-5.10.235-227.919.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-25-claude-3.7-sonnet-prompt-b-7"
+  },
+  {
+    "dandiset_id": "001375",
+    "model": "anthropic/claude-3.7-sonnet",
     "prompt": "prompt-a-6.txt",
     "total_prompt_tokens": 211323,
     "total_completion_tokens": 7588,
@@ -682,6 +700,24 @@
       "python_version": "3.11.10"
     },
     "subfolder": "2025-04-18-gemini-2.0-flash-001-prompt-a-6"
+  },
+  {
+    "dandiset_id": "001375",
+    "model": "openai/gpt-4o",
+    "prompt": "prompt-d-7.txt",
+    "total_prompt_tokens": 197482,
+    "total_completion_tokens": 3265,
+    "total_vision_prompt_tokens": 1844,
+    "total_vision_completion_tokens": 245,
+    "elapsed_time_seconds": 161.67009353637695,
+    "timestamp": "2025-04-25 11:22:41",
+    "system_info": {
+      "platform": "Linux-5.10.235-227.919.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-25-gpt-4o-prompt-d-7"
   },
   {
     "dandiset_id": "001375",
@@ -772,6 +808,24 @@
       "python_version": "3.11.10"
     },
     "subfolder": "2025-04-18-gemini-2.0-flash-001-prompt-b-6"
+  },
+  {
+    "dandiset_id": "001375",
+    "model": "anthropic/claude-3.7-sonnet",
+    "prompt": "prompt-a-7.txt",
+    "total_prompt_tokens": 409258,
+    "total_completion_tokens": 11379,
+    "total_vision_prompt_tokens": 0,
+    "total_vision_completion_tokens": 0,
+    "elapsed_time_seconds": 309.42916345596313,
+    "timestamp": "2025-04-25 11:36:44",
+    "system_info": {
+      "platform": "Linux-5.10.235-227.919.amzn2.x86_64-x86_64-with-glibc2.39",
+      "hostname": "jupyter-magland",
+      "processor": "x86_64",
+      "python_version": "3.11.10"
+    },
+    "subfolder": "2025-04-25-claude-3.7-sonnet-prompt-a-7"
   },
   {
     "dandiset_id": "001375",
