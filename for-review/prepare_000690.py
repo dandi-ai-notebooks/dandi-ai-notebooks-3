@@ -2,7 +2,7 @@ import base64
 import hashlib
 
 # Base GitHub URL prefix
-GITHUB_URL_PREFIX = 'https://github.com/dandi-ai-notebooks/001375/blob/main/2025-04-28-'
+GITHUB_URL_PREFIX = 'https://github.com/dandi-ai-notebooks/000690/blob/main/2025-04-28-'
 
 # Models to generate links for
 models = [
@@ -16,7 +16,7 @@ models = [
 
 def generate_review_link(model):
     # Create the GitHub URL
-    github_url = f'{GITHUB_URL_PREFIX}{model}/001375.ipynb'
+    github_url = f'{GITHUB_URL_PREFIX}{model}/000690.ipynb'
 
     # Base64 encode the URL
     b64url = base64.b64encode(github_url.encode()).decode()
@@ -45,5 +45,5 @@ for i, (link, _, _) in enumerate(sorted_links, 1):
     md_content += f'- [notebook {i}]({link})\n\n'
 
 # Write to file
-with open('for-review/001375.md', 'w') as f:
+with open('for-review/000690.md', 'w') as f:
     f.write(md_content)

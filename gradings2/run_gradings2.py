@@ -124,7 +124,7 @@ def parse_grades_xml(xml_text: str, *, question_ids: List[str]) -> List[GradeBlo
 def find_notebooks(base_dir: str) -> List[Tuple[str, str, str]]:
     results = []
 
-    prefixes = ['2025-04-24', '2025-04-25']
+    prefixes = ['2025-04-28']
 
     # List dandiset directories
     for dandiset_id in os.listdir(base_dir):

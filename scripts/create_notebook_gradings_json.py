@@ -12,7 +12,7 @@ def main():
     # Initialize the combined gradings list
     combined_gradings = []
 
-    prefixes = ['2025-04-24', '2025-04-25']
+    prefixes = ['2025-04-28']
 
     # Walk through the gradings/dandisets directory
     for dandiset_dir in os.listdir(gradings_dir):
