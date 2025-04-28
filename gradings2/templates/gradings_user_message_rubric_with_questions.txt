@@ -21,9 +21,9 @@ How well did the notebook help you understand the purpose and content of the Dan
 0: Not at all
 
 question_id: access-data
-After reviewing the notebook, do you feel confident in how to access data from this Dandiset?
-2: Yes, I know how to access and explore the data
-1: I have a general idea, but would need more guidance
+After reviewing the notebook, do you feel confident in how to access the different types of data from this Dandiset?
+2: Yes, I know how to access and explore the different types of data
+1: Somewhat, but I would need more guidance for certain data types
 0: No, I’m still unsure how to access the data
 
 question_id: work-with-nwb

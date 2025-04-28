@@ -11,10 +11,10 @@
     },
     {
       "id": "access-data",
-      "text": "After reviewing the notebook, do you feel confident in how to access data from this Dandiset?",
+      "text": "After reviewing the notebook, do you feel confident in how to access the different types of data from this Dandiset?",
       "options": [
-        { "value": 2, "label": "Yes, I know how to access and explore the data" },
-        { "value": 1, "label": "I have a general idea, but would need more guidance" },
+        { "value": 2, "label": "Yes, I know how to access and explore the different types of data" },
+        { "value": 1, "label": "Somewhat, but I would need more guidance for certain data types" },
         { "value": 0, "label": "No, I’m still unsure how to access the data" }
       ]
     },
