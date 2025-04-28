@@ -153,6 +153,8 @@ If you can't get something to work after a few tries, just note that you had tro
 
 After you call critique_dandiset_notebook.py, you should make any changes directly to notebook.py rather than to the scripts in explore/. The scripts in explore/ are just for your exploration and should not be included in the final notebook. The final notebook should be self-contained and not depend on any external scripts.
 
+Never look inside the .ipynb file (like with cat or something). Always work with the .py file and convert it to .ipynb.
+
 # Notebook Rubric
 
 The notebook will be evaluated based on the following criteria:

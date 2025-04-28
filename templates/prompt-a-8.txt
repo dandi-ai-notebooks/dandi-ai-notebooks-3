@@ -136,6 +136,8 @@ Do not spend a lot of time searching through the assets.
 
 If you can't get something to work after a few tries, just note that you had trouble in the notebook. Do not resort to simulating fake data.
 
+Never look inside the .ipynb file (like with cat or something). Always work with the .py file and convert it to .ipynb.
+
 # Notebook Rubric
 
 The notebook will be evaluated based on the following criteria:
