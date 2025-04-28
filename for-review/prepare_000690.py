@@ -6,12 +6,12 @@ GITHUB_URL_PREFIX = 'https://github.com/dandi-ai-notebooks/000690/blob/main/2025
 
 # Models to generate links for
 models = [
-    'gemini-2.0-flash-001-prompt-a-7',
-    'gemini-2.0-flash-001-prompt-b-7',
-    'gemini-2.0-flash-001-prompt-d-7',
-    'gemini-2.5-pro-preview-03-25-prompt-a-7',
-    'gemini-2.5-pro-preview-03-25-prompt-b-7',
-    'gemini-2.5-pro-preview-03-25-prompt-d-7'
+    'gemini-2.0-flash-001-prompt-a-8',
+    'gemini-2.0-flash-001-prompt-b-8',
+    'gemini-2.0-flash-001-prompt-d-8',
+    'gemini-2.5-pro-preview-03-25-prompt-a-8',
+    'gemini-2.5-pro-preview-03-25-prompt-b-8',
+    'gemini-2.5-pro-preview-03-25-prompt-d-8'
 ]
 
 def generate_review_link(model):
