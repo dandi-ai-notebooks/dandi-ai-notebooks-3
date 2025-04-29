@@ -11,7 +11,10 @@ models = [
     'gemini-2.0-flash-001-prompt-d-8',
     'gemini-2.5-pro-preview-03-25-prompt-a-8',
     'gemini-2.5-pro-preview-03-25-prompt-b-8',
-    'gemini-2.5-pro-preview-03-25-prompt-d-8'
+    'gemini-2.5-pro-preview-03-25-prompt-d-8',
+    'claude-3.7-sonnet-prompt-a-8',
+    'claude-3.5-sonnet-prompt-a-8',
+    'claude-3.5-sonnet-prompt-b-8'
 ]
 
 def generate_review_link(model):
