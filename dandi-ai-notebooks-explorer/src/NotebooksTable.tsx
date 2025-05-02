@@ -332,7 +332,13 @@ export default function NotebooksTable({ notebooks, qualResults, rankResults, mo
                     ) : null}
                   </TableCell>
                   <TableCell>
-                    {rankResults.get(`${notebook.dandiset_id}/${notebook.subfolder}`)}
+                    <Link
+                      href={`https://github.com/dandi-ai-notebooks/dandi-ai-notebook-reviews/blob/main/reviews/${modelForReviews}/dandisets/${notebook.dandiset_id}/comparisons.md`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {rankResults.get(`${notebook.dandiset_id}/${notebook.subfolder}`)}
+                    </Link>
                   </TableCell>
                 </TableRow>
               );
