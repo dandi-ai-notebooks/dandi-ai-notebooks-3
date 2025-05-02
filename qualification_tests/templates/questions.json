@@ -1,0 +1,76 @@
+{
+  "questions": [
+    {
+      "id": "dandiset-description",
+      "text": "Does the notebook provide a description of the Dandiset?",
+      "options": [
+        { "value": "PASS", "label": "Yes, the notebook provides the title and an overview of the Dandiset" },
+        { "value": "FAIL", "label": "No, the notebook does not provide these things" }
+      ]
+    },
+    {
+      "id": "dandiset-metadata",
+      "text": "Does the notebook show how to use the DANDI API to access metadata for the dandiset and list the files?",
+      "options": [
+        { "value": "PASS", "label": "Yes, the notebook shows how to access metadata and list files" },
+        { "value": "FAIL", "label": "No, the notebook does not show how to do this" }
+      ]
+    },
+    {
+      "id": "nwb-metadata",
+      "text": "Does the notebook show how to access metadata for an NWB file in the dandiset?",
+      "options": [
+        { "value": "PASS", "label": "Yes, the notebook shows how to access NWB metadata" },
+        { "value": "FAIL", "label": "No, the notebook does not show how to do this" }
+      ]
+    },
+    {
+      "id": "load-data",
+      "text": "Does the notebook show how to load data from an NWB file in the dandiset?",
+      "options": [
+        { "value": "PASS", "label": "Yes, the notebook shows how to load data from an NWB file" },
+        { "value": "FAIL", "label": "No, the notebook does not show how to do this" }
+      ]
+    },
+    {
+      "id": "data-visualization",
+      "text": "Does the notebook show how to visualize data from an NWB file in the dandiset?",
+      "options": [
+        { "value": "PASS", "label": "Yes, the notebook shows how to visualize data from an NWB file" },
+        { "value": "FAIL", "label": "No, the notebook does not show how to do this" }
+      ]
+    },
+    {
+      "id": "visualization-issues",
+      "text": "Were there any major issues with the visualizations in the notebook (e.g., missing data, very poor formatting, or uninterpretable displays)?",
+      "options": [
+        { "value": "PASS", "label": "No, there were no major issues with any of the visualizations" },
+        { "value": "FAIL", "label": "Yes, there were major issues with one or more visualizations" }
+      ]
+    },
+    {
+      "id": "unsupported-interpretations",
+      "text": "Were there any major interpretations or conclusions in the notebook that were not supported by the data provided?",
+      "options": [
+        { "value": "PASS", "label": "No, all major interpretations were well supported by the data" },
+        { "value": "FAIL", "label": "Yes, there were major unsupported interpretations or conclusions" }
+      ]
+    },
+    {
+      "id": "other-faults",
+      "text": "Were there any other major faults with the notebook (e.g., missing code, unclear explanations, or poor organization)?",
+      "options": [
+        { "value": "PASS", "label": "No, there were no other major faults with the notebook" },
+        { "value": "FAIL", "label": "Yes, there were other major faults with the notebook" }
+      ]
+    },
+    {
+      "id": "fake-data",
+      "text": "Does the notebook generate fake or simulated data rather than load data from the Dandiset?",
+      "options": [
+        { "value": "PASS", "label": "No, the notebook does not generate any fake or simulated data rather than loading data from the Dandiset" },
+        { "value": "FAIL", "label": "Yes, the notebook generates fake or simulated data rather than loading data from the Dandiset" }
+      ]
+    }
+  ]
+}

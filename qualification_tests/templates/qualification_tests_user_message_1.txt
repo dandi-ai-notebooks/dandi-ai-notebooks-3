@@ -1,0 +1,6 @@
+Please provide a detailed description of each of the images in the above notebook.
+
+For each image/figure, please provide:
+- an overview of what the figure shows
+- any minor issues with the figure (e.g., formatting, axes labels, etc.)
+- any major issues with the figure (e.g., missing data, uninterpretable data, etc.)

@@ -22,32 +22,6 @@ export interface CritiqueManifest {
   file_count: number;
 }
 
-export interface NotebookRanking {
-  notebook_id: string;
-  rank: number;
-  thinking: string;
-}
-
-export interface DandisetRankings {
-  prompt_version: string;
-  rankings: NotebookRanking[];
-  rankings_text: string;
-  metadata: {
-    total_prompt_tokens: number;
-    total_completion_tokens: number;
-    model: string;
-    timestamp: string;
-    system_info: {
-      platform: string;
-      hostname: string;
-    }
-  }
-}
-
-export interface NotebookRankingsData {
-  [dandiset_id: string]: DandisetRankings;
-}
-
 export interface Grade {
   question_id: string;
   grade: number;
@@ -74,3 +48,31 @@ export type NotebookGradingsData = {
   subfolder: string;
   gradings: NotebookGradings;
 }[];
+
+export type ReviewResultType = {
+  type: "qualification_test";
+  model: string;
+  dandiset_id: string;
+  subfolder: string;
+  passing: boolean;
+} | {
+  type: "comparison";
+  model: string;
+  dandiset_id: string;
+  subfolder1: string;
+  subfolder2: string;
+  selection: number;
+} | {
+  type: "rankings";
+  model: string;
+  dandiset_id: string;
+  notebooks: {
+    subfolder: string;
+    wins: number;
+    losses: number;
+  }[];
+};
+
+export interface ReviewResults {
+  results: ReviewResultType[];
+}

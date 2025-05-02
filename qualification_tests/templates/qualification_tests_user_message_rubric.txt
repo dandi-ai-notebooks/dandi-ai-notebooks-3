@@ -1,0 +1,15 @@
+Based on the above, please provide a qualification grading for the above notebook. This will determine whether the notebook will be eligible to be used as an introductory notebook to the dandiset.
+
+You will respond with a series of XML blocks of the form
+
+<grade>
+<question_id>ID</question_id>
+<thinking>Your rationale for the grade</thinking>
+<grade>PASS|FAIL</grade>
+</grade>
+
+where ID is the ID of the question (e.g., describe-dandiset, load-dandiset, ...), and the grade determines whether the notebook passes or fails based on that criteria.
+
+Do not include any other text in your response. Just the XML blocks.
+
+Note: Warnings in the output cells should not be considered to be problems unless they relate to other problems with the notebook.

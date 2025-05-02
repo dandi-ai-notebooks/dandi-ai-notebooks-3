@@ -1,0 +1,60 @@
+Based on the above, please provide a qualification grading for the above notebook. This will determine whether the notebook will be eligible to be used as an introductory notebook to the dandiset.
+
+You will respond with a series of XML blocks of the form
+
+<grade>
+<question_id>ID</question_id>
+<thinking>Your rationale for the grade</thinking>
+<grade>PASS|FAIL</grade>
+</grade>
+
+where ID is the ID of the question (e.g., describe-dandiset, load-dandiset, ...), and the grade determines whether the notebook passes or fails based on that criteria.
+
+Do not include any other text in your response. Just the XML blocks.
+
+Note: Warnings in the output cells should not be considered to be problems unless they relate to other problems with the notebook.
+
+question_id: dandiset-description
+Does the notebook provide a description of the Dandiset?
+PASS: Yes, the notebook provides the title and an overview of the Dandiset
+FAIL: No, the notebook does not provide these things
+
+question_id: dandiset-metadata
+Does the notebook show how to use the DANDI API to access metadata for the dandiset and list the files?
+PASS: Yes, the notebook shows how to access metadata and list files
+FAIL: No, the notebook does not show how to do this
+
+question_id: nwb-metadata
+Does the notebook show how to access metadata for an NWB file in the dandiset?
+PASS: Yes, the notebook shows how to access NWB metadata
+FAIL: No, the notebook does not show how to do this
+
+question_id: load-data
+Does the notebook show how to load data from an NWB file in the dandiset?
+PASS: Yes, the notebook shows how to load data from an NWB file
+FAIL: No, the notebook does not show how to do this
+
+question_id: data-visualization
+Does the notebook show how to visualize data from an NWB file in the dandiset?
+PASS: Yes, the notebook shows how to visualize data from an NWB file
+FAIL: No, the notebook does not show how to do this
+
+question_id: visualization-issues
+Were there any major issues with the visualizations in the notebook (e.g., missing data, very poor formatting, or uninterpretable displays)?
+PASS: No, there were no major issues with any of the visualizations
+FAIL: Yes, there were major issues with one or more visualizations
+
+question_id: unsupported-interpretations
+Were there any major interpretations or conclusions in the notebook that were not supported by the data provided?
+PASS: No, all major interpretations were well supported by the data
+FAIL: Yes, there were major unsupported interpretations or conclusions
+
+question_id: other-faults
+Were there any other major faults with the notebook (e.g., missing code, unclear explanations, or poor organization)?
+PASS: No, there were no other major faults with the notebook
+FAIL: Yes, there were other major faults with the notebook
+
+question_id: fake-data
+Does the notebook generate fake or simulated data rather than load data from the Dandiset?
+PASS: No, the notebook does not generate any fake or simulated data rather than loading data from the Dandiset
+FAIL: Yes, the notebook generates fake or simulated data rather than loading data from the Dandiset

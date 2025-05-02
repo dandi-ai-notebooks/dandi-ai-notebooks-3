@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Metadata, NotebookRankingsData, NotebookGradingsData, Grade } from './types';
+import { Metadata } from './types';
 import {
   Table,
   TableBody,
@@ -17,7 +17,7 @@ import {
   Link
 } from '@mui/material';
 
-type SortKey = keyof Metadata | 'rank' | 'est_cost' | 'grade';
+type SortKey = keyof Metadata | 'est_cost' | 'qual' | 'rank';
 
 type SortConfig = {
   key: SortKey;
@@ -26,12 +26,14 @@ type SortConfig = {
 
 interface Props {
   notebooks: Metadata[];
-  critiques: Set<string>;
-  notebookRankings: NotebookRankingsData;
-  notebookGradings: NotebookGradingsData;
+  // critiques: Set<string>;
+  // notebookGradings: NotebookGradingsData;
+  qualResults: Map<string, boolean>;
+  rankResults: Map<string, number>;
+  modelForReviews: string;
 }
 
-export default function NotebooksTable({ notebooks, critiques, notebookRankings, notebookGradings }: Props) {
+export default function NotebooksTable({ notebooks, qualResults, rankResults, modelForReviews }: Props) {
   const [selectedDandiset, setSelectedDandiset] = useState<string>('');
   const [sortConfig, setSortConfig] = useState<SortConfig>({
     key: 'timestamp' as SortKey,
@@ -48,48 +50,37 @@ export default function NotebooksTable({ notebooks, critiques, notebookRankings,
     setSortConfig({ key, direction });
   };
 
-  const getNotebookGrade = useMemo(() => ((notebook: Metadata) => {
-    const grading = notebookGradings.find(
-      g => g.dandiset_id === notebook.dandiset_id && g.subfolder === notebook.subfolder
-    );
-    if (!grading) return null;
+  // const getNotebookGrade = useMemo(() => ((notebook: Metadata) => {
+  //   const grading = notebookGradings.find(
+  //     g => g.dandiset_id === notebook.dandiset_id && g.subfolder === notebook.subfolder
+  //   );
+  //   if (!grading) return null;
 
-    return {
-      total: grading.gradings.grades.reduce((sum: number, g: Grade) => sum + g.grade, 0),
-      thinking: grading.gradings.grades.map((g: Grade) => `${g.question_id} (${g.grade}) ${g.thinking}`).join('\n\n'),
-      url: `https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-3/blob/main/gradings2/dandisets/${notebook.dandiset_id}/${notebook.subfolder}/grades.json`
-    };
-  }), [notebookGradings]);
-
-  const getNotebookRanking = useMemo(() => ((notebook: Metadata) => {
-    const dandisetRankings = notebookRankings[notebook.dandiset_id];
-    if (!dandisetRankings) return null;
-
-    return dandisetRankings.rankings.find(r => r.notebook_id === notebook.subfolder);
-  }), [notebookRankings]);
+  //   return {
+  //     total: grading.gradings.grades.reduce((sum: number, g: Grade) => sum + g.grade, 0),
+  //     thinking: grading.gradings.grades.map((g: Grade) => `${g.question_id} (${g.grade}) ${g.thinking}`).join('\n\n'),
+  //     url: `https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-3/blob/main/gradings2/dandisets/${notebook.dandiset_id}/${notebook.subfolder}/grades.json`
+  //   };
+  // }), [notebookGradings]);
 
   const getPromptUrl = (prompt: string) => {
     return `https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-3/blob/main/templates/${prompt}`;
   };
 
-  const getRankingsUrl = (notebook: Metadata) => {
-    return `https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-3/blob/main/rankings/dandisets/${notebook.dandiset_id}/rankings.txt`;
-  };
+  // const getCritiqueUrls = (notebook: Metadata) => {
+  //   const basePath = `dandisets/${notebook.dandiset_id}/${notebook.subfolder}`;
+  //   const cellsPath = `${basePath}/cells_critique.txt`;
+  //   const summaryPath = `${basePath}/summary_critique.txt`;
 
-  const getCritiqueUrls = (notebook: Metadata) => {
-    const basePath = `dandisets/${notebook.dandiset_id}/${notebook.subfolder}`;
-    const cellsPath = `${basePath}/cells_critique.txt`;
-    const summaryPath = `${basePath}/summary_critique.txt`;
-
-    return {
-      cells: critiques.has(cellsPath) ?
-        `https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-3/blob/main/critiques/${cellsPath}` :
-        null,
-      summary: critiques.has(summaryPath) ?
-        `https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-3/blob/main/critiques/${summaryPath}` :
-        null
-    };
-  };
+  //   return {
+  //     cells: critiques.has(cellsPath) ?
+  //       `https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-3/blob/main/critiques/${cellsPath}` :
+  //       null,
+  //     summary: critiques.has(summaryPath) ?
+  //       `https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-3/blob/main/critiques/${summaryPath}` :
+  //       null
+  //   };
+  // };
 
   const filteredAndSortedNotebooks = useMemo(() => {
     const filtered = selectedDandiset
@@ -98,18 +89,28 @@ export default function NotebooksTable({ notebooks, critiques, notebookRankings,
 
 
     return [...filtered].sort((a, b) => {
-      if (sortConfig.key === 'grade') {
-        const aGrade = getNotebookGrade(a)?.total ?? 0;
-        const bGrade = getNotebookGrade(b)?.total ?? 0;
+      // if (sortConfig.key === 'grade') {
+      //   const aGrade = getNotebookGrade(a)?.total ?? 0;
+      //   const bGrade = getNotebookGrade(b)?.total ?? 0;
+      //   return sortConfig.direction === 'asc'
+      //     ? aGrade - bGrade
+      //     : bGrade - aGrade;
+      // }
+
+      if (sortConfig.key === 'qual') {
+        const aQual = qualResults.get(`${a.dandiset_id}/${a.subfolder}`) ?? false;
+        const bQual = qualResults.get(`${b.dandiset_id}/${b.subfolder}`) ?? false;
         return sortConfig.direction === 'asc'
-          ? aGrade - bGrade
-          : bGrade - aGrade;
-      } else if (sortConfig.key === 'rank') {
-        const aRanking = getNotebookRanking(a)?.rank ?? Number.MAX_SAFE_INTEGER;
-        const bRanking = getNotebookRanking(b)?.rank ?? Number.MAX_SAFE_INTEGER;
+          ? (aQual === bQual ? 0 : aQual ? 1 : -1)
+          : (aQual === bQual ? 0 : aQual ? -1 : 1);
+      }
+
+      if (sortConfig.key === 'rank') {
+        const aRank = rankResults.get(`${a.dandiset_id}/${a.subfolder}`) ?? Number.MAX_SAFE_INTEGER;
+        const bRank = rankResults.get(`${b.dandiset_id}/${b.subfolder}`) ?? Number.MAX_SAFE_INTEGER;
         return sortConfig.direction === 'asc'
-          ? aRanking - bRanking
-          : bRanking - aRanking;
+          ? aRank - bRank
+          : bRank - aRank;
       }
 
       let aValue = a[sortConfig.key as keyof Metadata];
@@ -139,7 +140,7 @@ export default function NotebooksTable({ notebooks, critiques, notebookRankings,
 
       return 0;
     });
-  }, [notebooks, sortConfig, selectedDandiset, getNotebookRanking, getNotebookGrade]);
+  }, [notebooks, sortConfig, selectedDandiset, qualResults, rankResults]);
 
   return (
     <div>
@@ -214,17 +215,8 @@ export default function NotebooksTable({ notebooks, critiques, notebookRankings,
                   Est. Cost ($)
                 </TableSortLabel>
               </TableCell>
-              <TableCell>Critiques</TableCell>
-              <TableCell>
-                <TableSortLabel
-                  active={sortConfig.key === 'rank'}
-                  direction={sortConfig.key === 'rank' ? sortConfig.direction : 'asc'}
-                  onClick={() => handleSort('rank')}
-                >
-                  Ranking
-                </TableSortLabel>
-              </TableCell>
-              <TableCell>
+              {/* <TableCell>Critiques</TableCell> */}
+              {/* <TableCell>
                 <TableSortLabel
                   active={sortConfig.key === 'grade'}
                   direction={sortConfig.key === 'grade' ? sortConfig.direction : 'asc'}
@@ -232,14 +224,36 @@ export default function NotebooksTable({ notebooks, critiques, notebookRankings,
                 >
                   Grade
                 </TableSortLabel>
+              </TableCell> */}
+              <TableCell>
+                <TableSortLabel
+                  active={sortConfig.key === 'qual'}
+                  direction={sortConfig.key === 'qual' ? sortConfig.direction : 'asc'}
+                  onClick={() => handleSort('qual')}
+                >
+                  Qual
+                </TableSortLabel>
+              </TableCell>
+              <TableCell>
+                <TableSortLabel
+                  active={sortConfig.key === 'rank'}
+                  direction={sortConfig.key === 'rank' ? sortConfig.direction : 'asc'}
+                  onClick={() => handleSort('rank')}
+                >
+                  Rank
+                </TableSortLabel>
               </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {filteredAndSortedNotebooks.map((notebook, index) => {
-              const critiqueUrls = getCritiqueUrls(notebook);
+              // const critiqueUrls = getCritiqueUrls(notebook);
+              const isRankOne = rankResults.get(`${notebook.dandiset_id}/${notebook.subfolder}`) === 1;
               return (
-                <TableRow key={index}>
+                <TableRow
+                  key={index}
+                  sx={isRankOne ? { backgroundColor: 'rgba(76, 175, 80, 0.1)' } : undefined}
+                >
                   <TableCell>
                     <Link
                       href={`https://github.com/dandi-ai-notebooks/${notebook.dandiset_id}/blob/main/${notebook.subfolder}/${notebook.dandiset_id}.ipynb`}
@@ -266,7 +280,7 @@ export default function NotebooksTable({ notebooks, critiques, notebookRankings,
                   <TableCell>
                     {calculateEstimatedCost(notebook)?.toFixed(2) || 'N/A'}
                   </TableCell>
-                  <TableCell>
+                  {/* <TableCell>
                     {critiqueUrls.cells && (
                       <Link
                         href={critiqueUrls.cells}
@@ -286,25 +300,8 @@ export default function NotebooksTable({ notebooks, critiques, notebookRankings,
                         Summary
                       </Link>
                     )}
-                  </TableCell>
-                  <TableCell>
-                    {(() => {
-                      const ranking = getNotebookRanking(notebook);
-                      if (!ranking) return null;
-                      return (
-                        <Link
-                          href={getRankingsUrl(notebook)}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title={ranking.thinking}
-                          sx={{ cursor: 'pointer' }}
-                        >
-                          {ranking.rank}
-                        </Link>
-                      );
-                    })()}
-                  </TableCell>
-                  <TableCell>
+                  </TableCell> */}
+                  {/* <TableCell>
                     {(() => {
                       const grading = getNotebookGrade(notebook);
                       if (!grading) return null;
@@ -320,6 +317,22 @@ export default function NotebooksTable({ notebooks, critiques, notebookRankings,
                         </Link>
                       );
                     })()}
+                  </TableCell> */}
+                  <TableCell>
+                    {qualResults.get(`${notebook.dandiset_id}/${notebook.subfolder}`) !== undefined ? (
+                      <Link
+                        href={`https://github.com/dandi-ai-notebooks/dandi-ai-notebook-reviews/blob/main/reviews/${modelForReviews}/dandisets/${notebook.dandiset_id}/${notebook.subfolder}/qualification_test.json`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {qualResults.get(`${notebook.dandiset_id}/${notebook.subfolder}`) ? (
+                          <Typography component="span" sx={{ color: 'success.main' }}>✓</Typography>
+                        ) : '✗'}
+                      </Link>
+                    ) : null}
+                  </TableCell>
+                  <TableCell>
+                    {rankResults.get(`${notebook.dandiset_id}/${notebook.subfolder}`)}
                   </TableCell>
                 </TableRow>
               );

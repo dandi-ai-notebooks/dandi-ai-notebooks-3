@@ -1,0 +1,53 @@
+Based on the above two notebooks and the criteria below, please provide pairwise rankings.
+
+Your response should be formatted as follows
+
+<thinking>
+Your detailed rationale for the ranking
+</thinking>
+<ranking>
+1 if Notebook 1 is better, 2 if Notebook 2 is better
+</ranking>
+
+Do not include any other text in your response.
+
+The criteria to judge the notebooks should be based on the following.
+
+The ideal notebook will show the user how to get started exploring the dandiset using Python. It should include the following elements:
+- A title that indicates the notebook is AI-generated and has not been fully verified.
+- An overview of the Dandiset, including a link to the Dandiset on the DANDI archive.
+- A summary of what the notebook will cover.
+- A list of required packages.
+- Instructions on how to load the Dandiset using the DANDI API.
+- Instructions on how to load one of the NWB files in the Dandiset and show some metadata.
+- A description of what data are available in the NWB file
+- Instructions on how to load and visualize the different types of data in the NWB file
+- Perhaps a more advanced visualization involving more than one piece of data
+- A summary of the findings and possible future directions for analysis.
+- Explanatory markdown cells that guide the user through the analysis process.
+
+The notebook should include well-documented code and follow best practices for neurophysiology data analysis.
+
+The notebook should focus on the basics of getting started with the dandiset and should not include overanalysis or overinterpretation of the data.
+
+All of the visualizations should be clear and free from errors or misleading displays.
+
+Keep in mind the following guiding questions for a good notebook:
+
+How well did the notebook help you understand the purpose and content of the Dandiset?
+After reviewing the notebook, do you feel confident in how to access the different types of data from this Dandiset?
+Did the notebook help you understand the structure of the NWB file(s) and how to work with them?
+Did the visualizations in the notebook generally help you understand key aspects of the data?
+Did any of the visualizations make it harder to understand the data (e.g., due to poor formatting, unclear axes, or misleading displays)?
+Do you feel more confident creating your own visualizations of the data after seeing the examples in the notebook?
+How well did the visualizations show the structure or complexity of the data?
+Were there any interpretations or conclusions in the notebook that felt unclear or not well supported by the data shown?
+Did any of the plots or examples feel unnecessarily repetitive or redundant?
+Did the notebook help you understand what kinds of questions or analyses you could do next with this Dandiset?
+How clear and easy was the notebook to follow?
+Did the notebook provide code you could easily reuse or adapt to explore the Dandiset yourself?
+Did the notebook help you understand what kinds of questions or analyses you could do next with this Dandiset?
+Overall, how helpful was this notebook for getting started with this Dandiset?
+
+Note: Warnings in the output cells should not be considered to be problems unless they relate to other problems with the notebook.
+
